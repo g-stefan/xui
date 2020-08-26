@@ -1,0 +1,122 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+html.xui {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	height: 100%;	
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	& > body {
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+		height: 100%;
+		font-family: "Roboto", sans-serif;
+		box-sizing: border-box;
+	}
+}
+
+.xui {
+	position:relative;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+
+	&.-left {
+		float:left !important;
+	}
+
+	&.-right {
+		float:right !important;
+	}
+
+	&.-inline {
+		display: inline-block !important;
+	}
+
+	&.-align-left {
+		text-align: left;
+	}
+
+	&.-align-right {
+		text-align: right;
+	}
+
+	&.-align-center {
+		text-align: center;
+	}
+
+	&.-center-x {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.separator {
+		display: block;
+		position: relative;
+		box-sizing: border-box;
+		clear:both;
+		height: 0px;
+		overflow: hidden;
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+	}
+
+	.-size-A4 {
+		display:block;
+		position: relative;
+		width:794px;
+		height:1122px;
+	}
+
+	.-size-A4.-landscape {
+		display:block;
+		position: relative;
+		width:1122px;
+		height:794px;
+	}
+
+	&.separator-15 {
+		display: block;
+		position: relative;
+		box-sizing: border-box;
+		clear:both;
+		height: 15px;
+		overflow: hidden;
+		padding: 0px;
+		margin: 0px;
+		border: 0px;
+	}
+
+	&.center-xy {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&.overflow {
+		display: block;
+		width: 0px;
+		height: 0px;
+		overflow: visible;
+	}
+
+}
+

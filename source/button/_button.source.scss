@@ -1,0 +1,93 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin button-config($type) {
+        $settings: (
+		"background-color": red,
+		"background-color-hover": red,
+		"background-color-active": red,
+		"text-color": red,
+		"text-color-active": red
+	);
+		
+	@if($type == "default"){
+		$settings: (
+			"background-color": palette-color("#{$type}-2"),
+			"background-color-hover": palette-dark("#{$type}-2"),
+			"background-color-active": palette-darker("#{$type}-2"),
+			"text-color": #000000,
+			"text-color-active": #000000
+		);
+	}@else if($type == "disabled"){
+		$settings: (
+			"background-color": palette-color($type),
+			"background-color-hover": palette-color($type),
+			"background-color-active": palette-color($type),
+			"text-color": palette-dark($type),
+			"text-color-active": palette-dark($type)
+		);	
+	}@else{
+		$settings: (
+			"background-color": palette-color("#{$type}-2"),
+			"background-color-hover": palette-dark("#{$type}-2"),
+			"background-color-active": palette-darker("#{$type}-2"),
+			"text-color": #FFFFFF,
+			"text-color-active": #FFFFFF
+		);
+	};
+		
+	$config: map-merge($config,("button-#{$type}": $settings)) !global;
+}
+
+@mixin button ($type) {
+	@include button-config($type);
+	$value: map-get($config,"button-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$background-color: map-get($value,"background-color");
+	$background-color-hover: map-get($value,"background-color-hover");
+	$background-color-active: map-get($value,"background-color-active");
+	$text-color: map-get($value,"text-color");
+	$text-color-active: map-get($value,"text-color-active");
+
+	&#{$class} {
+		cursor: if($type == "disabled", auto, pointer);
+		background-color: $background-color;
+		color: $text-color;
+
+		&:hover,
+		&:focus {
+			background-color: $background-color-hover;
+			color: $text-color-active;
+		}
+
+		&:active {
+			background-color: $background-color-active;
+			color: $text-color-active;
+		}
+
+		&:visited {
+			color: $text-color;
+		}
+
+		&.-effect-ripple {
+
+			&:active {
+				background-color: $background-color-hover;
+			}
+
+			& .xui.-effect-ripple_element {
+				background-color: $background-color-active;
+			}
+
+		}
+	}
+}
+

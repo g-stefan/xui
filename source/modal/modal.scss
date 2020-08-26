@@ -1,0 +1,102 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+
+.xui.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	z-index: 100;
+	background-color: rgba(0,0,0,0.4);
+	backdrop-filter: blur(3px);
+
+	&.-active {
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+
+		&.-scroll-x ._modal-content {
+			width: 100%;
+			overflow: auto;
+		}
+	}
+
+	& > .xui._modal-content {
+		display: inline-block;
+		min-height: 0;
+		overflow: auto;
+		width: 100%;
+		transition: transform 1s ease;
+		transform: perspective(600px) rotateX(6deg) translateY(-160px) scale(0.8);
+		transform-origin: bottom center 0px;
+		@include elevation(4);
+		border: 1px solid palette-color("aluminium-4");
+
+		& .xui._modal-close-button {
+			position: absolute;
+			top: 0px;
+			right: 4px;
+			z-index: 3;		
+		}
+	}
+
+	&.-active > .xui._modal-content {
+		transform: rotateX(0deg) translateY(0px) scale(1);
+	}
+
+	&.-animate-dezactivate > .xui._modal-content {
+		animation: xui-modal-animate-dezactivate 0.3s;
+		animation-fill-mode: forwards;
+	}
+
+}
+
+@media only screen and (min-width: 640px){
+	.xui.modal {
+		& > .xui._modal-content {
+			width: auto;
+			min-width: 640px;
+		}
+	}
+}
+
+body.-modal-open {
+	overflow: hidden;
+}
+
+@keyframes xui-modal-animate-dezactivate {
+	from {
+		opacity: 1;
+		transform: rotateX(0deg) translateY(0px) scale(1);
+		transform-origin: center center 0px;
+	}
+	to {
+		opacity: 0;
+		transform: rotateX(0deg) translateY(0px) scale(0.8);
+		transform-origin: center center 0px;
+	}
+}
+

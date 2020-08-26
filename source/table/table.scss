@@ -1,0 +1,209 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+
+@import "table.source";
+
+.xui.table {
+	position: relative;
+	box-sizing: border-box;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+	width: auto;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	border: 0px solid #000000;
+	border-spacing: 0px;
+	box-sizing: border-box;
+
+	& thead,
+	& thead tr,
+	& tbody,
+	& tbody tr {
+		width: 100%;
+	}
+
+	& thead {
+
+		& > tr > th {
+			font-size: 16px;
+			line-height: 24px;
+			font-weight: normal;
+			box-sizing: border-box;
+			border-right: 0px solid #000000;
+			border-bottom: 0px solid #000000;
+			padding-top: 4px;
+			padding-right: 8px;
+			padding-bottom: 4px;
+			padding-left: 8px;
+			box-sizing: border-box;
+		}
+
+		& th:last-child {
+			border-bottom: 0px solid #000000;
+		}
+
+		& tr:first-child th:first-child {
+			border-top-left-radius: 3px;
+			border-top-right-radius: 0px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+
+		& tr:first-child th:last-child {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 3px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+
+	}
+	
+	& tbody {
+
+		& > tr > td {
+			border-right: 0px solid #000000;
+			border-bottom: 0px solid #000000;
+			padding-top: 4px;
+			padding-right: 4px;
+			padding-bottom: 4px;
+			padding-left: 4px;
+			box-sizing: border-box;
+		}
+
+
+		& tr:last-child td:first-child {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 0px;
+		}
+
+		& tr:last-child td:last-child {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 3px;
+		}
+	}
+
+	@each $type, $value in $context {
+		@include table($type);
+	}
+
+	&.-sticky-head > thead > tr > th {
+		position: sticky;
+		z-index: 3;
+		top: 0;
+		background-color: #FFFFFF;
+	}
+
+	&.-sticky-first-row-and-column {
+
+		& > thead > tr > th {
+			position: sticky;
+			z-index: 3;
+			top: 0;
+			background-color: #FFFFFF;
+		}
+
+		& > thead > tr > th:first-child {
+			left: 0;
+			z-index: 4;
+		}
+
+		& > tbody > tr > td:first-child {
+			position: sticky;
+			left: 0;
+			z-index: 2;
+			background-color: #FFFFFF;
+		}
+
+	}
+}
+
+// ---
+
+.xui.table.-border-on-table {
+	border-radius: 3px;
+	overflow: hidden;	
+
+	& thead {
+
+		& tr:first-child th:first-child {
+			border-top-left-radius: 0px;
+		}
+
+		& tr:first-child th:last-child {
+			border-top-right-radius: 0px;
+		}
+
+	}
+	
+	& tbody {
+
+		& tr:last-child td:first-child {
+			border-bottom-left-radius: 0px;
+		}
+
+		& tr:last-child td:last-child {
+			border-bottom-right-radius: 0px;
+		}
+	}
+
+	@each $type, $value in $context {
+		@include table-border-on-table($type);
+	}
+}
+
+// ---
+
+.xui.table.-no-border {
+	& thead {
+
+		& tr:first-child th:first-child {
+			border-top-left-radius: 0px;
+		}
+
+		& tr:first-child th:last-child {
+			border-top-right-radius: 0px;
+		}
+
+	}
+	
+	& tbody {
+
+		& tr:last-child td:first-child {
+			border-bottom-left-radius: 0px;
+		}
+
+		& tr:last-child td:last-child {
+			border-bottom-right-radius: 0px;
+		}
+	}
+
+	@each $type, $value in $context {
+		@include table-no-border($type);
+	}
+}
+

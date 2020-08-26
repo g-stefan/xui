@@ -1,0 +1,156 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@use "../color/color.source" as *;
+
+// ---
+
+$palette: ();
+
+// ---
+
+@function palette-color($color){
+	@return map-get($palette, $color);
+}
+
+@function palette-tint($color,$tint){
+	@return color-tint(palette-color($color), $tint);
+}
+
+@function palette-shade($color,$shade){
+	@return color-shade(palette-color($color), $shade);
+}
+
+@function palette-darkest($color){
+	@return palette-shade($color, 60%);
+}
+
+@function palette-darker($color){
+	@return palette-shade($color, 40%);
+}
+
+@function palette-dark($color){
+	@return palette-shade($color, 20%);
+}
+
+@function palette-light($color){
+	@return palette-tint($color, 20%);
+}
+
+@function palette-lighter($color){
+	@return palette-tint($color, 60%);
+}
+
+@function palette-lightest($color){
+	@return palette-tint($color, 90%);
+}
+
+@function palette-set-sl($color,$s,$l){
+	@return color-set-sl(palette-color($color), $s, $l);
+}
+
+// ---
+
+$palette: map-merge($palette,(
+	"butter-1": #FCE94F,
+	"butter-2": #EDD400,
+	"butter-3": #C4A000,
+
+	"orange-1": #FCAF3E,
+	"orange-2": #F57900,
+	"orange-3": #CE5C00,
+
+	"chocolate-1": #E9B96E,
+	"chocolate-2": #C17D11,
+	"chocolate-3": #8F5902,
+
+	"chameleon-1": #8AE234,
+	"chameleon-2": #73D216,
+	"chameleon-3": #4E9A06,
+
+	"sky-blue-1": #729FCF,
+	"sky-blue-2": #3465A4,
+	"sky-blue-3": #204A87,
+
+	"plum-1": #AD7FA8,
+	"plum-2": #75507B,
+	"plum-3": #5C3566,
+
+	"scarlet-red-1": #EF2929,
+	"scarlet-red-2": #CC0000,
+	"scarlet-red-3": #A40000,
+
+	"aluminium-1": #EEEEEC,
+	"aluminium-2": #D3D7CF,
+	"aluminium-3": #BABDB6,
+	"aluminium-4": #888A85,
+	"aluminium-5": #555753,
+	"aluminium-6": #2E3436
+));
+
+$palette: map-merge($palette,(
+
+	"aqua-1": adjust-color(palette-color("scarlet-red-1"),$hue: 7*30 - 15),
+	"aqua-2": adjust-color(palette-color("scarlet-red-2"),$hue: 7*30 - 15),
+	"aqua-3": adjust-color(palette-color("scarlet-red-3"),$hue: 7*30 - 15),
+
+	"green-1": adjust-color(palette-color("scarlet-red-1"),$hue: 4*30),
+	"green-2": adjust-color(palette-color("scarlet-red-2"),$hue: 4*30),
+	"green-3": adjust-color(palette-color("scarlet-red-3"),$hue: 4*30),
+
+	"mint-1": adjust-color(palette-color("scarlet-red-1"),$hue: 6*30 - 15),
+	"mint-2": adjust-color(palette-color("scarlet-red-2"),$hue: 6*30 - 15),
+	"mint-3": adjust-color(palette-color("scarlet-red-3"),$hue: 6*30 - 15),
+
+	"sunflower-1": mix(palette-color("butter-1"),palette-color("orange-1"),50%),
+	"sunflower-2": mix(palette-color("butter-2"),palette-color("orange-2"),50%),
+	"sunflower-3": mix(palette-color("butter-3"),palette-color("orange-3"),50%),
+
+	"science-blue-1": adjust-color(palette-color("scarlet-red-1"),$hue: 7*30),
+	"science-blue-2": adjust-color(palette-color("scarlet-red-2"),$hue: 7*30),
+	"science-blue-3": adjust-color(palette-color("scarlet-red-3"),$hue: 7*30),
+
+	"persian-red-1": mix(palette-color("scarlet-red-1"),palette-color("aluminium-1"),80%),
+	"persian-red-2": mix(palette-color("scarlet-red-2"),palette-color("aluminium-2"),80%),
+	"persian-red-3": mix(palette-color("scarlet-red-2"),palette-color("aluminium-5"),80%),
+
+	"rock-1": mix(palette-color("aluminium-1"),palette-color("sky-blue-1"),80%),
+	"rock-2": mix(palette-color("aluminium-2"),palette-color("sky-blue-1"),80%),
+	"rock-3": mix(palette-color("aluminium-3"),palette-color("sky-blue-1"),80%),
+	"rock-4": mix(palette-color("aluminium-4"),palette-color("sky-blue-1"),80%),
+	"rock-5": mix(palette-color("aluminium-5"),palette-color("sky-blue-1"),80%),
+	"rock-6": mix(palette-color("aluminium-6"),palette-color("sky-blue-1"),80%)
+
+));
+
+$palette: map-merge($palette,(
+	"default-1": palette-color("aluminium-1"),
+	"default-2": palette-color("aluminium-2"),
+
+	"primary-1": palette-color("science-blue-2"),
+	"primary-2": palette-color("science-blue-3"),
+
+	"secondary-1": palette-color("rock-5"),
+	"secondary-2": palette-color("rock-6"),
+
+	"success-1": palette-color("green-2"),
+	"success-2": palette-color("green-3"),
+
+	"danger-1": palette-color("persian-red-2"),
+	"danger-2": palette-color("persian-red-3"),
+
+	"warning-1": palette-color("sunflower-1"),
+	"warning-2": palette-color("sunflower-2"),
+
+	"info-1": palette-color("aqua-2"),
+	"info-2": palette-color("aqua-3"),
+
+	"disabled": #EEEEEE
+));
+

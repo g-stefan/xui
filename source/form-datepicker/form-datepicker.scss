@@ -1,0 +1,39 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../palette/palette.source";
+
+.datepicker {
+	border-radius: 3px;
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	z-index: 1000;
+}
+
+.datepicker--day-name{
+	color: palette-color("primary-2");
+}
+
+.datepicker--cell.-current-{
+	color: palette-color("primary-2");
+}
+
+.datepicker--cell.-selected-{
+	background-color: palette-color("primary-1");
+}
+
+.datepicker--cell.-selected-.-focus-{
+	background-color: palette-color("primary-1");
+}
+

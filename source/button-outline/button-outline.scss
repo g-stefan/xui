@@ -1,0 +1,70 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../button/button.source";
+
+@import "button-outline.source";
+
+.xui.button.-outline {
+	padding-top: 9px;
+	padding-bottom: 9px;
+	padding-right: 23px;
+	padding-left: 23px;
+
+	@each $type, $value in $context {
+		@include button-outline($type);
+	}
+
+	&.-icon{
+		padding-left: 7px;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		padding-right: 7px;
+
+		&.-size-x32 {
+			padding-left: 3px;
+			padding-right: 3px;
+
+			&.-circle {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				margin-top: 3px;
+				margin-bottom: 3px;
+			}
+		}
+	}
+
+	&.-icon-left {
+		padding-left: 39px;
+
+		& i {
+			position: absolute;
+			top: 7px;
+			left: 7px;			
+		}
+	}
+
+	&.-icon-right {
+		padding-right: 39px;
+
+		& i {
+			position: absolute;
+			top: 7px;
+			right: 7px;			
+		}
+	}
+}
+

@@ -1,0 +1,25 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+$ascii-table: " !\"#\$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+
+@function ascii-to-int($ascii){
+	$ln: str-length($ascii-table);
+	@for $i from 1 to $ln {
+		@if $ascii == str-slice($ascii-table, $i, $i) {
+			@return 32 + $i - 1;
+		}
+	}
+	@return 32;
+}
+
+@function int-to-ascii($code){
+	$code: $code - 32 + 1;
+	@return str-slice($ascii-table, $code, $code);
+}

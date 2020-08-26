@@ -1,0 +1,38 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../palette/palette.source";
+
+.xui.animated.-loader {
+	position: relative;	
+	width: 64px;
+	height: 64px;
+	background-color: transparent;
+	border-radius: 50%;
+	border-top: 6px solid palette-color("aluminium-4");
+	border-left: 6px solid palette-color("aluminium-1");
+	border-right: 6px solid palette-color("aluminium-1");
+	border-bottom: 6px solid palette-color("aluminium-1");
+	animation: xui-animated-loader-spin 2s linear infinite;
+}
+
+@keyframes xui-animated-loader-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+

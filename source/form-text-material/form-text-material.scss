@@ -1,0 +1,146 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../form-label/form-label.source";
+@import "../form-text/form-text.source";
+
+@import "form-text-material.source";
+
+div.xui.form-text.-material {
+	position: relative;
+	display: inline-block;
+	height: auto;
+	width: 100%;
+	text-align: left;
+
+	& > label {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		display: block;
+		z-index: 1;
+
+		margin-top: $form-text-material-margin-top-x;
+		margin-bottom: $form-text-material-margin-bottom;
+		width: 100%;
+		transition: margin-top 0.3s ease, font-size 0.3s ease;
+		cursor: text;
+
+		font-size: $form-text-material-input-size - 4px;
+		line-height: $form-text-material-input-size;
+		font-weight: normal;
+
+		box-sizing: border-box;
+	}
+
+	&.-has-value > label {
+		margin-top: $form-text-material-label-margin-top;
+		margin-bottom: $form-text-material-margin-bottom;
+		cursor: initial;
+		font-size: $form-text-material-input-size - 6px;
+	}
+
+	&.-focus > label {
+		font-size: $form-text-material-input-size - 6px;
+	}
+
+	& > input,
+	& > textarea {
+		position: relative;
+		border: none;
+		display: block;
+		margin: 0px 0px 0px 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: $form-text-material-margin-top-x;
+		padding-bottom: $form-text-material-margin-bottom - 2px;
+		border-bottom: 1px solid #DDDDDD;
+		width: 100%;
+		transition: border-bottom 0.3s ease;
+		outline: none;
+		border-radius: 0px;
+		height: auto;
+
+		font-family: "Roboto", sans-serif;
+		font-size: $form-text-material-input-size - 4px;
+		line-height: $form-text-material-input-size;
+		font-weight: normal;
+
+		background: transparent;
+
+		box-sizing: border-box;
+	}
+
+	& > input:focus,
+	& > textarea:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
+	&::after {
+		content: "";	
+		display: block;
+		height: 3px;
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+		bottom: 0px;
+		pointer-events: none;
+		box-shadow: 0px 0px 0px 0px #FFFFFF;
+		transition: box-shadow 0.3s ease;
+	}
+
+	@each $type, $value in $context {
+		@include div-form-text-material($type);
+	}
+
+	&.-required::before {
+		top: $form-text-material-margin-top-x - 3px;
+		right: 0px;
+	}
+
+	&.-icon-left {
+		& > input,
+		& > textarea {
+			padding-left: 24px;
+		}
+
+		& > i{
+			top: $form-text-material-margin-top-x - 3px;
+			left: 0px;
+		}		
+
+		& > label {
+			margin-top: $form-text-material-label-margin-top;
+			margin-bottom: $form-text-material-margin-bottom;
+			cursor: initial;
+			font-size: $form-text-material-input-size - 6px;
+		}
+	}
+
+	&.-icon-right {
+		& > input,
+		& > textarea {
+			padding-right: 24px;
+		}
+	
+		& > i{
+			top: $form-text-material-margin-top-x - 3px;
+			right: 2px;
+		}
+	}
+
+}

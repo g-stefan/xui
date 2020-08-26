@@ -1,0 +1,66 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin button-transparent ($type) {
+	@include button-outline-config($type);
+	$value: map-get($config,"button-outline-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$background-color-hover: map-get($value,"background-color-hover");
+	$background-color-active: map-get($value,"background-color-active");
+	$text-color: map-get($value,"text-color");
+	$text-color-hover: map-get($value,"text-color-hover");
+	$text-color-active: map-get($value,"text-color-active");
+	$icon-color: map-get($value,"icon-color");
+
+	&#{$class} {
+		cursor: if($type == "disabled", auto, pointer);
+		border: none;
+		background-color: transparent;
+		color: $text-color;
+
+		&:hover,
+		&:focus {
+			background-color: $background-color-hover;
+			color: $text-color-hover;
+		}
+
+		&:active {
+			background-color: $background-color-active;
+			color: $text-color-active;
+		}
+
+		&.-effect-ripple {
+
+			&:active {
+				background-color: $background-color-hover;
+			}
+
+			& .xui.-effect-ripple_element {
+				background-color: $background-color-active;
+			}
+
+		}
+
+		& i {
+			color: $icon-color;
+		}
+
+		&:hover i,
+		&:focus i {
+			color: $text-color-hover;
+		}
+
+		&:active i {
+			color: $text-color-active;
+		}
+	}
+}
+

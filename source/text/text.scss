@@ -1,0 +1,65 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../palette/palette.source";
+
+.xui.text {
+
+	&.-size-h20x40 {
+		display: inline-block;
+		position: relative;
+		width: auto;
+		height: 40px;	
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+		overflow: hidden;
+		font-size: 18px;
+		line-height: 20px;		
+	}
+
+	
+	&.-size-h24x40 {
+		display: inline-block;
+		position: relative;
+		width: auto;
+		height: 40px;	
+		padding-left: 8px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		padding-right: 8px;
+		overflow: hidden;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	&.-label-40 {
+		display: inline-block;
+		position: relative;
+		width: 100%;
+		height: auto;	
+		padding-left: 0px;
+		padding-top: 10px;
+		padding-bottom: 2px;
+		padding-right: 0px;
+		overflow: hidden;
+		font-size: 18px;
+		line-height: 20px;
+
+		border-bottom: 1px solid palette-color("default-2");
+		margin-bottom: 7px;
+	}
+
+}
+

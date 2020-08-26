@@ -1,0 +1,61 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin form-input-group ($type) {
+	@include form-text-config($type);
+	$value: map-get($config,"form-text-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$border-color: map-get($value,"border-color");
+	$text-color: map-get($value,"text-color");
+	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
+	$border-color-focus: map-get($value,"border-color-focus");
+
+	&#{$class} {
+
+		& > input {
+			color: $text-color;
+			border-color: $border-color;
+		
+			&:hover {
+				border-color: $border-color-focus;
+			}
+		
+			&:focus {
+				border-color: $border-color-focus;
+				box-shadow: 0px 0px 3px 4px rgba($box-shadow-color-focus, 0.2);
+			}	
+		}
+
+		& > button {
+			color: $text-color;			
+			border-color: $border-color;
+
+			&:hover{
+				color: $border-color-focus;
+				border-color: $border-color-focus;
+			}
+
+			&:focus{
+				color: $border-color-focus;
+				border-color: $border-color-focus;
+				box-shadow: 0px 0px 3px 4px rgba($box-shadow-color-focus, 0.2);
+			}
+
+			&:active{
+				color: #FFFFFF;
+				background-color: $border-color-focus;
+			}
+
+		}
+	}
+
+}
+

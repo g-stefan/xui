@@ -1,0 +1,142 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../menu/menu.source";
+@import "../menu-dropdown/menu-dropdown.source";
+
+ul.xui.menu.-popup {
+	display: block;
+	position: relative;
+        overflow: hidden;
+	border-radius: 6px;
+	background-color: #FFFFFF;
+	padding: 0px 3px 0px 3px;
+	@include elevation(0);	
+	z-index: 1;
+	height: 0px;
+	width: 288px + 6px;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 12px;
+		top: -5px;
+		width: 8px;
+		height: 0px;
+		background-color: #FFFFFF;
+		overflow: hidden;
+		border-radius: 3px;
+		transform: rotate(45deg);
+		border-top: 1px solid palette-color("aluminium-3");
+		border-left: 1px solid palette-color("aluminium-3");
+		border-bottom: 0px solid palette-color("aluminium-3");
+		border-right: 0px solid palette-color("aluminium-3");
+		z-index: -1;
+		opacity: 0;
+		transition: opacity 0.5s ease;
+	}
+
+	& > li {
+		@extend %menu-level-reset;
+
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+
+		&._submenu::before {
+			content: "";
+			position: absolute;
+			top: 0px;
+			left: 100%;
+			height: 40px;
+			width: 0px;
+			background-color: transparent;
+			transition: width 1s ease;
+		}
+
+		& > ul {
+			position: absolute;
+			left: 288px + 6px;
+			top: -3px;
+			overflow: visible;
+			width: 288px + 6px;
+			border-radius: 6px;
+			background-color: #FFFFFF;
+			padding: 3px 3px 3px 3px;
+			@include elevation(4);
+			border: 1px solid palette-color("aluminium-3");
+		}
+
+		& > ul > li {
+			@extend %menu-level-reset;
+		}
+
+		@include menu-dropdown-level-action();
+
+	}
+
+	&.-open {
+		width: 288px + 6px;
+		overflow: visible;
+		height: auto;
+		padding: 3px 3px 3px 3px;
+		@include elevation(4);
+		border: 1px solid palette-color("aluminium-3");
+
+		&::before {
+			height: 8px;
+			opacity: 1;
+		}
+
+		// Level 1
+		
+		& > li {
+
+			@extend %menu-level;
+
+			&._submenu:hover::before {
+				width: 16px;
+			}
+
+			&:hover {
+				overflow: visible;
+			}
+
+			&:hover > ul > li {
+				@extend %menu-level;
+			}
+			
+		}
+
+		// Level 2
+	
+		& > li:hover > ul
+		> li {
+			@extend %menu-dropdown-level;
+			@include menu-dropdown-level-action();		
+		}
+
+		// Level 3
+
+		& > li:hover > ul
+		> li:hover > ul 
+		> li {
+			@extend %menu-dropdown-level;
+			@include menu-dropdown-level-action();
+		}
+	}
+}
+

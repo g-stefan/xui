@@ -1,0 +1,20 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../menu/menu.source";
+@import "menu-accordion.source";
+
+ul.xui.menu.-accordion  {
+	@extend %menu-accordion;
+}
+

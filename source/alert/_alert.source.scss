@@ -1,0 +1,55 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin alert-config($type) {
+        $settings: (
+		"border-color": red,
+		"background-color": red,
+		"text-color": red
+	);
+		
+	@if($type == "default"){
+		$settings: (
+			"border-color": palette-color("#{$type}-2"),
+			"background-color": #FFFFFF,
+			"text-color": #000000
+		);
+	}@else if($type == "disabled"){
+		$settings: (
+			"border-color": palette-color($type),
+			"background-color": #FFFFFF,
+			"text-color": palette-dark($type)
+		);
+	}@else{
+		$settings: (
+			"border-color": palette-color("#{$type}-2"),
+			"background-color": palette-lightest("#{$type}-1"),
+			"text-color": palette-darker("#{$type}-2")
+		);	
+	};
+		
+	$config: map-merge($config,("alert-#{$type}": $settings)) !global;
+}
+
+@mixin alert ($type) {
+	@include alert-config($type);
+	$value: map-get($config,"alert-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$border-color: map-get($value, "border-color");
+	$background-color: map-get($value, "background-color");
+	$text-color: map-get($value, "text-color");
+
+	&#{$class} {
+		border: 1px solid $border-color;
+		background-color: $background-color;
+		color: $text-color;				
+	}
+}

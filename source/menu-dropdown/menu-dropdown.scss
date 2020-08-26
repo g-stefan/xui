@@ -1,0 +1,149 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../menu/menu.source";
+
+ul.xui.menu.-dropdown {
+	width: 100%;
+	overflow: visible;
+	display: flex;
+	padding: 3px 3px 3px 3px;
+	
+	& > li {
+		display: inline-block;
+		flex: 1;
+		width: auto;
+		height: 40px;
+		overflow: hidden;
+
+		& > .xui.action > span + i:last-of-type {
+			transition: none;
+			transform: rotate(90deg);
+		}
+
+		&._separator {
+			height: 40px;
+			width: 7px;
+			transition: none;
+			
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 4px;
+				height: 40px;
+				overflow: hidden;
+				box-sizing: border-box;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 1px solid palette-color("default-2");
+				border-bottom: 0px;
+			}
+
+			flex: 0 0 7px;
+		}
+
+		&._space {
+			height: 40px;
+			width: 7px;
+			transition: none;
+			flex: 0 0 7px;
+		}
+
+		&._label {
+			height: 40px;
+			width: auto;
+			overflow: hidden;
+			transition: none;
+
+			font-size: 14px;
+			padding: 3px 3px 3px 3px;
+			flex: 1;
+		}
+
+		&._submenu::before {
+			content: "";
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			height: 0px;
+			width: 100%;
+			background-color: transparent;
+			transition: height 1s ease;
+		}
+
+		&._submenu:hover::before {
+			height: 16px;
+		}
+	}
+
+	// Level 1
+
+	& > li > ul {
+		position: relative;
+		top: 6px;
+		left: 0px;
+		overflow: visible;
+		border-radius: 6px;
+		background-color: #FFFFFF;
+		padding: 3px 3px 3px 3px;
+		@include elevation(4);
+		border: 1px solid palette-color("aluminium-3");
+	}
+
+	& > li:hover {
+		overflow: visible;
+	}
+
+	& > li > ul > li {
+		@extend %menu-level-reset;
+	}
+
+	& > li:hover > ul > li {
+		@extend %menu-level;
+	}
+
+}
+
+@import "menu-dropdown.source";
+
+ul.xui.menu.-dropdown {
+
+	// Level 2
+
+	& > li:hover > ul
+	> li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+		
+		& > ul {
+			left: calc(100% + 6px);
+		}
+		
+	}
+
+	// Level 3
+
+	& > li:hover > ul
+	> li:hover > ul 
+	> li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+}
+

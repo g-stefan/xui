@@ -1,0 +1,33 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "palette.source";
+
+@each $name, $value in $palette {
+
+	.xui.-fg-#{$name},
+	.xui.-fg-#{$name}-hover:hover {
+		color: $value !important;
+	}
+
+	.xui.-bg-#{$name},
+	.xui.-bg-#{$name}-hover:hover {
+		background-color: $value !important;
+	}
+
+	.xui.-bd-#{$name} {
+		border-color: $value !important;
+	}
+
+}
+

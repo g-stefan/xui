@@ -1,0 +1,75 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../ascii/ascii.source";
+@import "../base64/base64.source";
+@import "../config/config.source";
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../app-header/app-header.source";
+@import "../app-user/app-user.source";
+@import "../menu/menu.source";
+@import "../menu-accordion/menu-accordion.source";
+@import "../menu-dropdown/menu-dropdown.source";
+@import "../menu-mini/menu-mini.source";
+
+.xui.dashboard.-over {
+
+	& .xui.app-header {
+		@extend %app-header-mini;
+	}
+
+	& .xui.app-header > .xui.app-brand {
+		width: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	//& .xui.app-header > .xui.app-bar {
+	//	width: 100%;	
+	//}
+
+	& .xui.content {
+		width: 100%;
+		border-radius: 0px;
+		border-left: 0px solid transparent;
+	}
+
+	& .xui.navigation-drawer .xui.menu {
+		@extend	%menu-accordion;
+	}
+
+	& .xui.navigation-drawer {
+		position: absolute;
+		width: 288px + 6px;
+		overflow: hidden;
+		left: -288px - 6px - 1px;
+		border-right: 1px solid palette-color("default-2");
+		transition: left 0.5s ease;
+	}
+
+	&.-open  {
+
+		& .xui.navigation-drawer {
+			left: 0px;
+		}
+
+		& .xui.content-cover {
+			height: calc(100% - 64px);
+			opacity: 0.4;
+		}
+
+	}
+
+}
+

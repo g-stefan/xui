@@ -1,0 +1,150 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../palette/palette.source";
+
+$panel-background-color: #FFFFFF;
+$panel-title-color: palette-darkest("default-2");
+$panel-title-background-color: #FFFFFF;
+$panel-content-color: #000000;
+$panel-content-background-color: #FFFFFF;
+$panel-footer-color: palette-darkest("default-2");
+$panel-footer-background-color: #FFFFFF;
+$panel-line-color: palette-color("default-2");
+
+.xui.panel {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	box-sizing: border-box;
+	border: 0px solid #000000;
+	background-color: $panel-background-color;
+	border-radius: 0px;
+	overflow: hidden;
+
+	& > ._title,
+	& .panel_title {
+		position: relative;
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+
+		border: 0px solid #000000;
+		color: $panel-title-color;
+		background-color: $panel-title-background-color;
+	
+		min-height: 40px;
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+		overflow: hidden;
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	& > ._content,
+	& .panel_content {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding-top: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		box-sizing: border-box;
+		border: 0px solid #000000;
+		color: $panel-content-color;
+		background-color: $panel-content-background-color;
+	}
+
+	& > ._footer,
+	& .panel_footer {
+		position: relative;
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+
+		border: 0px solid #000000;
+		color: $panel-footer-color;
+		background-color: $panel-footer-background-color;
+	
+		min-height: 40px;
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+		overflow: hidden;
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	& > ._line,
+	& .panel_line {
+		margin-left: 10px;
+		margin-right: 10px;
+		overflow:hidden;
+		height:1px;
+		background-color: $panel-line-color;
+		clear: both;
+	}
+
+	@media only screen and (max-width: 599px) {
+		&.-elevation-4 {
+			box-shadow: none;
+		}
+	}
+
+	@media only screen and (min-width: 600px) {
+
+		& {
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+			border: 1px solid palette-color("default-2");			
+		}
+
+	}
+
+}
+
+.xui.panel.-elevation-4 {
+
+	@media only screen and (min-width: 600px) {
+
+		& {
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+			border: 0px solid #000000;
+		}
+
+	}
+
+}
+

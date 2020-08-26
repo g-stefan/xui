@@ -1,0 +1,33 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+.xui.button-group {
+	position: relative;
+	display: inline-block;
+
+	& > * {
+		float: left;
+		border-radius: 0px 0px 0px 0px;
+	
+		&:first-child{
+			float: left;
+			border-radius: 3px 0px 0px 3px;
+		}
+
+		&:last-child{
+			float: left;
+			border-radius: 0px 3px 3px 0px;
+		}
+	}
+}
+

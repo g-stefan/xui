@@ -1,0 +1,271 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../menu/menu.source";
+
+.xui.component-table {
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+
+	& > .xui.app-toolbar:first-child {
+		border-left: 1px solid palette-color("default-2");
+		border-top: 1px solid palette-color("default-2");
+		border-right: 1px solid palette-color("default-2");
+		border-bottom: 0px solid palette-color("default-2");
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;					
+	}
+
+	& > .xui.app-toolbar:nth-child(2) {
+		border-left: 1px solid palette-color("default-2");
+		border-top: 1px solid palette-color("default-2");
+		border-right: 1px solid palette-color("default-2");
+		border-bottom: 0px solid palette-color("default-2");
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;					
+	}
+
+	& > .xui.app-toolbar:last-child {
+		border-left: 1px solid palette-color("default-2");
+		border-top: 0px solid palette-color("default-2");
+		border-right: 1px solid palette-color("default-2");
+		border-bottom: 1px solid palette-color("default-2");
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;					
+	}
+
+	& .xui._table .xui.table {
+		width: 100%;
+
+		& > thead {
+
+			& tr:first-child th:first-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& tr:first-child th:last-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& tr > th.xui._select {
+				width: 32px;
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				text-align: left;
+			}
+
+			& tr > th.xui._sort,
+			& tr > th.xui._action {
+				padding-right: 32px;
+
+				& > .xui.button:last-child {
+					position: absolute;
+					top: 2px;
+					right: 2px;
+				}
+
+				&.-action {
+					padding-right: 64px - 2px;
+
+					& > .xui.button:nth-last-child(2) {
+						position: absolute;
+						top: 2px;
+						right: 2px + 32px - 2px;
+					}
+				}
+			}
+
+		}
+
+		& > tbody {
+
+			& tr:last-child td:first-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& tr:last-child td:last-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& tr > td.xui._select {
+				padding-left: 6px;
+				padding-right: 6px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+			}
+
+			& tr > td.xui._action {
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+
+			& tr > td.xui._input {
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+
+		}
+	}
+
+}
+
+// ---
+
+.xui.component-table.-application {
+	position: relative;
+	height: 100%;
+
+
+	& > .xui.app-toolbar:first-child {
+		display: none;
+	}
+
+	& > .xui.app-toolbar:nth-child(2) {
+		border-top: 0px;
+		border-left: 0px;
+		border-right: 0px;
+	}
+
+	& > .xui.app-toolbar:last-child {
+		border-top: 1px solid #d3d7cf;
+		border-bottom: 0px;
+		border-left: 0px;
+		border-right: 0px;
+	}
+
+	& > .xui._table .xui.table > thead > tr > th:first-child,
+	& > .xui._table .xui.table > thead > tr > th:first-child:hover,
+	& > .xui._table .xui.table > tbody > tr > td:first-child,
+	& > .xui._table .xui.table > tbody > tr > td:first-child:hover {
+		border-left: 0px;	
+	}
+
+	& > .xui._table .xui.table > thead > tr > th:last-child,
+	& > .xui._table .xui.table > thead > tr > th:last-child:hover,
+	& > .xui._table .xui.table > tbody > tr > td:last-child,
+	& > .xui._table .xui.table > tbody > tr > td:last-child:hover {
+		border-right: 0px;	
+	}
+
+	& > .xui._table .xui.table > thead > tr > th {
+		border-bottom: 1px solid #d3d7cf;
+	}
+
+	& > .xui._table .xui.table > tbody > tr:first-child > td {
+		border-top: 0px solid #000000;
+	}
+
+	& > .xui._table {
+		position: relative;
+		display:block;
+		box-sizing: border-box;
+		width: 100%;
+		height: calc(100% - 80px);
+		overflow: auto;
+	}
+
+	& > .xui._table .xui.table > thead > tr > th,
+	& > .xui._table .xui.table > tbody > tr > td {
+		display: none;
+	}
+
+	& > .xui._table .xui.table > thead > tr > th.-important,
+	& > .xui._table .xui.table > tbody > tr > td.-important {
+		display: table-cell;
+	}
+
+	@media only screen and (min-width: 600px) {
+
+		& > .xui._table .xui.table > thead > tr > th,
+		& > .xui._table .xui.table > tbody > tr > td {
+			display: table-cell;
+		}
+
+	}
+
+}
+
+// ---
+
+.xui.component-table.-no-top-toolbar {
+
+	& > .xui.app-toolbar:first-child {
+		display: none;
+	}
+
+	& > .xui.app-toolbar:nth-child(2) {
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+	}
+		
+}
+
+// ---
+
+.xui.component-table.-no-border-bottom-toolbar {
+
+	& > .xui._table .xui.table > tbody > tr:last-child > td:first-child {
+		border-bottom-left-radius: 6px;
+	}
+
+	& > .xui._table .xui.table > tbody > tr:last-child > td:last-child {
+		border-bottom-right-radius: 6px;
+	}
+
+	& > .xui.app-toolbar:last-child {
+		border-left: 0px solid palette-color("default-2");
+		border-top: 0px solid palette-color("default-2");
+		border-right: 0px solid palette-color("default-2");
+		border-bottom: 0px solid palette-color("default-2");
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;					
+	}
+		
+}
+
+// ---
+
+.xui.component-table.-table-border > .xui._table {
+	border: 1px solid palette-color("default-2");
+	border-radius: 3px;
+	overflow: hidden;
+}

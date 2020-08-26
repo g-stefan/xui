@@ -1,0 +1,198 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+$app-toolbar-height: 48px;
+$app-toolbar-padding: 4px;
+$app-toolbar-background-color: #FFFFFF;
+$app-toolbar-text-color: #000000;
+
+.xui.app-toolbar {
+	position: relative;
+	width: 100%;
+	height: $app-toolbar-height;	
+	padding: $app-toolbar-padding $app-toolbar-padding $app-toolbar-padding $app-toolbar-padding;
+	overflow: hidden;
+	
+	background-color: $app-toolbar-background-color;
+	color: $app-toolbar-text-color;
+
+	& > ._content {
+		display: flex;
+		flex-direction: row;
+		float: right;
+		box-sizing: border-box;
+	
+		& .xui.button {
+			margin-left: 3px;
+
+			&:first-child {
+				margin-left: 0px;
+			}
+
+			& > span {
+				color: #000000;
+				display: inline-block;
+				white-space: nowrap;
+			}
+
+		}
+	}
+
+	&.-small > ._content {
+		& .xui.button {
+			width: 40px;
+			padding-right: 0px;
+
+			& > span {
+				display: none;
+			}
+		}
+	}
+
+	&.-important > ._content {
+		& .xui.button {
+			display: none;
+		}
+
+		& .xui.button.-important {
+			width: 40px;
+			display: inline-block;
+			padding-right: 0px;
+
+			& > span {
+				display: none;
+			}
+		}
+	}
+
+	&.-left {
+		& > ._content {
+			float: left;
+		}
+	}
+
+	&.-compact {
+		height: 40px;
+	}
+
+	&.-wide {
+		& > ._content {
+			display: block;
+			width: 100%;
+			float: none;
+		}
+	}
+
+}
+
+// ---
+
+.xui.app-toolbar {
+
+	& > ._content_left {
+		display: flex;
+		flex-direction: row;
+		float: left;
+		box-sizing: border-box;
+	
+		& .xui.button {
+			margin-right: 3px;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			& > span {
+				color: #000000;
+				display: inline-block;
+				white-space: nowrap;
+			}
+
+		}
+	}
+
+	& > ._content_right {
+		display: flex;
+		flex-direction: row;
+		float: right;
+		box-sizing: border-box;
+	
+		& .xui.button {
+			margin-left: 3px;
+
+			&:first-child {
+				margin-left: 0px;
+			}
+
+			& > span {
+				color: #000000;
+				display: inline-block;
+				white-space: nowrap;
+			}
+
+		}
+	}
+
+	&.-small > ._content_left,
+	&.-small > ._content_right {
+		& .xui.button {
+			width: 40px;
+			padding-right: 0px;
+
+			& > span {
+				display: none;
+			}
+		}
+	}
+
+	&.-small-left > ._content_left {
+		& .xui.button {
+			width: 40px;
+			padding-right: 0px;
+
+			& > span {
+				display: none;
+			}
+		}
+	}
+
+	&.-small-right > ._content_right {
+		& .xui.button {
+			width: 40px;
+			padding-right: 0px;
+
+			& > span {
+				display: none;
+			}
+		}
+	}
+
+	&.-important > ._content_left,
+	&.-important > ._content_right, {
+		& .xui.button {
+			display: none;
+		}
+
+		& .xui.button.-important {
+			width: 40px;
+			display: inline-block;
+			padding-right: 0px;
+
+			& > span {
+				display: none;
+			}
+		}
+	}
+
+}
+

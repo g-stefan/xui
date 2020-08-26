@@ -1,0 +1,46 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../button/button.source";
+@import "../button-outline/button-outline.source";
+
+@import "button-transparent.source";
+
+.xui.button.-transparent {
+
+	@each $type, $value in $context {
+		@include button-transparent($type);
+	}
+
+	&.-toolbar {
+		& > span {
+			color: #000000;
+			display: inline-block;
+			white-space: nowrap;
+		}
+	}
+
+	&.-only-icon {
+		display: inline-block;
+		padding-right: 0px;
+
+		& > span {
+			display: none !important;
+		}
+	}
+
+}
+

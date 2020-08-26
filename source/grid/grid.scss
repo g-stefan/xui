@@ -1,0 +1,112 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+.xui.grid {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	&.-row {
+		width: 100%;
+		flex-direction: row;
+	}
+
+	& > .xui.grid.-col {
+		display: inline-block;
+		flex: 1 1 0;
+
+		&.-x0 {
+			flex: 0 1 auto;
+		}
+
+		&.-x1 {
+			flex: 1 1 0;
+		}
+
+		&.-x2 {
+			flex: 2 1 0;
+		}
+
+		&.-x3 {
+			flex: 3 1 0;
+		}
+
+		&.-x4 {
+			flex: 4 1 0;
+		}
+
+		&.-x5 {
+			flex: 5 1 0;
+		}
+
+		&.-x6 {
+			flex: 6 1 0;
+		}
+
+		&.-x7 {
+			flex: 7 1 0;
+		}
+
+		&.-x8 {
+			flex: 8 1 0;
+		}
+
+		&.-x9 {
+			flex: 9 1 0;
+		}
+
+		&.-x10 {
+			flex: 10 1 0;
+		}
+
+		&.-x11 {
+			flex: 11 1 0;
+		}
+
+	}
+
+	&.-gutter-30 > .xui.grid.-row {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 0px;
+		padding-right: 0px;
+
+		&:first-child {
+			padding-top: 0px;
+		}
+
+		&:last-child {
+			padding-bottom: 0px;
+		}
+	}
+
+	&.-row.-gutter-30 {
+	        & > .xui.grid.-col {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			padding-left:15px;
+			padding-right: 15px;
+
+			&:first-child {
+				padding-left: 0px;
+			}
+
+			&:last-child {
+				padding-right: 0px;
+			}
+		}		
+	}
+
+}
+

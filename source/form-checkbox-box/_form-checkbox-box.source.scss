@@ -1,0 +1,38 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin form-checkbox-box ($type) {
+	@include form-radio-config($type);
+	$value: map-get($config,"form-radio-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$icon-color: map-get($value,"icon-color");
+	$icon-color-focus: map-get($value,"icon-color-focus");
+
+	&#{$class} {
+		@if $type == "disabled" {
+			& > label,
+			& > input[type="checkbox"] + label::before,
+			& > input[type="checkbox"] + label::after {
+				cursor: auto;
+			}
+		}
+
+		& > input[type="checkbox"]:checked + label::after {
+			background-color: $icon-color;
+		}
+
+		& > input[type="checkbox"]:focus:checked + label::after,
+		& > input[type="checkbox"]:active:checked + label::after{
+			background-color: $icon-color-focus;
+		}
+
+	}
+}

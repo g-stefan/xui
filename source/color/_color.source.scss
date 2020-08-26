@@ -1,0 +1,44 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@function color-tint($color,$tint){
+	@return mix($color, #FFFFFF, $weight: 100% - $tint);
+}
+
+@function color-shade($color,$shade){
+	@return mix($color, #000000, $weight: 100% - $shade);
+}
+
+@function color-darkest($color){
+	@return color-shade($color, 60%);
+}
+
+@function color-darker($color){
+	@return color-shade($color, 40%);
+}
+
+@function color-dark($color){
+	@return color-shade($color, 20%);
+}
+
+@function color-light($color){
+	@return color-tint($color, 20%);
+}
+
+@function color-lighter($color){
+	@return color-tint($color, 60%);
+}
+
+@function color-lightest($color){
+	@return color-tint($color, 90%);
+}
+
+@function color-set-sl($color,$s,$l){
+	@return change-color($color, $saturation: $s, $lightness: $l);
+}

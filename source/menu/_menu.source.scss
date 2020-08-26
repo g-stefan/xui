@@ -1,0 +1,44 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+%menu-level-reset {
+	& > .xui.action {
+		height: 0px;
+	}
+
+	&._separator {
+		height: 0px;
+	}
+
+	&._space {
+		height: 0px;
+	}
+        
+	&._label {
+		height: 0px;
+	}
+}
+
+%menu-level {
+	& > .xui.action {
+		height: 40px;
+	}
+
+	&._separator {
+		height: 7px;
+	}
+
+	&._space {
+		height: 7px;
+	}
+        
+	&._label {
+		height: 24px;
+	}
+}

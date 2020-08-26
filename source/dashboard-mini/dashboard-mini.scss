@@ -1,0 +1,110 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../ascii/ascii.source";
+@import "../base64/base64.source";
+@import "../config/config.source";
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../app-user/app-user.source";
+@import "../app-header/app-header.source";
+@import "../menu/menu.source";
+@import "../menu-accordion/menu-accordion.source";
+@import "../menu-dropdown/menu-dropdown.source";
+@import "../menu-mini/menu-mini.source";
+
+.xui.dashboard.-mini {
+
+	& .xui.navigation-drawer {
+
+		& >  .xui._content {
+			overflow: visible;
+		}
+
+		& .xui.menu {
+			@extend	%menu-accordion;
+		}
+
+		& .xui.app-user {
+			width: 100%;
+		}
+
+	}
+
+	& .xui.content {
+		transition: none;
+		left: 72px + 6px;
+		width: calc(100% - 72px - 6px);
+	}
+
+	& .xui.app-header {
+		@extend %app-header-mini;
+	}
+
+	&.-open {
+
+		& .xui.navigation-drawer {
+			position: absolute;
+			width: 288px + 6px;
+			overflow: hidden;
+			border-right: 1px solid palette-color("default-2");
+			transition: width 0.5s ease, border-right 0.3s ease;
+		}
+	
+		& .xui.navigation-drawer > .xui._content {
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		& .xui.content-cover {
+			height: calc(100% - 64px);
+			opacity: 0.4;
+		}
+
+		& .xui.navigation-drawer .xui.app-user {
+			width: 100%;
+		}
+
+	}
+
+	&.-closed {
+
+		& .xui.navigation-drawer {
+			position: absolute;
+			width: 72px + 6px;
+			overflow: visible;
+			border-right: 1px solid transparent;
+			transition: width 0.5s ease, border-right 1s ease;
+		}
+
+		& .xui.navigation-drawer > .xui._content {
+			overflow: visible;
+		}
+
+		& .xui.navigation-drawer .xui.app-user {
+			@extend %app-user-mini;
+		}
+
+		& .xui.navigation-drawer .xui.menu {
+			@extend %menu-mini;
+		}
+
+		& .xui.navigation-drawer .xui.app-user {
+			width: 100%;
+		}
+
+	}
+
+
+}
+

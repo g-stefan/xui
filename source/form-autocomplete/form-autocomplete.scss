@@ -1,0 +1,61 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../form-text/form-text.source";
+
+.xui.form-text + .autocompleter.autocompleter-show {
+	overflow: hidden;
+	border-radius: 6px;
+	background-color: #FFFFFF;
+	color: #000000;
+	@include elevation(4);
+	border: 1px solid palette-color("aluminium-3");
+	z-index: 3;
+	margin-top: 3px;
+	padding: 3px;
+	width: calc(100% - 8px);
+
+	& > ul {
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		height: auto;
+
+		& > li {
+
+			height: 30px;
+			text-decoration: none;
+			color: #000000;
+			background-color: #FFFFFF;
+			border-radius: 3px;
+			white-space: nowrap;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			padding-left: 6px;
+			padding-right: 6px;
+			line-height: 24px;
+			font-size: 16px;
+			font-family: "Roboto", sans-serif;
+			box-sizing: border-box;
+
+			&:hover {
+				background-color: palette-color("aluminium-1");
+			}
+		}
+	}
+}
+

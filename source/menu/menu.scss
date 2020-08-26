@@ -1,0 +1,104 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../palette/palette.source";
+
+ul.xui.menu {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	list-style-type: none;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+	display: block;
+
+	transition: width 0.5s ease;
+
+	& li {
+		position: relative;
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		padding: 0px;
+		margin: 0px;
+
+		font-family: "Roboto", sans-serif;
+		box-sizing: border-box;
+		display: block;
+
+		& > .xui.action {
+			height: auto;
+			transition: height 0.5s ease;
+		}
+
+		&._separator {
+			overflow: hidden;
+			height: 7px;
+			background-color: #FFFFFF;
+			transition: height 0.5s ease;
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 4px;
+				overflow: hidden;
+				box-sizing: border-box;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 0px;
+				border-bottom: 1px solid palette-color("default-2");
+			}
+		}
+
+		&._space {
+			overflow: hidden;
+			height: 7px;
+			background-color: #FFFFFF;
+			transition: height 0.5s ease;
+		}
+
+		&._label {
+			overflow: hidden;
+			height: 24px;
+			overflow: hidden;
+			transition: height 0.5s ease;
+
+			color: palette-color("aluminium-6");
+			line-height: 24px;
+			font-size: 14px;
+			padding-left: 24px;
+		}
+	}
+
+	& ul {
+		position: relative;
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+
+		font-family: "Roboto", sans-serif;
+		box-sizing: border-box;
+		display: block;
+	}
+
+}
+

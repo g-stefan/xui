@@ -1,0 +1,170 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+
+@import "form-text.source";
+
+input.xui.form-text,
+textarea.xui.form-text {
+	box-sizing: border-box;
+	margin: 0px;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	width: 100%;
+	height: 32px;
+
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
+	
+	border-radius: 3px;
+	outline: none;
+
+	transition: border 0.3s ease, box-shadow 0.3s ease;
+
+	background-color: #FFFFFF;
+
+	@each $type, $value in $context {
+		@include form-text($type);
+	}
+
+
+	&.-medium {
+		padding-top: 5px;
+		padding-right: 5px;
+		padding-bottom: 5px;
+		padding-left: 5px;
+		height: 30px;
+	}
+
+	&.-small {
+		font-size: 14px;
+		line-height: 18px;
+		padding-top: 2px;
+		padding-right: 3px;
+		padding-bottom: 2px;
+		padding-left: 3px;
+		height: 24px;	
+	}
+}
+
+textarea.xui.form-text {
+	height: auto;
+}
+
+div.xui.form-text {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+
+	& > input,
+	& > textarea {
+		box-sizing: border-box;
+		margin: 0px;
+
+		font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: normal;
+
+		width: 100%;
+		height: 32px;
+
+		padding-top: 5px;
+		padding-right: 6px;
+		padding-bottom: 5px;
+		padding-left: 6px;
+	
+		border-radius: 3px;
+		outline: none;
+
+		background-color: #FFFFFF;
+
+		transition: border 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	& > textarea {
+		height: auto;
+	}
+
+	& > i {
+		display: block;
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		right: auto;
+		font-size: 24px;
+		line-height: 24px;
+		transition: color 0.3s ease;
+	}
+
+	@each $type, $value in $context {
+		@include div-form-text($type);
+	}
+
+}
+
+// ---
+
+div.xui.form-text.-icon-left {
+	& > input,
+	& > textarea {
+		padding-left: 32px;
+	}
+}
+
+div.xui.form-text.-icon-right {
+	& > input,
+	& > textarea {
+		padding-right: 32px;
+	}
+
+	& > i{
+		left: auto;
+		right: 4px;
+	}
+}
+
+// ---
+
+div.xui.form-text.-required {
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 3px;
+		right: 3px;
+		width: 8px;
+		height: 8px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		overflow: hidden;
+		background-color: palette-color("danger-2");
+		z-index: 1;
+	}
+
+	&.-disabled {
+		background-color: palette-color("disabled");
+	}
+
+}
+

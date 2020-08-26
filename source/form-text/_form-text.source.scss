@@ -1,0 +1,111 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin form-text-config($type) {
+        $settings: (
+		"border-color": red,
+		"text-color": red,
+		"box-shadow-color-focus": red,
+		"border-color-focus": red,
+		"icon-color": red,
+		"icon-color-focus": red
+	);
+		
+	@if($type == "default"){
+		$settings: (
+			"border-color": palette-color("#{$type}-2"),
+			"text-color": palette-darkest("#{$type}-2"),
+			"box-shadow-color-focus": palette-light("primary-1"),
+			"border-color-focus": palette-color("primary-1"),
+			"icon-color": palette-color("aluminium-3"),
+			"icon-color-focus": palette-color("primary-1")
+		);
+	}@else if($type == "disabled"){
+		$settings: (
+			"border-color": palette-color($type),
+			"text-color": palette-dark($type),
+			"box-shadow-color-focus": palette-color($type),
+			"border-color-focus": palette-color($type),
+			"icon-color": palette-color($type),
+			"icon-color-focus": palette-color($type)
+		);
+	}@else{
+		$settings: (
+			"border-color": palette-color("#{$type}-2"),
+			"text-color": palette-color("#{$type}-2"),
+			"box-shadow-color-focus": palette-light("#{$type}-1"),
+			"border-color-focus": palette-color("#{$type}-1"),
+			"icon-color": palette-color("#{$type}-2"),
+			"icon-color-focus": palette-color("#{$type}-1")
+		);
+	};
+		
+	$config: map-merge($config,("form-text-#{$type}": $settings)) !global;
+}
+
+@mixin form-text ($type) {
+	@include form-text-config($type);
+	$value: map-get($config,"form-text-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$border-color: map-get($value,"border-color");
+	$text-color: map-get($value,"text-color");
+	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
+	$border-color-focus: map-get($value,"border-color-focus");
+
+	&#{$class} {
+		border: 1px solid $border-color;
+		color: $text-color;
+
+		&:focus {
+			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);
+			border: 1px solid $border-color-focus;
+			color: #000000;
+		}
+	}
+}
+
+@mixin div-form-text ($type) {
+	@include form-text-config($type);
+	$value: map-get($config,"form-text-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$border-color: map-get($value,"border-color");
+	$text-color: map-get($value,"text-color");
+	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
+	$border-color-focus: map-get($value,"border-color-focus");
+	$icon-color: map-get($value,"icon-color");
+	$icon-color-focus: map-get($value,"icon-color-focus");
+
+	&#{$class} > input,
+	&#{$class} > textarea {
+		border: 1px solid $border-color;
+		color: $text-color;
+
+		&:focus {
+			border: 1px solid $border-color-focus;
+			color: #000000;
+			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);
+		}
+	}
+
+	&#{$class} > i {
+		color: $icon-color;
+	}
+
+	&#{$class} > input:focus + i,
+	&#{$class} > textarea:focus + i {
+		color: $icon-color-focus;
+	}
+
+}
+
+

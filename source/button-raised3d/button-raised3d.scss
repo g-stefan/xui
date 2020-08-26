@@ -1,0 +1,87 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../button/button.source";
+
+@import "button-raised3d.source";
+
+.xui.button.-raised3d {
+	display: inline-block;
+	position: relative;
+	border-radius: 3px;
+	width: auto;
+	height: 36px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 24px;
+	padding-left: 24px;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 20px;
+	color: #000000;
+	overflow: hidden;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+	outline: none;
+	text-align: center;
+	border: 0px solid #000000;
+
+	margin-top: 1px;
+	margin-left: 0px;
+	margin-bottom: 3px;
+	margin-right: 0px;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	@each $type, $value in $context {
+		@include button-raised3d($type);
+	}
+
+	&.-icon{
+		width: 40px;
+		padding-left: 8px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		padding-right: 8px;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	&.-icon-left {
+		padding-left: 40px;
+
+		& i {
+			position: absolute;
+			top: 6px;
+			left: 8px;			
+		}
+	}
+
+	&.-icon-right {
+		padding-right: 40px;
+
+		&  i {
+			position: absolute;
+			top: 6px;
+			right: 8px;			
+		}
+	}
+}
+

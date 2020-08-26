@@ -1,0 +1,62 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../ascii/ascii.source";
+@import "../base64/base64.source";
+@import "../config/config.source";
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../app-header/app-header.source";
+@import "../app-user/app-user.source";
+@import "../menu/menu.source";
+@import "../menu-accordion/menu-accordion.source";
+@import "../menu-dropdown/menu-dropdown.source";
+@import "../menu-mini/menu-mini.source";
+
+.xui.dashboard.-normal {
+
+	& .xui.navigation-drawer .xui.menu {
+		@extend	%menu-accordion;
+	}
+
+	&.-closed { 
+
+		& .xui.navigation-drawer {
+			width: 72px + 6px;
+			overflow: visible;
+		}
+
+		& .xui.navigation-drawer >  .xui._content {
+			overflow: visible;
+		}
+
+		& .xui.app-header {
+			@extend	%app-header-mini;
+		}
+
+		& .xui.navigation-drawer .xui.app-user {
+			@extend	%app-user-mini;
+		}
+
+		& .xui.navigation-drawer .xui.menu {
+			@extend	%menu-mini;
+		}
+
+		& .xui.navigation-drawer .xui.app-user {
+			width: 100%;
+		}
+
+	}
+
+}
+

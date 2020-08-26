@@ -1,0 +1,36 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+
+@import "form-label.source";
+
+.xui.form-label {
+	display: inline-block;
+        vertical-align: middle;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 6px;
+	padding-bottom: 6px;
+
+	@each $type, $value in $context {
+		@include form-label($type);
+	}
+}
+

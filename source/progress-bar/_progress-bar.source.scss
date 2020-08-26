@@ -1,0 +1,72 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin progress-bar-config($type) {
+        $settings: (
+		"border-color": red,
+		"background-color": red,
+		"text-color": red,
+		"border-color-full": red
+	);
+		
+	@if($type == "default"){
+		$settings: (
+			"border-color": palette-color("primary-2"),
+			"background-color": palette-lightest("primary-2"),
+			"text-color": palette-darkest("#{$type}-2"),
+			"border-color-full": palette-color("default-2")
+		);
+	}@else if($type == "disabled"){
+		$settings: (
+			"border-color": palette-color($type),
+			"background-color": #FFFFFF,
+			"text-color": palette-darker($type),
+			"border-color-full":palette-color($type)
+		);
+	}@else{
+		$settings: (
+			"border-color": palette-color("#{$type}-2"),
+			"background-color": palette-lightest("#{$type}-1"),
+			"text-color": palette-darker("#{$type}-2"),
+			"border-color-full": palette-color("default-2")
+		);	
+	};
+		
+	$config: map-merge($config,("progress-bar-#{$type}": $settings)) !global;
+}
+
+@mixin progress-bar ($type) {
+	@include progress-bar-config($type);
+	$value: map-get($config,"progress-bar-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$border-color: map-get($value, "border-color");
+	$background-color: map-get($value, "background-color");
+	$text-color: map-get($value, "text-color");
+	$border-color-full: map-get($value, "border-color-full");
+
+	&#{$class} {
+
+		& > ._background {
+			border: 1px solid $border-color-full;
+		}
+
+		& > ._bar {
+			border: 1px solid $border-color;
+			background-color: $background-color;
+			color: $text-color;
+		}
+
+		& > ._label {
+			color: $text-color;
+		}
+		
+	}
+}

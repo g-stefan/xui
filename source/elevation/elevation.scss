@@ -1,0 +1,36 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "elevation.source";
+
+.xui.-elevation-transition{
+	transition: box-shadow 0.5s ease;
+}
+
+@for $i from 0 through 24 {
+	
+	.xui.-elevation-#{$i},
+	.xui.-elevation-#{$i}-hover:hover,
+	.xui.-elevation-#{$i}-focus:focus,
+	.xui.-elevation-#{$i}-active:active,
+	.xui.-elevation-#{$i}-focus:hover:focus,
+	.xui.-elevation-#{$i}-active:hover:active {
+		@include elevation($i,false);
+
+		&.-inset {
+			@include elevation($i,true);
+		}
+	}
+
+}
+

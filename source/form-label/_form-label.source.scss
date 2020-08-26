@@ -1,0 +1,43 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+@mixin form-label-config($type) {
+        $settings: (
+		"text-color": red
+	);
+		
+	@if($type == "default"){
+		$settings: (
+			"text-color": #000000
+		);
+	}@else if($type == "disabled"){
+		$settings: (
+			"text-color": palette-dark($type)
+		);	
+	}@else{
+		$settings: (
+			"text-color": palette-color("#{$type}-2")
+		);
+	};
+		
+	$config: map-merge($config,("form-label-#{$type}": $settings)) !global;
+}
+
+@mixin form-label ($type) {
+	@include form-label-config($type);
+	$value: map-get($config,"form-label-#{$type}");
+
+	$class: if($type == "default","",".-#{$type}");
+
+	$text-color: map-get($value,"text-color");
+
+	&#{$class} {
+		color: $text-color;
+	}
+}

@@ -1,0 +1,24 @@
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+%app-header-mini {
+	& > .xui.app-brand {
+		width: 72px + 6px;
+	
+		& > .xui._content {
+			& > .xui._name {
+				opacity: 0;
+			}
+
+			& > .xui._mark{
+				opacity: 0;	
+			}
+		}
+	}
+}

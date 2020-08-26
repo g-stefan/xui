@@ -1,0 +1,60 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "app-header.source";
+
+.xui.app-header {
+	position: relative;
+	width: 100%;
+	height: 64px;	
+	overflow: hidden;
+	white-space: nowrap;
+	display: flex;	
+	flex-direction: row;
+
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+	
+	z-index: 4;
+
+	& > .xui.app-brand {
+		width: 288px + 6px;
+		transition: width 0.5s ease, padding 0.5s ease;	
+		flex: 0 0 auto;
+
+		& > .xui._content {
+			width: 288px + 6px;
+		}
+	}
+	
+	& > .xui.app-bar {
+		flex: 1 1 auto;
+		transition: width 0.5s ease;
+	}
+
+	& #popup-menu-user {
+		position: absolute;
+		top: 0px;
+		left: -192px;
+		width: 216px + 6px;
+
+		&::before {
+			left: 216px - 12px;
+		}
+	}
+}
+
+.xui.app-header.-mini {
+	@extend %app-header-mini;
+}
+
