@@ -15,25 +15,51 @@ XUI.Capture={};
 
 	var this_=this;
 
+	this.elAction = [];
+		
 	this.elList = [];
 	this.fn = null;
 
 	this.set=function(elList,fn){
-		this_.elList=elList;
-		this_.fn=fn;
+		if(!Array.isArray(elList)) {
+			elList=[elList];
+		};
+		this.elAction[this.elAction.length]= {
+			"elList": elList,
+			"fn": fn
+		};
 	};
 
 	this.scan=function(event){
-		if(this_.elList.length){
-			var k;
-			for(k=0;k<this_.elList.length;++k){
-				if(this_.elList[k].contains(event.target)){
-					return;
+		var toRemove=[];
+		for(var i=0;i<this_.elAction.length;++i) {
+			var found=false;
+			for(var k=0;k<this_.elAction[i].elList.length;++k) {
+				if(this_.elAction[i].elList[k].contains(event.target)) {
+					found=true;
+					break;
 				};
 			};
-			this_.fn(event,this_.elList);
-			this_.elList = [];
-			this_.fn = null;
+			if(!found) {
+				this_.elAction[i].fn(event,this_.elAction[i].elList);
+				toRemove[toRemove.length]=i;
+			};
+		};
+		if(toRemove.length){
+			var newAction=[];
+			for(var i=0;i<this_.elAction.length;++i){
+				var found=false;
+				for(var k=0;k<toRemove.length;++k){
+					if(toRemove[k]==i){
+						found=true;
+						break;
+					};
+				};
+				if(!found){
+					newAction[newAction.length]=this_.elAction[i];
+				};
+			};
+			this_.elAction=newAction;
 		};
 	};
 

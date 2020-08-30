@@ -24,11 +24,13 @@
 		transition: width 1s ease;
 	}
 
-	&._submenu:hover::before {
+	&._submenu:hover::before,
+	&._submenu.-open::before {
 		width: 16px;
 	}
 
-	&:hover {
+	&:hover,
+	&.-open {
 		overflow: visible;
 	}
 
@@ -49,7 +51,19 @@
 		@extend %menu-level-reset;
 	}
 
-	&:hover > ul > li {
+	&:hover > ul > li,
+	&.-open > ul > li {
+		@extend %menu-level;
+	}
+
+	// --- Overlay Scrollbars
+
+	& > ul > div > div > div > li {
+		@extend %menu-level-reset;
+	}
+
+	&:hover > ul > div > div > div > li,
+	&.-open > ul > div > div > div > li {
 		@extend %menu-level;
 	}
 

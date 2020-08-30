@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
 		<link rel="stylesheet" href="vendor/select2/select2.min.css">
+		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="css/xui-core.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
@@ -36,7 +37,7 @@
 			margin-bottom: 64px;
 			background-color: #FFFFFF;
 			overflow: hidden;
-			padding: 30px 30px 30px 30px;
+			padding: 30px 30px 30px 30px;			
 		}
 
 		.page:first-child {
@@ -55,11 +56,12 @@
 	<body class="xui -bg-aluminium-1">
 
 	<?php include("form-select-page-1.php"); ?>
-	<?php include("form-select-page-2.php"); ?>
+	<?php include("form-select-page-2.php"); ?>	
 
 	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
 	<script src="vendor/select2/select2.full.min.js" defer></script>
 	<script src="vendor/maximize-select2-height/maximize-select2-height.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-form-select.min.js" defer></script>
 	</body>

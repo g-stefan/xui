@@ -105,7 +105,8 @@ ul.xui.menu.-dropdown {
 		border: 1px solid palette-color("aluminium-3");
 	}
 
-	& > li:hover {
+	& > li:hover,
+	& > li.-open {
 		overflow: visible;
 	}
 
@@ -113,7 +114,8 @@ ul.xui.menu.-dropdown {
 		@extend %menu-level-reset;
 	}
 
-	& > li:hover > ul > li {
+	& > li:hover > ul > li,
+	& > li.-open > ul > li {
 		@extend %menu-level;
 	}
 
@@ -126,6 +128,8 @@ ul.xui.menu.-dropdown {
 	// Level 2
 
 	& > li:hover > ul
+	> li,
+	& > li.-open > ul
 	> li {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
@@ -140,6 +144,9 @@ ul.xui.menu.-dropdown {
 
 	& > li:hover > ul
 	> li:hover > ul 
+	> li,
+	& > li.-open > ul
+	> li.-open > ul 
 	> li {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();

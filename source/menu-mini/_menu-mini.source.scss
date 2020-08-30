@@ -49,7 +49,8 @@
 		}
 	}
 
-	& > li:hover {
+	& > li:hover,
+	& > li.-open, {
 		overflow: visible;
 
 		& > .xui.action {
@@ -57,7 +58,8 @@
 		}
 	}
 
-	& > li:hover > .xui.action {
+	& > li:hover > .xui.action,
+	& > li.-open > .xui.action {
 		& > span {
 			position: absolute;
 			top: 0px;
@@ -98,7 +100,8 @@
 
 	// Level 1
 
-	& > li {
+	& > li,
+	& > li.-open {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
 
@@ -110,6 +113,8 @@
 	// Level 2
 
 	& > li:hover > ul
+	> li,
+	& > li.-open > ul
 	> li {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
@@ -119,9 +124,37 @@
 
 	& > li:hover > ul
 	> li:hover > ul 
+	> li,
+	& > li.-open > ul
+	> li.-open > ul 
+	> li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+	// --- Overlay Scrollbars
+
+	// Level 2
+
+	& > li:hover > ul > div > div > div
+	> li,
+	& > li.-open > ul > div > div > div
+	> li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+	// Level 3
+
+	& > li:hover > ul > div > div > div
+	> li:hover > ul > div > div > div
+	> li,
+	& > li.-open > ul > div > div > div
+	> li.-open > ul > div > div > div
 	> li {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
 	}
 		
 }
+

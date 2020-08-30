@@ -261,6 +261,7 @@ buildComponent("modal");
 buildComponent("component-table");
 buildComponent("form-select-small");
 buildComponent("notify");
+buildComponent("template");
 
 // ---
 

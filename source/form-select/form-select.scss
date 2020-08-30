@@ -117,6 +117,11 @@
 	}
 }
 
+.select2-dropdown {
+	background-color: transparent;
+	border-radius: 0px; 
+}
+
 .select2-container .select2-selection--single{
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
@@ -189,20 +194,22 @@
 	@include form-select2($type);
 }
 
+.select2-container--default .select2-selection--single {
+	border-radius: 3px;
+}
+
 .select2-container--default.-disabled.select2-container--focus .select2-selection.select2-selection--single {
 	box-shadow: none;
 }
 
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;	
+	border-radius: 3px;
 }
 
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
-	border-bottom-left-radius: 3px;
-	border-bottom-right-radius: 3px;	
+	border-radius: 3px;
 }
 
 .select2-container.select2-container--default.-default.select2-container--open {
@@ -283,6 +290,62 @@
 
 	&.-disabled {
 		background-color: palette-color("disabled");
+	}
+
+}
+
+// ---
+
+.select2-container.select2-container--open > .select2-dropdown > .select2-results > .select2-results__options {
+
+	&:before {
+		content: " ";
+		z-index: 2;
+		display: block;
+		position: absolute;
+		height: 4px;
+		top: 0px;
+		left: 2px;
+		right: 0;
+		background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255, 0.2)) no-repeat;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		width: calc(100% - 4px);
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+		box-sizing: border-box;
+	}
+
+	&:after {
+		content: " ";
+		z-index: 1;
+		display: block;
+		position: absolute;
+		height: 4px;
+		bottom: 0px;
+		left: 2px;
+		right: 0;
+		background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255, 0.2)) no-repeat;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		width: calc(100% - 4px);
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+		box-sizing: border-box;
+	}
+
+	& > .os-scrollbar.os-scrollbar-horizontal {
+		z-index: 2;
+	}
+
+	& > .os-scrollbar.os-scrollbar-vertical {
+		z-index: 2;
+	}
+
+	& > .os-scrollbar-corner {
+		z-index: 2;
 	}
 
 }

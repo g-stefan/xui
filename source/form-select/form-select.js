@@ -14,34 +14,36 @@ XUI.FormSelect={};
 (function(){
 
 	var this_=this;
+	var instance_=null;
 
-	this.initById=function(id){
-		var theme=$("#"+id).attr("data-xui-select-theme");
+	this.initSelect=function(el){
+		var theme=$(el).attr("data-xui-select-theme");
 		if(!theme){
 			theme="default";
 		}else{
 			theme="default "+theme;
 		};
-		$("#"+id).select2({
+		$(el).select2({
 			minimumResultsForSearch: Infinity,
 			dropdownAutoWidth: true,
 			theme: theme
-		}).maximizeSelect2Height();
+		}).maximizeSelect2Height().on("select2:open", function () {
+			setTimeout(function(){
+				instance_=$(".select2-container.select2-container--open>.select2-dropdown>.select2-results>.select2-results__options").overlayScrollbars({scrollbars:{clickScrolling:true}});
+			},10);
+		}).on("select2:closing",function(){
+			instance_.overlayScrollbars().destroy();
+			instance_=null;
+		});	
+	};
+
+	this.initById=function(id){
+		this.initSelect($("#"+id));
 	};
 
 	this.init=function(id){
 		$(".xui.form-select").each(function() {
-			var theme=$(this).attr("data-xui-select-theme");
-			if(!theme){
-				theme="default";
-			}else{
-				theme="default "+theme;
-			};
-			$(this).select2({
-				minimumResultsForSearch: Infinity,
-				dropdownAutoWidth: true,
-				theme: theme
-			}).maximizeSelect2Height();
+			this_.initSelect(this);
 		});
 	};
 

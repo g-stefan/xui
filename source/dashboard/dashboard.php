@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="vendor/normalize/normalize.min.css">
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
+		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="css/xui-core.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
@@ -76,11 +77,18 @@
 
 	<?php include("dashboard-page-1.php"); ?>
 
+	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-effect-ripple.min.js" defer></script>
 	<script src="js/xui-toggle.min.js" defer></script>
 	<script src="js/xui-responsive.min.js" defer></script>
 	<script src="js/xui-capture.min.js" defer></script>
 	<script src="js/xui-dashboard.min.js" defer></script>
+	<script>
+		window.addEventListener("load", function(){
+			$(".xui.navigation-drawer").overlayScrollbars({scrollbars:{clickScrolling:true},clipAlways:false});
+		});
+	</script>
 	</body>
 </html>
