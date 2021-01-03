@@ -15,7 +15,6 @@ html.xui {
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
-	height: 100%;	
 	font-family: "Roboto", sans-serif;
 	box-sizing: border-box;
 
@@ -23,9 +22,15 @@ html.xui {
 		margin: 0px;
 		padding: 0px;
 		border: 0px;
-		height: 100%;
 		font-family: "Roboto", sans-serif;
 		box-sizing: border-box;
+	}
+
+	&.-browser {
+		height: 100%;		
+		& > body {
+			height: 100%;
+		}
 	}
 }
 
