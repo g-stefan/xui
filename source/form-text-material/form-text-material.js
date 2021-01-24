@@ -9,58 +9,59 @@
 //
 */
 
-XUI.FormTextMaterial={};
+XUI.FormTextMaterial = {};
 
-(function(){
-
-	var this_=this;	
-
-	/* --- */
-
-	this.onFocus=function(event){
-		if(!this.parentElement.classList.contains("-has-value")){
-			this.parentElement.classList.add("-has-value");
-		};
-		if(!this.parentElement.classList.contains("-focus")){
-			this.parentElement.classList.add("-focus");
-		};
+/**
+ * On focus event
+ */
+XUI.FormTextMaterial.onFocus = function () {
+	if (!this.parentElement.classList.contains("-has-value")) {
+		this.parentElement.classList.add("-has-value");
 	};
-
-	this.onBlur=function(event){
-		if((""+this.value).length==0){
-			if(this.parentElement.classList.contains("-has-value")){
-				this.parentElement.classList.remove("-has-value");
-			};
-		};
-		if(this.parentElement.classList.contains("-focus")){
-			this.parentElement.classList.remove("-focus");
-		};		
+	if (!this.parentElement.classList.contains("-focus")) {
+		this.parentElement.classList.add("-focus");
 	};
+};
 
-	this.init=function(){
-		var elList=document.getElementsByClassName("xui form-text -material");
-		for(var elIndex=0;elIndex < elList.length;++elIndex){
-			var elListInput=elList[elIndex].getElementsByTagName("input");
-			for(var elIndexInput=0;elIndexInput < elListInput.length;++elIndexInput){
-				elListInput[elIndexInput].addEventListener("focus",this_.onFocus);
-				elListInput[elIndexInput].addEventListener("blur",this_.onBlur);
-			};
-			var elListInput=elList[elIndex].getElementsByTagName("textarea");
-			for(var elIndexInput=0;elIndexInput < elListInput.length;++elIndexInput){
-				elListInput[elIndexInput].addEventListener("focus",this_.onFocus);
-				elListInput[elIndexInput].addEventListener("blur",this_.onBlur);
-			};
+/**
+ * On blur
+ */
+XUI.FormTextMaterial.onBlur = function () {
+	if (("" + this.value).length == 0) {
+		if (this.parentElement.classList.contains("-has-value")) {
+			this.parentElement.classList.remove("-has-value");
 		};
 	};
-
-	/* --- */
-
-	this.load=function(event){
-		window.removeEventListener("load", this_.load);
-		this_.init();
+	if (this.parentElement.classList.contains("-focus")) {
+		this.parentElement.classList.remove("-focus");
 	};
+};
 
-	window.addEventListener("load", this.load);	
-	
-}).apply(XUI.FormTextMaterial);
+/**
+ * Initialization
+ */
+XUI.FormTextMaterial.init = function () {
+	var elList = document.getElementsByClassName("xui form-text -material");
+	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
+		var elListInput = elList[elIndex].getElementsByTagName("input");
+		for (var elIndexInput = 0; elIndexInput < elListInput.length; ++elIndexInput) {
+			elListInput[elIndexInput].addEventListener("focus", this_.onFocus);
+			elListInput[elIndexInput].addEventListener("blur", this_.onBlur);
+		};
+		var elListInput = elList[elIndex].getElementsByTagName("textarea");
+		for (var elIndexInput = 0; elIndexInput < elListInput.length; ++elIndexInput) {
+			elListInput[elIndexInput].addEventListener("focus", this_.onFocus);
+			elListInput[elIndexInput].addEventListener("blur", this_.onBlur);
+		};
+	};
+};
 
+/**
+ * On load
+ */
+XUI.FormTextMaterial.load = function (event) {
+	window.removeEventListener("load", XUI.FormTextMaterial.load);
+	XUI.FormTextMaterial.init();
+};
+
+window.addEventListener("load", XUI.FormTextMaterial.load);

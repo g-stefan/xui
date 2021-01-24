@@ -9,93 +9,109 @@
 //
 */
 
-XUI.Notify={};
+XUI.Notify = {};
 
-(function(){
+XUI.Notify.space = 12;
+XUI.Notify.timeout = 3000;
+XUI.Notify.elements = [];
+XUI.Notify.inProcess = false;
 
-	var this_ = this;
-	var count = 0;
-	var height = 48;
-	var space = 12;
-	var timeout = 3000;
-	var elements = [];
-	var inProcess = false;
+/**
+ * Get Y position of element
+ * @param {number} index 
+ * @return {number} Position on y axis
+ */
+XUI.Notify.getY = function (index) {
+	var k;
+	var retV = 0;
+	var scan = 0;
+	if (index > this.elements.length) {
+		index = this.elements.length;
+	};
+	retV += this.space;
+	for (k = 0; k < index; ++k) {
+		retV += (this.elements[k].getBoundingClientRect()).height;
+		retV += this.space;
+	};
+	return retV;
+};
 
-	this.removeNotification = function() {
-		var el, k;
-		inProcess = true;
-		if(!elements.length){
-			inProcess = false;
-			return;
-		};
+/**
+ * Remove one notification from page with transition
+ */
+XUI.Notify.removeNotification = function () {
+	var el, k;
 
-		el=elements.shift();
-		document.body.removeChild(el);
-
-		if(elements.length){
-			for(k=0;k<elements.length;++k) {
-				elements[k].style.transition = "top 0.3s ease";
-				elements[k].style.top = space + k*(height+space)+"px";
-			};
-
-			setTimeout(this_.removeNotification, timeout);
-			return;
-		};
-
-		inProcess = false;
+	this.inProcess = true;
+	if (!this.elements.length) {
+		this.inProcess = false;
+		return;
 	};
 
-	this.newNotification = function(info,type) {
-		var elNotify;
-                var elNotifyBoxRow;
-                var elNotifyBox;
-		var elNotifyInfo;
+	el = this.elements.shift();
+	document.body.removeChild(el);
 
-		elNotify = document.createElement("div");
-		elNotify.className = "xui";
-		elNotify.style.display = "block";
-		elNotify.style.position = "absolute";
-		elNotify.style.top = space + elements.length*(height+space)+"px";
-		elNotify.style.left = "0px";
-		elNotify.style.width = "100%";
-		elNotify.style.height = "auto";
-		elNotify.style.zIndex = 500;
-
-		elNotifyBoxRow = document.createElement("div");
-		elNotifyBoxRow.className = "xui box -row";
-		elNotifyBox = document.createElement("div");
-		elNotifyBox.className = "xui box -x1x1";
-
-		elNotifyInfo = document.createElement("div");
-		if(!(type === undefined)){
-			type=" -"+type;
-		} else {
-			type="";
+	if (this.elements.length) {
+		for (k = 0; k < this.elements.length; ++k) {
+			this.elements[k].style.transition = "top 0.3s ease";
+			this.elements[k].style.top = this.getY(k) + "px";
 		};
-		elNotifyInfo.className = "xui alert -elevation-8"+type;
-		elNotifyInfo.innerHTML = info;
 
-		elNotifyBox.appendChild(elNotifyInfo);
-		elNotifyBoxRow.appendChild(elNotifyBox);
-		elNotify.appendChild(elNotifyBoxRow);
-		
-		elements.push(elNotify);
-
-		document.body.appendChild(elNotify);
-
-		if(!inProcess){
-			setTimeout(this_.removeNotification, timeout);
-		};
+		setTimeout(function () {
+			XUI.Notify.removeNotification();
+		}, this.timeout);
+		return;
 	};
 
-	this.init=function() {
+	this.inProcess = false;
+};
+
+/**
+ * Add a new notification on page
+ * @param {string} info - Info to be displayed - html
+ * @param {string} [type] - type of notification
+ */
+XUI.Notify.newNotification = function (info, type) {
+	var elNotify;
+	var elNotifyBoxRow;
+	var elNotifyBox;
+	var elNotifyInfo;
+
+	elNotify = document.createElement("div");
+	elNotify.className = "xui";
+	elNotify.style.display = "block";
+	elNotify.style.position = "absolute";
+	elNotify.style.top = this.getY(this.elements.length) + "px";
+	elNotify.style.left = "0px";
+	elNotify.style.width = "100%";
+	elNotify.style.height = "auto";
+	elNotify.style.zIndex = 500;
+
+	elNotifyBoxRow = document.createElement("div");
+	elNotifyBoxRow.className = "xui box -row";
+	elNotifyBox = document.createElement("div");
+	elNotifyBox.className = "xui box -x1x1";
+
+	elNotifyInfo = document.createElement("div");
+	if (!(type === undefined)) {
+		type = " -" + type;
+	} else {
+		type = "";
 	};
+	elNotifyInfo.className = "xui alert -elevation-8" + type;
+	elNotifyInfo.innerHTML = info;
 
-	this.load=function(event) {
-		window.removeEventListener("load", this_.load);
-		this_.init();
+	elNotifyBox.appendChild(elNotifyInfo);
+	elNotifyBoxRow.appendChild(elNotifyBox);
+	elNotify.appendChild(elNotifyBoxRow);
+
+	this.elements.push(elNotify);
+
+	document.body.appendChild(elNotify);
+
+	if (!this.inProcess) {
+		setTimeout(function () {
+			XUI.Notify.removeNotification();
+		}, this.timeout);
 	};
-
-	window.addEventListener("load", this.load);
-
-}).apply(XUI.Notify);
+};

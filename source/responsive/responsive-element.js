@@ -19,7 +19,7 @@ XUI.Responsive.Element.elementSuffix = "_responsive-iframe";
  * Process on window/iframe resize event
  */
 XUI.Responsive.Element.processEventResize = function () {
-	var this_=XUI.Responsive.Element;
+	var this_ = XUI.Responsive.Element;
 	var state = elResponsive.offsetWidth;
 	if (this_.elementsState[elementId] != state) {
 		this_.elementsState[elementId] = state;
@@ -59,7 +59,7 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 				this.elements[elementId] = [];
 			};
 			this.elements[elementId].push(fnNotify);
-			
+
 			var elWindow = elResponsive.contentWindow;
 			if (elWindow != null) {
 				elWindow.addEventListener("resize", this.processEventResize);
@@ -71,7 +71,7 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 	};
 	this.elements[elementId].push(fnNotify);
 	if (fnNotify) {
-		fnNotify.call(undefined,elResponsive.offsetWidth);
+		fnNotify.call(undefined, elResponsive.offsetWidth);
 	};
 	return true;
 };

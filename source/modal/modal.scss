@@ -67,8 +67,8 @@
 		transform: rotateX(0deg) translateY(0px) scale(1);
 	}
 
-	&.-animate-dezactivate > .xui._modal-content {
-		animation: xui-modal-animate-dezactivate 0.3s;
+	&.-animate-deactivate > .xui._modal-content {
+		animation: xui-modal-animate-deactivate 0.3s;
 		animation-fill-mode: forwards;
 	}
 
@@ -87,7 +87,7 @@ body.-modal-open {
 	overflow: hidden;
 }
 
-@keyframes xui-modal-animate-dezactivate {
+@keyframes xui-modal-animate-deactivate {
 	from {
 		opacity: 1;
 		transform: rotateX(0deg) translateY(0px) scale(1);

@@ -108,9 +108,9 @@ XUI.Template.init = function () {
 };
 
 /**
- * Init on window load event
+ * Load window event
  */
-XUI.Template.load = function (event) {
+XUI.Template.load = function () {
 	window.removeEventListener("load", XUI.Template.load);
 	XUI.Template.init();
 };
