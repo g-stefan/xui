@@ -69,7 +69,7 @@ XUI.EffectRipple={};
 	};
 
 	this.prepareElement=function(parent,effectColor,effectColorClass){
-		var el=XUI.getByClassNameFirst(parent,"xui -effect-ripple_element");
+		var el=XUI.Element.getByClassNameFirst(parent,"xui -effect-ripple_element");
 
 		if(!el){
 			var elLayer = document.createElement("div");
@@ -106,7 +106,7 @@ XUI.EffectRipple={};
 
 		parent.addEventListener("mousedown", function(event){
 
-			var el=XUI.getByClassNameFirst(parent,"xui -effect-ripple_element");
+			var el=XUI.Element.getByClassNameFirst(parent,"xui -effect-ripple_element");
 
 			if(!el){
 				el=this_.prepareElement(parent);
@@ -129,8 +129,8 @@ XUI.EffectRipple={};
 				elLeftX=parent.clientWidth/2;
 				elLeftY=parent.clientHeight/2;
 			}else{
-				elLeftX=event.pageX-XUI.getOffsetX(parent);
-				elLeftY=event.pageY-XUI.getOffsetY(parent);
+				elLeftX=event.pageX-XUI.Element.getOffsetX(parent);
+				elLeftY=event.pageY-XUI.Element.getOffsetY(parent);
 			};
 
 			el.style.height=sizeElInitial+"px";
@@ -172,7 +172,7 @@ XUI.EffectRipple={};
 	};
 
 	this.init=function(){
-		var elList=XUI.getByClassName(document,"xui -effect-ripple");
+		var elList=XUI.Element.getByClassName(document,"xui -effect-ripple");
 		for(var elIndex=0;elIndex<elList.length;++elIndex){
 			var effectType=elList[elIndex].getAttribute("data-xui-ripple");
 			var effectColor=elList[elIndex].getAttribute("data-xui-ripple-color");

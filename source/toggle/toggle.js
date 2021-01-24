@@ -107,7 +107,7 @@ XUI.Toggle={};
 	};
 
 	this.init=function(){
-		var elList=XUI.getByClassName(document,"xui -toggle");
+		var elList=XUI.Element.getByClassName(document,"xui -toggle");
 		for(var elIndex=0;elIndex<elList.length; ++elIndex){
 			var toggleAction=elList[elIndex].getAttribute("data-xui-toggle-action");
 			var toggleActionId=elList[elIndex].getAttribute("data-xui-toggle-action-id");
@@ -134,7 +134,7 @@ XUI.Toggle={};
 						groupClassItems=groupClass.trim().split("/");
 					};
 						
-					var list=XUI.getByClassNameAndAttributeValue(document,"xui -toggle","data-xui-toggle-group",groupName);
+					var list=XUI.Element.getByClassNameAndAttributeValue(document,"xui -toggle","data-xui-toggle-group",groupName);
 					this.onClickTogleElementListClass(elList[elIndex],list,groupClassItems);
 
 				};

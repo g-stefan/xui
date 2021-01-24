@@ -38,7 +38,7 @@ XUI.FormTextMaterial={};
 	};
 
 	this.init=function(){
-		var elList=XUI.getByClassName(document,"xui form-text -material");
+		var elList=document.getElementsByClassName("xui form-text -material");
 		for(var elIndex=0;elIndex < elList.length;++elIndex){
 			var elListInput=elList[elIndex].getElementsByTagName("input");
 			for(var elIndexInput=0;elIndexInput < elListInput.length;++elIndexInput){

@@ -21,12 +21,12 @@ XUI.Modal={};
 	this.activate=function(elId) {
 		var el=document.getElementById(elId);
 		if(el){
-			this_.setDezactivateEventListener(XUI.getByClassNameFirst(el,"_modal-content"));
+			this_.setDezactivateEventListener(XUI.Element.getByClassNameFirst(el,"_modal-content"));
 			el.classList.toggle("-active");
 			elActive=el;
 			document.body.classList.add("-modal-open");
 			setTimeout(function(){
-				var el=XUI.getByClassNameFirst(elActive,"_modal-content");
+				var el=XUI.Element.getByClassNameFirst(elActive,"_modal-content");
 				this_.onResize();
 			},500);
 		};
@@ -48,7 +48,7 @@ XUI.Modal={};
 
 			if(!elInitialWidthFirstTime){			
 				elActive.classList.remove("-scroll-x");
-				var el=XUI.getByClassNameFirst(elActive,"_modal-content");
+				var el=XUI.Element.getByClassNameFirst(elActive,"_modal-content");
 				if(el){
 					el.style.removeProperty("width");
 				};
@@ -85,7 +85,7 @@ XUI.Modal={};
 
 	this.onResize=function(){
 		if(elActive){
-			var el=XUI.getByClassNameFirst(elActive,"_modal-content");
+			var el=XUI.Element.getByClassNameFirst(elActive,"_modal-content");
 			if(el){
 				if(el.offsetWidth > window.innerWidth){
 					if(elInitialWidthFirstTime){
@@ -110,9 +110,9 @@ XUI.Modal={};
 	};
 
 	this.init=function(){
-		var elList=XUI.getByClassName(document,"xui modal");
+		var elList=XUI.Element.getByClassName(document,"xui modal");
 		for(var elIndex=0;elIndex<elList.length; ++elIndex){
-			var el=XUI.getByClassNameFirst(elList[elIndex],"_modal-close-button");
+			var el=XUI.Element.getByClassNameFirst(elList[elIndex],"_modal-close-button");
 			if(el){
 				(function(elSuper,el){
 					el.addEventListener("click", function(){

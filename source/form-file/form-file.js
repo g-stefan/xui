@@ -80,7 +80,7 @@ XUI.FormFile={};
 	};
 
 	this.init=function(){
-		var elList=XUI.getByClassName(document,"xui form-file");
+		var elList=document.getElementsByClassName("xui form-file");
 		for(k=0;k<elList.length;++k){
 			this.initElement(elList[k]);
 		};

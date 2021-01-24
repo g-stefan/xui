@@ -25,7 +25,7 @@ XUI.Dashboard={};
 	};
 
 	this.getState=function(){
-		var el=XUI.getByClassNameFirst(document,this.mainSelector);
+		var el=XUI.Element.getByClassNameFirst(document,this.mainSelector);
 		if(el){
 			var mode="";
 			var state="";
@@ -71,7 +71,7 @@ XUI.Dashboard={};
 		if((state.mode==oldState.mode)&&(state.state==oldState.state)){
 			return;
 		};
-		var el=XUI.getByClassNameFirst(document,this.mainSelector);
+		var el=XUI.Element.getByClassNameFirst(document,this.mainSelector);
 		if(el){
 			this.setClass(el,state.mode,["normal","mini","over"]);
 			this.setClass(el,state.state,["open","closed"]);
@@ -97,19 +97,19 @@ XUI.Dashboard={};
 	};
 
 	this.setCookie=function(state,isUser){
-		XUI.setCookie("xui-dashboard",this.encodeState(state));
+		XUI.Cookie.set("xui-dashboard",this.encodeState(state));
 		if(isUser){
 			if(state.mode=="normal"){
-				XUI.setCookie("xui-dashboard-user",this.encodeState(state));
+				XUI.Cookie.set("xui-dashboard-user",this.encodeState(state));
 			};
 		};
 	};
 
 	this.getCookie=function(isUser){
-		var state=this.decodeState(XUI.getCookie("xui-dashboard"));
+		var state=this.decodeState(XUI.Cookie.get("xui-dashboard"));
 		if(isUser){
 			if(state.mode=="normal"){
-				stateUser=XUI.getCookie("xui-dashboard-user");
+				stateUser=XUI.Cookie.get("xui-dashboard-user");
 				if(stateUser){
 					state=this.decodeState(stateUser);
 				};
