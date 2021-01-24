@@ -9,67 +9,75 @@
 //
 */
 
-XUI.Responsive={};
+XUI.Responsive = {};
 
-(function(){
+XUI.Responsive.initOk = false;
+XUI.Responsive.processResponsiveList = [];
 
-	var this_=this;
+XUI.Responsive.elResponsiveAfter = null;
+XUI.Responsive.currentState = 0;
+XUI.Responsive.lastState = 0;
 
-	this.initOk=false;
-	this.processResponsiveList=[];
-
-	this.currentState=0;
-	this.lastState=0;
-
-	this.init=function(){
-
-		this.initOk=true;
-				
-		this.elResponsive = document.createElement("div");
-		this.elResponsive.innerHTML = "";
-		this.elResponsive.className = "xui responsive";
-		this.elResponsive.id = "xui-responsive";
-		this.elResponsive.style.pointerEvents = "none";
-		this.elResponsive.style.display = "none";
-
-		document.body.appendChild(this.elResponsive);
-
-		this.elResponsiveAfter = window.getComputedStyle ? window.getComputedStyle(this.elResponsive, "::after") : null;
-		this.currentState = 0;
-		this.lastState = 0;
-
-		this.processEvent = function(){
-			this_.currentState = parseInt(("" + this_.elResponsiveAfter.getPropertyValue("content")).replace(/["']/g, ""));
-			if(this_.lastState == this_.currentState){
-				return;
-			};
-			for(var k=0;k<this_.processResponsiveList.length;++k){
-				this_.processResponsiveList[k][0].call(this_.processResponsiveList[k][1],this_.currentState,this_.lastState);
-			};
-			this_.lastState = this_.currentState;
-		}
-
-		if(this.elResponsiveAfter){
-			window.addEventListener("load", this_.processEvent);
-			window.addEventListener("resize", this_.processEvent);
-			window.addEventListener("orientationchange", this_.processEvent);
-			this_.processEvent();
-		};
+/**
+ * Process events
+ */
+XUI.Responsive.processEvent = function () {
+	var this_ = XUI.Responsive;
+	this_.currentState = parseInt(("" + this_.elResponsiveAfter.getPropertyValue("content")).replace(/["']/g, ""));
+	if (this_.lastState == this_.currentState) {
+		return;
 	};
-
-	this.addProcessResponsive=function(processResponsive,processResponsiveThis){
-		this.processResponsiveList[this.processResponsiveList.length]=[processResponsive,processResponsiveThis];
-		if(this.initOk){
-			processResponsive.call(processResponsiveThis,1*this.currentState,1*this.lastState);
-		};
+	for (var k = 0; k < this_.processResponsiveList.length; ++k) {
+		this_.processResponsiveList[k][0].call(this_.processResponsiveList[k][1], this_.currentState, this_.lastState);
 	};
+	this_.lastState = this_.currentState;
+};
 
-	this.load=function(event){
-		window.removeEventListener("load", this_.load);		
-		this_.init();
+/**
+ * Initialization
+ */
+XUI.Responsive.init = function () {
+
+	this.initOk = true;
+
+	this.elResponsive = document.createElement("div");
+	this.elResponsive.innerHTML = "";
+	this.elResponsive.className = "xui responsive";
+	this.elResponsive.id = "xui-responsive";
+	this.elResponsive.style.pointerEvents = "none";
+	this.elResponsive.style.display = "none";
+
+	document.body.appendChild(this.elResponsive);
+
+	this.elResponsiveAfter = window.getComputedStyle ? window.getComputedStyle(this.elResponsive, "::after") : null;
+	this.currentState = 0;
+	this.lastState = 0;
+
+	if (this.elResponsiveAfter) {
+		window.addEventListener("load", this.processEvent);
+		window.addEventListener("resize", this.processEvent);
+		window.addEventListener("orientationchange", this.processEvent);
+		this.processEvent();
 	};
+};
 
-	window.addEventListener("load", this.load);
+/**
+ * Add function for processing responsive events
+ * @param {function} processResponsive - Callback - processResponsive(currentState,lastState)
+ * @param {object} [processResponsiveThis] - Callback this
+ */
+XUI.Responsive.addProcessResponsive = function (processResponsive, processResponsiveThis) {
+	this.processResponsiveList[this.processResponsiveList.length] = [processResponsive, processResponsiveThis];
+	if (this.initOk) {
+		processResponsive.call(processResponsiveThis, 1 * this.currentState, 1 * this.lastState);
+	};
+};
 
-}).apply(XUI.Responsive);
-
+/**
+ * Init on window load event
+ */
+XUI.Responsive.load = function () {
+	window.removeEventListener("load", XUI.Responsive.load);
+	XUI.Responsive.init();
+};
+window.addEventListener("load", XUI.Responsive.load);
