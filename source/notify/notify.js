@@ -110,6 +110,7 @@ XUI.Notify.newNotification = function (info, type) {
 	document.body.appendChild(elNotify);
 
 	if (!this.inProcess) {
+		this.inProcess = true;
 		setTimeout(function () {
 			XUI.Notify.removeNotification();
 		}, this.timeout);

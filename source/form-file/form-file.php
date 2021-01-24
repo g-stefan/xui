@@ -57,6 +57,7 @@
 	<?php include("form-file-page-1.php"); ?>
 
 	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-element.min.js" defer></script>
 	<script src="js/xui-form-file.min.js" defer></script>
 	</body>
 </html>

@@ -41,6 +41,7 @@ XUI.FormTextMaterial.onBlur = function () {
  * Initialization
  */
 XUI.FormTextMaterial.init = function () {
+	var this_ = XUI.FormTextMaterial;
 	var elList = document.getElementsByClassName("xui form-text -material");
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
 		var elListInput = elList[elIndex].getElementsByTagName("input");
