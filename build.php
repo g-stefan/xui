@@ -196,6 +196,12 @@ makeCopy("xui-version-lib.txt","release/xui-version-lib.txt");
 // ---
 
 buildComponent("core");
+buildComponent("cookie");
+buildComponent("ajax");
+buildComponent("element");
+buildComponent("script");
+buildComponent("html");
+// ---
 buildComponent("grid");
 buildComponent("elevation");
 buildComponent("responsive");
