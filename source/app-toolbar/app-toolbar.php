@@ -67,6 +67,7 @@
 	<?php include("app-toolbar-page-1.php"); ?>
 
 	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-element.min.js" defer></script>
 	<script src="js/xui-effect-ripple.min.js" defer></script>
 	<script src="js/xui-responsive.min.js" defer></script>
 	<script src="js/xui-responsive-element.min.js" defer></script>

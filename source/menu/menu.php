@@ -67,6 +67,7 @@
 	<?php include("menu-page-1.php"); ?>
 
 	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-element.min.js" defer></script>
 	<script src="js/xui-effect-ripple.min.js" defer></script>
 	<script src="js/xui-toggle.min.js" defer></script>
 	</body>

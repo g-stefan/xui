@@ -58,6 +58,7 @@
 	<?php include("button-transparent-page-2.php"); ?>
 
 	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-element.min.js" defer></script>
 	<script src="js/xui-effect-ripple.min.js" defer></script>
 	</body>
 </html>
