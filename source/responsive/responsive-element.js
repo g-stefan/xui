@@ -62,8 +62,20 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 
 			var elWindow = elResponsive.contentWindow;
 			if (elWindow != null) {
-				elWindow.addEventListener("resize", this.processEventResize);
-				this.processEventResize();
+				var processEventResize = function () {
+					var this_ = XUI.Responsive.Element;
+					var state = elResponsive.offsetWidth;
+					if (this_.elementsState[elementId] != state) {
+						this_.elementsState[elementId] = state;
+						for (var k = 0; k < this_.elements[elementId].length; ++k) {
+							if (this_.elements[elementId][k]) {
+								this_.elements[elementId][k].call(undefined, state);
+							};
+						};
+					};
+				};
+				elWindow.addEventListener("resize", processEventResize);
+				processEventResize();
 				return true;
 			};
 		};

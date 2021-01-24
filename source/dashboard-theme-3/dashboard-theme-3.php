@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="vendor/normalize/normalize.min.css">
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
+		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="css/xui.complete.min.css">
 		<link rel="stylesheet" href="css/xui-dashboard-theme-3.css">
 		<style>
@@ -62,6 +63,7 @@
 	<?php include("dashboard-theme-3-page-3.php"); ?>
 
 	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui.complete.min.js" defer></script>
 	</body>
 </html>
