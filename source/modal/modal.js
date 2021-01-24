@@ -110,7 +110,7 @@ XUI.Modal={};
 	};
 
 	this.init=function(){
-		var elList=XUI.Element.getByClassName(document,"xui modal");
+		var elList=document.getElementsByClassName("xui modal");
 		for(var elIndex=0;elIndex<elList.length; ++elIndex){
 			var el=XUI.Element.getByClassNameFirst(elList[elIndex],"_modal-close-button");
 			if(el){

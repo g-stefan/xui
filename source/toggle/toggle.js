@@ -107,7 +107,7 @@ XUI.Toggle={};
 	};
 
 	this.init=function(){
-		var elList=XUI.Element.getByClassName(document,"xui -toggle");
+		var elList=document.getElementsByClassName("xui -toggle");
 		for(var elIndex=0;elIndex<elList.length; ++elIndex){
 			var toggleAction=elList[elIndex].getAttribute("data-xui-toggle-action");
 			var toggleActionId=elList[elIndex].getAttribute("data-xui-toggle-action-id");

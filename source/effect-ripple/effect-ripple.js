@@ -172,7 +172,7 @@ XUI.EffectRipple={};
 	};
 
 	this.init=function(){
-		var elList=XUI.Element.getByClassName(document,"xui -effect-ripple");
+		var elList=document.getElementsByClassName("xui -effect-ripple");
 		for(var elIndex=0;elIndex<elList.length;++elIndex){
 			var effectType=elList[elIndex].getAttribute("data-xui-ripple");
 			var effectColor=elList[elIndex].getAttribute("data-xui-ripple-color");
