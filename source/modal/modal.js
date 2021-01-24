@@ -147,11 +147,10 @@ XUI.Modal.init = function () {
 };
 
 /**
- * Window load event
+ * On load
  */
-XUI.Modal.load = function () {
-	window.removeEventListener("load", XUI.Modal.load);
+XUI.Modal.onLoad = function () {
+	window.removeEventListener("load", XUI.Modal.onLoad);
 	XUI.Modal.init();
 };
-
-window.addEventListener("load", XUI.Modal.load);
+window.addEventListener("load", XUI.Modal.onLoad);

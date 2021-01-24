@@ -26,7 +26,7 @@
 	<div class="xui app-header">
 		<?php include("source/app-brand/_app-brand.content.source.php"); ?>
 		<div class="xui app-bar">
-			<div class="xui button -icon -left -transparent -effect-ripple" onclick="XUI.Dashboard.toogleOver('dashboard-mode-over');">
+			<div class="xui button -icon -left -transparent -effect-ripple" onclick="XUI.Dashboard.toggleOver('dashboard-mode-over');">
 				<i class="material-icons">menu</i>
 			</div>
 			<div class="xui text -size-h24x40 -left">

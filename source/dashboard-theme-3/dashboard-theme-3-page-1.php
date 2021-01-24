@@ -25,7 +25,7 @@
 	<!-- app-header -->
 	<div class="xui app-header">
 		<div class="xui app-bar">
-			<div class="xui button -icon -left -transparent -effect-ripple" onclick="XUI.Dashboard.toogleNormal('dashboard-mode-normal');">
+			<div class="xui button -icon -left -transparent -effect-ripple" onclick="XUI.Dashboard.toggleNormal('dashboard-mode-normal');">
 				<i class="material-icons">menu</i>
 			</div>
 			<div class="xui text -size-h24x40 -left">

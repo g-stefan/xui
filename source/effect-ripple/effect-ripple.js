@@ -9,184 +9,209 @@
 //
 */
 
-XUI.EffectRipple={};
+XUI.EffectRipple = {};
 
-(function(){
+XUI.EffectRipple.animationInterval = 300;
+XUI.EffectRipple.animationStep = 20;
+XUI.EffectRipple.animationIntervalOut = 200;
+XUI.EffectRipple.animationMinOpacity = 0.1;
+XUI.EffectRipple.animationMaxOpacity = 1;
 
-	var this_=this;
+/**
+ * Process animation out effect
+ * @param {element} el - Element
+ * @param {function} animationProcessOut - Callback
+ */
+XUI.EffectRipple.outEffect = function (el, animationProcessOut) {
+	if (el.classList.contains("-animation-active")) {
+		el.classList.remove("-animation-active");
+		el.classList.remove("-animation-in");
+		el.classList.add("-animation-out");
+		animationProcessOut();
+		return;
+	};
+	if (el.classList.contains("-animation-in")) {
+		setTimeout(function () {
+			XUI.EffectRipple.outEffect(el, animationProcessOut);
+		}, Math.floor(this.animationInterval / 2));
+	};
+};
 
-	this.animationInterval=300;
-	this.animationStep=20;
-	this.animationIntervalOut=200;
-	this.animationMinOpacity=0.1;
-	this.animationMaxOpacity=1;
+/**
+ * Initialize element for effect
+ * @param {element} parent - The parent element
+ * @param {element} el - Element
+ */
+XUI.EffectRipple.initElement = function (parent, el) {
+	var this_ = XUI.EffectRipple;
+	var frameAnimationOut = 0;
+	var opacityOutEl = this.animationMaxOpacity;
+	var opacityOutElDelta = ((0.0 - this.animationMaxOpacity) * this.animationStep) / this.animationIntervalOut;
 
-	this.outEffect=function(el,animationProcessOut){
-		if(el.classList.contains("-animation-active")){
-			el.classList.remove("-animation-active");
-			el.classList.remove("-animation-in");
-			el.classList.add("-animation-out");
-			animationProcessOut();
+	var animationProcessOut = function () {
+		frameAnimationOut += this_.animationStep;
+
+		opacityOutEl += opacityOutElDelta;
+
+		el.style.opacity = opacityOutEl;
+
+		if (frameAnimationOut < this_.animationIntervalOut) {
+			setTimeout(animationProcessOut, this_.animationStep);
 			return;
 		};
-		if(el.classList.contains("-animation-in")){
-			setTimeout(function(){
-				this_.outEffect(el,animationProcessOut);
-			},Math.floor(this_.animationInterval/2));
-		};
+
+		// reset
+		frameAnimationOut = 0;
+		opacityOutEl = this_.animationMaxOpacity;
+		el.style.opacity = 0.0;
 	};
 
-	this.initElement=function(parent,el){
-		var frameAnimationOut=0;
-		var opacityOutEl=this_.animationMaxOpacity;
-		var opacityOutElDelta=((0.0-this_.animationMaxOpacity)*this_.animationStep)/this_.animationIntervalOut;
-		var animationProcessOut=function(){
-			frameAnimationOut+=this_.animationStep;
+	parent.addEventListener("mouseup", function () {
+		XUI.EffectRipple.outEffect(el, animationProcessOut);
+	});
 
-			opacityOutEl+=opacityOutElDelta;
+	parent.addEventListener("mouseleave", function () {
+		XUI.EffectRipple.outEffect(el, animationProcessOut);
+	});
 
-			el.style.opacity=opacityOutEl;
-	
-			if(frameAnimationOut<this_.animationIntervalOut){
-				setTimeout(animationProcessOut,this_.animationStep);
+};
+
+/**
+ * Prepare element for animation
+ * @param {element} parent - Parent element
+ * @param {string} [effectColor] - Color
+ * @param {string} [effectColorClass] - CSS class
+ * @return {element} Element
+ */
+XUI.EffectRipple.prepareElement = function (parent, effectColor, effectColorClass) {
+	var el = XUI.Element.getByClassNameFirst(parent, "xui -effect-ripple_element");
+
+	if (!el) {
+		var elLayer = document.createElement("div");
+		elLayer.innerHTML = "";
+		elLayer.className = "xui -effect-ripple_layer";
+
+		parent.style.zIndex = 1;
+		parent.insertBefore(elLayer, parent.firstChild);
+
+		var el = document.createElement("div");
+		el.innerHTML = "";
+		el.className = "xui -effect-ripple_element";
+
+		if (effectColor) {
+			el.style.backgroundColor = effectColor;
+		};
+
+		if (effectColorClass) {
+			el.className = "xui -effect-ripple_element " + effectColorClass;
+		};
+
+		elLayer.appendChild(el);
+
+		this.initElement(parent, el);
+	};
+
+	return el;
+};
+
+/**
+ * Add effect ripple to element
+ * @param {element} el - ELement
+ * @param {string} [effectType] - Effect type
+ * @param {string} [effectColor] - Color
+ * @param {string} [effectColorClass] - CSS Class
+ */
+XUI.EffectRipple.add = function (el, effectType, effectColor, effectColorClass) {
+	var this_ = XUI.EffectRipple;
+	var parent = el;
+
+	this.prepareElement(parent, effectColor, effectColorClass);
+
+	parent.addEventListener("mousedown", function (event) {
+
+		var el = XUI.Element.getByClassNameFirst(parent, "xui -effect-ripple_element");
+
+		if (!el) {
+			el = this_.prepareElement(parent);
+		};
+
+		if (el.classList.contains("-animation-in")) {
+			return;
+		};
+
+		el.classList.remove("-animation-out");
+		el.classList.remove("-animation-dummy");
+
+		var sizeParent = Math.max(parent.offsetWidth, parent.offsetHeight);
+		var sizeElInitial = 6;
+
+		var elLeftX;
+		var elLeftY;
+
+		if (effectType == "center") {
+			elLeftX = parent.clientWidth / 2;
+			elLeftY = parent.clientHeight / 2;
+		} else {
+			elLeftX = event.pageX - XUI.Element.getOffsetX(parent);
+			elLeftY = event.pageY - XUI.Element.getOffsetY(parent);
+		};
+
+		el.style.height = sizeElInitial + "px";
+		el.style.width = sizeElInitial + "px";
+		el.style.left = elLeftX - (sizeElInitial / 2) + "px";
+		el.style.top = elLeftY - (sizeElInitial / 2) + "px";
+
+		el.classList.add("-animation-in");
+
+		var frameAnimation = 0;
+		var sizeEl = sizeElInitial;
+		var sizeElDelta = (3 * ((sizeParent - sizeElInitial) * this_.animationStep)) / this_.animationInterval;
+		var opacityEl = this_.animationMinOpacity;
+		var opacityElDelta = ((this_.animationMaxOpacity - this_.animationMinOpacity) * this_.animationStep) / this_.animationInterval;
+
+		var animationProcessIn = function () {
+			frameAnimation += this_.animationStep;
+
+			sizeEl += sizeElDelta;
+			opacityEl += opacityElDelta;
+
+			el.style.opacity = opacityEl;
+
+			el.style.height = Math.floor(sizeEl) + "px";
+			el.style.width = Math.floor(sizeEl) + "px";
+			el.style.left = Math.floor(elLeftX - (sizeEl / 2)) + "px";
+			el.style.top = Math.floor(elLeftY - (sizeEl / 2)) + "px";
+
+			if (frameAnimation < this_.animationInterval) {
+				setTimeout(animationProcessIn, this_.animationStep);
 				return;
 			};
 
-			// reset
-			frameAnimationOut=0;
-			opacityOutEl=this_.animationMaxOpacity;
-			el.style.opacity=0.0;
+			el.classList.add("-animation-active");
 		};
 
-		parent.addEventListener("mouseup", function(event){			
-			this_.outEffect(el,animationProcessOut);
-		});
+		animationProcessIn();
+	});
+};
 
-		parent.addEventListener("mouseleave", function(event){
-			this_.outEffect(el,animationProcessOut);
-		});
-
+/**
+ * Initialization
+ */
+XUI.EffectRipple.init = function () {
+	var elList = document.getElementsByClassName("xui -effect-ripple");
+	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
+		var effectType = elList[elIndex].getAttribute("data-xui-ripple");
+		var effectColor = elList[elIndex].getAttribute("data-xui-ripple-color");
+		var effectColorClass = elList[elIndex].getAttribute("data-xui-ripple-color-class");
+		this.add(elList[elIndex], effectType, effectColor, effectColorClass);
 	};
+};
 
-	this.prepareElement=function(parent,effectColor,effectColorClass){
-		var el=XUI.Element.getByClassNameFirst(parent,"xui -effect-ripple_element");
-
-		if(!el){
-			var elLayer = document.createElement("div");
-			elLayer.innerHTML = "";
-			elLayer.className = "xui -effect-ripple_layer";
-
-			parent.style.zIndex = 1;
-			parent.insertBefore(elLayer, parent.firstChild);
-                
-			var el = document.createElement("div");
-			el.innerHTML = "";
-			el.className = "xui -effect-ripple_element";
-				
-			if(effectColor){
-				el.style.backgroundColor=effectColor;
-			};
-
-			if(effectColorClass){
-				el.className = "xui -effect-ripple_element " + effectColorClass;
-			};
-
-			elLayer.appendChild(el);
-				
-			this_.initElement(parent,el);
-		};
-
-		return el;
-	};
-
-	this.add=function(el,effectType,effectColor,effectColorClass){
-		var parent=el;
-
-		this.prepareElement(parent,effectColor,effectColorClass);
-
-		parent.addEventListener("mousedown", function(event){
-
-			var el=XUI.Element.getByClassNameFirst(parent,"xui -effect-ripple_element");
-
-			if(!el){
-				el=this_.prepareElement(parent);
-			};
-			
-			if(el.classList.contains("-animation-in")){
-				return;
-			};
-
-			el.classList.remove("-animation-out");	
-			el.classList.remove("-animation-dummy");	
-
-			var sizeParent = Math.max(parent.offsetWidth, parent.offsetHeight);
-			var sizeElInitial = 6;
-
-			var elLeftX;
-			var elLeftY;
-
-			if(effectType=="center"){
-				elLeftX=parent.clientWidth/2;
-				elLeftY=parent.clientHeight/2;
-			}else{
-				elLeftX=event.pageX-XUI.Element.getOffsetX(parent);
-				elLeftY=event.pageY-XUI.Element.getOffsetY(parent);
-			};
-
-			el.style.height=sizeElInitial+"px";
-			el.style.width=sizeElInitial+"px";	
-			el.style.left=elLeftX-(sizeElInitial/2)+"px";
-			el.style.top=elLeftY-(sizeElInitial/2)+"px";
-
-			el.classList.add("-animation-in");
-
-			var frameAnimation=0;
-			var sizeEl=sizeElInitial;
-			var sizeElDelta=(3*((sizeParent-sizeElInitial)*this_.animationStep))/this_.animationInterval;
-			var opacityEl=this_.animationMinOpacity;
-			var opacityElDelta=((this_.animationMaxOpacity-this_.animationMinOpacity)*this_.animationStep)/this_.animationInterval;
-			
-			var animationProcessIn=function(){
-				frameAnimation+=this_.animationStep;
-
-				sizeEl+=sizeElDelta;
-				opacityEl+=opacityElDelta;
-
-				el.style.opacity=opacityEl;
-
-				el.style.height=Math.floor(sizeEl)+"px";
-				el.style.width=Math.floor(sizeEl)+"px";
-				el.style.left=Math.floor(elLeftX-(sizeEl/2))+"px";
-				el.style.top=Math.floor(elLeftY-(sizeEl/2))+"px";
-	
-				if(frameAnimation<this_.animationInterval){
-					setTimeout(animationProcessIn,this_.animationStep);
-					return;
-				};
-
-				el.classList.add("-animation-active");
-			};
-
-			animationProcessIn();			
-		});
-	};
-
-	this.init=function(){
-		var elList=document.getElementsByClassName("xui -effect-ripple");
-		for(var elIndex=0;elIndex<elList.length;++elIndex){
-			var effectType=elList[elIndex].getAttribute("data-xui-ripple");
-			var effectColor=elList[elIndex].getAttribute("data-xui-ripple-color");
-			var effectColorClass=elList[elIndex].getAttribute("data-xui-ripple-color-class");
-			this_.add(elList[elIndex],effectType,effectColor,effectColorClass);
-		};
-	};
-
-	this.load=function(event){
-		window.removeEventListener("load", this_.load);
-		this_.init();
-	};
-
-	window.addEventListener("load", this.load);	
-
-}).apply(XUI.EffectRipple);
-
+/**
+ * On load
+ */
+XUI.EffectRipple.onLoad = function () {
+	window.removeEventListener("load", XUI.EffectRipple.onLoad);
+	XUI.EffectRipple.init();
+};
+window.addEventListener("load", XUI.EffectRipple.onLoad);	

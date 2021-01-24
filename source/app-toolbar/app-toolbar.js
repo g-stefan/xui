@@ -9,11 +9,11 @@
 //
 */
 
-if(!XUI.App){
-	XUI.App={};
+if (!XUI.App) {
+	XUI.App = {};
 };
 
-XUI.App.Toolbar={};
+XUI.App.Toolbar = {};
 
 /**
  * Link responsive element
@@ -21,10 +21,10 @@ XUI.App.Toolbar={};
  * @param {string} idToolbar - Toolbar element id
  * @param {string} idToolbarContent - Toolbar content element id
  */
-XUI.App.Toolbar.linkResponsive=function(idResponsive,idToolbar,idToolbarContent){
+XUI.App.Toolbar.linkResponsive = function (idResponsive, idToolbar, idToolbarContent) {
 	XUI.Responsive.Element.linkContainer(
-		idResponsive,idToolbar,idToolbarContent,
-		["-important","-small","-large"]
+		idResponsive, idToolbar, idToolbarContent,
+		["-important", "-small", "-large"]
 	);
 };
 
@@ -35,9 +35,9 @@ XUI.App.Toolbar.linkResponsive=function(idResponsive,idToolbar,idToolbarContent)
  * @param {string} idToolbarContentLeft - Toolbar left content element id
  * @param {string} idToolbarContentRight - Toolbar left content element id
  */
-XUI.App.Toolbar.linkResponsiveLeftRight=function(idResponsive,idToolbar,idToolbarContentLeft,idToolbarContentRight){
+XUI.App.Toolbar.linkResponsiveLeftRight = function (idResponsive, idToolbar, idToolbarContentLeft, idToolbarContentRight) {
 	XUI.Responsive.Element.linkContainer(
-		idResponsive,idToolbar,[idToolbarContentLeft,idToolbarContentRight],
-		["-important","-small","-small-right","-large"]
+		idResponsive, idToolbar, [idToolbarContentLeft, idToolbarContentRight],
+		["-important", "-small", "-small-right", "-large"]
 	);
 };

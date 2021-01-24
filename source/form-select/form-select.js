@@ -55,11 +55,11 @@ XUI.FormSelect.init = function () {
 	});
 };
 
-XUI.FormSelect.load = function () {
-	window.removeEventListener("load", XUI.FormSelect.load);
+/**
+ * On load
+ */
+XUI.FormSelect.onLoad = function () {
+	window.removeEventListener("load", XUI.FormSelect.onLoad);
 	XUI.FormSelect.init();
 };
-
-window.addEventListener("load", XUI.FormSelect.load);
-
-
+window.addEventListener("load", XUI.FormSelect.onLoad);

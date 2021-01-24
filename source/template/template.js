@@ -9,8 +9,6 @@
 
 XUI.Template = {};
 
-XUI.Template.submenuScrollBars_ = null;
-
 /**
  * Initialization
  */
@@ -108,11 +106,10 @@ XUI.Template.init = function () {
 };
 
 /**
- * Load window event
+ * On load
  */
-XUI.Template.load = function () {
-	window.removeEventListener("load", XUI.Template.load);
+XUI.Template.onLoad = function () {
+	window.removeEventListener("load", XUI.Template.onLoad);
 	XUI.Template.init();
 };
-
-window.addEventListener("load", XUI.Template.load);
+window.addEventListener("load", XUI.Template.onLoad);

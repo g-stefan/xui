@@ -9,70 +9,75 @@
 //
 */
 
-XUI.Capture={};
+XUI.Capture = {};
 
-(function(){
+XUI.Capture.elAction = [];
 
-	var this_=this;
+/**
+ * Set capture elements
+ * @param {element/array} elList - Element or array with elements
+ * @param {function} fn - Callback - fn(event,element)
+ */
+XUI.Capture.set = function (elList, fn) {
+	if (!Array.isArray(elList)) {
+		elList = [elList];
+	};
+	this.elAction[this.elAction.length] = {
+		"elList": elList,
+		"fn": fn
+	};
+};
 
-	this.elAction = [];
-		
-	this.elList = [];
-	this.fn = null;
-
-	this.set=function(elList,fn){
-		if(!Array.isArray(elList)) {
-			elList=[elList];
+/**
+ * On click
+ * @param {event} event - Event
+ */
+XUI.Capture.onClick = function (event) {
+	var this_ = XUI.Capture;
+	var toRemove = [];
+	for (var i = 0; i < this_.elAction.length; ++i) {
+		var found = false;
+		for (var k = 0; k < this_.elAction[i].elList.length; ++k) {
+			if (this_.elAction[i].elList[k].contains(event.target)) {
+				found = true;
+				break;
+			};
 		};
-		this.elAction[this.elAction.length]= {
-			"elList": elList,
-			"fn": fn
+		if (!found) {
+			this_.elAction[i].fn(event, this_.elAction[i].elList);
+			toRemove[toRemove.length] = i;
 		};
 	};
-
-	this.scan=function(event){
-		var toRemove=[];
-		for(var i=0;i<this_.elAction.length;++i) {
-			var found=false;
-			for(var k=0;k<this_.elAction[i].elList.length;++k) {
-				if(this_.elAction[i].elList[k].contains(event.target)) {
-					found=true;
+	if (toRemove.length) {
+		var newAction = [];
+		for (var i = 0; i < this_.elAction.length; ++i) {
+			var found = false;
+			for (var k = 0; k < toRemove.length; ++k) {
+				if (toRemove[k] == i) {
+					found = true;
 					break;
 				};
 			};
-			if(!found) {
-				this_.elAction[i].fn(event,this_.elAction[i].elList);
-				toRemove[toRemove.length]=i;
+			if (!found) {
+				newAction[newAction.length] = this_.elAction[i];
 			};
 		};
-		if(toRemove.length){
-			var newAction=[];
-			for(var i=0;i<this_.elAction.length;++i){
-				var found=false;
-				for(var k=0;k<toRemove.length;++k){
-					if(toRemove[k]==i){
-						found=true;
-						break;
-					};
-				};
-				if(!found){
-					newAction[newAction.length]=this_.elAction[i];
-				};
-			};
-			this_.elAction=newAction;
-		};
+		this_.elAction = newAction;
 	};
+};
 
-	this.init=function(){
-		window.addEventListener("click", this_.scan);
-	};
+/**
+ * Initialization
+ */
+XUI.Capture.init = function () {
+	window.addEventListener("click", XUI.Capture.onClick);
+};
 
-	this.load=function(event){
-		window.removeEventListener("load", this_.load);
-		this_.init();
-	};
-
-	window.addEventListener("load", this.load);
-
-}).apply(XUI.Capture);
-
+/**
+ * On load
+ */
+XUI.Capture.onLoad = function () {
+	window.removeEventListener("load", XUI.Capture.onLoad);
+	XUI.Capture.init();
+};
+window.addEventListener("load", XUI.Capture.onLoad);

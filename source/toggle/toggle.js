@@ -176,11 +176,11 @@ XUI.Toggle.init = function () {
 };
 
 /**
- * Init on window load event
+ * On load
  */
-XUI.Toggle.load = function (event) {
-	window.removeEventListener("load", XUI.Toggle.load);
+XUI.Toggle.onLoad = function () {
+	window.removeEventListener("load", XUI.Toggle.onLoad);
 	XUI.Toggle.init();
 };
 
-window.addEventListener("load", XUI.Toggle.load);
+window.addEventListener("load", XUI.Toggle.onLoad);

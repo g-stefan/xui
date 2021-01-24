@@ -59,9 +59,8 @@ XUI.FormTextMaterial.init = function () {
 /**
  * On load
  */
-XUI.FormTextMaterial.load = function (event) {
-	window.removeEventListener("load", XUI.FormTextMaterial.load);
+XUI.FormTextMaterial.onLoad = function () {
+	window.removeEventListener("load", XUI.FormTextMaterial.onLoad);
 	XUI.FormTextMaterial.init();
 };
-
-window.addEventListener("load", XUI.FormTextMaterial.load);
+window.addEventListener("load", XUI.FormTextMaterial.onLoad);

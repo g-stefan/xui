@@ -74,10 +74,10 @@ XUI.Responsive.addProcessResponsive = function (processResponsive, processRespon
 };
 
 /**
- * Init on window load event
+ * On load
  */
-XUI.Responsive.load = function () {
-	window.removeEventListener("load", XUI.Responsive.load);
+XUI.Responsive.onLoad = function () {
+	window.removeEventListener("load", XUI.Responsive.onLoad);
 	XUI.Responsive.init();
 };
-window.addEventListener("load", XUI.Responsive.load);
+window.addEventListener("load", XUI.Responsive.onLoad);
