@@ -16,7 +16,7 @@ $completeJS=array();
 function strStartsWith ($string, $startString) {
     $len = strlen($startString); 
     return (substr($string, 0, $len) === $startString); 
-}
+};
 
 function doMake($source, $target){
 	if(file_exists($source)){
@@ -39,10 +39,10 @@ function makeCopy($source, $target){
 function makeCSS($name,$mod = ""){
 
 	$scssIn="source/".$name."/".$name.$mod.".scss";
-	$cssIn="build/".$name.$mod.".css";
-	$cssOut="release/css/xui-".$name.$mod.".css";
-	$cssMinOut="release/css/xui-".$name.$mod.".min.css";
-	$cssMinOut="release/css/xui-".$name.$mod.".min.css";
+	$cssIn="object/".$name.$mod.".css";
+	$cssOut="bin/css/xui-".$name.$mod.".css";
+	$cssMinOut="bin/css/xui-".$name.$mod.".min.css";
+	$cssMinOut="bin/css/xui-".$name.$mod.".min.css";
 
 	$subChanged = false;
 	$scssInSub = "source/".$name."/_".$name.$mod.".*.scss";
@@ -71,7 +71,7 @@ function buildCSS($name,$mod = ""){
 	global $completeCSS;
 	$scssIn="source/".$name."/".$name.$mod.".scss";
 	if(file_exists($scssIn)){		
-		$cssMinOut="release/css/xui-".$name.$mod.".min.css";
+		$cssMinOut="bin/css/xui-".$name.$mod.".min.css";
 		$completeCSS[$cssMinOut]=makeCSS($name,$mod);
 	};
 };
@@ -79,8 +79,8 @@ function buildCSS($name,$mod = ""){
 function makeJS($name,$mod = ""){
 
 	$jsIn="source/".$name."/".$name.$mod.".js";
-	$jsOut="release/js/xui-".$name.$mod.".js";
-	$jsMinOut="release/js/xui-".$name.$mod.".min.js";
+	$jsOut="bin/js/xui-".$name.$mod.".js";
+	$jsMinOut="bin/js/xui-".$name.$mod.".min.js";
 
 	if(doMake($jsIn, $jsMinOut)){
 		echo "-> js ".$name.$mod."\r\n";
@@ -98,7 +98,7 @@ function buildJS($name,$mod = ""){
 	global $completeJS;
 	$jsIn="source/".$name."/".$name.$mod.".js";
 	if(file_exists($jsIn)){		
-		$jsMinOut="release/js/xui-".$name.$mod.".min.js";
+		$jsMinOut="bin/js/xui-".$name.$mod.".min.js";
 		$completeJS[$jsMinOut]=makeJS($name,$mod);
 	};
 };
@@ -106,7 +106,7 @@ function buildJS($name,$mod = ""){
 function makeHTML($name,$mod = ""){
 
 	$htmlIn="source/".$name."/".$name.$mod.".php";
-	$htmlOut="release/xui-".$name.$mod.".html";
+	$htmlOut="bin/xui-".$name.$mod.".html";
 
 	$subChanged = false;
 	$htmlInSub = "source/".$name."/".$name.$mod."-*.php";
@@ -147,15 +147,15 @@ function buildCompleteCSS(){
 
 		echo "-> complete css\r\n";
 
-		copy("source/core/core.header.css","build/xui.complete.in.css");
-		system("xyo-version --no-bump --version-file=xui.version.ini --file-in=build/xui.complete.in.css --file-out=build/xui.complete.css xui");
+		copy("source/core/core.header.css","object/xui.complete.in.css");
+		system("xyo-version --no-bump --version-file=xui.version.ini --file-in=object/xui.complete.in.css --file-out=object/xui.complete.css xui");
 		foreach($completeCSS as $css => $isBaked){
 			$content = file_get_contents($css);
 			$content = str_replace("/*!\r\n","/*\r\n",$content);
 			$content = str_replace("/*!\n","/*\n",$content);
-			file_put_contents("build/xui.complete.css",$content,FILE_APPEND);
+			file_put_contents("object/xui.complete.css",$content,FILE_APPEND);
 		};
-		system("sass --style=compressed --no-source-map build/xui.complete.css > release/css/xui.complete.min.css");
+		system("sass --style=compressed --no-source-map object/xui.complete.css > bin/css/xui.complete.min.css");
 
 		return true;
 	};
@@ -170,15 +170,15 @@ function buildCompleteJS(){
 
 		echo "-> complete js\r\n";
 
-		copy("source/core/core.header.js","build/xui.complete.in.js");
-		system("xyo-version --no-bump --version-file=xui.version.ini --file-in=build/xui.complete.in.js --file-out=build/xui.complete.js xui");
+		copy("source/core/core.header.js","object/xui.complete.in.js");
+		system("xyo-version --no-bump --version-file=xui.version.ini --file-in=object/xui.complete.in.js --file-out=object/xui.complete.js xui");
 		foreach($completeJS as $js => $isBaked){
 			$content = file_get_contents($js);
 			$content = str_replace("/*!\r\n","/*\r\n",$content);
 			$content = str_replace("/*!\n","/*\n",$content);
-			file_put_contents("build/xui.complete.js",$content,FILE_APPEND);
+			file_put_contents("object/xui.complete.js",$content,FILE_APPEND);
 		};
- 		system("uglifyjs -c -m -o release/js/xui.complete.min.js --comments \"/^!/\" build/xui.complete.js");
+ 		system("uglifyjs -c -m -o bin/js/xui.complete.min.js --comments \"/^!/\" object/xui.complete.js");
 
 		return true;
 	};
@@ -188,10 +188,10 @@ function buildCompleteJS(){
 
 // ---
 
-makeCopy("authors.txt","release/authors.txt");
-makeCopy("LICENSE","release/LICENSE");
-makeCopy("README.md","release/README.md");
-makeCopy("xui-version-lib.txt","release/xui-version-lib.txt");
+makeCopy("authors.txt","bin/authors.txt");
+makeCopy("LICENSE","bin/LICENSE");
+makeCopy("README.md","bin/README.md");
+makeCopy("xui-version-lib.txt","bin/xui-version-lib.txt");
 
 // ---
 
@@ -271,7 +271,7 @@ buildComponent("template");
 
 // ---
 
-makeCopy("source/form-captcha/img/captcha.jpg","release/img/captcha.jpg");
+makeCopy("source/form-captcha/img/captcha.jpg","bin/img/captcha.jpg");
 
 // ---
 

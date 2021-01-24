@@ -3,16 +3,16 @@ rem Public domain
 rem http://unlicense.org/
 rem Created by Grigore Stefan <g_stefan@yahoo.com>
 
-call build.config.cmd
+call .\build\build.config.cmd
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 echo -^> github-release %PROJECT%
 
-if not exist archive\%PROJECT%-%VERSION%.7z echo Error - no release & exit 1
-if not exist archive\%PROJECT%-update-%VERSION_LAST%-to-%VERSION%.7z echo Error - no release update & exit 1
+if not exist release\%PROJECT%-%VERSION%.7z echo Error - no release & exit 1
+if not exist release\%PROJECT%-update-%VERSION_LAST%-to-%VERSION%.7z echo Error - no release update & exit 1
 
-echo -^> github release %PROJECT% v%VERSION%
+echo -^> release %PROJECT% v%VERSION%
 
 git pull --tags origin main
 git fetch origin --tags --force
@@ -23,7 +23,7 @@ git tag -a v%VERSION% -m "v%VERSION%"
 git push --tags
 echo Create release %PROJECT% v%VERSION%
 github-release release --repo %PROJECT% --tag v%VERSION% --name "v%VERSION%" --description "Release"
-pushd archive
+pushd release
 for /r %%i in (%PROJECT%-%VERSION%.7z) do echo Upload %%~nxi & github-release upload --repo %PROJECT% --tag v%VERSION% --name "%%~nxi" --file "%%i"
 for /r %%i in (%PROJECT%-update-%VERSION_LAST%-to-%VERSION%.7z) do echo Upload %%~nxi & github-release upload --repo %PROJECT% --tag v%VERSION% --name "%%~nxi" --file "%%i"
 popd
