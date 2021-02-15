@@ -1,0 +1,145 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: XUI
+Upstream-Contact: Grigore Stefan <g_stefan@yahoo.com>
+Source: https://github.com/g-stefan/xui
+License: MIT
+
+Files: .github/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: .github/CODE_OF_CONDUCT.md
+Copyright: 2014 Coraline Ada Ehmke <https://where.coraline.codes/>
+License: CC-BY-4.0
+
+Files: .gitignore
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: .vscode/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: mkdocs.yml
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: port/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: build.cmd
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: build.sh
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: README.md
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: util/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: naming-convention.md
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: xui-version-lib.txt
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: xui.version.ini
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: bin/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: source/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: build/*
+Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: vendor/air-datepicker/*
+Copyright: Copyright (c) 2016 Timofey Marochkin
+License: MIT
+
+Files: vendor/cropit/*
+Copyright: Copyright (c) 2014 Scott Cheng
+License: MIT
+
+Files: vendor/font-awesome/*
+Copyright: Font Awesome Free by @fontawesome - https://fontawesome.com
+License: OFL-1.1
+
+Files: vendor/ionicons/*
+Copyright: Copyright (c) 2015-present Ionic (http://ionic.io/)
+License: MIT
+
+Files: vendor/jquery/*
+Copyright: (c) JS Foundation and other contributors
+License: MIT
+
+Files: vendor/jquery-autocompleter/*
+Copyright: (c) 2020 Artem Fitiskin
+License: MIT
+
+Files: vendor/jquery-form/*
+Copyright: Copyright 2017 Kevin Morris, Copyright 2006 M. Alsup
+License: MIT
+
+Files: vendor/js-cookie/*
+Copyright: Copyright (c) 2018 Copyright 2018 Klaus Hartl, Fagner Brack, GitHub Contributors
+License: MIT
+
+Files: vendor/material-icons/*
+Copyright: Copyright (c) Google
+License: Apache-2.0
+
+Files: vendor/maximize-select2-height/*
+Copyright: (c) Panorama Education 2020
+License: MIT
+
+Files: vendor/md5/*
+Copyright: Copyright (C) Paul Johnston 1999 - 2009
+License: BSD-3-Clause
+
+Files: vendor/normalize/*
+Copyright: Copyright (c) Nicolas Gallagher and Jonathan Neal
+License: MIT
+
+Files: vendor/overlayscrollbars/*
+Copyright: Copyright KingSora | Rene Haas.
+License: MIT
+
+Files: vendor/pickr/*
+Copyright: Copyright (c) 2018 - 2020 Simon Reinisch
+License: MIT
+
+Files: vendor/rainbow/*
+Copyright: Copyright (c) Craig Campbell
+License: Apache-2.0
+
+Files: vendor/roboto-regular/*
+Copyright: Copyright (c) Christian Robertson
+License: Apache-2.0
+
+Files: vendor/select2/*
+Copyright: Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
+License: MIT
+
+Files: vendor/sha512/*
+Copyright: Chen, Yi-Cyuan 2014-2018
+License: MIT
+
+Files: vendor/tinymce/*
+Copyright: Copyright (c) Tiny Technologies, Inc. All rights reserved.
+License: LGPL-2.1-only
