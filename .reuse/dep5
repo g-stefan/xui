@@ -24,7 +24,7 @@ Files: mkdocs.yml
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: Unlicense
 
-Files: port/*
+Files: build/*
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: Unlicense
 
@@ -56,7 +56,7 @@ Files: xui.version.ini
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: Unlicense
 
-Files: bin/*
+Files: output/*
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: MIT
 
@@ -64,7 +64,7 @@ Files: source/*
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: MIT
 
-Files: build/*
+Files: temp/*
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: MIT
 
