@@ -148,7 +148,7 @@ function buildCompleteCSS(){
 		echo "-> complete css\r\n";
 
 		copy("source/core/core.header.css","temp/xui.complete.in.css");
-		system("xyo-version --no-bump --version-file=xui.version.ini --file-in=temp/xui.complete.in.css --file-out=temp/xui.complete.css xui");
+		system("xyo-version --no-bump --version-file=version.ini --file-in=temp/xui.complete.in.css --file-out=temp/xui.complete.css xui");
 		foreach($completeCSS as $css => $isBaked){
 			$content = file_get_contents($css);
 			$content = str_replace("/*!\r\n","/*\r\n",$content);
@@ -171,7 +171,7 @@ function buildCompleteJS(){
 		echo "-> complete js\r\n";
 
 		copy("source/core/core.header.js","temp/xui.complete.in.js");
-		system("xyo-version --no-bump --version-file=xui.version.ini --file-in=temp/xui.complete.in.js --file-out=temp/xui.complete.js xui");
+		system("xyo-version --no-bump --version-file=version.ini --file-in=temp/xui.complete.in.js --file-out=temp/xui.complete.js xui");
 		foreach($completeJS as $js => $isBaked){
 			$content = file_get_contents($js);
 			$content = str_replace("/*!\r\n","/*\r\n",$content);

@@ -112,6 +112,32 @@ $panel-line-color: palette-color("default-2");
 		clear: both;
 	}
 
+	&.-nested {
+		& > ._title,
+		& .panel_title {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		& > ._content,
+		& .panel_content {
+			padding-right: 0px;
+			padding-left: 0px;
+		}
+
+		& > ._footer,
+		& .panel_footer {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		& > ._line,
+		& .panel_line {
+			margin-left: 0px;
+			margin-right: 0px;			
+		}
+	}
+
 	@media only screen and (max-width: 599px) {
 		&.-elevation-4 {
 			box-shadow: none;
@@ -125,9 +151,29 @@ $panel-line-color: palette-color("default-2");
 			border-top-right-radius: 6px;
 			border-bottom-left-radius: 6px;
 			border-bottom-right-radius: 6px;
-			border: 1px solid palette-color("default-2");			
+			border: 1px solid palette-color("default-2");
 		}
 
+		&.-no-border {
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+			border: 0px solid palette-color("default-2");
+		}
+
+		&.-nested {			
+
+			&.-form {
+				padding-top: 23px;
+				& > ._content,
+				& .panel_content {
+					padding-top: 0px
+				}
+			}
+			
+		}
+		
 	}
 
 }

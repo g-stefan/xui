@@ -10,7 +10,7 @@
 //
 */
 ?>
-<div class="xui app-bar">
+<div class="xui app-bar">	
 	<div class="xui button -icon -left -transparent -effect-ripple">
 		<i class="material-icons">menu</i>
 	</div>

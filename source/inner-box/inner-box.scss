@@ -11,6 +11,9 @@
 
 @charset "UTF-8";
 
+@import "../config/config.source";
+@import "../palette/palette.source";
+
 .xui.inner-box.-row{
 	position: relative;
 	display: block;
@@ -39,6 +42,10 @@
 	margin-bottom: 0px;
 	margin-left: 0px;
 	padding-left: 0px;
+}
+
+.xui.inner-box.-x1x2.-border-left{
+	border-left: 0px solid palette-color("default-2");
 }
 
 @media only screen and (min-width: 600px){
@@ -74,6 +81,10 @@
 		margin-right: auto;
 		padding-left: 8px;
 		padding-right: 16px;
+	}
+
+	.xui.inner-box.-x1x2.-border-left{
+		border-left: 1px solid palette-color("default-2");
 	}
 
 }

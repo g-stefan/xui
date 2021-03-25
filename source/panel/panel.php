@@ -55,7 +55,7 @@
 	<body class="xui -bg-aluminium-1">
 
 	<?php include("panel-page-1.php"); ?>
-	<?php include("panel-page-2.php"); ?>
+	<?php include("panel-page-2.php"); ?>	
 
 	</body>
 </html>
