@@ -40,10 +40,6 @@ Files: README.md
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: MIT
 
-Files: util/*
-Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
-License: MIT
-
 Files: naming-convention.md
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: Unlicense
