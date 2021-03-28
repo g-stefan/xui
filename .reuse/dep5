@@ -48,7 +48,7 @@ Files: xui-version-lib.txt
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: Unlicense
 
-Files: xui.version.ini
+Files: version.ini
 Copyright: 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
 License: Unlicense
 
