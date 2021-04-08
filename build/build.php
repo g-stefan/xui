@@ -266,6 +266,7 @@ buildComponent("animated-loader");
 buildComponent("modal");
 buildComponent("component-table");
 buildComponent("form-select-small");
+buildComponent("form-select-multiple");
 buildComponent("notify");
 buildComponent("template");
 

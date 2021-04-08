@@ -24,16 +24,27 @@ XUI.FormSelect.initSelect = function (el) {
 	} else {
 		theme = "default " + theme;
 	};
+	var minimumResultsForSearch = $(el).attr("data-xui-select-minimum-results-for-search");
+	if(!minimumResultsForSearch) {
+		minimumResultsForSearch = Infinity;
+	};
 	$(el).select2({
-		minimumResultsForSearch: Infinity,
+		minimumResultsForSearch: minimumResultsForSearch,
 		dropdownAutoWidth: true,
 		theme: theme
 	}).maximizeSelect2Height().on("select2:open", function () {
 		setTimeout(function () {
-			XUI.FormSelect.instance = $(".select2-container.select2-container--open>.select2-dropdown>.select2-results>.select2-results__options").overlayScrollbars({ scrollbars: { clickScrolling: true } });
+			var options=$(".select2-container.select2-container--open>.select2-dropdown>.select2-results>.select2-results__options");
+			if(options){
+				XUI.FormSelect.instance = options.overlayScrollbars({ scrollbars: { clickScrolling: true } });
+			}else{
+				XUI.FormSelect.instance = null;
+			}
 		}, 10);
 	}).on("select2:closing", function () {
-		XUI.FormSelect.instance.overlayScrollbars().destroy();
+		if(XUI.FormSelect.instance) {
+			XUI.FormSelect.instance.overlayScrollbars().destroy();
+		};
 		XUI.FormSelect.instance = null;
 	});
 };

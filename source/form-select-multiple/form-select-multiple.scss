@@ -1,0 +1,128 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../elevation/elevation.source";
+@import "../form-text/form-text.source";
+
+// Select2
+
+@mixin form-select2-multiple ($type) {
+	@include form-text-config($type);
+	$value: map-get($config,"form-text-#{$type}");
+
+	$class: if($type == "default", "", ".-#{$type}");
+
+	$border-color: map-get($value,"border-color");
+	$text-color: map-get($value,"text-color");
+	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
+	$border-color-focus: map-get($value,"border-color-focus");
+
+	$border-color: if($type == "disabled", $text-color, $border-color);
+	$border-color-focus: if($type == "disabled", $text-color, $border-color-focus); 
+
+	$option-text-color: $text-color;
+	$option-text-color-focus: #FFFFFF;
+	$option-background-color-focus: $border-color-focus;
+
+	.select2-container--default#{$class} {
+
+		& .select2-selection--multiple .select2-selection__rendered{
+			color: $text-color;
+		}
+
+		& .select2-selection--multiple {
+			border: 1px solid $border-color;
+		}
+		
+		&.select2-container--focus .select2-selection.select2-selection--multiple{
+			border: 1px solid $border-color-focus;
+			outline: none;
+			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);
+		}
+		
+		&.select2-container--open .select2-selection.select2-selection--multiple{
+			border: 1px solid $border-color-focus;
+			outline: none;
+			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);			
+		}
+		
+
+		&.select2-container--focus .select2-selection--multiple {
+			border: 1px solid $border-color-focus; 
+		}
+
+		& .select2-selection--multiple li.select2-selection__choice {
+			background-color: #FFFFFF;
+			border: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+			border-radius: 3px;    
+			margin-right: 3px;
+			margin-top: 3px;
+    			padding: 0 6px;
+			color: #000000;
+		}
+
+		& .select2-selection--multiple span.select2-selection__choice__remove {
+			color: palette-color("aluminium-4");
+		}
+	
+		& .select2-selection--multiple span.select2-selection__choice__remove:hover {
+			color: palette-color("danger-2");
+		}
+	}
+}
+
+.select2-container .select2-selection--multiple{
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 5px;
+	padding-right: 6px;
+	padding-bottom: 5px;
+	padding-left: 6px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{
+	line-height: 20px;
+	padding-left: 0px;
+}
+
+@each $type, $value in $context {
+	@include form-select2-multiple($type);
+}
+
+.select2-container--default .select2-selection--multiple {
+	border-radius: 3px;
+}
+
+.select2-container--default.-disabled.select2-container--focus .select2-selection.select2-selection--multiple {
+	box-shadow: none;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple,
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
