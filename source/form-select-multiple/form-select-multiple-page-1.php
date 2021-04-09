@@ -53,7 +53,7 @@ foreach($items as $value){
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
 				echo "<form>";
-					echo "<select class=\"xui form-select ".$cssClass." -multiple\" id=\"form-select-".$value."\" name=\"form-select-".$value."\" ".$isDisabled." data-xui-select-theme=\"-".$value." -multiple\" multiple=\"multiple\" style=\"width:128px;\">";
+					echo "<select class=\"xui form-select ".$cssClass." -multiple\" id=\"form-select-".$value."\" name=\"form-select-".$value."\" ".$isDisabled." data-xui-select-theme=\"-".$value." -multiple\" multiple=\"multiple\" style=\"width:192px;\">";
 						echo "<option value=\"volvo\">Volvo</option>";
 						echo "<option value=\"saab\">Saab</option>";
 						echo "<option value=\"fiat\">Fiat</option>";
