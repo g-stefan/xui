@@ -269,7 +269,12 @@
 
 		& ~ .select2-results > ul.select2-results__options {
 			border-radius: 0px 0px 6px 6px;
-			border-top: 0px;
+			border-top: 0px solid palette-color("aluminium-3");
+		}
+
+		&.select2-search--hide ~ .select2-results > ul.select2-results__options {
+			border-radius: 6px 6px 6px 6px;
+			border-top: 1px solid palette-color("aluminium-3");
 		}
 	}
 
