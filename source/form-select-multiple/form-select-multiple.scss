@@ -121,8 +121,16 @@
 	box-shadow: none;
 }
 
-.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple,
-.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.select2-container .select2-selection.select2-selection--multiple  .select2-search--inline .select2-search__field {
+	margin-top: 4px;
 }
