@@ -1,0 +1,130 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+@charset "UTF-8";
+
+@import "../config/config.source";
+@import "../context/context.source";
+@import "../palette/palette.source";
+@import "../form-text/form-text.source";
+
+@mixin form-tag ($type) {
+	@include form-text-config($type);
+	$value: map-get($config,"form-text-#{$type}");
+
+	$class: if($type == "default", "", ".-#{$type}");
+
+	$border-color: map-get($value,"border-color");
+	$text-color: map-get($value,"text-color");
+	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
+	$border-color-focus: map-get($value,"border-color-focus");
+
+	$border-color: if($type == "disabled", $text-color, $border-color);
+	$border-color-focus: if($type == "disabled", $text-color, $border-color-focus); 
+
+	$option-text-color: $text-color;
+	$option-text-color-focus: #FFFFFF;
+	$option-background-color-focus: $border-color-focus;
+
+	.xui.form-text.-tag#{$class} + ul.tag-editor {
+
+		box-sizing: border-box;
+		margin: 0px;
+
+		font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: normal;
+
+		width: 100%;
+
+		padding-top: 5px;
+		padding-right: 6px;
+		padding-bottom: 5px;
+		padding-left: 6px;
+	
+		border-radius: 3px;
+		outline: none;
+
+		transition: border 0.3s ease, box-shadow 0.3s ease;
+
+		background-color: #FFFFFF;
+		
+		// ---
+
+		border: 1px solid $border-color;
+		color: $text-color;
+
+		&:focus {
+			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);
+			border: 1px solid $border-color-focus;
+			color: #000000;
+		}
+				
+	}
+}
+
+@each $type, $value in $context {
+	@include form-tag($type);
+}
+
+.xui.form-text.-tag {
+	height: auto;
+}
+
+.xui.form-text.-tag + ul.tag-editor > li {
+	box-sizing: border-box;
+	margin: 2px 0px 2px 0px;
+
+	& > div.tag-editor-spacer {
+		width: 3px;
+	}
+
+	& > div.tag-editor-tag {
+		box-sizing: border-box;
+		margin: 0px;
+		background-color: #FFFFFF;
+		border-top: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-right: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-bottom: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-left: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-radius: 3px 0px 0px 3px;
+    		padding: 0 6px;
+		color: #000000;
+
+		&.active {
+			border: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
+		}
+	}
+
+	& > div.tag-editor-delete {
+		box-sizing: border-box;
+		margin: 0px;
+		background-color: #FFFFFF;
+		border-top: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-right: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-bottom: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-left: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-radius: 0px 3px 3px 0px;
+    		padding: 0px 6px 0px 0px;
+		color: #000000;
+
+		& > i::before {
+			color: palette-color("aluminium-4");
+			font-weight: bold;
+		}
+
+		& > i:hover::before {
+			color: palette-color("danger-2");
+			font-weight: bold;
+		}
+	}
+}

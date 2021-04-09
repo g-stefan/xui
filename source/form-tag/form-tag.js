@@ -1,0 +1,50 @@
+/*!
+//
+// XUI
+//
+// Copyright (c) 2020-2021 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+*/
+
+XUI.FormTag = {};
+
+
+/**
+ * Initialize tag element
+ * @param {element} el - Element
+ */
+XUI.FormTag.initTag = function (el) {
+	$(el).tagEditor();
+};
+
+/**
+ * Initialize tag element by id
+ * @param {string} id - Element id
+ */
+XUI.FormTag.initById = function (id) {
+	XUI.FormTag.initTag($("#" + id));
+};
+
+/**
+ * Initialization
+ */
+XUI.FormTag.init = function () {
+	$(".xui.form-text.-tag").each(function () {
+		XUI.FormTag.initTag(this);
+	});
+	$(".xui.form-textarea.-tag").each(function () {
+		XUI.FormTag.initTag(this);
+	});
+};
+
+/**
+ * On load
+ */
+XUI.FormTag.onLoad = function () {
+	window.removeEventListener("load", XUI.FormTag.onLoad);
+	XUI.FormTag.init();
+};
+window.addEventListener("load", XUI.FormTag.onLoad);

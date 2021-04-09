@@ -267,6 +267,7 @@ buildComponent("modal");
 buildComponent("component-table");
 buildComponent("form-select-small");
 buildComponent("form-select-multiple");
+buildComponent("form-tag");
 buildComponent("notify");
 buildComponent("template");
 
