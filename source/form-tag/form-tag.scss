@@ -61,7 +61,7 @@
 		// ---
 
 		border: 1px solid $border-color;
-		color: $text-color;
+		color: #000000;
 
 		&:focus {
 			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);
@@ -78,6 +78,13 @@
 
 .xui.form-text.-tag {
 	height: auto;
+}
+
+.xui.form-text.-tag + ul.tag-editor {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
 }
 
 .xui.form-text.-tag + ul.tag-editor > li {
@@ -102,6 +109,12 @@
 
 		&.active {
 			border: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
+			margin-top: 1px;
+			color: #000000;
+
+			& input {
+				color: #000000;
+			}
 		}
 	}
 
