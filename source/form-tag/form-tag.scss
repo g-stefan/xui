@@ -46,10 +46,10 @@
 
 		width: 100%;
 
-		padding-top: 5px;
-		padding-right: 6px;
-		padding-bottom: 5px;
-		padding-left: 6px;
+		padding-top: 2px;
+		padding-right: 2px;
+		padding-bottom: 2px;
+		padding-left: 0px;
 	
 		border-radius: 3px;
 		outline: none;
@@ -91,6 +91,10 @@
 	box-sizing: border-box;
 	margin: 2px 0px 2px 0px;
 
+	&:first-child {
+		min-height: 22px;
+	}
+
 	& > div.tag-editor-spacer {
 		width: 3px;
 	}
@@ -114,6 +118,11 @@
 
 			& input {
 				color: #000000;
+				font-size: 16px;
+				line-height: 20px;
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
 			}
 		}
 	}
