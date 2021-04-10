@@ -11,6 +11,8 @@
 
 @charset "UTF-8";
 
+@import "../palette/palette.source";
+
 $app-toolbar-height: 48px;
 $app-toolbar-padding: 4px;
 $app-toolbar-background-color: #FFFFFF;
@@ -45,6 +47,29 @@ $app-toolbar-text-color: #000000;
 				white-space: nowrap;
 			}
 
+		}
+
+		& .xui._separator {
+			position: relative;
+			display: inline-block;
+			margin-left: 3px;
+			margin-right: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			width: 1px;
+			overflow: hidden;			
+
+			&::before {
+				position: relative;
+				display: block;
+				content: "";
+				width: 1px;
+				overflow: hidden;
+				background-color: palette-color("default-2");
+				height: 100%;
+			}
 		}
 	}
 
@@ -119,6 +144,29 @@ $app-toolbar-text-color: #000000;
 			}
 
 		}
+
+		& .xui._separator {
+			position: relative;
+			display: inline-block;
+			margin-right: 3px;
+			margin-right: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			width: 1px;
+			overflow: hidden;			
+
+			&::before {
+				position: relative;
+				display: block;
+				content: "";
+				width: 1px;
+				overflow: hidden;
+				background-color: palette-color("default-2");
+				height: 100%;
+			}
+		}
 	}
 
 	& > ._content_right {
@@ -140,6 +188,29 @@ $app-toolbar-text-color: #000000;
 				white-space: nowrap;
 			}
 
+		}
+
+		& .xui._separator {
+			position: relative;
+			display: inline-block;
+			margin-right: 3px;
+			margin-right: 0px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			width: 1px;
+			overflow: hidden;			
+
+			&::before {
+				position: relative;
+				display: block;
+				content: "";
+				width: 1px;
+				overflow: hidden;
+				background-color: palette-color("default-2");
+				height: 100%;
+			}
 		}
 	}
 

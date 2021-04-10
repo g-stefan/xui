@@ -75,6 +75,10 @@ div.xui.form-text {
 	display: inline-block;
 	width: 100%;
 
+	&.-compact {
+		width: auto;
+	}
+
 	& > input,
 	& > textarea {
 		box-sizing: border-box;

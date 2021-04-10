@@ -49,6 +49,9 @@
 			<span>Upload</span>
 		</div>
 
+		<div class="xui _separator">
+		</div>
+
 		<div class="xui button -transparent -effect-ripple -warning -icon-left">
 			<i class="material-icons">cloud_download</i>
 			<span>Download</span>
