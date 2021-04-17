@@ -29,7 +29,20 @@ $items=array(
 	""
 );
 
+$icon=array(
+	"person",
+	"person",
+	"person",
+	"done",
+	"error_outline",
+	"report_problem",
+	"info",
+	"person",
+	"person"
+);
+
 $index=0;
+$itemIndex=0;
 foreach($items as $value){
 	$cssClass="";
 	if(strlen($value)){
@@ -53,7 +66,7 @@ foreach($items as $value){
 				echo "<form>";
 				echo "<div class=\"xui form-text -icon-right ".$cssClass."\">";
 					echo "<input type=\"text\" name=\"text\" value=\"".ucfirst($value)."\" ".$isDisabled."></input>";
-					echo "<i class=\"material-icons\">person</i>";
+					echo "<i class=\"material-icons-outlined\">".$icon[$itemIndex]."</i>";
 				echo "</div>";
 				echo "</form>";
 			};
@@ -65,6 +78,7 @@ foreach($items as $value){
 		$index=0;
 	};
 
+	++$itemIndex;
 };
 
 
