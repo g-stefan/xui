@@ -64,6 +64,11 @@ textarea.xui.form-text {
 		padding-left: 3px;
 		height: 24px;	
 	}
+
+	&::placeholder {
+		color: palette-color("default-2");
+		opacity: 1;
+	}
 }
 
 textarea.xui.form-text {
@@ -103,6 +108,11 @@ div.xui.form-text {
 		background-color: #FFFFFF;
 
 		transition: border 0.3s ease, box-shadow 0.3s ease;
+
+		&::placeholder {
+			color: palette-color("default-2");
+			opacity: 1;
+		}
 	}
 
 	& > textarea {
