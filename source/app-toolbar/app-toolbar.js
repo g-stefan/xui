@@ -33,7 +33,7 @@ XUI.App.Toolbar.linkResponsive = function (idResponsive, idToolbar, idToolbarCon
  * @param {string} idResponsive - Responsive element id
  * @param {string} idToolbar - Toolbar element id
  * @param {string} idToolbarContentLeft - Toolbar left content element id
- * @param {string} idToolbarContentRight - Toolbar left content element id
+ * @param {string} idToolbarContentRight - Toolbar right content element id
  */
 XUI.App.Toolbar.linkResponsiveLeftRight = function (idResponsive, idToolbar, idToolbarContentLeft, idToolbarContentRight) {
 	XUI.Responsive.Element.linkContainer(
