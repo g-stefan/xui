@@ -207,3 +207,11 @@
 	}
 }
 
+// ---
+
+.xui.table.-no-vertical-inner-border {
+	@each $type, $value in $context {
+		@include table-no-vertical-inner-border($type);
+	}
+}
+

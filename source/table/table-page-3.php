@@ -14,7 +14,7 @@
 <div class="xui page -elevation-4 -size-A4 -center-x">
 
 <div class="xui text -label-40">
-	Table - border on table
+	Table - no border
 </div>
 <div class="xui separator-15"></div>
 
@@ -29,7 +29,7 @@ $items=array(
 	"danger",
 	"warning",
 	"info",
-	"disabled"
+	"disabled"	
 );
 
 $index=0;
@@ -48,7 +48,7 @@ foreach($items as $value){
 		
 	echo "<div class=\"xui grid -col -x6 -align-left\">";
 		if(strlen($value)){
-			echo "<table class=\"xui table ".$cssClass." -hover -border-on-table\">";
+			echo "<table class=\"xui table ".$cssClass." -hover -no-border\">";
 				include("_table-content.source.php");
 			echo "</table>";
 		};

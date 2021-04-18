@@ -286,6 +286,18 @@ XUI.Dashboard.init = function () {
 		});
 	};
 
+	// Application
+	var buttonApplication = document.getElementById("popup-menu-application-action");
+	if (buttonApplication) {
+		buttonApplication.addEventListener("click", function () {
+			var popup = document.getElementById("popup-menu-application");
+			popup.classList.toggle("-open");
+			XUI.Capture.set([popup, buttonApplication], function (e, elList) {
+				elList[0].classList.remove("-open");
+			});
+		});
+	};
+
 };
 
 /**

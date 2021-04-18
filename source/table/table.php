@@ -55,6 +55,8 @@
 
 	<?php include("table-page-1.php"); ?>
 	<?php include("table-page-2.php"); ?>
+	<?php include("table-page-3.php"); ?>
+	<?php include("table-page-4.php"); ?>
 
 	</body>
 </html>
