@@ -81,6 +81,16 @@
 
 	}
 
+	&.-embedded > ._content {
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			display: none;
+		}
+	}
+
 	& > .xui.alert{
 		margin-left: 3px;
 		margin-right: 3px;
