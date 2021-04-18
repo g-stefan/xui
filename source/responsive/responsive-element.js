@@ -41,6 +41,11 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 	if (!elResponsive) {
 		var element = document.getElementById(elementId);
 		if (element) {
+			if (!Array.isArray(this.elements[elementId])) {
+				this.elements[elementId] = [];
+			};
+			this.elements[elementId].push(fnNotify);
+
 			elResponsive = document.createElement("iframe");
 			elResponsive.id = elementId + this.elementSuffix;
 			elResponsive.style.position = "absolute";
@@ -53,31 +58,31 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 			elResponsive.style.pointerEvents = "none";
 			elResponsive.style.display = "block";
 			elResponsive.style.border = "0px";
-
-			element.appendChild(elResponsive);
-			if (!Array.isArray(this.elements[elementId])) {
-				this.elements[elementId] = [];
-			};
-			this.elements[elementId].push(fnNotify);
-
-			var elWindow = elResponsive.contentWindow;
-			if (elWindow != null) {
-				var processEventResize = function () {
-					var this_ = XUI.Responsive.Element;
-					var state = elResponsive.offsetWidth;
-					if (this_.elementsState[elementId] != state) {
-						this_.elementsState[elementId] = state;
-						for (var k = 0; k < this_.elements[elementId].length; ++k) {
-							if (this_.elements[elementId][k]) {
-								this_.elements[elementId][k].call(undefined, state);
+		
+			elResponsive.onload=function(){
+				var elWindow = elResponsive.contentWindow;
+				if (elWindow != null) {
+					var processEventResize = function () {
+						var this_ = XUI.Responsive.Element;
+						var state = elResponsive.offsetWidth;
+						if (this_.elementsState[elementId] != state) {
+							this_.elementsState[elementId] = state;
+							for (var k = 0; k < this_.elements[elementId].length; ++k) {
+								if (this_.elements[elementId][k]) {
+									this_.elements[elementId][k].call(undefined, state);
+								};
 							};
 						};
 					};
+					elWindow.addEventListener("resize", processEventResize);
+					processEventResize();
+					return true;
 				};
-				elWindow.addEventListener("resize", processEventResize);
-				processEventResize();
-				return true;
 			};
+
+			elResponsive.src="about:blank";
+
+			element.appendChild(elResponsive);
 		};
 		return false;
 	};
@@ -143,6 +148,10 @@ XUI.Responsive.Element.linkContainer = function (responsiveId, superId, containe
 		var childrenState = 0;
 
 		for (var m = 0; m < elContainer.length; ++m) {
+			if (elContainer[m].offsetTop > (elContainer[m].offsetParent.offsetHeight/2)) {
+				childrenState = checkState + 1;
+				break;
+			};
 			var ln = elContainer[m].children.length;
 			if (ln > 0) {
 				for (var k = 0; k < ln; ++k) {
