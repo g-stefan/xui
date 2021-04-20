@@ -291,10 +291,21 @@ XUI.Dashboard.init = function () {
 	if (buttonApplication) {
 		buttonApplication.addEventListener("click", function () {
 			var popup = document.getElementById("popup-menu-application");
+
+			var parentX = XUI.Element.getOffsetX(popup.offsetParent);
+			var parentY = XUI.Element.getOffsetY(popup.offsetParent);
+			var btnX = XUI.Element.getOffsetX(buttonApplication);
+			var btnY = XUI.Element.getOffsetY(buttonApplication);
+			var btnH = buttonApplication.offsetHeight;
+			var btnW = buttonApplication.offsetWidth;
+			popup.style.top = btnY + btnH - parentY + "px";
+			popup.style.left = btnX + Math.floor(btnW/2) - parentX - 18  + "px";
+
 			popup.classList.toggle("-open");
 			XUI.Capture.set([popup, buttonApplication], function (e, elList) {
 				elList[0].classList.remove("-open");
 			});
+
 		});
 	};
 

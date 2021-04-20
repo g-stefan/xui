@@ -41,20 +41,21 @@
 		flex: 1 1 auto;
 		transition: width 0.5s ease;
 	}
-
-	& #popup-menu-user {
-		position: absolute;
-		top: 0px;
-		left: -192px;
-		width: 216px + 6px;
-
-		&::before {
-			left: 216px - 12px;
-		}
-	}
 }
 
 .xui.app-header.-mini {
 	@extend %app-header-mini;
 }
 
+// ---
+
+#popup-menu-user {
+	position: absolute;
+	top: 0px;
+	left: -192px;
+	width: 216px + 6px;
+
+	&::before {
+		left: 216px - 12px;
+	}
+}
