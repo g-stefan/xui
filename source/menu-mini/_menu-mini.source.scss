@@ -12,6 +12,13 @@
 	overflow: visible;
 	padding: 3px 3px 3px 3px;
 
+	& ul {
+		&:before,
+		&:after {
+			display: block;
+		}
+	}
+
 	& > li {
 		height: 40px;
 		width: 72px;

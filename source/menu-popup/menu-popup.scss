@@ -49,6 +49,13 @@ ul.xui.menu.-popup {
 		transition: opacity 0.3s ease;
 	}
 
+	& ul {
+		&:before,
+		&:after {
+			display: block;
+		}
+	}
+
 	& > li {
 		@extend %menu-level-reset;
 
