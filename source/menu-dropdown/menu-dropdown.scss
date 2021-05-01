@@ -78,12 +78,13 @@ ul.xui.menu.-dropdown {
 		&._submenu::before {
 			content: "";
 			position: absolute;
-			top: 40px;
+			top: 38px;
 			left: 0px;
 			height: 0px;
 			width: 100%;
 			background-color: transparent;
 			transition: height 1s ease;
+			z-index: 3;
 		}
 
 		&._submenu:hover::before {
