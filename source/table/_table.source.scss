@@ -87,13 +87,13 @@
 			color: $text-color;
 		}
 
-		& > thead > th {
+		& > thead > tr > th {
 			border-top: 1px solid $border-color;
 			border-left: 1px solid $border-color;
 			color: $text-color;
 		}
 
-		& > thead > th:last-child {
+		& > thead > tr > th:last-child {
 			border-top: 1px solid $border-color;
 			border-left: 1px solid $border-color;
 			border-right: 1px solid $border-color;
@@ -202,15 +202,15 @@
 	&#{$class} {
 		border: 1px solid $border-color;
 
-		& > thead > th {
+		& > thead > tr > th {
 			border-top: 0px solid $border-color;
 		}
 
-		& > thead > th:first-child {
+		& > thead > tr > th:first-child {
 			border-left: 0px solid $border-color;
 		}
 
-		& > thead > th:last-child {
+		& > thead > tr > th:last-child {
 			border-top: 0px solid $border-color;
 			border-right: 0px solid $border-color;
 		}
@@ -266,15 +266,15 @@
 	&#{$class} {
 		border: 0px solid $border-color;
 
-		& > thead > th {
+		& > thead > tr > th {
 			border-top: 0px solid $border-color;
 		}
 
-		& > thead > th:first-child {
+		& > thead > tr > th:first-child {
 			border-left: 0px solid $border-color;
 		}
 
-		& > thead > th:last-child {
+		& > thead > tr > th:last-child {
 			border-top: 0px solid $border-color;
 			border-right: 0px solid $border-color;
 		}
@@ -329,11 +329,11 @@
 	&#{$class} {
 		border: 0px solid $border-color;
 
-		& > thead > th {
+		& > thead > tr > th {
 			border-left: 0px solid $border-color;
 		}
 
-		& > thead > th:first-child {
+		& > thead > tr > th:first-child {
 			border-left: 1px solid $border-color;
 		}
 
