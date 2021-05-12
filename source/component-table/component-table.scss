@@ -58,21 +58,21 @@
 
 		& > thead {
 
-			& tr:first-child th:first-child {
+			& > tr:first-child > th:first-child {
 				border-top-left-radius: 0px;
 				border-top-right-radius: 0px;
 				border-bottom-left-radius: 0px;
 				border-bottom-right-radius: 0px;
 			}
 
-			& tr:first-child th:last-child {
+			& > tr:first-child > th:last-child {
 				border-top-left-radius: 0px;
 				border-top-right-radius: 0px;
 				border-bottom-left-radius: 0px;
 				border-bottom-right-radius: 0px;
 			}
 
-			& tr > th.xui._select {
+			& > tr > th.xui._select {
 				width: 32px;
 				padding-left: 4px;
 				padding-right: 4px;
@@ -81,8 +81,8 @@
 				text-align: left;
 			}
 
-			& tr > th.xui._sort,
-			& tr > th.xui._action {
+			& > tr > th.xui._sort,
+			& > tr > th.xui._action {
 				padding-right: 32px;
 
 				& > .xui.button:last-child {
@@ -106,35 +106,35 @@
 
 		& > tbody {
 
-			& tr:last-child td:first-child {
+			& > tr:last-child > td:first-child {
 				border-top-left-radius: 0px;
 				border-top-right-radius: 0px;
 				border-bottom-left-radius: 0px;
 				border-bottom-right-radius: 0px;
 			}
 
-			& tr:last-child td:last-child {
+			& > tr:last-child > td:last-child {
 				border-top-left-radius: 0px;
 				border-top-right-radius: 0px;
 				border-bottom-left-radius: 0px;
 				border-bottom-right-radius: 0px;
 			}
 
-			& tr > td.xui._select {
+			& > tr > td.xui._select {
 				padding-left: 6px;
 				padding-right: 6px;
 				padding-top: 0px;
 				padding-bottom: 0px;
 			}
 
-			& tr > td.xui._action {
+			& > tr > td.xui._action {
 				padding-left: 4px;
 				padding-right: 4px;
 				padding-top: 2px;
 				padding-bottom: 2px;
 			}
 
-			& tr > td.xui._input {
+			& > tr > td.xui._input {
 				padding-left: 4px;
 				padding-right: 4px;
 				padding-top: 2px;

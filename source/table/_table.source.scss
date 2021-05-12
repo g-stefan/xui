@@ -74,62 +74,62 @@
 
 	&#{$class} {
 
-		& thead tr th {
+		& > thead > tr > th {
 			color: $head-text-color;
 		}
 
-		& thead tr {
+		& > thead > tr {
 			background-color: $background-color;
 		}
 
-		& tbody tr {
+		& > tbody > tr {
 			background-color: $background-color;
 			color: $text-color;
 		}
 
-		& thead th {
+		& > thead > th {
 			border-top: 1px solid $border-color;
 			border-left: 1px solid $border-color;
 			color: $text-color;
 		}
 
-		& thead th:last-child {
+		& > thead > th:last-child {
 			border-top: 1px solid $border-color;
 			border-left: 1px solid $border-color;
 			border-right: 1px solid $border-color;
 		}
 
-		& tbody tr td {
+		& > tbody > tr > td {
 			border-top: 1px solid $border-color;
 			border-left: 1px solid $border-color;
 		}
 
-		& tbody tr td:last-child {
+		& > tbody > tr > td:last-child {
 			border-top: 1px solid $border-color;
 			border-left: 1px solid $border-color;
 			border-right: 1px solid $border-color;
 		}
 
-		& tbody tr:nth-child(even) {
+		& > tbody > tr:nth-child(even) {
 			background-color: $even-background-color;
 		}
 
-		& tbody tr:last-child td {
+		& > tbody > tr:last-child > td {
 			border-bottom: 1px solid $border-color;
 		}	
 
-		&.-hover tbody {
+		&.-hover > tbody {
 
 			@if($type != "default"){
 
-				& tr:hover {
+				& > tr:hover {
 					background-color: $hover-background-color;
 					color: $text-color;
 				}
 
 			}
 
-			& tr:hover td {
+			& > tr:hover > td {
 				border-top: 1px solid $hover-border-color;
 
 				@if($type != "default"){
@@ -139,21 +139,21 @@
 				border-bottom: 1px solid $hover-border-color;
 			}
 
-			& tr:hover + tr > td {
+			& > tr:hover + tr > td {
 				border-top: 0px solid $hover-border-color;
 			}
 
-			& tr:hover td:first-child {
+			& > tr:hover > td:first-child {
 				border-top: 1px solid $hover-border-color;
 				border-left: 1px solid $hover-border-color;
 			}
 
-			& tr:hover td:last-child {
+			& > tr:hover > td:last-child {
 				border-top: 1px solid $hover-border-color;
 				border-right: 1px solid $hover-border-color;
 			}
 
-			& tr:last-child:hover > td {
+			& > tr:last-child:hover > td {
 				border-bottom: 1px solid $hover-border-color;
 			}
 
@@ -161,19 +161,19 @@
 
 		&.-sticky-first-row-and-column {
 
-			& thead th:first-child {
+			& > thead > th:first-child {
 				border-right: 1px solid $border-color;
 			}
 
-			& thead th:nth-child(2) {
+			& > thead > th:nth-child(2) {
 				border-left: 0px solid $border-color;
 			}
 
-			& tbody td:first-child {
+			& > tbody > td:first-child {
 				border-right: 1px solid $border-color;
 			}
 
-			& tbody td:nth-child(2) {
+			& > tbody > td:nth-child(2) {
 				border-left: 0px solid $border-color;
 			}
 
@@ -202,42 +202,42 @@
 	&#{$class} {
 		border: 1px solid $border-color;
 
-		& thead th {
+		& > thead > th {
 			border-top: 0px solid $border-color;
 		}
 
-		& thead th:first-child {
+		& > thead > th:first-child {
 			border-left: 0px solid $border-color;
 		}
 
-		& thead th:last-child {
+		& > thead > th:last-child {
 			border-top: 0px solid $border-color;
 			border-right: 0px solid $border-color;
 		}
 
-		& tbody tr td:first-child {
+		& > tbody > tr > td:first-child {
 			border-left: 0px solid $border-color;
 		}
 
-		& tbody tr td:last-child {
+		& > tbody > tr > td:last-child {
 			border-right: 0px solid $border-color;
 		}
 
-		& tbody tr:last-child td {
+		& > tbody > tr:last-child > td {
 			border-bottom: 0px solid $border-color;
 		}	
 
-		&.-hover tbody {
+		&.-hover > tbody {
 
-			& tr:hover td:first-child {
+			& > tr:hover > td:first-child {
 				border-left: 0px solid $hover-border-color;
 			}
 
-			& tr:hover td:last-child {
+			& > tr:hover > td:last-child {
 				border-right: 0px solid $hover-border-color;
 			}
 
-			& tr:last-child:hover > td {
+			& > tr:last-child:hover > td {
 				border-bottom: 0px solid $hover-border-color;
 			}
 
@@ -266,42 +266,42 @@
 	&#{$class} {
 		border: 0px solid $border-color;
 
-		& thead th {
+		& > thead > th {
 			border-top: 0px solid $border-color;
 		}
 
-		& thead th:first-child {
+		& > thead > th:first-child {
 			border-left: 0px solid $border-color;
 		}
 
-		& thead th:last-child {
+		& > thead > th:last-child {
 			border-top: 0px solid $border-color;
 			border-right: 0px solid $border-color;
 		}
 
-		& tbody tr td:first-child {
+		& > tbody > tr > td:first-child {
 			border-left: 0px solid $border-color;
 		}
 
-		& tbody tr td:last-child {
+		& > tbody > tr > td:last-child {
 			border-right: 0px solid $border-color;
 		}
 
-		& tbody tr:last-child td {
+		& > tbody > tr:last-child > td {
 			border-bottom: 0px solid $border-color;
 		}	
 
-		&.-hover tbody {
+		&.-hover > tbody {
 
-			& tr:hover td:first-child {
+			& > tr:hover > td:first-child {
 				border-left: 0px solid $hover-border-color;
 			}
 
-			& tr:hover td:last-child {
+			& > tr:hover > td:last-child {
 				border-right: 0px solid $hover-border-color;
 			}
 
-			& tr:last-child:hover > td {
+			& > tr:last-child:hover > td {
 				border-bottom: 0px solid $hover-border-color;
 			}
 
@@ -329,29 +329,29 @@
 	&#{$class} {
 		border: 0px solid $border-color;
 
-		& thead th {
+		& > thead > th {
 			border-left: 0px solid $border-color;
 		}
 
-		& thead th:first-child {
+		& > thead > th:first-child {
 			border-left: 1px solid $border-color;
 		}
 
-		& tbody tr td {
+		& > tbody > tr > td {
 			border-left: 0px solid $border-color;
 		}
 
-		& tbody tr td:first-child {
+		& > tbody > tr > td:first-child {
 			border-left: 1px solid $border-color;
 		}
 
-		&.-hover tbody {
+		&.-hover > tbody {
 
-			& tr:hover td {
+			& > tr:hover > td {
 				border-left: 0px solid $hover-border-color;
 			}
 
-			& tr:hover td:first-child {
+			& > tr:hover > td:first-child {
 				border-left: 1px solid $hover-border-color;
 			}
 
