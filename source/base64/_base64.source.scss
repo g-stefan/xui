@@ -6,6 +6,7 @@
 //
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
 //
+@use "sass:math";
 
 $base64-code: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -30,9 +31,9 @@ $base64-code: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 			$n: $n + ascii-to-int(str-slice($to-encode, $c + 3, $c + 3));
 		}
 
-		$n0: floor($n / 262144) % 64;
-		$n1: floor($n / 4096) % 64;
-		$n2: floor($n / 64) % 64;
+		$n0: floor(math.div($n, 262144)) % 64;
+		$n1: floor(math.div($n, 4096)) % 64;
+		$n2: floor(math.div($n, 64)) % 64;
 		$n3: floor($n) % 64;
 
 		$retV: $retV + str-slice($base64-code, $n0 + 1, $n0 + 1);

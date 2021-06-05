@@ -89,7 +89,7 @@
 		&.select2-container--focus .select2-selection.select2-selection--single{
 			border: 1px solid $border-color-focus;
 			outline: none;
-			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);
+			box-shadow: 0px 0px 0px 2px rgba($box-shadow-color-focus, 0.2);
 		}
 
 		&.select2-container--focus .select2-selection.select2-selection--single .select2-selection__arrow b{
@@ -99,7 +99,7 @@
 		&.select2-container--open .select2-selection.select2-selection--single{
 			border: 1px solid $border-color-focus;
 			outline: none;
-			box-shadow: 0px 0px 3px 3px rgba($box-shadow-color-focus, 0.2);			
+			box-shadow: 0px 0px 0px 2px rgba($box-shadow-color-focus, 0.2);			
 		}
 
 		&.select2-container--open .select2-selection.select2-selection--single .select2-selection__arrow b{
@@ -221,7 +221,7 @@
 		box-sizing: border-box;
 		background-color: #FFFFFF;
 		padding: 3px;
-		border-radius: 6px;
+		border-radius: 3px;
 		@include elevation(4);
 		border: 1px solid palette-color("aluminium-3");
 	}
@@ -268,12 +268,12 @@
 		padding: 0px 0px 0px 0px;
 
 		& ~ .select2-results > ul.select2-results__options {
-			border-radius: 0px 0px 6px 6px;
+			border-radius: 0px 0px 3px 3px;
 			border-top: 0px solid palette-color("aluminium-3");
 		}
 
 		&.select2-search--hide ~ .select2-results > ul.select2-results__options {
-			border-radius: 6px 6px 6px 6px;
+			border-radius: 3px 3px 3px 3px;
 			border-top: 1px solid palette-color("aluminium-3");
 		}
 	}
@@ -281,7 +281,7 @@
 	& input.select2-search__field {
 		box-sizing: border-box;
 		background-color: #FFFFFF;		
-		border-radius: 6px 6px 0px 0px;
+		border-radius: 3px 3px 0px 0px;
 		@include elevation(4);
 		border: 1px solid palette-color("aluminium-3");
 		text-decoration: none;

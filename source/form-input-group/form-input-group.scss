@@ -80,10 +80,10 @@
 		line-height: 24px;
 		font-weight: normal;
 
-		padding-top: 3px;
-		padding-left: 3px;
-		padding-bottom: 3px;
-		padding-right: 3px;
+		padding-top: 0px;
+		padding-left: 0px;
+		padding-bottom: 0px;
+		padding-right: 0px;
 
 		margin-top: 0px;
 		margin-left: -1px;
@@ -119,6 +119,10 @@
 		&:active{
 			outline: none;
 			color: #FFFFFF;
+		}
+
+		& > i {
+			display: block;
 		}
 
 	}
@@ -160,14 +164,15 @@
 	& > button {
 		font-size: 22px;
 		line-height: 22px;
-		padding-top: 1px;
-		padding-left: 1px;
-		padding-bottom: 1px;
-		padding-right: 1px;
+		padding-top: 0px;
+		padding-left: 0px;
+		padding-bottom: 0px;
+		padding-right: 0px;
 		height: 24px;
 		width: 24px;
 
 		& > i {
+			display: block;
 			font-size: 22px;
 			line-height: 22px;
 		}
