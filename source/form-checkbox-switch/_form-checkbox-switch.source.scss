@@ -17,7 +17,7 @@
 
 	@if($type == "default"){
 		$settings: map-merge($settings,(
-			"off-color": palette-color("aluminium-3")
+			"off-color": palette-color("primary-2")
 		));
 	};
 
