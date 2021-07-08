@@ -57,7 +57,7 @@
 
 	<?php include("form-datepicker-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
 	<script src="vendor/air-datepicker/datepicker.min.js" defer></script>
 	<script src="vendor/air-datepicker/i18n/datepicker.en.js" defer></script>
 	<script>

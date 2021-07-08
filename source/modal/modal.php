@@ -60,7 +60,7 @@
 
 	<?php include("modal-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
 	<script src="vendor/cropit/jquery.cropit.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-element.min.js" defer></script>

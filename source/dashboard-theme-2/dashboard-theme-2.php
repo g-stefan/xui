@@ -62,7 +62,7 @@
 	<?php include("dashboard-theme-2-page-2.php"); ?>
 	<?php include("dashboard-theme-2-page-3.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
 	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui.complete.min.js" defer></script>
 	</body>

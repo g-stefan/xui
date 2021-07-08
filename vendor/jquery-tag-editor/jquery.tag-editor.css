@@ -1,9 +1,3 @@
-/*
-	jQuery tagEditor v1.0.20
-    Copyright (c) 2014 Simon Steinberger / Pixabay
-    GitHub: https://github.com/Pixabay/jQuery-tagEditor
-	License: http://www.opensource.org/licenses/mit-license.php
-*/
 /* surrounding tag container */
 .tag-editor {
     list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden; border: 1px solid #eee; cursor: text;

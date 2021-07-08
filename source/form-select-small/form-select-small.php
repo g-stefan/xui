@@ -59,7 +59,7 @@
 	<?php include("form-select-small-page-1.php"); ?>
 	<?php include("form-select-small-page-2.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.5.1.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
 	<script src="vendor/select2/select2.full.min.js" defer></script>
 	<script src="vendor/maximize-select2-height/maximize-select2-height.min.js" defer></script>
 	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
