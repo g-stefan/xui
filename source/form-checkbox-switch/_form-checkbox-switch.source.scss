@@ -17,7 +17,7 @@
 
 	@if($type == "default"){
 		$settings: map-merge($settings,(
-			"off-color": palette-color("primary-2")
+			"off-color": palette-lighter("primary-2")
 		));
 	};
 

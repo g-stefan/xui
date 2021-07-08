@@ -46,14 +46,13 @@
 			top: 4px;
 			left: 92px; 
 			border-radius: 50%;
-			border: 0px solid #424242;
+			border: 1px solid palette-color("rock-1");
 			background-color: #FFFFFF;
 			width: 104px;
 			height: 104px;
 			transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
 			box-sizing: border-box;
-			overflow: hidden;
-			@include elevation(2);
+			overflow: hidden;			
 
 			& > .xui._image_img {
 				position: relative;
