@@ -270,6 +270,7 @@ buildComponent("form-select-multiple");
 buildComponent("form-tag");
 buildComponent("notify");
 buildComponent("template");
+buildComponent("form-html");
 
 // ---
 
