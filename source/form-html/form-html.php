@@ -59,7 +59,6 @@
 	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
 	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="vendor/quill/quill.min.js" defer></script>
-	<script src="vendor/quill/quillgethtml.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-form-html.min.js" defer></script>
 	</body>

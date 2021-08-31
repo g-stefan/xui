@@ -24,6 +24,8 @@
 		  <p>Some initial <strong>bold</strong> text</p>
 		  <p><br></p>
 	</div>
+	<br />
+	<textarea class="xui form-text _value" rows="16"></textarea>
 </div>
 
 </div>

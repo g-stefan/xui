@@ -39,8 +39,17 @@ XUI.FormHtml.initHtml = function (el,id) {
 
 	if(id){
 		XUI.FormHtml.instanceById[id]=editor;
+
+		editor.on("text-change", function() {
+			$("#"+id+">.xui._value").val(XUI.FormHtml.getHtmlById(id));
+		});
 	} else {
-		XUI.FormHtml.instance.push(editor);
+		var index = XUI.FormHtml.instance.length;
+		XUI.FormHtml.instance[index]=editor;
+
+		editor.on("text-change", function() {
+			$(el).parent().children(".xui._value").val(XUI.FormHtml.getHtmlByIndex(index));
+		});
 	};
 
 };
@@ -57,8 +66,8 @@ XUI.FormHtml.initById = function (id) {
  * Get html source, select editor by index
  * @param {string} index - Editor element index
  */
-XUI.FormHtml.getHtmlById = function (index) {
-	XUI.FormHtml.instance[index].getHTML();
+XUI.FormHtml.getHtmlByIndex = function (index) {
+	return XUI.FormHtml.instance[index].root.innerHTML;
 };
 
 /**
@@ -66,7 +75,7 @@ XUI.FormHtml.getHtmlById = function (index) {
  * @param {string} id - Editor element id
  */
 XUI.FormHtml.getHtmlById = function (id) {
-	XUI.FormHtml.instanceById[id].getHTML();
+	return XUI.FormHtml.instanceById[id].root.innerHTML;
 };
 
 /**

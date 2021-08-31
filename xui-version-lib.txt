@@ -19,7 +19,3 @@ js-sha512,0.8.0,https://github.com/emn178/js-sha512
 
 --- included - jquery.tag-editor
 jquery.caret,1.3.7,https://github.com/accursoft/caret
-
---- included - quill
-quillgethtml,0.0.6,https://github.com/boomanaiden154/quillgethtml
-
