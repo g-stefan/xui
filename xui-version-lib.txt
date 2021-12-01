@@ -1,13 +1,13 @@
-08.07.2021
+01.12.2021
 ----------
-air-datepicker,2.2.3,https://github.com/t1m0n/air-datepicker
+air-datepicker,3.0.1,https://github.com/t1m0n/air-datepicker
 cropit,0.5.1,https://github.com/scottcheng/cropit
 jquery,3.6.0,https://jquery.com/
 jquery-autocompleter,0.4.0,https://github.com/ArtemFitiskin/jquery-autocompleter
 jquery-form,4.3.0,https://github.com/jquery-form/form
 jquery.tag-editor,1.0.21,https://github.com/Pixabay/jQuery-tagEditor
-js-cookie,2.2.1,https://github.com/js-cookie/js-cookie
-material-icons,3.0.1,https://github.com/google/material-design-icons
+js-cookie,3.0.1,https://github.com/js-cookie/js-cookie
+material-icons,4.0.0,https://github.com/google/material-design-icons
 maximize-select2-height,1.0.4,https://github.com/panorama-ed/maximize-select2-height
 md5,2.2,http://pajhome.org.uk/crypt/md5/md5.html
 normalize,8.0.1,http://github.com/necolas/normalize.css

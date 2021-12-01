@@ -14,26 +14,30 @@
 @import "../config/config.source";
 @import "../palette/palette.source";
 
-.datepicker {
+.air-datepicker {
 	border-radius: 3px;
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	z-index: 1000;
 }
 
-.datepicker--day-name{
+.air-datepicker-body--day-name{
 	color: palette-color("primary-2");
 }
 
-.datepicker--cell.-current-{
+.air-datepicker-cell.-current-{
 	color: palette-color("primary-2");
 }
 
-.datepicker--cell.-selected-{
+.air-datepicker-cell.-selected-{
 	background-color: palette-color("primary-1");
 }
 
-.datepicker--cell.-selected-.-focus-{
+.air-datepicker-cell.-selected-.-focus-{
 	background-color: palette-color("primary-1");
+}
+
+.air-datepicker.-only-timepicker- > .air-datepicker--time {
+	border-top: 0px solid #000000;
 }
 

@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="vendor/normalize/normalize.min.css">
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
-		<link rel="stylesheet" href="vendor/air-datepicker/datepicker.min.css">
+		<link rel="stylesheet" href="vendor/air-datepicker/air-datepicker.css">
 		<link rel="stylesheet" href="css/xui-core.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
@@ -58,13 +58,13 @@
 	<?php include("form-datepicker-page-1.php"); ?>
 
 	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
-	<script src="vendor/air-datepicker/datepicker.min.js" defer></script>
-	<script src="vendor/air-datepicker/i18n/datepicker.en.js" defer></script>
+	<script src="vendor/air-datepicker/air-datepicker.js" defer></script>
+	<script src="vendor/air-datepicker/locale/en.js" defer></script>
 	<script>
 		window.addEventListener("load", function(){
-			$("#datepicker-1").datepicker({autoClose:true});
-			$("#datepicker-2").datepicker({autoClose:true});
-			$("#datepicker-3").datepicker({autoClose:true,onlyTimepicker:true});
+			var datePicker1=new AirDatepicker("#datepicker-1", {autoClose:true,locale:AirDatepickerLocaleEN});
+			var datePicker2=new AirDatepicker("#datepicker-2", {autoClose:false,timepicker:true,locale:AirDatepickerLocaleEN});
+			var datePicker3=new AirDatepicker("#datepicker-3", {autoClose:false,timepicker:true,onlyTimepicker:true,locale:AirDatepickerLocaleEN,timeFormat:"HH:mm"});
 		});
 	</script>
 	</body>

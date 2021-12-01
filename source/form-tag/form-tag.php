@@ -57,7 +57,7 @@
 	<?php include("form-tag-page-1.php"); ?>
 
 	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
-	<script src="vendor/jquery-tag-editor/jquery.caret.js" defer></script>
+	<script src="vendor/jquery-tag-editor/jquery.caret.min.js" defer></script>
 	<script src="vendor/jquery-tag-editor/jquery.tag-editor.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-form-tag.min.js" defer></script>

@@ -21,7 +21,7 @@
 
 <div style="position:relative;">
 <form>
-	<input type="text" class="xui form-text" id="datepicker-1" name="datepicker-1" value="" data-language="en"></input>	
+	<input type="text" class="xui form-text" id="datepicker-1" name="datepicker-1" value=""></input>	
 </form>
 </div>
 
@@ -34,7 +34,7 @@
 
 <div style="position:relative;">
 <form>
-	<input type="text" class="xui form-text" id="datepicker-2" name="datepicker-2" value="" data-timepicker="true" data-language="en"></input>
+	<input type="text" class="xui form-text" id="datepicker-2" name="datepicker-2" value=""></input>
 </form>
 </div>
 
@@ -47,7 +47,7 @@
 
 <div style="position:relative;">
 <form>
-	<input type="text" class="xui form-text" id="datepicker-3" name="datepicker-3" value="" data-timepicker="true" data-time-format="hh:ii" data-language="en"></input>
+	<input type="text" class="xui form-text" id="datepicker-3" name="datepicker-3" value=""></input>
 </form>
 </div>
 
