@@ -63,8 +63,8 @@
 	<script>
 		window.addEventListener("load", function(){
 			var datePicker1=new AirDatepicker("#datepicker-1", {autoClose:true,locale:AirDatepickerLocaleEN});
-			var datePicker2=new AirDatepicker("#datepicker-2", {autoClose:false,timepicker:true,locale:AirDatepickerLocaleEN});
-			var datePicker3=new AirDatepicker("#datepicker-3", {autoClose:false,timepicker:true,onlyTimepicker:true,locale:AirDatepickerLocaleEN,timeFormat:"HH:mm"});
+			var datePicker2=new AirDatepicker("#datepicker-2", {autoClose:true,timepicker:true,locale:AirDatepickerLocaleEN});
+			var datePicker3=new AirDatepicker("#datepicker-3", {autoClose:true,timepicker:true,onlyTimepicker:true,locale:AirDatepickerLocaleEN,timeFormat:"HH:mm"});
 		});
 	</script>
 	</body>
