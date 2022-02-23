@@ -98,8 +98,8 @@ function buildJS($name,$mod = ""){
 	global $completeJS;
 	$jsIn="source/".$name."/".$name.$mod.".js";
 	if(file_exists($jsIn)){		
-		$jsMinOut="output/js/xui-".$name.$mod.".min.js";
-		$completeJS[$jsMinOut]=makeJS($name,$mod);
+		$jsOut="output/js/xui-".$name.$mod.".js";
+		$completeJS[$jsOut]=makeJS($name,$mod);
 	};
 };
 
@@ -196,11 +196,13 @@ makeCopy("xui-version-lib.txt","output/xui-version-lib.txt");
 // ---
 
 buildComponent("core");
+buildComponent("script");
+buildComponent("style");
+buildComponent("html");
 buildComponent("cookie");
 buildComponent("ajax");
 buildComponent("element");
-buildComponent("script");
-buildComponent("html");
+
 // ---
 buildComponent("grid");
 buildComponent("elevation");

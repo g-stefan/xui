@@ -12,49 +12,76 @@
 XUI.Html = {};
 
 /**
- * Extract script from HTML
- * @param {string} inputHtmlAndScript - Text with HTML and script
- * @returns {object} Extracted html and script {html,js}
+ * Escape RegExp
+ * @param {string} str - String that will be escaped
+ * @returns {string} Escaped string
  */
-XUI.Html.extractScript = function (inputHtmlAndScript) {
-    retV = {
-        html: "",
-        js: ""
-    };
-    pattern = /<script[^>]*>([\S\s]*?)<\/script>/ig;
-    matches = inputHtmlAndScript.match(pattern);
-    if (matches) {
-        retV.js = "<script>";
-        for (var k = 0; k < matches.length; ++k) {
-            matches[k] = matches[k].replace(/<script[^>]*>/, "");
-            matches[k] = matches[k].replace(/<\/script>/, "");
-            retV.js += matches[k];
-        };
-        retV.js += "</script>";
-    };
-    retV.html = inputHtmlAndScript.replace(pattern, "");
-    return retV;
+XUI.Html.escapeRegExp = function (str) {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * Extract tag from HTML
+ * @param {string} inputHtml - HTML
+ * @returns {object} Extracted tag {html,tag}
+ */
+ XUI.Html.extractTag = function (inputHtml,tag) {
+	var retV = {
+		html: "",
+		tag: ""		
+	};
+	var tag_=XUI.Html.escapeRegExp(tag);
+	var pattern = new RegExp("<"+tag_+"[^>]*>([\S\s]*?)<\/+tag_+>", "ig");
+	var matches = inputHtml.match(pattern);
+    	if (matches) {
+        	for (var k = 0; k < matches.length; ++k) {
+			retV.tag += matches[k];
+		};
+	};
+	retV.html=inputHtml.replace(pattern, "");
+	return retV;
 };
 
 /**
- * Update html on element with id and run script if present
+ * Extract content from HTML
+ * @param {string} inputHtml - HTML
+ * @returns {object} Extracted html,script and style {html,script,style}
+ */
+XUI.Html.extract = function (inputHtml) {
+	var infoScript=XUI.Html.extractTag(inputHtml,"script");
+	var infoStyle=XUI.Html.extractTag(infoScript.html,"style");
+	return {
+		html: infoStyle.html,
+		script: infoScript.tag,
+		style: infoStyle.tag
+    	};
+};
+
+/**
+ * Update html on element with id
  * @param {string} id - Id of the element
- * @param {string} inputHtmlAndScript - Text with HTML and script
+ * @param {string} inputHtml - HTML
  * @param {function} [fnError] - Call on error - fnError()
+ * @param {string} nonce - nonce required to run script
  * @returns {element} Element
  */
-XUI.Html.update = function (id, inputHtmlAndScript, fnError) {
-    var el = document.getElementById(id);
-    if (!el) {
-        fnError();
-        return null;
-    };
-    var htmlAndJs = XUI.Html.extractScript(inputHtmlAndScript);
-    if (htmlAndJs.html.length > 0) {
-        el.innerHTML = htmlAndJs.html;
-    };
-    if (htmlAndJs.js.length > 0) {
-        XUI.Script.run(htmlAndJs.js);
-    };
-    return el;
+XUI.Html.update = function (id, inputHtml, fnError, nonce) {
+	var el = document.getElementById(id);
+	if (!el) {
+		if(fnError){
+			fnError();
+		};
+		return null;
+	};
+	var infoHtml = XUI.Html.extract(inputHtml);
+	if (infoHtml.style.length > 0) {
+		XUI.Style.run(infoHtml.style,nonce);
+	};
+	if (infoHtml.html.length > 0) {
+		el.innerHTML = infoHtml.html;
+	};
+	if (infoHtml.script.length > 0) {
+		XUI.Script.run(infoHtml.script,nonce);
+	};
+	return el;
 };
