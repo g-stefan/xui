@@ -1,4 +1,4 @@
-20.12.2021
+25.02.2022
 ----------
 air-datepicker,3.1.0,https://github.com/t1m0n/air-datepicker
 cropit,0.5.1,https://github.com/scottcheng/cropit
@@ -16,6 +16,7 @@ quill,1.3.7,https://github.com/quilljs/quill
 roboto-regular,2017,https://fonts.google.com/specimen/Roboto
 select2,4.0.13,https://github.com/select2/select2
 js-sha512,0.8.0,https://github.com/emn178/js-sha512
+dompurify,2.3.6,https://github.com/cure53/DOMPurify
 
 --- included - jquery.tag-editor
 jquery.caret,1.3.7,https://github.com/accursoft/caret

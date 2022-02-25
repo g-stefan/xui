@@ -25,18 +25,16 @@ XUI.Html.escapeRegExp = function (str) {
  * @param {string} inputHtml - HTML
  * @returns {object} Extracted tag {html,tag}
  */
- XUI.Html.extractTag = function (inputHtml,tag) {
+XUI.Html.extractTag = function (inputHtml,tag) {
 	var retV = {
 		html: "",
 		tag: ""		
 	};
 	var tag_=XUI.Html.escapeRegExp(tag);
-	var pattern = new RegExp("<"+tag_+"[^>]*>([\S\s]*?)<\/+tag_+>", "ig");
-	var matches = inputHtml.match(pattern);
-    	if (matches) {
-        	for (var k = 0; k < matches.length; ++k) {
-			retV.tag += matches[k];
-		};
+	var pattern = new RegExp("<"+tag+"[^>]*>([\\S\\s]*?)</"+tag+">", "ig");
+	var matches = inputHtml.matchAll(pattern);
+       	for (var match_ of matches) {
+		retV.tag += match_[1];
 	};
 	retV.html=inputHtml.replace(pattern, "");
 	return retV;
