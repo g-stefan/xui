@@ -151,16 +151,21 @@ XUI.Responsive.Element.linkContainer = function (responsiveId, superId, containe
 		while(reclaim){
 			reclaim=false;
 			for (var m = 0; m < elContainer.length; ++m) {
-				if(elContainer[m].offsetParent){
-					continue;
+				if(elContainer[m]){
+					if(elContainer[m].offsetParent){
+						continue;
+					};				
+					reclaim=true;
+					delete elContainer[m];
+					break;
 				};
-				reclaim=true;
-				delete elContainer[m];
-				break;				
 			};
 		};
 
 		for (var m = 0; m < elContainer.length; ++m) {
+			if(!elContainer[m]){
+				continue;
+			};
 			if (elContainer[m].offsetTop > (elContainer[m].offsetParent.offsetHeight/2)) {
 				childrenState = checkState + 1;
 				break;
