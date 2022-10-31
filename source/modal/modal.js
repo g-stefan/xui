@@ -11,9 +11,12 @@
 
 XUI.Modal = {};
 
-XUI.Modal.elActive = null;
-XUI.Modal.elInitialWidth = 0;
-XUI.Modal.elInitialWidthFirstTime = true;
+XUI.Modal.list=[];
+XUI.Modal.listSP=0;
+
+//XUI.Modal.elActive = null;
+//XUI.Modal.elInitialWidth = 0;
+//XUI.Modal.elInitialWidthFirstTime = true;
 
 /**
  * Activate modal
@@ -22,13 +25,24 @@ XUI.Modal.elInitialWidthFirstTime = true;
 XUI.Modal.activate = function (elId) {
 	var el = document.getElementById(elId);
 	if (el) {
+		this.list[this.listSP]={
+			elId: elId,		
+			elActive: el,
+			elInitialWidth: 0,
+			elInitialWidthFirstTime: true
+		};
+		++this.listSP;
+
 		this.setDeactivateEventListener(XUI.Element.getByClassNameFirst(el, "_modal-content"));
-		el.classList.toggle("-active");
-		this.elActive = el;
-		document.body.classList.add("-modal-open");
+		el.classList.toggle("-active");		
+
+		if(this.listSP==1){
+			document.body.classList.add("-modal-open");
+		};
+
 		setTimeout(function () {
 			XUI.Modal.onResize();
-		}, 500);
+		}, 500);		
 	};
 };
 
@@ -36,35 +50,50 @@ XUI.Modal.activate = function (elId) {
  * Deactivate open modal
  */
 XUI.Modal.deactivate = function () {
-	if (this.elActive) {
-		this.elActive.classList.add("-animate-deactivate");
+	if(this.listSP==0){
+		return;
+	};
+	var index=this.listSP-1;
+
+	if (this.list[index].elActive) {
+		this.list[index].elActive.classList.add("-animate-deactivate");
 	};
 };
 
 /**
  * Finish animation on close
  */
-XUI.Modal.deactivateAnimationFinish = function () {
-	if (this.elActive) {
-		if (!this.elActive.classList.contains("-animate-deactivate")) {
+XUI.Modal.deactivateAnimationFinish = function () {		
+	if(this.listSP==0){
+		return;
+	};
+	var index=this.listSP-1;
+
+	if (this.list[index].elActive) {
+		if (!this.list[index].elActive.classList.contains("-animate-deactivate")) {
 			return;
 		};
-		this.elActive.classList.remove("-active");
-		this.elActive.classList.remove("-animate-deactivate");
+		this.list[index].elActive.classList.remove("-active");
+		this.list[index].elActive.classList.remove("-animate-deactivate");
 
-		if (!this.elInitialWidthFirstTime) {
-			this.elActive.classList.remove("-scroll-x");
-			var el = XUI.Element.getByClassNameFirst(this.elActive, "_modal-content");
+		if (!this.list[index].elInitialWidthFirstTime) {
+			this.list[index].elActive.classList.remove("-scroll-x");
+			var el = XUI.Element.getByClassNameFirst(this.list[index].elActive, "_modal-content");
 			if (el) {
 				el.style.removeProperty("width");
 			};
 		};
 	};
 
-	this.elActive = null;
-	this.elInitialWidth = 0;
-	this.elInitialWidthFirstTime = true;
-	document.body.classList.remove("-modal-open");
+	this.list[index].elActive = null;
+	this.list[index].elInitialWidth = 0;
+	this.list[index].elInitialWidthFirstTime = true;
+
+	--this.listSP;
+
+	if(this.listSP==0){
+		document.body.classList.remove("-modal-open");
+	};
 };
 
 /**
@@ -102,22 +131,28 @@ XUI.Modal.onKeyUp = function (evt) {
  */
 XUI.Modal.onResize = function () {
 	var this_ = XUI.Modal;
-	if (this_.elActive) {
-		var el = XUI.Element.getByClassNameFirst(this_.elActive, "_modal-content");
+
+	if(this_.listSP==0){
+		return;
+	};
+	var index=this_.listSP-1;
+	
+	if (this_.list[index].elActive) {
+		var el = XUI.Element.getByClassNameFirst(this_.list[index].elActive, "_modal-content");
 		if (el) {
 			if (el.offsetWidth > window.innerWidth) {
-				if (this_.elInitialWidthFirstTime) {
-					this_.elActive.classList.add("-scroll-x");
-					this_.elInitialWidth = el.offsetWidth;
-					this_.elInitialWidthFirstTime = false;
+				if (this_.list[index].elInitialWidthFirstTime) {
+					this_.list[index].elActive.classList.add("-scroll-x");
+					this_.list[index].elInitialWidth = el.offsetWidth;
+					this_.list[index].elInitialWidthFirstTime = false;
 				};
 				el.style.width = window.innerWidth + "px";
 			} else {
-				if (!this_.elInitialWidthFirstTime) {
-					if (this_.elInitialWidth < window.innerWidth) {
-						this_.elActive.classList.remove("-scroll-x");
-						el.style.width = this_.elInitialWidth + "px";
-						this_.elInitialWidthFirstTime = true;
+				if (!this_.list[index].elInitialWidthFirstTime) {
+					if (this_.list[index].elInitialWidth < window.innerWidth) {
+						this_.list[index].elActive.classList.remove("-scroll-x");
+						el.style.width =this_.list[index].elInitialWidth + "px";
+						this_.list[index].elInitialWidthFirstTime = true;
 					} else {
 						el.style.width = window.innerWidth + "px";
 					};
