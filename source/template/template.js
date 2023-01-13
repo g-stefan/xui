@@ -33,11 +33,11 @@ XUI.Template.init = function () {
 						this.classList.remove("-overlay-scrollbars-active");
 						XUI.Template.overlayScrollbarsDestroy($(this).children("ul"));
 					};
-				});
-				scrollBars.destroy();
+				});				
 				/*setTimeout(function () {
 					scrollBars.sleep();
 				}, 50);*/
+				scrollBars.destroy();
 			} else {
 				$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
 					if (this.classList.contains("-was-on")) {
