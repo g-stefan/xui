@@ -13,20 +13,12 @@ XUI.Template = {};
  * Initialization
  */
 XUI.Template.init = function () {
-		
-	OverlayScrollbarsGlobal.OverlayScrollbars(document.querySelectorAll(".xui.-overlay-scrollbars"),{ scrollbars: { clickScrolling: true } });
-	var navigationDrawerContent = document.querySelector("#navigation-drawer-content");
-	if(navigationDrawerContent) {
-		OverlayScrollbarsGlobal.OverlayScrollbars(navigationDrawerContent,{ scrollbars: { clickScrolling: true }, clipAlways: false });
-	};
-
+	XUI.Template.overlayScrollbars($(".xui.-overlay-scrollbars"),{ scrollbars: { clickScrolling: true } });
+	XUI.Template.overlayScrollbars($("#navigation-drawer-content"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
+	
 	XUI.Dashboard.notifyStateChange = function () {
 		var state = this.getState();
-		var navigationDrawerContent = document.querySelector("#navigation-drawer-content");		
-		var scrollBars = null;
-		if(navigationDrawerContent) {
-			scrollBars = OverlayScrollbarsGlobal.OverlayScrollbars(navigationDrawerContent);
-		};
+		scrollBars = XUI.Template.overlayScrollbars($("#navigation-drawer-content"));		
 		if (scrollBars) {
 			if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
 				$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
@@ -39,12 +31,13 @@ XUI.Template.init = function () {
 					};
 					if (this.classList.contains("-overlay-scrollbars-active")) {
 						this.classList.remove("-overlay-scrollbars-active");
-						OverlayScrollbarsGlobal.OverlayScrollbars($(this).children("ul")).destroy();
+						XUI.Template.overlayScrollbarsDestroy($(this).children("ul"));
 					};
 				});
-				setTimeout(function () {
+				scrollBars.destroy();
+				/*setTimeout(function () {
 					scrollBars.sleep();
-				}, 50);
+				}, 50);*/
 			} else {
 				$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
 					if (this.classList.contains("-was-on")) {
@@ -70,8 +63,8 @@ XUI.Template.init = function () {
 				this.classList.remove("-open");
 			};
 			if (this.classList.contains("-overlay-scrollbars-active")) {
-				this.classList.remove("-overlay-scrollbars-active");
-				OverlayScrollbarsGlobal.OverlayScrollbars($(this).children("ul")).destroy();
+				this.classList.remove("-overlay-scrollbars-active");				
+				XUI.Template.overlayScrollbarsDestroy($(this).children("ul"));
 			};
 		});
 		if (this.classList.contains("_submenu")) {
@@ -79,8 +72,8 @@ XUI.Template.init = function () {
 			XUI.Capture.set([this], function (e, elList) {
 				elList[0].classList.remove("-open");
 				if (elList[0].classList.contains("-overlay-scrollbars-active")) {
-					elList[0].classList.remove("-overlay-scrollbars-active");
-					OverlayScrollbarsGlobal.OverlayScrollbars($(elList[0]).children("ul")).destroy();
+					elList[0].classList.remove("-overlay-scrollbars-active");					
+					XUI.Template.overlayScrollbarsDestroy($(elList[0]).children("ul"));
 				};
 			});
 		};
@@ -98,8 +91,8 @@ XUI.Template.init = function () {
 						if (elViewHeight > viewRect.height) {
 							elNewHeight = viewRect.height - elRect.top - 6; // 6px margin bottom							
 							if (!this_.classList.contains("-overlay-scrollbars-active")) {
-								this_.classList.add("-overlay-scrollbars-active");
-								OverlayScrollbarsGlobal.OverlayScrollbars($(this_).children("ul"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
+								this_.classList.add("-overlay-scrollbars-active");								
+								XUI.Template.overlayScrollbars($(this_).children("ul"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
 							};
 							el[0].style.height = elNewHeight + "px";
 							el[0].style.overflowY = "auto";
@@ -112,6 +105,36 @@ XUI.Template.init = function () {
 			};
 		};
 	});
+	
+};
+
+/**
+ * Initialize Overlay Scrollbars
+ * @param {elements} elements - Selected Elements
+ * @param {object} options - Element config options
+ */
+XUI.Template.overlayScrollbars = function (elements, options) {
+	var scrollBars = [];	
+	for(var element of elements.get()) {
+		scrollBars[scrollBars.length]=OverlayScrollbarsGlobal.OverlayScrollbars(element, options);
+	};
+	if(scrollBars.length > 1){
+		return scrollBars;
+	};
+	if(scrollBars.length == 1){
+		return scrollBars[0];
+	};
+	return null;
+};
+
+/**
+ * Destroy Overlay Scrollbars
+ * @param {elements} elements - Selected Elements
+ */
+XUI.Template.overlayScrollbarsDestroy = function (elements) {
+	for(var element of elements.get()) {
+		OverlayScrollbarsGlobal.OverlayScrollbars(element).destroy();
+	};	
 };
 
 /**
