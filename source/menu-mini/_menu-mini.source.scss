@@ -144,6 +144,7 @@
 	> li,
 	& > li.-open > ul > div
 	> li {
+		@extend %menu-level-important;
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
 	}
@@ -156,6 +157,7 @@
 	& > li.-open > ul > div
 	> li.-open > ul > div
 	> li {
+		@extend %menu-level-important;
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
 	}

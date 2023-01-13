@@ -61,7 +61,7 @@
 
 	&:hover > ul > div > li,
 	&.-open > ul > div > li {
-		@extend %menu-level;
+		@extend %menu-level-important;
 	}
 
 }

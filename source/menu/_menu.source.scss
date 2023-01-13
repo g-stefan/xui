@@ -39,3 +39,21 @@
 		height: 24px;
 	}
 }
+
+%menu-level-important {
+	& > .xui.action {
+		height: 40px !important;
+	}
+
+	&._separator {
+		height: 7px !important;
+	}
+
+	&._space {
+		height: 7px !important;
+	}
+        
+	&._label {
+		height: 24px !important;
+	}
+}
