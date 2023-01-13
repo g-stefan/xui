@@ -1,13 +1,10 @@
 <?php
 /*
-//
 // XUI
-//
-// Copyright (c) 2020-2022 Grigore Stefan <g_stefan@yahoo.com>
-// Created by Grigore Stefan <g_stefan@yahoo.com>
-//
+// Copyright (c) 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
-//
+// SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
 */
 ?>
 <!DOCTYPE html>
@@ -57,7 +54,7 @@
 
 	<?php include("form-datepicker-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.6.3.min.js" defer></script>
 	<script src="vendor/air-datepicker/air-datepicker.js" defer></script>
 	<script src="vendor/air-datepicker/locale/en.js" defer></script>
 	<script>

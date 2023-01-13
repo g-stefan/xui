@@ -1,4 +1,10 @@
-var AirDatepickerLocaleDA = {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
   days: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
   daysShort: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
   daysMin: ['Sø', 'Ma', 'Ti', 'On', 'To', 'Fr', 'Lø'],
@@ -10,3 +16,4 @@ var AirDatepickerLocaleDA = {
   timeFormat: 'HH:mm',
   firstDay: 1
 };
+exports.default = _default;

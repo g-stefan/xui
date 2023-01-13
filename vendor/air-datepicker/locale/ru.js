@@ -1,4 +1,10 @@
-var AirDatepickerLocaleRU = {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
   days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
   daysShort: ['Вос', 'Пон', 'Вто', 'Сре', 'Чет', 'Пят', 'Суб'],
   daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
@@ -10,3 +16,4 @@ var AirDatepickerLocaleRU = {
   timeFormat: 'HH:mm',
   firstDay: 1
 };
+exports.default = _default;

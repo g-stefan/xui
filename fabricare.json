@@ -1,0 +1,15 @@
+{
+	"solution": {
+		"name" : "xui",
+		"type" : "xyo-cpp",
+		"projects": [
+			{
+				"name" : "xui",
+				"SPDX-License-Identifier": "MIT",
+				"previousVersion" : "3.5.0"
+			}
+		],
+		"releaseOutput" : true,
+		"hasGithub" : true
+	}
+}

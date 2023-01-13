@@ -4,8 +4,7 @@ UI kit - Front-End Framework
 
 ## License
 
-Copyright (c) Grigore Stefan
-
+Copyright (c) 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 Licensed under the [MIT](LICENSE) license.
 
 **This is a compilation of different works.**

@@ -1,6 +1,6 @@
 /*!
 //
-// Copyright (c) 2020-2022 Grigore Stefan <g_stefan@yahoo.com>
+// Copyright (c) 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
 //
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
@@ -13,11 +13,20 @@ XUI.Template = {};
  * Initialization
  */
 XUI.Template.init = function () {
-	$(".xui.-overlay-scrollbars").overlayScrollbars({ scrollbars: { clickScrolling: true } });
-	$("#navigation-drawer-content").overlayScrollbars({ scrollbars: { clickScrolling: true }, clipAlways: false });
+		
+	OverlayScrollbarsGlobal.OverlayScrollbars(document.querySelectorAll(".xui.-overlay-scrollbars"),{ scrollbars: { clickScrolling: true } });
+	var navigationDrawerContent = document.querySelector("#navigation-drawer-content");
+	if(navigationDrawerContent) {
+		OverlayScrollbarsGlobal.OverlayScrollbars(navigationDrawerContent,{ scrollbars: { clickScrolling: true }, clipAlways: false });
+	};
+
 	XUI.Dashboard.notifyStateChange = function () {
 		var state = this.getState();
-		var scrollBars = $("#navigation-drawer-content").overlayScrollbars();
+		var navigationDrawerContent = document.querySelector("#navigation-drawer-content");		
+		var scrollBars = null;
+		if(navigationDrawerContent) {
+			scrollBars = OverlayScrollbarsGlobal.OverlayScrollbars(navigationDrawerContent);
+		};
 		if (scrollBars) {
 			if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
 				$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
@@ -30,7 +39,7 @@ XUI.Template.init = function () {
 					};
 					if (this.classList.contains("-overlay-scrollbars-active")) {
 						this.classList.remove("-overlay-scrollbars-active");
-						$(this).children("ul").overlayScrollbars().destroy();
+						OverlayScrollbarsGlobal.OverlayScrollbars($(this).children("ul")).destroy();
 					};
 				});
 				setTimeout(function () {
@@ -62,7 +71,7 @@ XUI.Template.init = function () {
 			};
 			if (this.classList.contains("-overlay-scrollbars-active")) {
 				this.classList.remove("-overlay-scrollbars-active");
-				$(this).children("ul").overlayScrollbars().destroy();
+				OverlayScrollbarsGlobal.OverlayScrollbars($(this).children("ul")).destroy();
 			};
 		});
 		if (this.classList.contains("_submenu")) {
@@ -71,7 +80,7 @@ XUI.Template.init = function () {
 				elList[0].classList.remove("-open");
 				if (elList[0].classList.contains("-overlay-scrollbars-active")) {
 					elList[0].classList.remove("-overlay-scrollbars-active");
-					$(elList[0]).children("ul").overlayScrollbars().destroy();
+					OverlayScrollbarsGlobal.OverlayScrollbars($(elList[0]).children("ul")).destroy();
 				};
 			});
 		};
@@ -90,7 +99,7 @@ XUI.Template.init = function () {
 							elNewHeight = viewRect.height - elRect.top - 6; // 6px margin bottom							
 							if (!this_.classList.contains("-overlay-scrollbars-active")) {
 								this_.classList.add("-overlay-scrollbars-active");
-								$(this_).children("ul").overlayScrollbars({ scrollbars: { clickScrolling: true }, clipAlways: false });
+								OverlayScrollbarsGlobal.OverlayScrollbars($(this_).children("ul"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
 							};
 							el[0].style.height = elNewHeight + "px";
 							el[0].style.overflowY = "auto";

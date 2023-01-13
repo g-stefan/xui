@@ -7,7 +7,7 @@
 			"label": "Build",
 			"type": "shell",
 			"windows": {
-				"command": "cmd.exe /c build.cmd",
+				"command": "fabricare",
 			},
 			"problemMatcher": [
 				"$msCompile",
@@ -22,7 +22,7 @@
 			"label": "Clean",
 			"type": "shell",
 			"windows": {
-				"command": "cmd.exe /c build.cmd clean",
+				"command": "fabricare clean",
 			},
 			"problemMatcher": [
 				"$msCompile",
@@ -33,7 +33,7 @@
 			"label": "Release",
 			"type": "shell",
 			"windows": {
-				"command": "cmd.exe /c build.cmd release",
+				"command": "fabricare release",
 			},
 			"problemMatcher": [
 				"$msCompile",
@@ -44,7 +44,7 @@
 			"label": "Version",
 			"type": "shell",
 			"windows": {
-				"command": "cmd.exe /c build.cmd version",
+				"command": "fabricare version",
 			},
 			"problemMatcher": [
 				"$msCompile",
@@ -59,7 +59,7 @@
 			},
 			"linux": {
 				"command": "/bin/sh -- mkdocs build",
-			}
+			},
 			"problemMatcher": [
 				"$msCompile", "$gcc"
 			]
@@ -72,7 +72,7 @@
 			},
 			"linux": {
 				"command": "/bin/sh -- reuse lint",
-			}
+			},
 			"problemMatcher": [
 				"$msCompile", "$gcc"
 			]

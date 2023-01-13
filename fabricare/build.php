@@ -1,14 +1,8 @@
 <?php
-/*
-//
-// XUI
-//
-// Copyright (c) 2020-2022 Grigore Stefan <g_stefan@yahoo.com>
 // Created by Grigore Stefan <g_stefan@yahoo.com>
-//
-// MIT License (MIT) <http://opensource.org/licenses/MIT>
-//
-*/
+// Public domain (Unlicense) <http://unlicense.org>
+// SPDX-FileCopyrightText: 2020-2023 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: Unlicense
 
 $completeCSS=array();
 $completeJS=array();
@@ -148,7 +142,7 @@ function buildCompleteCSS(){
 		echo "-> complete css\r\n";
 
 		copy("source/core/core.header.css","temp/xui.complete.in.css");
-		system("xyo-version --no-bump --version-file=version.ini --file-in=temp/xui.complete.in.css --file-out=temp/xui.complete.css xui");
+		system("xyo-version --no-bump --version-file=version.json --file-in=temp/xui.complete.in.css --file-out=temp/xui.complete.css xui");
 		foreach($completeCSS as $css => $isBaked){
 			$content = file_get_contents($css);
 			$content = str_replace("/*!\r\n","/*\r\n",$content);
@@ -171,7 +165,7 @@ function buildCompleteJS(){
 		echo "-> complete js\r\n";
 
 		copy("source/core/core.header.js","temp/xui.complete.in.js");
-		system("xyo-version --no-bump --version-file=version.ini --file-in=temp/xui.complete.in.js --file-out=temp/xui.complete.js xui");
+		system("xyo-version --no-bump --version-file=version.json --file-in=temp/xui.complete.in.js --file-out=temp/xui.complete.js xui");
 		foreach($completeJS as $js => $isBaked){
 			$content = file_get_contents($js);
 			$content = str_replace("/*!\r\n","/*\r\n",$content);
@@ -290,3 +284,6 @@ makeComponent("dashboard-theme-2");
 makeComponent("dashboard-theme-3");
 
 // ---
+
+echo "done.\n";
+

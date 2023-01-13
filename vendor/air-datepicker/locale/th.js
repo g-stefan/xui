@@ -1,4 +1,10 @@
-var AirDatepickerLocaleTH = {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
   days: ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'],
   daysShort: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
   daysMin: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
@@ -10,3 +16,4 @@ var AirDatepickerLocaleTH = {
   timeFormat: 'HH:mm',
   firstDay: 0
 };
+exports.default = _default;

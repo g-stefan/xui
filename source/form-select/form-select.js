@@ -1,12 +1,9 @@
 /*!
-//
 // XUI
-//
-// Copyright (c) 2020-2022 Grigore Stefan <g_stefan@yahoo.com>
-// Created by Grigore Stefan <g_stefan@yahoo.com>
-//
+// Copyright (c) 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
-//
+// SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
 */
 
 XUI.FormSelect = {};
@@ -36,14 +33,14 @@ XUI.FormSelect.initSelect = function (el) {
 		setTimeout(function () {
 			var options=$(".select2-container.select2-container--open>.select2-dropdown>.select2-results>.select2-results__options");
 			if(options){
-				XUI.FormSelect.instance = options.overlayScrollbars({ scrollbars: { clickScrolling: true } });
+				XUI.FormSelect.instance =  OverlayScrollbarsGlobal.OverlayScrollbars(options,{ scrollbars: { clickScrolling: true } });
 			}else{
 				XUI.FormSelect.instance = null;
 			}
 		}, 10);
 	}).on("select2:closing", function () {
 		if(XUI.FormSelect.instance) {
-			XUI.FormSelect.instance.overlayScrollbars().destroy();
+			XUI.FormSelect.instance.destroy();
 		};
 		XUI.FormSelect.instance = null;
 	});

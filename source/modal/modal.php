@@ -1,13 +1,10 @@
 <?php
 /*
-//
 // XUI
-//
-// Copyright (c) 2020-2022 Grigore Stefan <g_stefan@yahoo.com>
-// Created by Grigore Stefan <g_stefan@yahoo.com>
-//
+// Copyright (c) 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
-//
+// SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
 */
 ?>
 <!DOCTYPE html>
@@ -60,7 +57,7 @@
 
 	<?php include("modal-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.6.3.min.js" defer></script>
 	<script src="vendor/cropit/jquery.cropit.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-element.min.js" defer></script>
