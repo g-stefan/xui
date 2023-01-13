@@ -140,9 +140,9 @@
 
 	// Level 2
 
-	& > li:hover > ul > div > div > div
+	& > li:hover > ul > div
 	> li,
-	& > li.-open > ul > div > div > div
+	& > li.-open > ul > div
 	> li {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();
@@ -150,11 +150,11 @@
 
 	// Level 3
 
-	& > li:hover > ul > div > div > div
-	> li:hover > ul > div > div > div
+	& > li:hover > ul > div
+	> li:hover > ul > div
 	> li,
-	& > li.-open > ul > div > div > div
-	> li.-open > ul > div > div > div
+	& > li.-open > ul > div
+	> li.-open > ul > div
 	> li {
 		@extend %menu-dropdown-level;
 		@include menu-dropdown-level-action();

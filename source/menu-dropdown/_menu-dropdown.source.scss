@@ -55,12 +55,12 @@
 
 	// --- Overlay Scrollbars
 
-	& > ul > div > div > div > li {
+	& > ul > div > li {
 		@extend %menu-level-reset;
 	}
 
-	&:hover > ul > div > div > div > li,
-	&.-open > ul > div > div > div > li {
+	&:hover > ul > div > li,
+	&.-open > ul > div > li {
 		@extend %menu-level;
 	}
 
