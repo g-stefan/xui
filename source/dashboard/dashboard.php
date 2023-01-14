@@ -75,7 +75,7 @@
 	<?php include("dashboard-page-1.php"); ?>
 
 	<script src="vendor/jquery/jquery-3.6.3.min.js" defer></script>
-	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-cookie.min.js" defer></script>
 	<script src="js/xui-element.min.js" defer></script>
@@ -86,7 +86,7 @@
 	<script src="js/xui-dashboard.min.js" defer></script>
 	<script>
 		window.addEventListener("load", function(){
-			OverlayScrollbarsGlobal.OverlayScrollbars(document.querySelector(".xui.navigation-drawer"),{scrollbars:{clickScrolling:true},clipAlways:false});
+			XUI.OverlayScrollbars.create($(".xui.navigation-drawer"));
 		});
 	</script>
 	</body>

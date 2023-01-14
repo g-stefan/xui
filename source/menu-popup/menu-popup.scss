@@ -146,7 +146,7 @@ ul.xui.menu.-popup {
 
 		// Level 2
 	
-		& > li:hover > ul > div
+		& > li:hover > ul > div > div > div
 		> li {
 			@extend %menu-dropdown-level;
 			@include menu-dropdown-level-action();		
@@ -154,8 +154,8 @@ ul.xui.menu.-popup {
 
 		// Level 3
 
-		& > li:hover > ul > div
-		> li:hover > ul > div
+		& > li:hover > ul > div > div > div
+		> li:hover > ul > div > div > div
 		> li {
 			@extend %menu-dropdown-level;
 			@include menu-dropdown-level-action();

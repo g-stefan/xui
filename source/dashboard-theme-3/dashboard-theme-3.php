@@ -60,7 +60,7 @@
 	<?php include("dashboard-theme-3-page-3.php"); ?>
 
 	<script src="vendor/jquery/jquery-3.6.3.min.js" defer></script>
-	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui.complete.min.js" defer></script>
 	</body>
 </html>

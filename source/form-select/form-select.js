@@ -33,43 +33,17 @@ XUI.FormSelect.initSelect = function (el) {
 		setTimeout(function () {
 			var options=$(".select2-container.select2-container--open>.select2-dropdown>.select2-results>.select2-results__options");
 			if(options){
-				XUI.FormSelect.instance =  XUI.FormSelect.overlayScrollbars(options,{ scrollbars: { clickScrolling: true } });
+				XUI.FormSelect.instance =  XUI.OverlayScrollbars.create(options);
 			}else{
 				XUI.FormSelect.instance = null;
 			}
 		}, 10);
 	}).on("select2:closing", function () {
 		if(XUI.FormSelect.instance) {
-			XUI.FormSelect.overlayScrollbarsDestroy(XUI.FormSelect.instance);
+			XUI.OverlayScrollbars.destroy(XUI.FormSelect.instance);
 		};
 		XUI.FormSelect.instance = null;
 	});
-};
-
-/**
- * Initialize Overlay Scrollbars
- * @param {elements} elements - Selected Elements
- * @param {object} options - Element config options
- */
-XUI.FormSelect.overlayScrollbars = function (elements, options) {
-	var scrollBars = [];	
-	for(var element of elements.get()) {
-		scrollBars[scrollBars.length]=OverlayScrollbarsGlobal.OverlayScrollbars(element, options);
-	};
-	if(scrollBars.length){
-		return scrollBars;
-	};
-	return null;
-};
-
-/**
- * Destroy Overlay Scrollbars
- * @param {elements} elements - Array of Overlay Scrollbars instances
- */
-XUI.FormSelect.overlayScrollbarsDestroy = function (elements) {
-	for(var element of elements) {
-		element.destroy();
-	};	
 };
 
 /**

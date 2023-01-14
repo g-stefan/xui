@@ -13,44 +13,46 @@ XUI.Template = {};
  * Initialization
  */
 XUI.Template.init = function () {
-	XUI.Template.overlayScrollbars($(".xui.-overlay-scrollbars"),{ scrollbars: { clickScrolling: true } });
-	XUI.Template.overlayScrollbars($("#navigation-drawer-content"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
+	XUI.OverlayScrollbars.create($(".xui.-overlay-scrollbars"));
+	XUI.Template.navigationDrawerScrollBars=XUI.OverlayScrollbars.create($("#navigation-drawer-content"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
 	
 	XUI.Dashboard.notifyStateChange = function () {
-		var state = this.getState();
-		scrollBars = XUI.Template.overlayScrollbars($("#navigation-drawer-content"));		
-		if (scrollBars) {
-			if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
-				$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
-					if (this.classList.contains("-on")) {
-						this.classList.remove("-on");
-						this.classList.add("-was-on");
-					};
-					if (this.classList.contains("-open")) {
-						this.classList.remove("-open");
-					};
-					if (this.classList.contains("-overlay-scrollbars-active")) {
-						this.classList.remove("-overlay-scrollbars-active");
-						XUI.Template.overlayScrollbarsDestroy($(this).children("ul"));
-					};
-				});				
-				/*setTimeout(function () {
-					scrollBars.sleep();
-				}, 50);*/
-				scrollBars.destroy();
-			} else {
-				$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
-					if (this.classList.contains("-was-on")) {
-						this.classList.remove("-was-on");
-						this.classList.add("-on");
-					};
-				});
-				$("#navigation-drawer-content ul>li.xui._submenu>ul").each(function () {
-					this.style.height = "auto";
-				});
-				scrollBars.update(true);
+		var state = this.getState();				
+		if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
+			$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
+				if (this.classList.contains("-on")) {
+					this.classList.remove("-on");
+					this.classList.add("-was-on");
+				};
+				if (this.classList.contains("-open")) {
+					this.classList.remove("-open");
+				};
+				if (this.classList.contains("-overlay-scrollbars-active")) {
+					this.classList.remove("-overlay-scrollbars-active");
+					XUI.OverlayScrollbars.destroy($(this).children("ul"));
+				};
+			});								
+
+			if (XUI.Template.navigationDrawerScrollBars) {
+				setTimeout(function () {
+					XUI.OverlayScrollbars.sleep(XUI.Template.navigationDrawerScrollBars);
+				}, 50);
 			};
+
+			return;
 		};
+		$(".xui.navigation-drawer ul.xui.menu>li").each(function () {
+			if (this.classList.contains("-was-on")) {
+				this.classList.remove("-was-on");
+				this.classList.add("-on");
+			};
+		});
+		$("#navigation-drawer-content ul>li.xui._submenu>ul").each(function () {
+			this.style.height = "auto";
+		});
+		if (XUI.Template.navigationDrawerScrollBars) {
+			XUI.OverlayScrollbars.update(XUI.Template.navigationDrawerScrollBars);
+		};		
 	};
 	XUI.Dashboard.notifyStateChange();
 	$(".xui.navigation-drawer ul.xui.menu>li").mouseenter(function () {
@@ -64,7 +66,7 @@ XUI.Template.init = function () {
 			};
 			if (this.classList.contains("-overlay-scrollbars-active")) {
 				this.classList.remove("-overlay-scrollbars-active");				
-				XUI.Template.overlayScrollbarsDestroy($(this).children("ul"));
+				XUI.OverlayScrollbars.destroy($(this).children("ul"));
 			};
 		});
 		if (this.classList.contains("_submenu")) {
@@ -73,7 +75,7 @@ XUI.Template.init = function () {
 				elList[0].classList.remove("-open");
 				if (elList[0].classList.contains("-overlay-scrollbars-active")) {
 					elList[0].classList.remove("-overlay-scrollbars-active");					
-					XUI.Template.overlayScrollbarsDestroy($(elList[0]).children("ul"));
+					XUI.OverlayScrollbars.destroy($(elList[0]).children("ul"));
 				};
 			});
 		};
@@ -92,7 +94,7 @@ XUI.Template.init = function () {
 							elNewHeight = viewRect.height - elRect.top - 6; // 6px margin bottom							
 							if (!this_.classList.contains("-overlay-scrollbars-active")) {
 								this_.classList.add("-overlay-scrollbars-active");								
-								XUI.Template.overlayScrollbars($(this_).children("ul"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
+								XUI.OverlayScrollbars.create($(this_).children("ul"),{ scrollbars: { clickScrolling: true }, clipAlways: false });
 							};
 							el[0].style.height = elNewHeight + "px";
 							el[0].style.overflowY = "auto";
@@ -106,35 +108,6 @@ XUI.Template.init = function () {
 		};
 	});
 	
-};
-
-/**
- * Initialize Overlay Scrollbars
- * @param {elements} elements - Selected Elements
- * @param {object} options - Element config options
- */
-XUI.Template.overlayScrollbars = function (elements, options) {
-	var scrollBars = [];	
-	for(var element of elements.get()) {
-		scrollBars[scrollBars.length]=OverlayScrollbarsGlobal.OverlayScrollbars(element, options);
-	};
-	if(scrollBars.length > 1){
-		return scrollBars;
-	};
-	if(scrollBars.length == 1){
-		return scrollBars[0];
-	};
-	return null;
-};
-
-/**
- * Destroy Overlay Scrollbars
- * @param {elements} elements - Selected Elements
- */
-XUI.Template.overlayScrollbarsDestroy = function (elements) {
-	for(var element of elements.get()) {
-		OverlayScrollbarsGlobal.OverlayScrollbars(element).destroy();
-	};	
 };
 
 /**

@@ -140,9 +140,9 @@
 
 	// Level 2
 
-	& > li:hover > ul > div
+	& > li:hover > ul > div > div > div
 	> li,
-	& > li.-open > ul > div
+	& > li.-open > ul > div > div > div
 	> li {
 		@extend %menu-level-important;
 		@extend %menu-dropdown-level;
@@ -151,11 +151,11 @@
 
 	// Level 3
 
-	& > li:hover > ul > div
-	> li:hover > ul > div
+	& > li:hover > ul > div > div > div
+	> li:hover > ul > div > div > div
 	> li,
-	& > li.-open > ul > div
-	> li.-open > ul > div
+	& > li.-open > ul > div > div > div
+	> li.-open > ul > div > div > div
 	> li {
 		@extend %menu-level-important;
 		@extend %menu-dropdown-level;

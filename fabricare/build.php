@@ -206,6 +206,7 @@ buildComponent("effect-ripple");
 buildComponent("palette");
 buildComponent("toggle");
 buildComponent("capture");
+buildComponent("overlayscrollbars");
 //
 buildComponent("text");
 buildComponent("card");
