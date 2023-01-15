@@ -26,7 +26,11 @@ XUI.OverlayScrollbars.create = function (elements, options) {
  * @param {elements} elements - Selected elements
  */
 XUI.OverlayScrollbars.destroy = function (elements) {
-	elements.overlayScrollbars().destroy();	
+	if(elements) {
+		if(elements.overlayScrollbars()){
+			elements.overlayScrollbars().destroy();	
+		};
+	};
 };
 
 /**
@@ -34,7 +38,11 @@ XUI.OverlayScrollbars.destroy = function (elements) {
  * @param {elements} elements - Selected elements
  */
 XUI.OverlayScrollbars.update = function (elements) {
-	elements.overlayScrollbars().update(true);	
+	if(elements) {
+		if(elements.overlayScrollbars()){
+			elements.overlayScrollbars().update(true);
+		};
+	};
 };
 
 /**
@@ -42,5 +50,9 @@ XUI.OverlayScrollbars.update = function (elements) {
  * @param {elements} elements - Selected elements
  */
 XUI.OverlayScrollbars.sleep = function (elements) {
-	elements.overlayScrollbars().sleep();	
+	if(elements) {
+		if(elements.overlayScrollbars()) {
+			elements.overlayScrollbars().sleep();
+		};
+	};
 };
