@@ -13,7 +13,7 @@ XUI.Toggle = {};
  * @param {element} el - Element
  * @param {string} target - Target
  */
-XUI.Toggle.getToggleTarget = function (el, target) {
+XUI.Toggle.getToggleTarget = function(el, target) {
 	if (target) {
 		if (target.indexOf("parent") == 0) {
 			var ln = 1;
@@ -43,7 +43,7 @@ XUI.Toggle.getToggleTarget = function (el, target) {
  * @param {array} elList - Array of elements to toggle class
  * @param {array} toggleClass - Array of css class to toggle
  */
-XUI.Toggle.onClickToggleElementListClass = function (el, elList, toggleClass) {
+XUI.Toggle.onClickToggleElementListClass = function(el, elList, toggleClass) {
 	var this_ = XUI.Toggle;
 
 	for (var k = 0; k < toggleClass.length; ++k) {
@@ -53,7 +53,7 @@ XUI.Toggle.onClickToggleElementListClass = function (el, elList, toggleClass) {
 	if (elList) {
 		if (elList.length) {
 			if (toggleClass.length > 1) {
-				el.addEventListener("click", function (event) {
+				el.addEventListener("click", function(event) {
 					this.classList.toggle("-active");
 					var thisEl = this_.getToggleTarget(this, this.getAttribute("data-xui-toggle"));
 					for (var elIndex in elList) {
@@ -73,19 +73,18 @@ XUI.Toggle.onClickToggleElementListClass = function (el, elList, toggleClass) {
 				return;
 			};
 
-			el.addEventListener("click", function (event) {
+			el.addEventListener("click", function(event) {
 				this.classList.toggle("-active");
 				var thisEl = this_.getToggleTarget(this, this.getAttribute("data-xui-toggle"));
 				for (var elIndex in elList) {
 					elList[elIndex].classList.toggle(toggleClass[0]);
 				};
 			});
-
 		};
 		return;
 	};
 	if (toggleClass.length > 1) {
-		el.addEventListener("click", function (event) {
+		el.addEventListener("click", function(event) {
 			this.classList.toggle("-active");
 			var thisEl = this_.getToggleTarget(this, this.getAttribute("data-xui-toggle"));
 			if (thisEl.classList.contains(toggleClass[0])) {
@@ -102,7 +101,7 @@ XUI.Toggle.onClickToggleElementListClass = function (el, elList, toggleClass) {
 		});
 		return;
 	};
-	el.addEventListener("click", function (event) {
+	el.addEventListener("click", function(event) {
 		this.classList.toggle("-active");
 		var thisEl = this_.getToggleTarget(this, this.getAttribute("data-xui-toggle"));
 		thisEl.classList.toggle(toggleClass[0]);
@@ -112,7 +111,7 @@ XUI.Toggle.onClickToggleElementListClass = function (el, elList, toggleClass) {
 /**
  * Initialization
  */
-XUI.Toggle.init = function () {
+XUI.Toggle.init = function() {
 	var elList = document.getElementsByClassName("xui -toggle");
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
 		var toggleAction = elList[elIndex].getAttribute("data-xui-toggle-action");
@@ -124,7 +123,7 @@ XUI.Toggle.init = function () {
 				continue;
 			};
 		};
-		var toggleClassItems = ["-on", "-off"];
+		var toggleClassItems = [ "-on", "-off" ];
 		if (toggleClass) {
 			toggleClassItems = toggleClass.split(",");
 		};
@@ -142,7 +141,6 @@ XUI.Toggle.init = function () {
 
 				var list = XUI.Element.getByClassNameAndAttributeValue(document, "xui -toggle", "data-xui-toggle-group", groupName);
 				this.onClickToggleElementListClass(elList[elIndex], list, groupClassItems);
-
 			};
 			continue;
 		};
@@ -175,7 +173,7 @@ XUI.Toggle.init = function () {
 /**
  * On load
  */
-XUI.Toggle.onLoad = function () {
+XUI.Toggle.onLoad = function() {
 	window.removeEventListener("load", XUI.Toggle.onLoad);
 	XUI.Toggle.init();
 };

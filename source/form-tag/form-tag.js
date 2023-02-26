@@ -8,12 +8,11 @@
 
 XUI.FormTag = {};
 
-
 /**
  * Initialize tag element
  * @param {element} el - Element
  */
-XUI.FormTag.initTag = function (el) {
+XUI.FormTag.initTag = function(el) {
 	$(el).tagEditor();
 };
 
@@ -21,18 +20,18 @@ XUI.FormTag.initTag = function (el) {
  * Initialize tag element by id
  * @param {string} id - Element id
  */
-XUI.FormTag.initById = function (id) {
+XUI.FormTag.initById = function(id) {
 	XUI.FormTag.initTag($("#" + id));
 };
 
 /**
  * Initialization
  */
-XUI.FormTag.init = function () {
-	$(".xui.form-text.-tag").each(function () {
+XUI.FormTag.init = function() {
+	$(".xui.form-text.-tag").each(function() {
 		XUI.FormTag.initTag(this);
 	});
-	$(".xui.form-textarea.-tag").each(function () {
+	$(".xui.form-textarea.-tag").each(function() {
 		XUI.FormTag.initTag(this);
 	});
 };
@@ -40,7 +39,7 @@ XUI.FormTag.init = function () {
 /**
  * On load
  */
-XUI.FormTag.onLoad = function () {
+XUI.FormTag.onLoad = function() {
 	window.removeEventListener("load", XUI.FormTag.onLoad);
 	XUI.FormTag.init();
 };

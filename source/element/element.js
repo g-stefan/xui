@@ -14,7 +14,7 @@ XUI.Element = {};
  * @param {string} className - Class name one or more separated by " "
  * @returns {element} Element
  */
-XUI.Element.getByClassNameFirst = function (el, className) {
+XUI.Element.getByClassNameFirst = function(el, className) {
 	var elList = el.getElementsByClassName(className);
 	if (elList.length == 0) {
 		return null;
@@ -29,7 +29,7 @@ XUI.Element.getByClassNameFirst = function (el, className) {
  * @param {string} attribute - Attribute to find
  * @returns {elements} Array of elements
  */
-XUI.Element.getByClassNameAndAttribute = function (el, className, attribute) {
+XUI.Element.getByClassNameAndAttribute = function(el, className, attribute) {
 	var retV = [];
 	var elList = el.getElementsByClassName(className);
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
@@ -45,10 +45,10 @@ XUI.Element.getByClassNameAndAttribute = function (el, className, attribute) {
  * @param {element} el - Element
  * @param {string} className - Class name one or more separated by " "
  * @param {string} attribute - Attribute to find
- * @param {string} attributeValue - Attribute value to find 
+ * @param {string} attributeValue - Attribute value to find
  * @returns {elements} Array of elements
  */
-XUI.Element.getByClassNameAndAttributeValue = function (el, className, attribute, attributeValue) {
+XUI.Element.getByClassNameAndAttributeValue = function(el, className, attribute, attributeValue) {
 	var retV = [];
 	var elList = el.getElementsByClassName(className);
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
@@ -64,10 +64,10 @@ XUI.Element.getByClassNameAndAttributeValue = function (el, className, attribute
  * @param {element} el - Element
  * @param {string} className - Class name one or more separated by " "
  * @param {string} attribute - Attribute to find
- * @param {string} attributeValue - Attribute value to find 
+ * @param {string} attributeValue - Attribute value to find
  * @returns {element} Element
  */
-XUI.Element.getByClassNameAndAttributeValueFirstOne = function (el, className, attribute, attributeValue) {
+XUI.Element.getByClassNameAndAttributeValueFirstOne = function(el, className, attribute, attributeValue) {
 	var elList = XUI.Element.getByClassNameAndAttributeValue(el, className, attribute, attributeValue);
 	if (elList.length == 0) {
 		return null;
@@ -80,10 +80,10 @@ XUI.Element.getByClassNameAndAttributeValueFirstOne = function (el, className, a
  * @param {element} el - Element
  * @param {string} tagName - Element tag name
  * @param {string} attribute - Attribute to find
- * @param {string} attributeValue - Attribute value to find  
+ * @param {string} attributeValue - Attribute value to find
  * @returns {elements} Array of elements
  */
-XUI.Element.getByTagNameAndAttributeValue = function (el, tagName, attribute, attributeValue) {
+XUI.Element.getByTagNameAndAttributeValue = function(el, tagName, attribute, attributeValue) {
 	var retV = [];
 	var elList = el.getElementsByTagName(tagName);
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
@@ -99,10 +99,10 @@ XUI.Element.getByTagNameAndAttributeValue = function (el, tagName, attribute, at
  * @param {element} el - Element
  * @param {string} tagName - Element tag name
  * @param {string} attribute - Attribute to find
- * @param {string} attributeValue - Attribute value to find  
+ * @param {string} attributeValue - Attribute value to find
  * @returns {element} Element
  */
-XUI.Element.getByTagNameAndAttributeValueFirstOne = function (el, tagName, attribute, attributeValue) {
+XUI.Element.getByTagNameAndAttributeValueFirstOne = function(el, tagName, attribute, attributeValue) {
 	var elList = XUI.Element.getByTagNameAndAttributeValue(el, tagName, attribute, attributeValue);
 	if (elList.length == 0) {
 		return null;
@@ -117,7 +117,7 @@ XUI.Element.getByTagNameAndAttributeValueFirstOne = function (el, tagName, attri
  * @param {string} className - Class name one or more separated by " "
  * @returns {elements} Array of elements
  */
-XUI.Element.getByTagNameAndClassName = function (el, tagName, className) {
+XUI.Element.getByTagNameAndClassName = function(el, tagName, className) {
 	var retV = [];
 	var elList = el.getElementsByClassName(className);
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
@@ -134,7 +134,7 @@ XUI.Element.getByTagNameAndClassName = function (el, tagName, className) {
  * @param {string} className - Class name one or more separated by " "
  * @returns {element} Element
  */
-XUI.Element.getNextSiblingByClassName = function (el, className) {
+XUI.Element.getNextSiblingByClassName = function(el, className) {
 	var classNameList = className.split(" ");
 	var i;
 	for (var scan = el.nextSibling; scan; scan = scan.nextSibling) {
@@ -157,7 +157,7 @@ XUI.Element.getNextSiblingByClassName = function (el, className) {
  * @param {element} el - Element
  * @returns {number} Offset
  */
-XUI.Element.getOffsetX = function (el) {
+XUI.Element.getOffsetX = function(el) {
 	var clientRect = el.getBoundingClientRect();
 
 	var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
@@ -171,7 +171,7 @@ XUI.Element.getOffsetX = function (el) {
  * @param {element} el - Element
  * @returns {number} Offset
  */
-XUI.Element.getOffsetY = function (el) {
+XUI.Element.getOffsetY = function(el) {
 	var clientRect = el.getBoundingClientRect();
 
 	var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
@@ -183,10 +183,10 @@ XUI.Element.getOffsetY = function (el) {
 /**
  * Element is child of parent
  * @param {element} child - Child element
- * @param {element} parent - Parent element 
+ * @param {element} parent - Parent element
  * @returns {boolean} is child
  */
-XUI.Element.isChildOf = function (child, parent) {
+XUI.Element.isChildOf = function(child, parent) {
 	var el = child.parentNode;
 	while (el != null) {
 		if (el == parent) {
@@ -202,7 +202,7 @@ XUI.Element.isChildOf = function (child, parent) {
  * @param {element} el - Element
  * @param {srring} eventToTrigger - Event name
  */
-XUI.Element.triggerEvent = function (el, eventToTrigger) {
+XUI.Element.triggerEvent = function(el, eventToTrigger) {
 	if ("createEvent" in document) {
 		var elEvent = document.createEvent("HTMLEvents");
 		elEvent.initEvent(eventToTrigger, true, true);

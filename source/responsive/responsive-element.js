@@ -15,7 +15,7 @@ XUI.Responsive.Element.elementSuffix = "_responsive-iframe";
 /**
  * Process on window/iframe resize event
  */
-XUI.Responsive.Element.processEventResize = function () {
+XUI.Responsive.Element.processEventResize = function() {
 	var this_ = XUI.Responsive.Element;
 	var state = elResponsive.offsetWidth;
 	if (this_.elementsState[elementId] != state) {
@@ -33,7 +33,7 @@ XUI.Responsive.Element.processEventResize = function () {
  * @param {string} elementId - Element id
  * @param {function} [fnNotify] - Callback on responsive event - fnNotify(size)
  */
-XUI.Responsive.Element.add = function (elementId, fnNotify) {
+XUI.Responsive.Element.add = function(elementId, fnNotify) {
 	var elResponsive = document.getElementById(elementId + this.elementSuffix);
 	if (!elResponsive) {
 		var element = document.getElementById(elementId);
@@ -55,11 +55,11 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 			elResponsive.style.pointerEvents = "none";
 			elResponsive.style.display = "block";
 			elResponsive.style.border = "0px";
-		
-			elResponsive.onload=function(){
+
+			elResponsive.onload = function() {
 				var elWindow = elResponsive.contentWindow;
 				if (elWindow != null) {
-					var processEventResize = function () {
+					var processEventResize = function() {
 						var this_ = XUI.Responsive.Element;
 						var state = elResponsive.offsetWidth;
 						if (this_.elementsState[elementId] != state) {
@@ -77,7 +77,7 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
 				};
 			};
 
-			elResponsive.src="about:blank";
+			elResponsive.src = "about:blank";
 
 			element.appendChild(elResponsive);
 		};
@@ -95,7 +95,7 @@ XUI.Responsive.Element.add = function (elementId, fnNotify) {
  * @param {string} elementId - Element id
  * @param {function} [fnNotify] - Callback on responsive event to be removed
  */
-XUI.Responsive.Element.remove = function (elementId, fnNotify) {
+XUI.Responsive.Element.remove = function(elementId, fnNotify) {
 	if (!Array.isArray(this.elements[elementId])) {
 		return false;
 	};
@@ -125,7 +125,7 @@ XUI.Responsive.Element.remove = function (elementId, fnNotify) {
  * @param {string} containerId - Container Id
  * @param {array} classList - Array with CSS classes
  */
-XUI.Responsive.Element.linkContainer = function (responsiveId, superId, containerId, classList) {
+XUI.Responsive.Element.linkContainer = function(responsiveId, superId, containerId, classList) {
 	var elSuper = document.getElementById(superId);
 	var elContainer = [];
 	var processing = false;
@@ -141,18 +141,18 @@ XUI.Responsive.Element.linkContainer = function (responsiveId, superId, containe
 		elContainer[0] = document.getElementById(containerId);
 	};
 
-	var processEvent = function () {
+	var processEvent = function() {
 		var childrenState = 0;
 
-		var reclaim=true;
-		while(reclaim){
-			reclaim=false;
+		var reclaim = true;
+		while (reclaim) {
+			reclaim = false;
 			for (var m = 0; m < elContainer.length; ++m) {
-				if(elContainer[m]){
-					if(elContainer[m].offsetParent){
+				if (elContainer[m]) {
+					if (elContainer[m].offsetParent) {
 						continue;
-					};				
-					reclaim=true;
+					};
+					reclaim = true;
 					delete elContainer[m];
 					break;
 				};
@@ -160,10 +160,10 @@ XUI.Responsive.Element.linkContainer = function (responsiveId, superId, containe
 		};
 
 		for (var m = 0; m < elContainer.length; ++m) {
-			if(!elContainer[m]){
+			if (!elContainer[m]) {
 				continue;
 			};
-			if (elContainer[m].offsetTop > (elContainer[m].offsetParent.offsetHeight/2)) {
+			if (elContainer[m].offsetTop > (elContainer[m].offsetParent.offsetHeight / 2)) {
 				childrenState = checkState + 1;
 				break;
 			};
@@ -232,7 +232,7 @@ XUI.Responsive.Element.linkContainer = function (responsiveId, superId, containe
 		processing = false;
 	};
 
-	XUI.Responsive.Element.add(responsiveId, function (state) {
+	XUI.Responsive.Element.add(responsiveId, function(state) {
 		checkState = state;
 		if (processing) {
 			return;

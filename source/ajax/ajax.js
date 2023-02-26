@@ -18,9 +18,9 @@ XUI.Ajax = {};
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.get = function (url, fn, fnError, fnRequest, fnUpload, fnDownload) {
+XUI.Ajax.get = function(url, fn, fnError, fnRequest, fnUpload, fnDownload) {
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function () {
+	request.onreadystatechange = function() {
 		if (this.readyState == 4) {
 			if (this.status == 200) {
 				try {
@@ -42,12 +42,12 @@ XUI.Ajax.get = function (url, fn, fnError, fnRequest, fnUpload, fnDownload) {
 		fnRequest(request);
 	};
 	if (fnUpload) {
-		request.upload.addEventListener('progress', function (event) {
+		request.upload.addEventListener('progress', function(event) {
 			fnUpload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
 	if (fnDownload) {
-		request.addEventListener("progress", function (event) {
+		request.addEventListener("progress", function(event) {
 			fnDownload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
@@ -63,12 +63,12 @@ XUI.Ajax.get = function (url, fn, fnError, fnRequest, fnUpload, fnDownload) {
  * @param {string} [fnError] - Call on error - fnError()
  * @param {function} [fnRequest] - Customize request - fnRequest(request)
  * @param {function} [fnUpload] - Upload progress - fnUpload(loaded,total,isComputable)
- * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable) 
+ * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.post = function (url, payload, fn, fnError, fnRequest, fnUpload, fnDownload) {
+XUI.Ajax.post = function(url, payload, fn, fnError, fnRequest, fnUpload, fnDownload) {
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function () {
+	request.onreadystatechange = function() {
 		if (this.readyState == 4) {
 			if (this.status == 200) {
 				try {
@@ -92,12 +92,12 @@ XUI.Ajax.post = function (url, payload, fn, fnError, fnRequest, fnUpload, fnDown
 		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 	};
 	if (fnUpload) {
-		request.upload.addEventListener('progress', function (event) {
+		request.upload.addEventListener('progress', function(event) {
 			fnUpload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
 	if (fnDownload) {
-		request.addEventListener("progress", function (event) {
+		request.addEventListener("progress", function(event) {
 			fnDownload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
@@ -107,15 +107,15 @@ XUI.Ajax.post = function (url, payload, fn, fnError, fnRequest, fnUpload, fnDown
 
 /**
  * Get json request
- * @param {string} url 
+ * @param {string} url
  * @param {function} fn - Call on success with parsed result - fn(response)
  * @param {function} [fnError] - Call on error - fnError()
  * @param {function} [fnUpload] - Upload progress - fnUpload(loaded,total,isComputable)
- * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable) 
+ * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.getJson = function (url, fn, fnError, fnUpload, fnDownload) {
-	return XUI.Ajax.get(url, function (result) {
+XUI.Ajax.getJson = function(url, fn, fnError, fnUpload, fnDownload) {
+	return XUI.Ajax.get(url, function(result) {
 		fn(JSON.parse(result));
 	}, fnError, null, fnUpload, fnDownload);
 };
@@ -130,12 +130,8 @@ XUI.Ajax.getJson = function (url, fn, fnError, fnUpload, fnDownload) {
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.postJson = function (url, payload, fn, fnError, fnUpload, fnDownload) {
-	return XUI.Ajax.post(url, JSON.stringify(payload), function (result) {
-		fn(JSON.parse(result));
-	}, fnError, function (request) {
-		request.setRequestHeader("Content-Type", "application/json");
-	}, fnUpload, fnDownload);
+XUI.Ajax.postJson = function(url, payload, fn, fnError, fnUpload, fnDownload) {
+	return XUI.Ajax.post(url, JSON.stringify(payload), function(result) { fn(JSON.parse(result)); }, fnError, function(request) { request.setRequestHeader("Content-Type", "application/json"); }, fnUpload, fnDownload);
 };
 
 /**
@@ -148,6 +144,6 @@ XUI.Ajax.postJson = function (url, payload, fn, fnError, fnUpload, fnDownload) {
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.postForm = function (url, form, fn, fnError, fnUpload, fnDownload) {
-	return XUI.Ajax.post(url, new FormData(form), fn, fnError, function (request) { }, fnUpload, fnDownload);
+XUI.Ajax.postForm = function(url, form, fn, fnError, fnUpload, fnDownload) {
+	return XUI.Ajax.post(url, new FormData(form), fn, fnError, function(request) {}, fnUpload, fnDownload);
 };

@@ -14,9 +14,9 @@ XUI.OverlayScrollbars = {};
  * @param {elements} elements - Selected elements (JQuery)
  * @param {object} options - Overlay scrollbars config options
  */
-XUI.OverlayScrollbars.create = function (elements, options) {
-	if(!options) {
-		options = { scrollbars: { clickScrolling: true } };
+XUI.OverlayScrollbars.create = function(elements, options) {
+	if (!options) {
+		options = {scrollbars : {clickScrolling : true}};
 	};
 	return elements.overlayScrollbars(options);
 };
@@ -25,10 +25,10 @@ XUI.OverlayScrollbars.create = function (elements, options) {
  * Destroy Overlay Scrollbars
  * @param {elements} elements - Selected elements
  */
-XUI.OverlayScrollbars.destroy = function (elements) {
-	if(elements) {
-		if(elements.overlayScrollbars()){
-			elements.overlayScrollbars().destroy();	
+XUI.OverlayScrollbars.destroy = function(elements) {
+	if (elements) {
+		if (elements.overlayScrollbars()) {
+			elements.overlayScrollbars().destroy();
 		};
 	};
 };
@@ -37,9 +37,9 @@ XUI.OverlayScrollbars.destroy = function (elements) {
  * Update Overlay Scrollbars
  * @param {elements} elements - Selected elements
  */
-XUI.OverlayScrollbars.update = function (elements) {
-	if(elements) {
-		if(elements.overlayScrollbars()){
+XUI.OverlayScrollbars.update = function(elements) {
+	if (elements) {
+		if (elements.overlayScrollbars()) {
 			elements.overlayScrollbars().update(true);
 		};
 	};
@@ -49,9 +49,9 @@ XUI.OverlayScrollbars.update = function (elements) {
  * Sleep Overlay Scrollbars
  * @param {elements} elements - Selected elements
  */
-XUI.OverlayScrollbars.sleep = function (elements) {
-	if(elements) {
-		if(elements.overlayScrollbars()) {
+XUI.OverlayScrollbars.sleep = function(elements) {
+	if (elements) {
+		if (elements.overlayScrollbars()) {
 			elements.overlayScrollbars().sleep();
 		};
 	};

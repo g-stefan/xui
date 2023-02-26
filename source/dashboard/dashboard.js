@@ -14,10 +14,10 @@ XUI.Dashboard.mainSelector = "xui dashboard -main";
  * Get default state
  * @return {object} state
  */
-XUI.Dashboard.getDefaultState = function () {
+XUI.Dashboard.getDefaultState = function() {
 	return {
-		mode: "normal",
-		state: "open"
+		mode : "normal",
+		state : "open"
 	};
 };
 
@@ -25,7 +25,7 @@ XUI.Dashboard.getDefaultState = function () {
  * Get current state
  * @return {object} state
  */
-XUI.Dashboard.getState = function () {
+XUI.Dashboard.getState = function() {
 	var el = XUI.Element.getByClassNameFirst(document, this.mainSelector);
 	if (el) {
 		var mode = "";
@@ -33,25 +33,22 @@ XUI.Dashboard.getState = function () {
 
 		if (el.classList.contains("-normal")) {
 			mode = "normal";
-		} else
-			if (el.classList.contains("-mini")) {
-				mode = "mini";
-			} else
-				if (el.classList.contains("-over")) {
-					mode = "over";
-				};
+		} else if (el.classList.contains("-mini")) {
+			mode = "mini";
+		} else if (el.classList.contains("-over")) {
+			mode = "over";
+		};
 
 		if (el.classList.contains("-open")) {
 			state = "open";
-		} else
-			if (el.classList.contains("-closed")) {
-				state = "closed";
-			};
+		} else if (el.classList.contains("-closed")) {
+			state = "closed";
+		};
 
 		if ((mode.length > 0) && (state.length > 0)) {
 			return {
-				mode: mode,
-				state: state
+				mode : mode,
+				state : state
 			};
 		};
 	};
@@ -64,7 +61,7 @@ XUI.Dashboard.getState = function () {
  * @param {string} x - Class to activate
  * @param {array} classList - array with classes
  */
-XUI.Dashboard.setClass = function (el, x, classList) {
+XUI.Dashboard.setClass = function(el, x, classList) {
 	for (var k in classList) {
 		if (x != classList[k]) {
 			el.classList.remove("-" + classList[k]);
@@ -77,15 +74,15 @@ XUI.Dashboard.setClass = function (el, x, classList) {
  * Set current state
  * @param {object} state - State to be set
  */
-XUI.Dashboard.setState = function (state) {
+XUI.Dashboard.setState = function(state) {
 	var oldState = this.getState();
 	if ((state.mode == oldState.mode) && (state.state == oldState.state)) {
 		return;
 	};
 	var el = XUI.Element.getByClassNameFirst(document, this.mainSelector);
 	if (el) {
-		this.setClass(el, state.mode, ["normal", "mini", "over"]);
-		this.setClass(el, state.state, ["open", "closed"]);
+		this.setClass(el, state.mode, [ "normal", "mini", "over" ]);
+		this.setClass(el, state.state, [ "open", "closed" ]);
 		this.notifyStateChange();
 	};
 };
@@ -95,7 +92,7 @@ XUI.Dashboard.setState = function (state) {
  * @param {object} state - State
  * @return {string} Encoded state
  */
-XUI.Dashboard.encodeState = function (state) {
+XUI.Dashboard.encodeState = function(state) {
 	return state.mode + "-" + state.state;
 };
 
@@ -104,13 +101,13 @@ XUI.Dashboard.encodeState = function (state) {
  * @param {string} state - Encoded state
  * @return {object} state
  */
-XUI.Dashboard.decodeState = function (state) {
+XUI.Dashboard.decodeState = function(state) {
 	if (state) {
 		state = ("" + state).split("-");
 		if (state.length >= 2) {
 			return {
-				mode: state[0],
-				state: state[1]
+				mode : state[0],
+				state : state[1]
 			};
 		};
 	};
@@ -122,7 +119,7 @@ XUI.Dashboard.decodeState = function (state) {
  * @param {object} state - State to be saved
  * @param {boolean} isUser - Is user state
  */
-XUI.Dashboard.setCookie = function (state, isUser) {
+XUI.Dashboard.setCookie = function(state, isUser) {
 	XUI.Cookie.set("xui-dashboard", this.encodeState(state));
 	if (isUser) {
 		if (state.mode == "normal") {
@@ -135,7 +132,7 @@ XUI.Dashboard.setCookie = function (state, isUser) {
  * Get state from cookie
  * @param {boolean} isUser - Is user state
  */
-XUI.Dashboard.getCookie = function (isUser) {
+XUI.Dashboard.getCookie = function(isUser) {
 	var state = this.decodeState(XUI.Cookie.get("xui-dashboard"));
 	if (isUser) {
 		if (state.mode == "normal") {
@@ -153,7 +150,7 @@ XUI.Dashboard.getCookie = function (isUser) {
  * @param {object} state - State to be set
  * @param {boolean} isUser - Is user state
  */
-XUI.Dashboard.setNextState = function (state, isUser) {
+XUI.Dashboard.setNextState = function(state, isUser) {
 	if (!isUser) {
 		if (state.mode == "normal") {
 			userState = this.getCookie(true);
@@ -170,7 +167,7 @@ XUI.Dashboard.setNextState = function (state, isUser) {
  * Process responsive
  * @param {number} width - Responsive width
  */
-XUI.Dashboard.processResponsive = function (width) {
+XUI.Dashboard.processResponsive = function(width) {
 	var nextState = this.getDefaultState();
 	if (width < 600) {
 		nextState.mode = "over";
@@ -203,7 +200,7 @@ XUI.Dashboard.processResponsive = function (width) {
  * Toggle dashboard normal open/close
  * @param {string} id - Dashboard id
  */
-XUI.Dashboard.toggleNormal = function (id) {
+XUI.Dashboard.toggleNormal = function(id) {
 	var el = document.getElementById(id);
 	if (el) {
 		if (el.classList.contains("-closed")) {
@@ -225,7 +222,7 @@ XUI.Dashboard.toggleNormal = function (id) {
  * Toggle dashboard mini open/close
  * @param {string} id - Dashboard id
  */
-XUI.Dashboard.toggleMini = function (id) {
+XUI.Dashboard.toggleMini = function(id) {
 	this.toggleNormal(id);
 };
 
@@ -233,14 +230,14 @@ XUI.Dashboard.toggleMini = function (id) {
  * Toggle dashboard over open/close
  * @param {string} id - Dashboard id
  */
-XUI.Dashboard.toggleOver = function (id) {
+XUI.Dashboard.toggleOver = function(id) {
 	this.toggleNormal(id);
 };
 
 /**
  * Toggle dashboard from current state
  */
-XUI.Dashboard.toggleAction = function () {
+XUI.Dashboard.toggleAction = function() {
 	var state = this.getState();
 
 	if (state.state == "open") {
@@ -260,24 +257,23 @@ XUI.Dashboard.toggleAction = function () {
 /**
  * State change callback
  */
-XUI.Dashboard.notifyStateChange = function () {
+XUI.Dashboard.notifyStateChange = function() {
 };
-
 
 /**
  * Initialization
  */
-XUI.Dashboard.init = function () {
+XUI.Dashboard.init = function() {
 	XUI.Responsive.addProcessResponsive(this.processResponsive, this);
 	this.setNextState(this.getCookie(true), false);
 
 	// User
 	var buttonUser = document.getElementById("popup-menu-user-action");
 	if (buttonUser) {
-		buttonUser.addEventListener("click", function () {
+		buttonUser.addEventListener("click", function() {
 			var popup = document.getElementById("popup-menu-user");
 			popup.classList.toggle("-open");
-			XUI.Capture.set([popup, buttonUser], function (e, elList) {
+			XUI.Capture.set([ popup, buttonUser ], function(e, elList) {
 				elList[0].classList.remove("-open");
 			});
 		});
@@ -286,7 +282,7 @@ XUI.Dashboard.init = function () {
 	// Application
 	var buttonApplication = document.getElementById("popup-menu-application-action");
 	if (buttonApplication) {
-		buttonApplication.addEventListener("click", function () {
+		buttonApplication.addEventListener("click", function() {
 			var popup = document.getElementById("popup-menu-application");
 
 			var parentX = XUI.Element.getOffsetX(popup.offsetParent);
@@ -296,22 +292,20 @@ XUI.Dashboard.init = function () {
 			var btnH = buttonApplication.offsetHeight;
 			var btnW = buttonApplication.offsetWidth;
 			popup.style.top = btnY + btnH - parentY + "px";
-			popup.style.left = btnX + Math.floor(btnW/2) - parentX - 18  + "px";
+			popup.style.left = btnX + Math.floor(btnW / 2) - parentX - 18 + "px";
 
 			popup.classList.toggle("-open");
-			XUI.Capture.set([popup, buttonApplication], function (e, elList) {
+			XUI.Capture.set([ popup, buttonApplication ], function(e, elList) {
 				elList[0].classList.remove("-open");
 			});
-
 		});
 	};
-
 };
 
 /**
  * On load
  */
-XUI.Dashboard.onLoad = function () {
+XUI.Dashboard.onLoad = function() {
 	window.removeEventListener("load", XUI.Dashboard.onLoad);
 	XUI.Dashboard.init();
 };

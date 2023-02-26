@@ -15,10 +15,10 @@ XUI.Notify.inProcess = false;
 
 /**
  * Get Y position of element
- * @param {number} index 
+ * @param {number} index
  * @return {number} Position on y axis
  */
-XUI.Notify.getY = function (index) {
+XUI.Notify.getY = function(index) {
 	var k;
 	var retV = 0;
 	var scan = 0;
@@ -36,7 +36,7 @@ XUI.Notify.getY = function (index) {
 /**
  * Remove one notification from page with transition
  */
-XUI.Notify.removeNotification = function () {
+XUI.Notify.removeNotification = function() {
 	var el, k;
 
 	this.inProcess = true;
@@ -54,7 +54,7 @@ XUI.Notify.removeNotification = function () {
 			this.elements[k].style.top = this.getY(k) + "px";
 		};
 
-		setTimeout(function () {
+		setTimeout(function() {
 			XUI.Notify.removeNotification();
 		}, this.timeout);
 		return;
@@ -68,7 +68,7 @@ XUI.Notify.removeNotification = function () {
  * @param {string} info - Info to be displayed - html
  * @param {string} [type] - type of notification
  */
-XUI.Notify.newNotification = function (info, type) {
+XUI.Notify.newNotification = function(info, type) {
 	var elNotify;
 	var elNotifyBoxRow;
 	var elNotifyBox;
@@ -108,7 +108,7 @@ XUI.Notify.newNotification = function (info, type) {
 
 	if (!this.inProcess) {
 		this.inProcess = true;
-		setTimeout(function () {
+		setTimeout(function() {
 			XUI.Notify.removeNotification();
 		}, this.timeout);
 	};

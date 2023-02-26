@@ -15,13 +15,13 @@ XUI.Capture.elAction = [];
  * @param {element/array} elList - Element or array with elements
  * @param {function} fn - Callback - fn(event,element)
  */
-XUI.Capture.set = function (elList, fn) {
+XUI.Capture.set = function(elList, fn) {
 	if (!Array.isArray(elList)) {
-		elList = [elList];
+		elList = [ elList ];
 	};
 	this.elAction[this.elAction.length] = {
-		"elList": elList,
-		"fn": fn
+		"elList" : elList,
+		"fn" : fn
 	};
 };
 
@@ -29,7 +29,7 @@ XUI.Capture.set = function (elList, fn) {
  * On click
  * @param {event} event - Event
  */
-XUI.Capture.onClick = function (event) {
+XUI.Capture.onClick = function(event) {
 	var this_ = XUI.Capture;
 	var toRemove = [];
 	for (var i = 0; i < this_.elAction.length; ++i) {
@@ -66,14 +66,14 @@ XUI.Capture.onClick = function (event) {
 /**
  * Initialization
  */
-XUI.Capture.init = function () {
+XUI.Capture.init = function() {
 	window.addEventListener("click", XUI.Capture.onClick);
 };
 
 /**
  * On load
  */
-XUI.Capture.onLoad = function () {
+XUI.Capture.onLoad = function() {
 	window.removeEventListener("load", XUI.Capture.onLoad);
 	XUI.Capture.init();
 };

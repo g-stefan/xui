@@ -13,27 +13,27 @@ XUI.Html = {};
  * @param {string} str - String that will be escaped
  * @returns {string} Escaped string
  */
-XUI.Html.escapeRegExp = function (str) {
+XUI.Html.escapeRegExp = function(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/**
- * Extract tag from HTML
- * @param {string} inputHtml - HTML
- * @returns {object} Extracted tag {html,tag}
- */
-XUI.Html.extractTag = function (inputHtml,tag) {
+                        /**
+                         * Extract tag from HTML
+                         * @param {string} inputHtml - HTML
+                         * @returns {object} Extracted tag {html,tag}
+                         */
+                        XUI.Html.extractTag = function(inputHtml, tag) {
 	var retV = {
-		html: "",
-		tag: ""		
+		html : "",
+		tag : ""
 	};
-	var tag_=XUI.Html.escapeRegExp(tag);
-	var pattern = new RegExp("<"+tag+"[^>]*>([\\S\\s]*?)</"+tag+">", "ig");
+	var tag_ = XUI.Html.escapeRegExp(tag);
+	var pattern = new RegExp("<" + tag + "[^>]*>([\\S\\s]*?)</" + tag + ">", "ig");
 	var matches = inputHtml.matchAll(pattern);
-       	for (var match_ of matches) {
+	for (var match_ of matches) {
 		retV.tag += match_[1];
 	};
-	retV.html=inputHtml.replace(pattern, "");
+	retV.html = inputHtml.replace(pattern, "");
 	return retV;
 };
 
@@ -42,14 +42,14 @@ XUI.Html.extractTag = function (inputHtml,tag) {
  * @param {string} inputHtml - HTML
  * @returns {object} Extracted html,script and style {html,script,style}
  */
-XUI.Html.extract = function (inputHtml) {
-	var infoScript=XUI.Html.extractTag(inputHtml,"script");
-	var infoStyle=XUI.Html.extractTag(infoScript.html,"style");
+XUI.Html.extract = function(inputHtml) {
+	var infoScript = XUI.Html.extractTag(inputHtml, "script");
+	var infoStyle = XUI.Html.extractTag(infoScript.html, "style");
 	return {
-		html: infoStyle.html,
-		script: infoScript.tag,
-		style: infoStyle.tag
-    	};
+		html : infoStyle.html,
+		script : infoScript.tag,
+		style : infoStyle.tag
+	};
 };
 
 /**
@@ -60,23 +60,23 @@ XUI.Html.extract = function (inputHtml) {
  * @param {string} nonce - nonce required to run script
  * @returns {element} Element
  */
-XUI.Html.update = function (id, inputHtml, fnError, nonce) {
+XUI.Html.update = function(id, inputHtml, fnError, nonce) {
 	var el = document.getElementById(id);
 	if (!el) {
-		if(fnError){
+		if (fnError) {
 			fnError();
 		};
 		return null;
 	};
 	var infoHtml = XUI.Html.extract(inputHtml);
 	if (infoHtml.style.length > 0) {
-		XUI.Style.run(infoHtml.style,nonce);
+		XUI.Style.run(infoHtml.style, nonce);
 	};
 	if (infoHtml.html.length > 0) {
 		el.innerHTML = infoHtml.html;
 	};
 	if (infoHtml.script.length > 0) {
-		XUI.Script.run(infoHtml.script,nonce);
+		XUI.Script.run(infoHtml.script, nonce);
 	};
 	return el;
 };

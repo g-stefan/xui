@@ -8,49 +8,50 @@
 
 XUI.Modal = {};
 
-XUI.Modal.list=[];
-XUI.Modal.listSP=0;
+XUI.Modal.list = [];
+XUI.Modal.listSP = 0;
 
-//XUI.Modal.elActive = null;
-//XUI.Modal.elInitialWidth = 0;
-//XUI.Modal.elInitialWidthFirstTime = true;
+// XUI.Modal.elId = null;
+// XUI.Modal.elActive = null;
+// XUI.Modal.elInitialWidth = 0;
+// XUI.Modal.elInitialWidthFirstTime = true;
 
 /**
  * Activate modal
  * @param {string} elId - Modal element id
  */
-XUI.Modal.activate = function (elId) {
+XUI.Modal.activate = function(elId) {
 	var el = document.getElementById(elId);
 	if (el) {
-		this.list[this.listSP]={
-			elId: elId,		
-			elActive: el,
-			elInitialWidth: 0,
-			elInitialWidthFirstTime: true
+		this.list[this.listSP] = {
+			elId : elId,
+			elActive : el,
+			elInitialWidth : 0,
+			elInitialWidthFirstTime : true
 		};
 		++this.listSP;
 
 		this.setDeactivateEventListener(XUI.Element.getByClassNameFirst(el, "_modal-content"));
-		el.classList.toggle("-active");		
+		el.classList.toggle("-active");
 
-		if(this.listSP==1){
+		if (this.listSP == 1) {
 			document.body.classList.add("-modal-open");
 		};
 
-		setTimeout(function () {
+		setTimeout(function() {
 			XUI.Modal.onResize();
-		}, 500);		
+		}, 500);
 	};
 };
 
 /**
  * Deactivate open modal
  */
-XUI.Modal.deactivate = function () {
-	if(this.listSP==0){
+XUI.Modal.deactivate = function() {
+	if (this.listSP == 0) {
 		return;
 	};
-	var index=this.listSP-1;
+	var index = this.listSP - 1;
 
 	if (this.list[index].elActive) {
 		this.list[index].elActive.classList.add("-animate-deactivate");
@@ -60,11 +61,11 @@ XUI.Modal.deactivate = function () {
 /**
  * Finish animation on close
  */
-XUI.Modal.deactivateAnimationFinish = function () {		
-	if(this.listSP==0){
+XUI.Modal.deactivateAnimationFinish = function() {
+	if (this.listSP == 0) {
 		return;
 	};
-	var index=this.listSP-1;
+	var index = this.listSP - 1;
 
 	if (this.list[index].elActive) {
 		if (!this.list[index].elActive.classList.contains("-animate-deactivate")) {
@@ -88,7 +89,7 @@ XUI.Modal.deactivateAnimationFinish = function () {
 
 	--this.listSP;
 
-	if(this.listSP==0){
+	if (this.listSP == 0) {
 		document.body.classList.remove("-modal-open");
 	};
 };
@@ -97,10 +98,10 @@ XUI.Modal.deactivateAnimationFinish = function () {
  * Set event on deactivate on animation end
  * @param {element} el - Modal element
  */
-XUI.Modal.setDeactivateEventListener = function (el) {
+XUI.Modal.setDeactivateEventListener = function(el) {
 	if (el.getAttribute("data-xui-modal") != "on") {
 		el.setAttribute("data-xui-modal", "on");
-		el.addEventListener("animationend", function () {
+		el.addEventListener("animationend", function() {
 			XUI.Modal.deactivateAnimationFinish();
 		});
 	};
@@ -110,7 +111,7 @@ XUI.Modal.setDeactivateEventListener = function (el) {
  * Deactivate modal on key up
  * @param {event} evt - Event
  */
-XUI.Modal.onKeyUp = function (evt) {
+XUI.Modal.onKeyUp = function(evt) {
 	evt = evt || window.event;
 	var isEscape = false;
 	if ("key" in evt) {
@@ -126,14 +127,14 @@ XUI.Modal.onKeyUp = function (evt) {
 /**
  * Resize modal on event
  */
-XUI.Modal.onResize = function () {
+XUI.Modal.onResize = function() {
 	var this_ = XUI.Modal;
 
-	if(this_.listSP==0){
+	if (this_.listSP == 0) {
 		return;
 	};
-	var index=this_.listSP-1;
-	
+	var index = this_.listSP - 1;
+
 	if (this_.list[index].elActive) {
 		var el = XUI.Element.getByClassNameFirst(this_.list[index].elActive, "_modal-content");
 		if (el) {
@@ -148,7 +149,7 @@ XUI.Modal.onResize = function () {
 				if (!this_.list[index].elInitialWidthFirstTime) {
 					if (this_.list[index].elInitialWidth < window.innerWidth) {
 						this_.list[index].elActive.classList.remove("-scroll-x");
-						el.style.width =this_.list[index].elInitialWidth + "px";
+						el.style.width = this_.list[index].elInitialWidth + "px";
 						this_.list[index].elInitialWidthFirstTime = true;
 					} else {
 						el.style.width = window.innerWidth + "px";
@@ -162,15 +163,15 @@ XUI.Modal.onResize = function () {
 /**
  * Initialization
  */
-XUI.Modal.init = function () {
+XUI.Modal.init = function() {
 	var elList = document.getElementsByClassName("xui modal");
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
 		var el = XUI.Element.getByClassNameFirst(elList[elIndex], "_modal-close-button");
 		if (el) {
-			(function (elSuper, el) {
-				el.addEventListener("click", function () {
-					XUI.Modal.deactivate();
-				});
+			(function(elSuper, el) {
+			        el.addEventListener("click", function() {
+				        XUI.Modal.deactivate();
+			        });
 			})(elList[elIndex], el);
 		};
 	};
@@ -181,7 +182,7 @@ XUI.Modal.init = function () {
 /**
  * On load
  */
-XUI.Modal.onLoad = function () {
+XUI.Modal.onLoad = function() {
 	window.removeEventListener("load", XUI.Modal.onLoad);
 	XUI.Modal.init();
 };

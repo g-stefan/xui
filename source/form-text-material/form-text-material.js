@@ -11,7 +11,7 @@ XUI.FormTextMaterial = {};
 /**
  * On focus event
  */
-XUI.FormTextMaterial.onFocus = function () {
+XUI.FormTextMaterial.onFocus = function() {
 	if (!this.parentElement.classList.contains("-has-value")) {
 		this.parentElement.classList.add("-has-value");
 	};
@@ -23,7 +23,7 @@ XUI.FormTextMaterial.onFocus = function () {
 /**
  * On blur
  */
-XUI.FormTextMaterial.onBlur = function () {
+XUI.FormTextMaterial.onBlur = function() {
 	if (("" + this.value).length == 0) {
 		if (this.parentElement.classList.contains("-has-value")) {
 			this.parentElement.classList.remove("-has-value");
@@ -37,7 +37,7 @@ XUI.FormTextMaterial.onBlur = function () {
 /**
  * Initialization
  */
-XUI.FormTextMaterial.init = function () {
+XUI.FormTextMaterial.init = function() {
 	var this_ = XUI.FormTextMaterial;
 	var elList = document.getElementsByClassName("xui form-text -material");
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
@@ -57,7 +57,7 @@ XUI.FormTextMaterial.init = function () {
 /**
  * On load
  */
-XUI.FormTextMaterial.onLoad = function () {
+XUI.FormTextMaterial.onLoad = function() {
 	window.removeEventListener("load", XUI.FormTextMaterial.onLoad);
 	XUI.FormTextMaterial.init();
 };

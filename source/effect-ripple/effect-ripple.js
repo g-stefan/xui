@@ -19,7 +19,7 @@ XUI.EffectRipple.animationMaxOpacity = 1;
  * @param {element} el - Element
  * @param {function} animationProcessOut - Callback
  */
-XUI.EffectRipple.outEffect = function (el, animationProcessOut) {
+XUI.EffectRipple.outEffect = function(el, animationProcessOut) {
 	if (el.classList.contains("-animation-active")) {
 		el.classList.remove("-animation-active");
 		el.classList.remove("-animation-in");
@@ -28,7 +28,7 @@ XUI.EffectRipple.outEffect = function (el, animationProcessOut) {
 		return;
 	};
 	if (el.classList.contains("-animation-in")) {
-		setTimeout(function () {
+		setTimeout(function() {
 			XUI.EffectRipple.outEffect(el, animationProcessOut);
 		}, Math.floor(this.animationInterval / 2));
 	};
@@ -39,13 +39,13 @@ XUI.EffectRipple.outEffect = function (el, animationProcessOut) {
  * @param {element} parent - The parent element
  * @param {element} el - Element
  */
-XUI.EffectRipple.initElement = function (parent, el) {
+XUI.EffectRipple.initElement = function(parent, el) {
 	var this_ = XUI.EffectRipple;
 	var frameAnimationOut = 0;
 	var opacityOutEl = this.animationMaxOpacity;
 	var opacityOutElDelta = ((0.0 - this.animationMaxOpacity) * this.animationStep) / this.animationIntervalOut;
 
-	var animationProcessOut = function () {
+	var animationProcessOut = function() {
 		frameAnimationOut += this_.animationStep;
 
 		opacityOutEl += opacityOutElDelta;
@@ -63,14 +63,13 @@ XUI.EffectRipple.initElement = function (parent, el) {
 		el.style.opacity = 0.0;
 	};
 
-	parent.addEventListener("mouseup", function () {
+	parent.addEventListener("mouseup", function() {
 		XUI.EffectRipple.outEffect(el, animationProcessOut);
 	});
 
-	parent.addEventListener("mouseleave", function () {
+	parent.addEventListener("mouseleave", function() {
 		XUI.EffectRipple.outEffect(el, animationProcessOut);
 	});
-
 };
 
 /**
@@ -80,7 +79,7 @@ XUI.EffectRipple.initElement = function (parent, el) {
  * @param {string} [effectColorClass] - CSS class
  * @return {element} Element
  */
-XUI.EffectRipple.prepareElement = function (parent, effectColor, effectColorClass) {
+XUI.EffectRipple.prepareElement = function(parent, effectColor, effectColorClass) {
 	var el = XUI.Element.getByClassNameFirst(parent, "xui -effect-ripple_element");
 
 	if (!el) {
@@ -118,14 +117,13 @@ XUI.EffectRipple.prepareElement = function (parent, effectColor, effectColorClas
  * @param {string} [effectColor] - Color
  * @param {string} [effectColorClass] - CSS Class
  */
-XUI.EffectRipple.add = function (el, effectType, effectColor, effectColorClass) {
+XUI.EffectRipple.add = function(el, effectType, effectColor, effectColorClass) {
 	var this_ = XUI.EffectRipple;
 	var parent = el;
 
 	this.prepareElement(parent, effectColor, effectColorClass);
 
-	parent.addEventListener("mousedown", function (event) {
-
+	parent.addEventListener("mousedown", function(event) {
 		var el = XUI.Element.getByClassNameFirst(parent, "xui -effect-ripple_element");
 
 		if (!el) {
@@ -166,7 +164,7 @@ XUI.EffectRipple.add = function (el, effectType, effectColor, effectColorClass) 
 		var opacityEl = this_.animationMinOpacity;
 		var opacityElDelta = ((this_.animationMaxOpacity - this_.animationMinOpacity) * this_.animationStep) / this_.animationInterval;
 
-		var animationProcessIn = function () {
+		var animationProcessIn = function() {
 			frameAnimation += this_.animationStep;
 
 			sizeEl += sizeElDelta;
@@ -194,7 +192,7 @@ XUI.EffectRipple.add = function (el, effectType, effectColor, effectColorClass) 
 /**
  * Initialization
  */
-XUI.EffectRipple.init = function () {
+XUI.EffectRipple.init = function() {
 	var elList = document.getElementsByClassName("xui -effect-ripple");
 	for (var elIndex = 0; elIndex < elList.length; ++elIndex) {
 		var effectType = elList[elIndex].getAttribute("data-xui-ripple");
@@ -207,8 +205,8 @@ XUI.EffectRipple.init = function () {
 /**
  * On load
  */
-XUI.EffectRipple.onLoad = function () {
+XUI.EffectRipple.onLoad = function() {
 	window.removeEventListener("load", XUI.EffectRipple.onLoad);
 	XUI.EffectRipple.init();
 };
-window.addEventListener("load", XUI.EffectRipple.onLoad);	
+window.addEventListener("load", XUI.EffectRipple.onLoad);

@@ -12,7 +12,7 @@ XUI.FormFile = {};
  * Initialize element
  * @param {element} elItem - Element
  */
-XUI.FormFile.initElement = function (elItem) {
+XUI.FormFile.initElement = function(elItem) {
 	var el = elItem.firstElementChild;
 	var elLabel = el.nextElementSibling;
 	var elButton = elLabel.nextElementSibling;
@@ -25,17 +25,16 @@ XUI.FormFile.initElement = function (elItem) {
 		elLabelSpanTextOriginal = elLabelSpan.innerHTML;
 	};
 
-	el.addEventListener("change", function (event) {
+	el.addEventListener("change", function(event) {
 		if (elLabelSpan) {
 			var fileName = "";
 			if (event.target.value) {
 				fileName = event.target.value;
 				if (fileName.indexOf("\\") >= 0) {
 					fileName = event.target.value.split("\\").pop();
-				} else
-					if (fileName.indexOf("/") >= 0) {
-						fileName = event.target.value.split("/").pop();
-					};
+				} else if (fileName.indexOf("/") >= 0) {
+					fileName = event.target.value.split("/").pop();
+				};
 			};
 
 			if (fileName.length > 0) {
@@ -50,19 +49,19 @@ XUI.FormFile.initElement = function (elItem) {
 		};
 	});
 
-	el.addEventListener("focus", function () {
+	el.addEventListener("focus", function() {
 		if (!el.classList.contains("form-file_file-focus")) {
 			el.classList.add("form-file_file-focus");
 		};
 	});
 
-	el.addEventListener("blur", function () {
+	el.addEventListener("blur", function() {
 		if (el.classList.contains("form-file_file-focus")) {
 			el.classList.remove("form-file_file-focus");
 		};
 	});
 
-	elButton.addEventListener("click", function () {
+	elButton.addEventListener("click", function() {
 		el.value = null;
 		XUI.Element.triggerEvent(el, "change");
 		return false;
@@ -73,7 +72,7 @@ XUI.FormFile.initElement = function (elItem) {
  * Initialize element by id
  * @param {string} id - Element id
  */
-XUI.FormFile.initElementById = function (id) {
+XUI.FormFile.initElementById = function(id) {
 	var elItem = document.getElementById(id);
 	if (elItem) {
 		this.initElement(elItem);
@@ -83,7 +82,7 @@ XUI.FormFile.initElementById = function (id) {
 /**
  * Initialization
  */
-XUI.FormFile.init = function () {
+XUI.FormFile.init = function() {
 	var elList = document.getElementsByClassName("xui form-file");
 	for (k = 0; k < elList.length; ++k) {
 		this.initElement(elList[k]);
@@ -93,7 +92,7 @@ XUI.FormFile.init = function () {
 /**
  * On load
  */
-XUI.FormFile.onLoad = function () {
+XUI.FormFile.onLoad = function() {
 	window.removeEventListener("load", XUI.FormFile.onLoad);
 	XUI.FormFile.init();
 };

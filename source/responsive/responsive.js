@@ -18,7 +18,7 @@ XUI.Responsive.lastState = 0;
 /**
  * Process events
  */
-XUI.Responsive.processEvent = function () {
+XUI.Responsive.processEvent = function() {
 	var this_ = XUI.Responsive;
 	this_.currentState = parseInt(("" + this_.elResponsiveAfter.getPropertyValue("content")).replace(/["']/g, ""));
 	if (this_.lastState == this_.currentState) {
@@ -33,8 +33,7 @@ XUI.Responsive.processEvent = function () {
 /**
  * Initialization
  */
-XUI.Responsive.init = function () {
-
+XUI.Responsive.init = function() {
 	this.initOk = true;
 
 	this.elResponsive = document.createElement("div");
@@ -63,8 +62,8 @@ XUI.Responsive.init = function () {
  * @param {function} processResponsive - Callback - processResponsive(currentState,lastState)
  * @param {object} [processResponsiveThis] - Callback this
  */
-XUI.Responsive.addProcessResponsive = function (processResponsive, processResponsiveThis) {
-	this.processResponsiveList[this.processResponsiveList.length] = [processResponsive, processResponsiveThis];
+XUI.Responsive.addProcessResponsive = function(processResponsive, processResponsiveThis) {
+	this.processResponsiveList[this.processResponsiveList.length] = [ processResponsive, processResponsiveThis ];
 	if (this.initOk) {
 		processResponsive.call(processResponsiveThis, 1 * this.currentState, 1 * this.lastState);
 	};
@@ -73,7 +72,7 @@ XUI.Responsive.addProcessResponsive = function (processResponsive, processRespon
 /**
  * On load
  */
-XUI.Responsive.onLoad = function () {
+XUI.Responsive.onLoad = function() {
 	window.removeEventListener("load", XUI.Responsive.onLoad);
 	XUI.Responsive.init();
 };
