@@ -14,4 +14,4 @@ Shell.mkdirRecursivelyIfNotExists("output/img");
 
 exitIf(!Shell.copyDirRecursively("vendor", "output/vendor"));
 
-Shell.system("php .\\fabricare\\build.php");
+Shell.system("quantum-script .\\fabricare\\build.js");

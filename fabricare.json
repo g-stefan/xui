@@ -9,7 +9,6 @@
 				"previousVersion" : "3.5.0"
 			}
 		],
-		"releaseOutput" : true,
-		"hasGithub" : true
+		"releaseOutput" : true
 	}
 }
