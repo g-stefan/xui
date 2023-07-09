@@ -75,7 +75,7 @@
 
 	<?php include("dashboard-over-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.6.3.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.7.0.min.js" defer></script>
 	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-cookie.min.js" defer></script>

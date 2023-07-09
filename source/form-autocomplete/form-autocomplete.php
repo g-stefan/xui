@@ -53,7 +53,7 @@
 
 	<?php include("form-autocomplete-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.6.3.min.js" defer></script>
+	<script src="vendor/jquery/jquery-3.7.0.min.js" defer></script>
 	<script src="vendor/jquery-autocompleter/jquery.autocompleter.min.js" defer></script>
 	<script>
 		window.addEventListener("load", function(){
