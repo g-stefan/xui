@@ -15,7 +15,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 
 <a class="xui action -effect-ripple" href="#" onclick="return false;">
@@ -34,7 +34,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 
 <a class="xui action -effect-ripple -selected" href="#" onclick="return false;">

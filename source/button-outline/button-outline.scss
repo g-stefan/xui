@@ -8,60 +8,92 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
 @import "../button/button.source";
-
 @import "button-outline.source";
 
 .xui.button.-outline {
-	padding-top: 9px;
-	padding-bottom: 9px;
-	padding-right: 23px;
-	padding-left: 23px;
+	$border-size: 1px;
+	padding-top: 10px - $border-size;
+	padding-left: 24px - $border-size;
 
-	@each $type, $value in $context {
-		@include button-outline($type);
+	@each $type, $value in $buttonType {
+		$class: if($type == "default","",".-#{$type}");
+
+		&#{$class} {			
+			border: $border-size solid map-get($button-outline,"#{$type}-border-color");
+			background-color: map-get($button-outline,"#{$type}-background-color");
+			color: map-get($button-outline,"#{$type}-color");			
+
+			&:hover,
+			&:focus {
+				border: $border-size solid map-get($button-outline,"#{$type}-focus-border-color");
+				background-color: map-get($button-outline,"#{$type}-focus-background-color");
+				color: map-get($button-outline,"#{$type}-focus-color");
+			}
+		
+			&:active {
+				border: $border-size solid map-get($button-outline,"#{$type}-focus-border-color");
+				background-color: map-get($button-outline,"#{$type}-active-background-color");
+				color:  map-get($button-outline,"#{$type}-focus-color");
+			}
+
+			&:visited {
+				color: map-get($button-outline,"#{$type}-color");
+			}
+
+			&.-effect-ripple {
+
+				&:active {
+					background-color: map-get($button-outline,"#{$type}-focus-background-color");
+				}
+
+				& .xui.-effect-ripple_element {
+					background-color: map-get($button-outline,"#{$type}-active-background-color");
+				}
+
+			}
+		}
 	}
 
 	&.-icon{
-		padding-left: 7px;
-		padding-top: 7px;
-		padding-bottom: 7px;
-		padding-right: 7px;
+		padding-left: 8px - $border-size;
+		padding-top: 8px - $border-size;
+		padding-bottom: 8px - $border-size;
+		padding-right: 8px - $border-size;
 
 		&.-size-x32 {
-			padding-left: 3px;
-			padding-right: 3px;
+			padding-left: 4px - $border-size;
+			padding-right: 4px - $border-size;
 
 			&.-circle {
-				padding-top: 3px;
-				padding-bottom: 3px;
-				margin-top: 3px;
-				margin-bottom: 3px;
+				padding-top: 4px - $border-size;
+				padding-bottom: 4px - $border-size;
+				margin-top: 4px - $border-size;
+				margin-bottom: 4px - $border-size;
 			}
 		}
 	}
 
 	&.-icon-left {
-		padding-left: 39px;
+		padding-left: 40px - $border-size;
 
 		& i {
 			position: absolute;
-			top: 7px;
-			left: 7px;			
+			top: 8px - $border-size;
+			left: 8px - $border-size;
 		}
 	}
 
 	&.-icon-right {
-		padding-right: 39px;
+		padding-right: 40px - $border-size;
 
 		& i {
 			position: absolute;
-			top: 7px;
-			right: 7px;			
+			top: 8px - $border-size;
+			right: 8px - $border-size;
 		}
 	}
+
 }
 

@@ -8,7 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 .xui.card.-horizontal.-mini {
@@ -26,7 +25,7 @@
 		height: 120px;
 		overflow: hidden;
 		box-sizing: border-box;
-		background-color: palette-color("aluminium-1");
+		background-color: palette-color("theme-line");
 	}
 
 	& > div:nth-child(2) {

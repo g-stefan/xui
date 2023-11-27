@@ -8,7 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 .xui.action {
@@ -54,7 +53,7 @@
 		margin-bottom: 8px;
 		margin-right: 8px;
 		transition: color 0.3s ease;
-		color: palette-color("aluminium-3");
+		color: palette-color("aluminium-4");
 	}
 
 	& > span:first-of-type {
@@ -131,4 +130,3 @@ a.xui.action {
 		color: #000000;
 	}
 }
-

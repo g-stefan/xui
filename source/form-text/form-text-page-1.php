@@ -17,5 +17,9 @@
 <?php include("form-text-page-1-section-3.php"); ?>
 <div class="xui separator-15"></div>
 <?php include("form-text-page-1-section-4.php"); ?>
+<div class="xui separator-15"></div>
+<?php include("form-text-page-1-section-5.php"); ?>
+<div class="xui separator-15"></div>
+<?php include("form-text-page-1-section-6.php"); ?>
 
 </div>

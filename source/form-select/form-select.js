@@ -33,9 +33,9 @@ XUI.FormSelect.initSelect = function(el) {
 	    .maximizeSelect2Height()
 	    .on("select2:open", function() {
 		    setTimeout(function() {
-			    var options = $(".select2-container.select2-container--open>.select2-dropdown>.select2-results>.select2-results__options");
-			    if (options) {
-				    XUI.FormSelect.instance = XUI.OverlayScrollbars.create(options);
+			    var elOptions = document.querySelectorAll(".select2-container.select2-container--open>.select2-dropdown>.select2-results");
+			    if (elOptions.length > 0) {
+				    XUI.FormSelect.instance = XUI.OverlayScrollbars.create(elOptions);
 			    } else {
 				    XUI.FormSelect.instance = null;
 			    }
@@ -43,7 +43,7 @@ XUI.FormSelect.initSelect = function(el) {
 	    })
 	    .on("select2:closing", function() {
 		    if (XUI.FormSelect.instance) {
-			    XUI.OverlayScrollbars.destroy(XUI.FormSelect.instance);
+			    XUI.OverlayScrollbars.instanceDestroy(XUI.FormSelect.instance);
 		    };
 		    XUI.FormSelect.instance = null;
 	    });

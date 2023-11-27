@@ -8,7 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 ul.xui.list-group {
@@ -38,7 +37,7 @@ ul.xui.list-group {
 		padding-bottom: 3px;
 		padding-left: 3px;
 
-		border: 1px solid palette-color("default-2");
+		border: 1px solid palette-color("theme-line");
 		border-radius: 0px 0px 0px 0px;
 		color: #000000;
 		white-space: nowrap;
@@ -59,8 +58,8 @@ ul.xui.list-group {
 
 		&.-active {
 			color: #FFFFFF;
-			background-color: palette-color("primary-2");
-			border: 1px solid palette-color("primary-2");
+			background-color: palette-color("primary-3");
+			border: 1px solid palette-color("primary-3");
 			z-index: 1;
 		}
 
@@ -78,8 +77,7 @@ ul.xui.list-group {
 
 		& > i {
 			position: relative;
-			float: right;
-			display: inline-block;
+			float: right;			
 			height: 24px;
 			font-size: 24px;
 			line-height: 24px;

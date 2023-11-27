@@ -4,87 +4,40 @@
 // SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-@mixin button-config($type) {
-        $settings: (
-		"background-color": red,
-		"background-color-hover": red,
-		"background-color-active": red,
-		"text-color": red,
-		"text-color-active": red		
-	);
-		
-	@if($type == "default"){
-		$settings: (
-			"background-color": palette-color("#{$type}-2"),
-			"background-color-hover": palette-color("#{$type}-1"),
-			"background-color-active": palette-color("#{$type}-2"),
-			"text-color": #000000,
-			"text-color-active": #000000,			
-		);
-	}@else if($type == "disabled"){
-		$settings: (
-			"background-color": palette-color($type),
-			"background-color-hover": palette-color($type),
-			"background-color-active": palette-color($type),
-			"text-color": palette-dark($type),
-			"text-color-active": palette-dark($type),			
-		);	
-	}@else{
-		$settings: (
-			"background-color": palette-color("#{$type}-2"),
-			"background-color-hover": palette-color("#{$type}-1"),
-			"background-color-active": palette-color("#{$type}-2"),
-			"text-color": #FFFFFF,
-			"text-color-active": #FFFFFF,			
-		);
-	};
-		
-	$config: map-merge($config,("button-#{$type}": $settings)) !global;
-}
+$buttonType: (
+	"default",
+	"primary",	
+	"secondary",
+	"success",
+	"danger",
+	"warning",
+	"info",
+	"disabled"
+);
 
-@mixin button ($type) {
-	@include button-config($type);	
-	$value: map-get($config,"button-#{$type}");
+$button: ();
 
-	$class: if($type == "default","",".-#{$type}");
+@each $type, $value in $buttonType {
+	$button: map-merge($button,(		
+		"#{$type}-border-color": palette-color("#{$type}-3"),
+		"#{$type}-background-color": palette-color("#{$type}-2"),
+		"#{$type}-color": #FFFFFF,
+		//		
+		"#{$type}-focus-background-color": palette-color("#{$type}-1"),
+		"#{$type}-focus-color": #FFFFFF,
+		//
+		"#{$type}-active-background-color": palette-color("#{$type}-3")	
+	));
+};
 
-	$background-color: map-get($value,"background-color");
-	$background-color-hover: map-get($value,"background-color-hover");
-	$background-color-active: map-get($value,"background-color-active");
-	$text-color: map-get($value,"text-color");
-	$text-color-active: map-get($value,"text-color-active");	
-
-	&#{$class} {
-		cursor: if($type == "disabled", auto, pointer);
-		background-color: $background-color;
-		color: $text-color;
-
-		&:hover,
-		&:focus {
-			background-color: $background-color-hover;
-			color: $text-color-active;
-		}
-		
-		&:active {
-			background-color: $background-color-active;
-			color: $text-color-active;
-		}
-
-		&:visited {
-			color: $text-color;
-		}
-
-		&.-effect-ripple {
-
-			&:active {
-				background-color: $background-color-hover;
-			}
-
-			& .xui.-effect-ripple_element {
-				background-color: $background-color-active;
-			}
-
-		}
-	}
-}
-
+$button: map-merge($button,(
+	"default-color": #000000,
+	"default-focus-color": #000000,
+	//	
+	"disabled-border-color": palette-color("disabled-3"),
+	"disabled-background-color": palette-color("disabled-1"),	
+	"disabled-color": palette-color("disabled-3"),
+	"disabled-focus-background-color": palette-color("disabled-1"),
+	"disabled-focus-color": palette-color("disabled-3"),
+	"disabled-active-background-color": palette-color("disabled-1")
+));

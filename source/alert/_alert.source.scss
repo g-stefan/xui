@@ -4,49 +4,24 @@
 // SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-@mixin alert-config($type) {
-        $settings: (
-		"border-color": red,
-		"background-color": red,
-		"text-color": red
-	);
-		
-	@if($type == "default"){
-		$settings: (
-			"border-color": palette-color("#{$type}-2"),
-			"background-color": #FFFFFF,
-			"text-color": #000000
-		);
-	}@else if($type == "disabled"){
-		$settings: (
-			"border-color": palette-color($type),
-			"background-color": #FFFFFF,
-			"text-color": palette-dark($type)
-		);
-	}@else{
-		$settings: (
-			"border-color": palette-color("#{$type}-2"),
-			"background-color": palette-lightest("#{$type}-1"),
-			"text-color": palette-darker("#{$type}-2")
-		);	
-	};
-		
-	$config: map-merge($config,("alert-#{$type}": $settings)) !global;
-}
+$alertType: (
+	"default",
+	"success",	
+	"warning",
+	"danger",	
+	"info"
+);
 
-@mixin alert ($type) {
-	@include alert-config($type);
-	$value: map-get($config,"alert-#{$type}");
+$alert: ();
 
-	$class: if($type == "default","",".-#{$type}");
+@each $type, $value in $alertType {
+	$alert: map-merge($alert,(
+		"#{$type}-border-color": palette-color("#{$type}-3"),
+		"#{$type}-background-color": palette-lightest("#{$type}-1"),
+		"#{$type}-color": palette-darker("#{$type}-3")
+	));
+};
 
-	$border-color: map-get($value, "border-color");
-	$background-color: map-get($value, "background-color");
-	$text-color: map-get($value, "text-color");
-
-	&#{$class} {
-		border: 1px solid $border-color;
-		background-color: $background-color;
-		color: $text-color;				
-	}
-}
+$alert: map-merge($alert,(	
+	"default-color": #000000
+));

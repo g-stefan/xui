@@ -8,30 +8,14 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
-@import "../button/button.source";
-@import "../button-outline/button-outline.source";
 
 .xui.form-file {
-	@include button-outline-config("default");
-	$value: map-get($config,"button-outline-default");
-
-	$background-color-hover: map-get($value,"background-color-hover");
-	$background-color-active: map-get($value,"background-color-active");
-	$border-color: map-get($value,"border-color");
-	$border-color-active: map-get($value,"border-color-active");
-	$text-color: map-get($value,"text-color");
-	$text-color-hover: map-get($value,"text-color-hover");
-	$text-color-active: map-get($value,"text-color-active");
-	$icon-color: map-get($value,"icon-color");
-
-	position:relative;
+	position: relative;
 	display: inline-block;
-	word-spacing: 0px;	
+	word-spacing: 0px;
 
-	& > ._file {
+	&>._file {
 		position: absolute;
 		overflow: hidden;
 
@@ -41,46 +25,24 @@
 		z-index: -1;
 	}
 
-	& > label,
-	& > button {
+	&>label,
+	&>button {
 		float: left;
 	}
 
-	& > label {
+	&>label {
 		float: left;
 		border-radius: 3px 0px 0px 3px;
+		border-right: 0px solid #000000 !important;
 	}
 
-	& > button {
+	&>button {
 		float: left;
 		border-radius: 0px 3px 3px 0px;
 	}
 
-	& > label * {
+	&>label * {
 		pointer-events: none;
 	}
 
-	& > ._file:hover + label,
-	& > ._file:focus + label,
-	& > ._file + label:hover,
-	& > ._file.-focus + label {
-		background-color: $background-color-hover;
-		color: $text-color-hover;
-		border-color: $border-color-active;
-
-		& > i {
-			color: $text-color-hover;
-		}
-	}
-
-	& > ._file:active + label {
-		background-color: $background-color-active;
-		color: $text-color-active;
-		border-color: $border-color-active;
-
-		& > i {
-			color: $text-color-active;
-		}
-	}
 }
-

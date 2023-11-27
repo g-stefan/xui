@@ -1,0 +1,33 @@
+// XUI
+// Copyright (c) 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+$form-textarea: ();
+
+@each $type, $value in $formInputType {
+	$form-textarea: map-merge($form-textarea,(
+		"#{$type}-border-color": palette-color("#{$type}-3"),
+		"#{$type}-color": #000000,
+		"#{$type}-focus-color": #000000,
+		"#{$type}-icon-color": palette-color("#{$type}-2"),
+		"#{$type}-focus-icon-color": palette-color("primary-2")
+	));
+};
+
+$form-textarea: map-merge($form-textarea,(
+	"placeholder-color": palette-color("aluminium-3"),
+	"required-color": palette-color("danger-2"),
+
+	"default-icon-color": palette-color("aluminium-4"),
+	
+	"focus-border-color": palette-color("primary-2"),
+	"focus-border-shadow-color": palette-color("primary-1"),
+
+	"disabled-border-color": palette-color("disabled-3"),
+	"disabled-color": palette-color("disabled-3"),
+	"disabled-focus-color": palette-color("disabled-3"),
+	"disabled-icon-color": palette-color("disabled-3"),
+	"disabled-focus-icon-color": palette-color("disabled-3")
+));

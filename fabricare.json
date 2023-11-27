@@ -6,7 +6,7 @@
 			{
 				"name" : "xui",
 				"SPDX-License-Identifier": "MIT",
-				"previousVersion" : "3.5.1"
+				"previousVersion" : "3.6.0"
 			}
 		],
 		"releaseOutput" : true

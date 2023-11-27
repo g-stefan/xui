@@ -216,6 +216,7 @@ buildComponent("ajax");
 buildComponent("element");
 
 // ---
+
 buildComponent("grid");
 buildComponent("elevation");
 buildComponent("responsive");
@@ -225,13 +226,18 @@ buildComponent("palette");
 buildComponent("toggle");
 buildComponent("capture");
 buildComponent("overlayscrollbars");
-//
-buildComponent("text");
+
+// ---
+
 buildComponent("card");
+buildComponent("text");
 buildComponent("button");
 buildComponent("button-outline");
 buildComponent("button-transparent");
 buildComponent("button-small");
+buildComponent("form-button");
+buildComponent("form-button-outline");
+buildComponent("form-button-transparent");
 buildComponent("form-label");
 buildComponent("form-text");
 buildComponent("form-textarea");
@@ -264,7 +270,6 @@ buildComponent("panel");
 buildComponent("link");
 buildComponent("list-group");
 buildComponent("inner-box");
-buildComponent("line");
 buildComponent("form-separator");
 buildComponent("app-toolbar");
 buildComponent("application");
@@ -284,12 +289,13 @@ buildComponent("notify");
 buildComponent("template");
 buildComponent("form-html");
 
-makeComponent("button-raised3d");
-makeComponent("form-text-material");
-makeComponent("form-textarea-material");
+// ---
+
 makeComponent("animated-dna");
 makeComponent("dashboard-theme-2");
 makeComponent("dashboard-theme-3");
+
+// ---
 
 make.target("temp/done.css.all", completeCSS, function(target, source) {
 	Script.requireExtension("Console");

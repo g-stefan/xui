@@ -30,10 +30,10 @@ ul.xui.menu.-tab {
 		padding-left: 1px;
 		padding-right: 1px;
 		padding-bottom: 0px;		
-		border-top: 0px solid palette-color("default-2");
-		border-left: 0px solid palette-color("default-2");
-		border-right: 0px solid palette-color("default-2");
-		border-bottom: 1px solid palette-color("default-2");
+		border-top: 0px solid palette-color("theme-line");
+		border-left: 0px solid palette-color("theme-line");
+		border-right: 0px solid palette-color("theme-line");
+		border-bottom: 1px solid palette-color("theme-line");
 
 		& > .xui.action {
 			border-top-left-radius: 3px;
@@ -51,10 +51,10 @@ ul.xui.menu.-tab {
 			padding-left: 0px;
 			padding-right: 0px;
 			padding-bottom: 1px;
-			border-top: 1px solid palette-color("default-2");
-			border-left: 1px solid palette-color("default-2");
-			border-right: 1px solid palette-color("default-2");
-			border-bottom: 0px solid palette-color("default-2");
+			border-top: 1px solid palette-color("theme-line");
+			border-left: 1px solid palette-color("theme-line");
+			border-right: 1px solid palette-color("theme-line");
+			border-bottom: 0px solid palette-color("theme-line");
 
 			& > .xui.action {
 				border-radius: 0px;

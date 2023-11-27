@@ -12,7 +12,7 @@ $palette: ();
 
 // ---
 
-@function palette-color($color){
+@function palette-color($color){	
 	@return map-get($palette, $color);
 }
 
@@ -20,7 +20,7 @@ $palette: ();
 	@return color-tint(palette-color($color), $tint);
 }
 
-@function palette-shade($color,$shade){
+@function palette-shade($color,$shade){	
 	@return color-shade(palette-color($color), $shade);
 }
 
@@ -32,7 +32,7 @@ $palette: ();
 	@return palette-shade($color, 40%);
 }
 
-@function palette-dark($color){
+@function palette-dark($color){	
 	@return palette-shade($color, 20%);
 }
 
@@ -128,26 +128,36 @@ $palette: map-merge($palette,(
 
 $palette: map-merge($palette,(
 	"default-1": palette-color("aluminium-1"),
-	"default-2": palette-color("aluminium-2"),
+	"default-2": #FFFFFF,
+	"default-3": palette-color("aluminium-2"),
 
-	"primary-1": palette-color("science-blue-2"),
-	"primary-2": palette-color("science-blue-3"),
+	"primary-1": palette-color("science-blue-1"),
+	"primary-2": palette-color("science-blue-2"),
+	"primary-3": palette-color("science-blue-3"),
+	
+	"secondary-1": palette-color("rock-4"),
+	"secondary-2": palette-color("rock-5"),
+	"secondary-3": palette-color("rock-6"),
+	
+	"success-1": palette-color("green-1"),
+	"success-2": palette-color("green-2"),
+	"success-3": palette-color("green-3"),
 
-	"secondary-1": palette-color("rock-5"),
-	"secondary-2": palette-color("rock-6"),
-
-	"success-1": palette-color("green-2"),
-	"success-2": palette-color("green-3"),
-
-	"danger-1": palette-color("persian-red-2"),
-	"danger-2": palette-color("persian-red-3"),
+	"danger-1": palette-color("persian-red-1"),
+	"danger-2": palette-color("persian-red-2"),
+	"danger-3": palette-color("persian-red-3"),
 
 	"warning-1": palette-color("sunflower-1"),
 	"warning-2": palette-color("sunflower-2"),
+	"warning-3": palette-color("sunflower-3"),
 
-	"info-1": palette-color("aqua-2"),
-	"info-2": palette-color("aqua-3"),
+	"info-1": palette-color("aqua-1"),
+	"info-2": palette-color("aqua-2"),
+	"info-3": palette-color("aqua-3"),
 
-	"disabled": #EEEEEE
+	"disabled-1": palette-color("aluminium-1"),
+	"disabled-2": palette-color("aluminium-2"),
+	"disabled-3": palette-color("aluminium-3")
 ));
 
+@import "../theme/theme.source";

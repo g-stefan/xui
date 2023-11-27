@@ -8,8 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
 
 @import "table.source";
@@ -104,8 +102,95 @@
 		}
 	}
 
-	@each $type, $value in $context {
-		@include table($type);
+	& > thead > tr > th {
+		color: map-get($table,"head-text-color");
+	}
+
+	& > thead > tr {
+		background-color: map-get($table,"background-color");
+	}
+
+	& > tbody > tr {
+		background-color: map-get($table,"background-color");
+		color: map-get($table,"text-color");
+	}
+
+	& > thead > tr > th {
+		border-top: 1px solid map-get($table,"border-color");
+		border-left: 1px solid map-get($table,"border-color");
+		color: map-get($table,"text-color");
+	}
+
+	& > thead > tr > th:last-child {
+		border-top: 1px solid map-get($table,"border-color");
+		border-left: 1px solid map-get($table,"border-color");
+		border-right: 1px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td {
+		border-top: 1px solid map-get($table,"border-color");
+		border-left: 1px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td:last-child {
+		border-top: 1px solid map-get($table,"border-color");
+		border-left: 1px solid map-get($table,"border-color");
+		border-right: 1px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr:nth-child(even) {
+		background-color: map-get($table,"even-background-color");
+	}
+
+	& > tbody > tr:last-child > td {
+		border-bottom: 1px solid map-get($table,"border-color");
+	}	
+
+	&.-hover > tbody {		
+
+		& > tr:hover > td {
+			border-top: 1px solid map-get($table,"hover-border-color");
+			border-bottom: 1px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:hover + tr > td {
+			border-top: 0px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:hover > td:first-child {
+			border-top: 1px solid map-get($table,"hover-border-color");
+			border-left: 1px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:hover > td:last-child {
+			border-top: 1px solid map-get($table,"hover-border-color");
+			border-right: 1px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:last-child:hover > td {
+			border-bottom: 1px solid map-get($table,"hover-border-color");
+		}
+
+	}
+
+	&.-sticky-first-row-and-column {
+
+		& > thead > th:first-child {
+			border-right: 1px solid map-get($table,"border-color");
+		}
+
+		& > thead > th:nth-child(2) {
+			border-left: 0px solid map-get($table,"border-color");
+		}
+
+		& > tbody > td:first-child {
+			border-right: 1px solid map-get($table,"border-color");
+		}
+
+		& > tbody > td:nth-child(2) {
+			border-left: 0px solid map-get($table,"border-color");
+		}
+
 	}
 
 	&.-sticky-head > thead > tr > th {
@@ -168,8 +253,47 @@
 		}
 	}
 
-	@each $type, $value in $context {
-		@include table-border-on-table($type);
+	border: 1px solid map-get($table,"border-color");
+
+	& > thead > tr > th {
+		border-top: 0px solid map-get($table,"border-color");
+	}
+
+	& > thead > tr > th:first-child {
+		border-left: 0px solid map-get($table,"border-color");
+	}
+
+	& > thead > tr > th:last-child {
+		border-top: 0px solid map-get($table,"border-color");
+		border-right: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td:first-child {
+		border-left: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td:last-child {
+		border-right: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr:last-child > td {
+		border-bottom: 0px solid map-get($table,"border-color");
+	}	
+
+	&.-hover > tbody {
+
+		& > tr:hover > td:first-child {
+			border-left: 0px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:hover > td:last-child {
+			border-right: 0px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:last-child:hover > td {
+			border-bottom: 0px solid map-get($table,"hover-border-color");
+		}
+
 	}
 }
 
@@ -199,16 +323,81 @@
 		}
 	}
 
-	@each $type, $value in $context {
-		@include table-no-border($type);
+	border: 0px solid map-get($table,"border-color");
+
+	& > thead > tr > th {
+		border-top: 0px solid map-get($table,"border-color");
+	}
+
+	& > thead > tr > th:first-child {
+		border-left: 0px solid map-get($table,"border-color");
+	}
+
+	& > thead > tr > th:last-child {
+		border-top: 0px solid map-get($table,"border-color");
+		border-right: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td:first-child {
+		border-left: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td:last-child {
+		border-right: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr:last-child > td {
+		border-bottom: 0px solid map-get($table,"border-color");
+	}	
+
+	&.-hover > tbody {
+
+		& > tr:hover > td:first-child {
+			border-left: 0px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:hover > td:last-child {
+			border-right: 0px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:last-child:hover > td {
+			border-bottom: 0px solid map-get($table,"hover-border-color");
+		}
+
 	}
 }
 
 // ---
 
 .xui.table.-no-vertical-inner-border {
-	@each $type, $value in $context {
-		@include table-no-vertical-inner-border($type);
+	border: 0px solid map-get($table,"border-color");
+
+	& > thead > tr > th {
+		border-left: 0px solid map-get($table,"border-color");
+	}
+
+	& > thead > tr > th:first-child {
+		border-left: 1px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td {
+		border-left: 0px solid map-get($table,"border-color");
+	}
+
+	& > tbody > tr > td:first-child {
+		border-left: 1px solid map-get($table,"border-color");
+	}
+
+	&.-hover > tbody {
+
+		& > tr:hover > td {
+			border-left: 0px solid map-get($table,"hover-border-color");
+		}
+
+		& > tr:hover > td:first-child {
+			border-left: 1px solid map-get($table,"hover-border-color");
+		}
+
 	}
 }
 

@@ -10,7 +10,7 @@
 
 .xui.button-group {
 	position: relative;
-	display: inline-block;
+	display: inline-block;	
 
 	& > * {
 		float: left;
@@ -26,5 +26,21 @@
 			border-radius: 0px 3px 3px 0px;
 		}
 	}
+
+	& > .button {
+		margin-left: -1px;
+		z-index: 0;
+	}
+
+	& > .button:hover,
+	& > .button:focus,
+	& > .button:active {
+		z-index: 1;
+	}
+
+	& > .button:first-child {
+		margin-left: 0px;
+	}
+	
 }
 

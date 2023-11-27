@@ -15,14 +15,14 @@ XUI.Html = {};
  */
 XUI.Html.escapeRegExp = function(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
+};
 
-                        /**
-                         * Extract tag from HTML
-                         * @param {string} inputHtml - HTML
-                         * @returns {object} Extracted tag {html,tag}
-                         */
-                        XUI.Html.extractTag = function(inputHtml, tag) {
+/**
+ * Extract tag from HTML
+ * @param {string} inputHtml - HTML
+ * @returns {object} Extracted tag {html,tag}
+ */
+XUI.Html.extractTag = function(inputHtml, tag) {
 	var retV = {
 		html : "",
 		tag : ""

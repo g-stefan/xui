@@ -4,73 +4,19 @@
 // SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-@mixin form-radio-config($type) {
-	@include form-text-config($type);
-	$settings: map-get($config,"form-text-#{$type}");
+$form-radio: ();
 
-	@if($type == "default"){
-		$settings: map-merge($settings,(
-			"icon-color": palette-color("primary-2"),
-			"icon-color-focus": palette-color("primary-1")
-		));
-	};
+@each $type, $value in $formInputType {
+	$form-radio: map-merge($form-radio,(
+		"#{$type}-border-color": palette-color("#{$type}-3"),
+		"#{$type}-color": palette-color("#{$type}-2")
+	));
+};
 
-	$config: map-merge($config,("form-radio-#{$type}": $settings)) !global;
-}
+$form-radio: map-merge($form-radio,(
+	"focus-border-color": palette-color("primary-2"),
+	"focus-color": palette-color("primary-1"),
+	"focus-border-shadow-color": palette-color("primary-1"),
 
-@mixin form-radio ($type) {
-	@include form-radio-config($type);
-	$value: map-get($config,"form-radio-#{$type}");
-
-	$class: if($type == "default","",".-#{$type}");
-
-	$border-color: map-get($value,"border-color");
-	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
-	$border-color-focus: map-get($value,"border-color-focus");
-	$icon-color: map-get($value,"icon-color");
-	$icon-color-focus: map-get($value,"icon-color-focus");
-
-	&#{$class} {
-		@if $type == "disabled" {
-			& > label,
-			& > input[type="radio"] + label::before,
-			& > input[type="radio"] + label::after {
-				cursor: auto;
-			}
-		}
-
-		& > label::before {
-			border: 1px solid $border-color;
-		}
-		
-		& > input[type="radio"]:focus + label::before,
-		& > input[type="radio"]:active + label::before {
-			@if $type != "disabled" {
-				border: 1px solid $border-color-focus;
-				box-shadow: 0px 0px 0px 2px rgba($box-shadow-color-focus, 0.2);
-			} @else {
-				border: 1px solid $border-color;
-				box-shadow: none;
-			}
-		}
-
-		& > input[type="radio"]:focus + label::after,
-		& > input[type="radio"]:active + label::after {
-			@if $type != "disabled" {
-				background-color: $box-shadow-color-focus;
-			} @else {
-				background-color: transparent;
-			}
-		}
-
-		& > input[type="radio"]:checked + label::after {
-			background-color: $icon-color;
-		}
-
-		& > input[type="radio"]:focus:checked + label::after,
-		& > input[type="radio"]:active:checked + label::after {
-			background-color: $icon-color-focus;
-		}
-	}
-}
-
+	"default-color": palette-color("primary-2")
+));

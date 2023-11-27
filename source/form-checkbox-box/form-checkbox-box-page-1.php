@@ -19,12 +19,9 @@
 
 $items=array(
 	"default",
-	"primary",
-	"secondary",
-	"success",
-	"danger",
+	"success",	
 	"warning",
-	"info",
+	"danger",	
 	"disabled",
 	""
 );
@@ -53,7 +50,7 @@ foreach($items as $value){
 			if(strlen($value)){
 			echo "<form>";
 				echo "<div class=\"xui form-checkbox -box ".$cssClass."\">";
-					echo "<input type=\"checkbox\" id=\"checkbox-item-box-".$count."\" name=\"checkbox-item-box-".$count."\" value=\"checkbox-value\" checked=\"checked\" ".$isDisabled."></input>";
+					echo "<input type=\"checkbox\" id=\"checkbox-item-box-".$count."\" name=\"checkbox-item-box-".$count."\" value=\"checkbox-value\" checked=\"checked\" tabindex=\"0\" ".$isDisabled."></input>";
 					echo "<label for=\"checkbox-item-box-".$count."\" ".$isDisabled.">".ucfirst($value)."</label>";
 				echo "</div>";
 			echo "</form>";

@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
 		<link rel="stylesheet" href="vendor/air-datepicker/air-datepicker.css">
+		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="css/xui-core.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
@@ -50,13 +51,17 @@
 		
 		</style>
 	</head>
-	<body class="xui -bg-aluminium-1">
+	<body class="xui -bg-aluminium-1 -overlay-scrollbars">
 
 	<?php include("form-datepicker-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.7.0.min.js" defer></script>
+	<div class="xui separator" />
+	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
+	<script src="vendor/jquery/jquery.min.js" defer></script>		
 	<script src="vendor/air-datepicker/air-datepicker.js" defer></script>
 	<script src="vendor/air-datepicker/locale/en.js" defer></script>
+	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-overlayscrollbars.min.js" defer></script>
 	<script>
 		window.addEventListener("load", function(){
 			var datePicker1=new AirDatepicker("#datepicker-1", {autoClose:true,locale:AirDatepickerLocaleEN});

@@ -19,7 +19,7 @@
 	<div class="xui form-file">
 		<input type="file" name="form-file" id="form-file" class="xui _file"></input>
 		<label for="form-file" class="xui button -icon-left -outline"><i class="material-icons">file_upload</i><span>Browse ...</span></label>
-		<button type="button" class="xui button -icon -info"><i class="material-icons">delete</i></button>
+		<button type="button" class="xui button -icon -outline -secondary"><i class="material-icons">close</i></button>
 	</div>
 </form>
 

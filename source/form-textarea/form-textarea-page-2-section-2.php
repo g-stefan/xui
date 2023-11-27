@@ -7,39 +7,56 @@
 // SPDX-License-Identifier: MIT
 */
 ?>
+
 <div class="xui text -label-40">
-	Form textarea - Required
+	Form textarea - Small
 </div>
 <div class="xui separator-15"></div>
 <div class="xui grid -gutter-30">
-<div class="xui grid -row -gutter-30">
+<?php
 
+$items=array(
+	"default",
+	"success",	
+	"warning",
+	"danger",	
+	"disabled",
+	""
+);
 
-	<div class="xui grid -col -x4 -align-center">
-		<form>
-			<div class="xui form-text -required">
-				<textarea name="text" rows="4" cols="32">Required</textarea>
-			</div>
-		</form>
-	</div>
-	<div class="xui grid -col -x4 -align-center">
-		<form>
-			<div class="xui form-text -icon-left -required">
-				<textarea name="text" rows="4" cols="32">Required</textarea>
-				<i class="material-icons">person</i>
-			</div>
-		</form>
-	</div>
-	<div class="xui grid -col -x4 -align-center">
-		<form>
-			<div class="xui form-text -icon-right -required">
-				<textarea name="text" rows="4" cols="32">Required</textarea>
-				<i class="material-icons">person</i>
-			</div>
-		</form>
-	</div>
+$index=0;
+foreach($items as $value){
+	$cssClass="";
+	if(strlen($value)){
+		$cssClass="-".$value;
+		if($value=="default"){
+			$cssClass="";
+		};
+	};
 
+	$isDisabled="";
+	if($value=="disabled"){
+		$isDisabled="disabled=\"disabled\"";
+	};
 
+	if($index==0){
+		echo "<div class=\"xui grid -row -gutter-30\">";
+	};
+	//
+		echo "<div class=\"xui grid -col -x4 -align-center\">";
+			if(strlen($value)){
+				echo "<form>";					
+					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" class=\"xui form-textarea -small ".$cssClass."\" ".$isDisabled.">".ucfirst($value)."</textarea>";
+				echo "</form>";
+			};
+		echo "</div>";
+	//
+	++$index;
+	if($index==3){
+		echo "</div>";
+		$index=0;
+	};
+};
+
+?>
 </div>
-</div>
-

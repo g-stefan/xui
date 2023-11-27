@@ -16,9 +16,25 @@
 <div class="xui separator-15"></div>
 
 	<div class="xui button-group">
-		<div class="xui button">Back</div>
-		<div class="xui button">Try again</div>
-		<div class="xui button -success">Next</div>
+		<div class="xui button" tabindex="0">Back</div>
+		<div class="xui button" tabindex="0">Try again</div>
+		<div class="xui button -success" tabindex="0">Next</div>
+	</div>
+
+	<div class="xui separator-15"></div>
+
+	<div class="xui button-group">
+		<div class="xui button -outline" tabindex="0">Back</div>
+		<div class="xui button -outline" tabindex="0">Try again</div>
+		<div class="xui button -outline -success" tabindex="0">Next</div>
+	</div>
+
+	<div class="xui separator-15"></div>
+
+	<div class="xui button-group">
+		<div class="xui button -secondary" tabindex="0">Button</div>
+		<div class="xui button -secondary" tabindex="0">Button</div>
+		<div class="xui button -secondary" tabindex="0">Button</div>
 	</div>
 
 </div>

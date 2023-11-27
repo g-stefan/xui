@@ -7,8 +7,9 @@
 // SPDX-License-Identifier: MIT
 */
 ?>
+
 <div class="xui text -label-40">
-	Form textarea - Icon right
+	Form textarea - Medium
 </div>
 <div class="xui separator-15"></div>
 <div class="xui grid -gutter-30">
@@ -16,12 +17,9 @@
 
 $items=array(
 	"default",
-	"primary",
-	"secondary",
-	"success",
-	"danger",
+	"success",	
 	"warning",
-	"info",
+	"danger",	
 	"disabled",
 	""
 );
@@ -47,11 +45,8 @@ foreach($items as $value){
 	//
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
-				echo "<form>";
-				echo "<div class=\"xui form-text -icon-right ".$cssClass."\">";
-					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" ".$isDisabled.">".ucfirst($value)."</textarea>";
-					echo "<i class=\"material-icons\">person</i>";
-				echo "</div>";
+				echo "<form>";					
+					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" class=\"xui form-textarea -medium ".$cssClass."\" ".$isDisabled.">".ucfirst($value)."</textarea>";
 				echo "</form>";
 			};
 		echo "</div>";
@@ -61,9 +56,7 @@ foreach($items as $value){
 		echo "</div>";
 		$index=0;
 	};
-
 };
-
 
 ?>
 </div>

@@ -8,10 +8,8 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
-
+@import "../form-input/form-input.source";
 @import "form-label.source";
 
 .xui.form-label {
@@ -26,8 +24,13 @@
 	padding-top: 6px;
 	padding-bottom: 6px;
 
-	@each $type, $value in $context {
-		@include form-label($type);
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".-#{$type}");		
+
+		&#{$class} {
+			color: map-get($form-label,"#{$type}-color");
+		}		
 	}
+	
 }
 

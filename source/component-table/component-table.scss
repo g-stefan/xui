@@ -18,10 +18,10 @@
 	height: auto;
 
 	& > .xui.app-toolbar:first-child {
-		border-left: 1px solid palette-color("default-2");
-		border-top: 1px solid palette-color("default-2");
-		border-right: 1px solid palette-color("default-2");
-		border-bottom: 0px solid palette-color("default-2");
+		border-left: 1px solid palette-color("theme-line");
+		border-top: 1px solid palette-color("theme-line");
+		border-right: 1px solid palette-color("theme-line");
+		border-bottom: 0px solid palette-color("theme-line");
 		border-top-left-radius: 3px;
 		border-top-right-radius: 3px;
 		border-bottom-left-radius: 0px;
@@ -29,10 +29,10 @@
 	}
 
 	& > .xui.app-toolbar:nth-child(2) {
-		border-left: 1px solid palette-color("default-2");
-		border-top: 1px solid palette-color("default-2");
-		border-right: 1px solid palette-color("default-2");
-		border-bottom: 0px solid palette-color("default-2");
+		border-left: 1px solid palette-color("theme-line");
+		border-top: 1px solid palette-color("theme-line");
+		border-right: 1px solid palette-color("theme-line");
+		border-bottom: 0px solid palette-color("theme-line");
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 0px;
@@ -40,10 +40,10 @@
 	}
 
 	& > .xui.app-toolbar:last-child {
-		border-left: 1px solid palette-color("default-2");
-		border-top: 0px solid palette-color("default-2");
-		border-right: 1px solid palette-color("default-2");
-		border-bottom: 1px solid palette-color("default-2");
+		border-left: 1px solid palette-color("theme-line");
+		border-top: 0px solid palette-color("theme-line");
+		border-right: 1px solid palette-color("theme-line");
+		border-bottom: 1px solid palette-color("theme-line");
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 3px;
@@ -161,7 +161,7 @@
 	}
 
 	& > .xui.app-toolbar:last-child {
-		border-top: 1px solid #d3d7cf;
+		border-top: 1px solid palette-color("theme-line");
 		border-bottom: 0px;
 		border-left: 0px;
 		border-right: 0px;
@@ -182,7 +182,7 @@
 	}
 
 	& > .xui._table .xui.table > thead > tr > th {
-		border-bottom: 1px solid #d3d7cf;
+		border-bottom: 1px solid palette-color("theme-line");
 	}
 
 	& > .xui._table .xui.table > tbody > tr:first-child > td {
@@ -247,10 +247,10 @@
 	}
 
 	& > .xui.app-toolbar:last-child {
-		border-left: 0px solid palette-color("default-2");
-		border-top: 0px solid palette-color("default-2");
-		border-right: 0px solid palette-color("default-2");
-		border-bottom: 0px solid palette-color("default-2");
+		border-left: 0px solid palette-color("theme-line");
+		border-top: 0px solid palette-color("theme-line");
+		border-right: 0px solid palette-color("theme-line");
+		border-bottom: 0px solid palette-color("theme-line");
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 0px;
@@ -262,7 +262,7 @@
 // ---
 
 .xui.component-table.-table-border > .xui._table {
-	border: 1px solid palette-color("default-2");
+	border: 1px solid palette-color("theme-line");
 	border-radius: 3px;
 	overflow: hidden;
 }

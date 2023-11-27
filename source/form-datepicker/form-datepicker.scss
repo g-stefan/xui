@@ -8,30 +8,40 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
+@import "../elevation/elevation.source";
 
 .air-datepicker {
 	border-radius: 3px;
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	z-index: 1000;
+
+	--adp-border-color: #{ palette-color("theme-line") };
+    	--adp-border-color-inner: #{ palette-color("theme-line") };
+    	--adp-border-radius: 3px;
+    	--adp-border-color-inline: #{ palette-color("theme-line") };
+	--adp-time-track-color: #{ palette-color("theme-line") };
+	--adp-cell-background-color-selected : #{ palette-color("primary-2") };
+        --adp-cell-background-color-selected-hover: #{ palette-color("primary-2") };
+	
+	@include elevation(4);	
 }
 
 .air-datepicker-body--day-name{
-	color: palette-color("primary-2");
+	color: palette-color("primary-3");
 }
 
 .air-datepicker-cell.-current-{
-	color: palette-color("primary-2");
+	color: palette-color("primary-3");
 }
 
 .air-datepicker-cell.-selected-{
-	background-color: palette-color("primary-1");
+	background-color: palette-color("primary-2");
 }
 
 .air-datepicker-cell.-selected-.-focus-{
-	background-color: palette-color("primary-1");
+	background-color: palette-color("primary-2");
 }
 
 .air-datepicker.-only-timepicker- > .air-datepicker--time {

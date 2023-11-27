@@ -8,10 +8,9 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
-$link-color: palette-darker("primary-2");
+$link-color: palette-darker("primary-3");
 
 .xui.link {
 	position: relative;

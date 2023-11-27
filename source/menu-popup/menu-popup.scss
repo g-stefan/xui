@@ -37,10 +37,10 @@ ul.xui.menu.-popup {
 		overflow: hidden;
 		border-radius: 3px;
 		transform: rotate(45deg);
-		border-top: 1px solid palette-color("aluminium-3");
-		border-left: 1px solid palette-color("aluminium-3");
-		border-bottom: 0px solid palette-color("aluminium-3");
-		border-right: 0px solid palette-color("aluminium-3");
+		border-top: 1px solid palette-color("theme-line");
+		border-left: 1px solid palette-color("theme-line");
+		border-bottom: 0px solid palette-color("theme-line");
+		border-right: 0px solid palette-color("theme-line");
 		z-index: -1;
 		opacity: 0;
 		transition: opacity 0.3s ease;
@@ -81,7 +81,7 @@ ul.xui.menu.-popup {
 			background-color: #FFFFFF;
 			padding: 3px 3px 3px 3px;
 			@include elevation(4);
-			border: 1px solid palette-color("aluminium-3");
+			border: 1px solid palette-color("theme-line");
 		}
 
 		& > ul > li {
@@ -98,7 +98,7 @@ ul.xui.menu.-popup {
 		height: auto;
 		padding: 3px 3px 3px 3px;
 		@include elevation(4);
-		border: 1px solid palette-color("aluminium-3");
+		border: 1px solid palette-color("theme-line");
 
 		&::before {
 			height: 8px;
@@ -145,8 +145,13 @@ ul.xui.menu.-popup {
 		// --- Overlay Scrollbars
 
 		// Level 2
+
+		& > li:hover > ul {
+			display: flex;
+			flex-direction: column;
+		}
 	
-		& > li:hover > ul > div > div > div
+		& > li:hover > ul > div
 		> li {
 			@extend %menu-dropdown-level;
 			@include menu-dropdown-level-action();		
@@ -154,13 +159,26 @@ ul.xui.menu.-popup {
 
 		// Level 3
 
-		& > li:hover > ul > div > div > div
-		> li:hover > ul > div > div > div
+		& > li:hover > ul > div
+		> li:hover > ul {
+			display: flex;
+			flex-direction: column;
+		}		
+
+		& > li:hover > ul > div
+		> li:hover > ul > div
 		> li {
 			@extend %menu-dropdown-level;
 			@include menu-dropdown-level-action();
 		}
 
+	}
+
+	// --- Overlay Scrollbars
+	
+	& ul {
+		display: flex;
+		flex-direction: column;
 	}
 }
 

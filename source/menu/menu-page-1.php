@@ -16,7 +16,7 @@
 <div class="xui separator-15"></div>
 
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 
 <ul class="xui menu">

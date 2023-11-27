@@ -8,17 +8,22 @@
 */
 
 XUI.OverlayScrollbars = {};
+XUI.OverlayScrollbars.instance = null;
 
 /**
  * Initialize Overlay Scrollbars
- * @param {elements} elements - Selected elements (JQuery)
+ * @param {elements} elements - Selected elements
  * @param {object} options - Overlay scrollbars config options
  */
 XUI.OverlayScrollbars.create = function(elements, options) {
+	retV = [];
 	if (!options) {
 		options = {scrollbars : {clickScrolling : true}};
 	};
-	return elements.overlayScrollbars(options);
+	Array.from(elements).forEach(function(item) {
+		retV.push(this.instance(item, options));
+	},this);
+	return retV;
 };
 
 /**
@@ -26,11 +31,19 @@ XUI.OverlayScrollbars.create = function(elements, options) {
  * @param {elements} elements - Selected elements
  */
 XUI.OverlayScrollbars.destroy = function(elements) {
-	if (elements) {
-		if (elements.overlayScrollbars()) {
-			elements.overlayScrollbars().destroy();
-		};
-	};
+	Array.from(elements).forEach(function(item) {
+		this.instance(item).destroy();
+	},this);	
+};
+
+/**
+ * Destroy Overlay Scrollbars
+ * @param {items} instance - Instance of created scrollbars
+ */
+XUI.OverlayScrollbars.instanceDestroy = function(items) {
+	items.forEach(function(item) {
+		item.destroy();
+	});	
 };
 
 /**
@@ -38,21 +51,35 @@ XUI.OverlayScrollbars.destroy = function(elements) {
  * @param {elements} elements - Selected elements
  */
 XUI.OverlayScrollbars.update = function(elements) {
-	if (elements) {
-		if (elements.overlayScrollbars()) {
-			elements.overlayScrollbars().update(true);
-		};
-	};
+	Array.from(elements).forEach(function(item) {
+		this.instance(item).update(true);
+	},this);
 };
 
 /**
- * Sleep Overlay Scrollbars
- * @param {elements} elements - Selected elements
+ * Update Overlay Scrollbars
+ * @param {items} instance - Instance of created scrollbars
  */
-XUI.OverlayScrollbars.sleep = function(elements) {
-	if (elements) {
-		if (elements.overlayScrollbars()) {
-			elements.overlayScrollbars().sleep();
-		};
-	};
+XUI.OverlayScrollbars.instanceUpdate = function(items) {
+	items.forEach(function(item) {
+		item.update(true);
+	});	
 };
+
+/**
+ * Initialization
+ */
+XUI.OverlayScrollbars.init = function() {
+	this.instance = OverlayScrollbarsGlobal.OverlayScrollbars;
+	this.instance.plugin(OverlayScrollbarsGlobal.ClickScrollPlugin);
+	XUI.OverlayScrollbars.create(document.querySelectorAll(".xui.-overlay-scrollbars"));
+};
+
+/**
+ * On load
+ */
+XUI.OverlayScrollbars.onLoad = function() {
+	window.removeEventListener("load", XUI.OverlayScrollbars.onLoad);
+	XUI.OverlayScrollbars.init();
+};
+window.addEventListener("load", XUI.OverlayScrollbars.onLoad);

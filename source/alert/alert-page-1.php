@@ -19,13 +19,10 @@
 
 $items=array(
 	"default",
-	"primary",
-	"secondary",
 	"success",	
 	"danger",
 	"warning",
-	"info",
-	"disabled"
+	"info"
 );
 
 foreach($items as $value){

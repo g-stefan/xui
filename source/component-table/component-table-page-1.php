@@ -67,7 +67,7 @@
 					<td>Pineda</td> 
 					<td>25</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -83,7 +83,7 @@
 					<td>Warren</td> 
 					<td>22</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -99,7 +99,7 @@
 					<td>Mattera</td> 
 					<td>32</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -115,7 +115,7 @@
 					<td>Berke</td> 
 					<td>34</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -131,7 +131,7 @@
 					<td>Tarnowski</td> 
 					<td>42</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>

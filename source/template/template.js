@@ -12,100 +12,102 @@ XUI.Template = {};
 /**
  * Initialization
  */
-XUI.Template.init = function() {
-	XUI.OverlayScrollbars.create($(".xui.-overlay-scrollbars"));
-	XUI.Template.navigationDrawerScrollBars = XUI.OverlayScrollbars.create($("#navigation-drawer-content"), {scrollbars : {clickScrolling : true}, clipAlways : false});
+XUI.Template.init = function() {	
+	XUI.Template.navigationDrawerScrollBars = XUI.OverlayScrollbars.create(document.querySelectorAll("#navigation-drawer-content"));
 
 	XUI.Dashboard.notifyStateChange = function() {
 		var state = this.getState();
 		if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
-			$(".xui.navigation-drawer ul.xui.menu>li").each(function() {
-				if (this.classList.contains("-on")) {
-					this.classList.remove("-on");
-					this.classList.add("-was-on");
+			document.querySelectorAll(".xui.navigation-drawer ul.xui.menu>li").forEach(function(item) {
+				if (item.classList.contains("-on")) {
+					item.classList.remove("-on");
+					item.classList.add("-was-on");
 				};
-				if (this.classList.contains("-open")) {
-					this.classList.remove("-open");
+				if (item.classList.contains("-open")) {
+					item.classList.remove("-open");
 				};
-				if (this.classList.contains("-overlay-scrollbars-active")) {
-					this.classList.remove("-overlay-scrollbars-active");
-					XUI.OverlayScrollbars.destroy($(this).children("ul"));
+				if (item.classList.contains("-overlay-scrollbars-active")) {
+					item.classList.remove("-overlay-scrollbars-active");					
+					XUI.OverlayScrollbars.destroy(item.querySelectorAll(":scope>ul"));
 				};
 			});
-
-			if (XUI.Template.navigationDrawerScrollBars) {
-				setTimeout(function() {
-					XUI.OverlayScrollbars.sleep(XUI.Template.navigationDrawerScrollBars);
-				}, 50);
-			};
-
+			
+			setTimeout(function() {				
+				XUI.OverlayScrollbars.instanceDestroy(XUI.Template.navigationDrawerScrollBars);
+				XUI.Template.navigationDrawerScrollBars = [];
+			}, 50);			
 			return;
 		};
-		$(".xui.navigation-drawer ul.xui.menu>li").each(function() {
-			if (this.classList.contains("-was-on")) {
-				this.classList.remove("-was-on");
-				this.classList.add("-on");
+		document.querySelectorAll(".xui.navigation-drawer ul.xui.menu>li").forEach(function(item) {
+			if (item.classList.contains("-was-on")) {
+				item.classList.remove("-was-on");
+				item.classList.add("-on");
 			};
 		});
-		$("#navigation-drawer-content ul>li.xui._submenu>ul").each(function() {
-			this.style.height = "auto";
+		document.querySelectorAll("#navigation-drawer-content ul>li.xui._submenu>ul").forEach(function(item) {
+			item.style.height = "auto";
 		});
-		if (XUI.Template.navigationDrawerScrollBars) {
-			XUI.OverlayScrollbars.update(XUI.Template.navigationDrawerScrollBars);
-		};
+		
+		if(XUI.Template.navigationDrawerScrollBars.length == 0) {
+			XUI.Template.navigationDrawerScrollBars = XUI.OverlayScrollbars.create(document.querySelectorAll("#navigation-drawer-content"));
+		};		
+		XUI.OverlayScrollbars.instanceUpdate(XUI.Template.navigationDrawerScrollBars);		
 	};
 	XUI.Dashboard.notifyStateChange();
-	$(".xui.navigation-drawer ul.xui.menu>li").mouseenter(function() {
-		var this_ = this;
-		$("ul>li.xui._submenu").each(function() {
-			if (this_ == this) {
-				return;
-			};
-			if (this.classList.contains("-open")) {
-				this.classList.remove("-open");
-			};
-			if (this.classList.contains("-overlay-scrollbars-active")) {
-				this.classList.remove("-overlay-scrollbars-active");
-				XUI.OverlayScrollbars.destroy($(this).children("ul"));
-			};
-		});
-		if (this.classList.contains("_submenu")) {
-			this.classList.add("-open");
-			XUI.Capture.set([ this ], function(e, elList) {
-				elList[0].classList.remove("-open");
-				if (elList[0].classList.contains("-overlay-scrollbars-active")) {
-					elList[0].classList.remove("-overlay-scrollbars-active");
-					XUI.OverlayScrollbars.destroy($(elList[0]).children("ul"));
+	document.querySelectorAll(".xui.navigation-drawer ul.xui.menu>li").forEach(function(item) {
+		item.addEventListener("mouseenter", function() {
+			var this_ = this;
+			document.querySelectorAll("ul>li.xui._submenu").forEach(function(item) {
+				if (this_ == item) {
+					return;
+				};
+				if (item.classList.contains("-open")) {
+					item.classList.remove("-open");
+				};
+				if (item.classList.contains("-overlay-scrollbars-active")) {					
+					item.classList.remove("-overlay-scrollbars-active");
+					XUI.OverlayScrollbars.destroy(item.querySelectorAll(":scope>ul"));
 				};
 			});
-		};
-		if (!this.classList.contains("-overlay-scrollbars-active")) {
-			var el = this.getElementsByTagName("ul");
-			if (el.length) {
-				el[0].style.height = "auto";
-				var state = XUI.Dashboard.getState();
-				if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
-					var checkHeight = function() {
-						var elRect = el[0].getBoundingClientRect();
-						var viewRect = document.body.getBoundingClientRect();
-						var elViewHeight = elRect.top + elRect.height;
-
-						if (elViewHeight > viewRect.height) {
-							elNewHeight = viewRect.height - elRect.top - 6; // 6px margin bottom
-							if (!this_.classList.contains("-overlay-scrollbars-active")) {
-								this_.classList.add("-overlay-scrollbars-active");
-								XUI.OverlayScrollbars.create($(this_).children("ul"), {scrollbars : {clickScrolling : true}, clipAlways : false});
-							};
-							el[0].style.height = elNewHeight + "px";
-							el[0].style.overflowY = "auto";
-						};
+			if (this.classList.contains("_submenu")) {
+				this.classList.add("-open");
+				XUI.Capture.set([ this ], function(e, elList) {
+					elList[0].classList.remove("-open");
+					if (elList[0].classList.contains("-overlay-scrollbars-active")) {						
+						elList[0].classList.remove("-overlay-scrollbars-active");
+						XUI.OverlayScrollbars.destroy(elList[0].querySelectorAll(":scope>ul"));
 					};
+				});
+			};
+			if (!this.classList.contains("-overlay-scrollbars-active")) {
+				var el = this.getElementsByTagName("ul");
+				if (el.length) {
+					el[0].style.height = "auto";
+					var state = XUI.Dashboard.getState();
+					if (((state.mode == "normal") || (state.mode == "mini")) && (state.state == "closed")) {
+						var checkHeight = function() {
+							var elRect = el[0].getBoundingClientRect();
+							var viewRect = document.body.getBoundingClientRect();
+							var elViewHeight = elRect.top + elRect.height;
 
-					setTimeout(checkHeight, 500);
-					setTimeout(checkHeight, 800);
+							if (elViewHeight > viewRect.height) {
+								elNewHeight = viewRect.height - elRect.top - 6; // 6px margin bottom
+								el[0].style.height = elNewHeight + "px";
+								el[0].style.overflowY = "auto";
+
+								if (!this_.classList.contains("-overlay-scrollbars-active")) {
+									this_.classList.add("-overlay-scrollbars-active");									
+									XUI.OverlayScrollbars.create(this_.querySelectorAll(":scope>ul"));									
+								};								
+							};
+						};
+
+						setTimeout(checkHeight, 500);
+						setTimeout(checkHeight, 800);
+					};
 				};
 			};
-		};
+		});
 	});
 };
 

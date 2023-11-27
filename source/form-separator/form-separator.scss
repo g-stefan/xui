@@ -8,7 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 .xui.form-separator{
@@ -16,7 +15,7 @@
 	margin-bottom: 8px;
 	overflow:hidden;
 	height:1px;
-	background-color: palette-color("default-2");
+	background-color: palette-color("theme-line");
 	clear: both;
 }
 

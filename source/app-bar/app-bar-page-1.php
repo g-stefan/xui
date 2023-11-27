@@ -15,7 +15,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 <?php include("_app-bar.content.source.php"); ?>
 <!-- /item -->

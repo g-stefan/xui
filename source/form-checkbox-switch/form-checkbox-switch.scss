@@ -10,14 +10,9 @@
 
 @import "../ascii/ascii.source";
 @import "../base64/base64.source";
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
-@import "../form-text/form-text.source";
-@import "../form-radio/form-radio.source";
+@import "../form-input/form-input.source";
 @import "../form-checkbox/form-checkbox.source";
-
-@import "form-checkbox-switch.source";
 
 .xui.form-checkbox.-switch {
 
@@ -94,8 +89,68 @@
 		background-image: none;
 	}
 
-	@each $type, $value in $context {
-		@include form-checkbox-switch($type);
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".-#{$type}");
+		
+		&#{$class} {
+
+			@if $type == "disabled" {
+				& > label,
+				& > input[type="checkbox"] + label::before,
+				& > input[type="checkbox"] + label::after {
+					cursor: auto;
+				}
+			}
+	
+			& > label::before {
+				border: 1px map-get($form-checkbox,"#{$type}-border-color");
+			}
+	
+			& > input[type="checkbox"]:focus + label::before,
+			& > input[type="checkbox"]:active + label::before {
+				@if $type != "disabled" {
+					border: 1px solid map-get($form-checkbox,"focus-border-color");
+					box-shadow: 0px 0px 0px 2px rgba(map-get($form-checkbox,"focus-border-shadow-color"), 0.2);
+				} @else {
+					border: 1px solid map-get($form-checkbox,"#{$type}-border-color");
+					box-shadow: none;
+				}
+			}
+	
+			& > input[type="checkbox"]:checked + label::before {
+				border: 1px solid map-get($form-checkbox,"#{$type}-color");
+				background-color: map-get($form-checkbox,"#{$type}-color");
+			}
+	
+			& > input[type="checkbox"]:checked:focus + label::before,
+			& > input[type="checkbox"]:checked:active + label::before {
+				@if $type != "disabled" {
+					border: 1px solid map-get($form-checkbox,"focus-color");
+					background-color: map-get($form-checkbox,"focus-color");
+				} @else {
+					border: 1px solid map-get($form-checkbox,"#{$type}-color");
+					background-color: map-get($form-checkbox,"#{$type}-color");
+				}
+			}
+	
+			& > input[type="checkbox"] + label::after {
+				background-color: map-get($form-checkbox,"#{$type}-color");
+			}
+	
+			& > input[type="checkbox"]:focus + label::after,
+			& > input[type="checkbox"]:active + label::after {
+				@if $type != "disabled" {
+					background-color: map-get($form-checkbox,"focus-border-color");
+				} @else {
+					background-color: map-get($form-checkbox,"#{$type}-color");
+				}
+			}
+	
+			& > input[type="checkbox"]:checked + label::after {
+				background-color: #FFFFFF;
+			}
+	
+		}
 	}
 
 }

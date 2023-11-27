@@ -64,30 +64,31 @@
 			overflow: hidden;
 			border-radius: 6px;
 			padding: 0px 0px 0px 0px;
-			border: 1px solid #D3D7CF;
+			border: 1px solid #000000;
 
 			height: 480px;
 		}
 		
 		</style>
 	</head>
-	<body class="xui -bg-aluminium-1">
+	<body class="xui -bg-aluminium-1 -overlay-scrollbars">
 
 	<?php include("dashboard-normal-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.7.0.min.js" defer></script>
-	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
+	<script src="vendor/jquery/jquery.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
 	<script src="js/xui-cookie.min.js" defer></script>
 	<script src="js/xui-element.min.js" defer></script>
 	<script src="js/xui-effect-ripple.min.js" defer></script>
+	<script src="js/xui-overlayscrollbars.min.js" defer></script>
 	<script src="js/xui-toggle.min.js" defer></script>
 	<script src="js/xui-responsive.min.js" defer></script>
 	<script src="js/xui-capture.min.js" defer></script>
 	<script src="js/xui-dashboard.min.js" defer></script>
 	<script>
 		window.addEventListener("load", function(){
-			XUI.OverlayScrollbars.create($(".xui.navigation-drawer"));
+			XUI.OverlayScrollbars.create(document.querySelectorAll(".xui.navigation-drawer"));
 		});
 	</script>
 	</body>

@@ -13,5 +13,7 @@
 <?php include("form-textarea-page-2-section-1.php"); ?>
 <div class="xui separator-15"></div>
 <?php include("form-textarea-page-2-section-2.php"); ?>
+<div class="xui separator-15"></div>
+<?php include("form-textarea-page-2-section-3.php"); ?>
 
 </div>

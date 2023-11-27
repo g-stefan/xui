@@ -19,12 +19,9 @@
 
 $items=array(
 	"default",
-	"primary",
-	"secondary",
-	"success",
-	"danger",
+	"success",	
 	"warning",
-	"info",
+	"danger",	
 	"disabled",
 	""
 );
@@ -55,13 +52,13 @@ foreach($items as $value){
 				echo "<div class=\"xui grid -row\">";
 				echo "<div class=\"xui grid -col -x6 -align-left\">";
 					echo "<div class=\"xui form-radio ".$cssClass."\">";
-						echo "<input type=\"radio\" id=\"radio-item-1-".$count."\" name=\"radio-item\" value=\"radio-value-1\" checked=\"checked\" ".$isDisabled."></input>";
+						echo "<input type=\"radio\" id=\"radio-item-1-".$count."\" name=\"radio-item\" value=\"radio-value-1\" checked=\"checked\" tabindex=\"0\" ".$isDisabled."></input>";
 						echo "<label for=\"radio-item-1-".$count."\" ".$isDisabled.">".ucfirst($value)." 1</label>";
 					echo "</div>";
 				echo "</div>";
 				echo "<div class=\"xui grid -col -x6 -align-left\">";
 					echo "<div class=\"xui form-radio ".$cssClass."\">";
-						echo "<input type=\"radio\" id=\"radio-item-2-".$count."\" name=\"radio-item\" value=\"radio-value-2\" ".$isDisabled."></input>";
+						echo "<input type=\"radio\" id=\"radio-item-2-".$count."\" name=\"radio-item\" value=\"radio-value-2\" tabindex=\"0\" ".$isDisabled."></input>";
 						echo "<label for=\"radio-item-2-".$count."\" ".$isDisabled.">".ucfirst($value)." 2</label>";
 					echo "</div>";
 				echo "</div>";

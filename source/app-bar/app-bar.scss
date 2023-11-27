@@ -8,7 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 .xui.app-bar {
@@ -28,35 +27,10 @@
 	box-sizing: border-box;
 	
 	background-color: #FFFFFF;
-	color: palette-darkest("aluminium-6");
+	color: #000000;
 
 	& .xui.button {
-		white-space: nowrap;
-
-		color: palette-color("aluminium-4");
-
-		& i {
-			color: palette-color("aluminium-4");
-		}
-		
-		&:hover,
-		&:active {
-			color: palette-color("aluminium-6");
-
-			& i {
-				color: palette-color("aluminium-6");
-			}
-		}
-
-		&.-effect-ripple {
-			&:hover{
-				background-color: palette-color("aluminium-1");
-			}
-
-			& .xui.-effect-ripple_element{
-				background-color: palette-color("aluminium-2");
-			}
-		}
+		white-space: nowrap;		
 	}
 
 	& .xui.text {

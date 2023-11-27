@@ -10,7 +10,6 @@
 
 @import "../ascii/ascii.source";
 @import "../base64/base64.source";
-@import "../config/config.source";
 @import "../palette/palette.source";
 @import "../elevation/elevation.source";
 
@@ -43,7 +42,7 @@
 			top: 4px;
 			left: 92px; 
 			border-radius: 50%;
-			border: 1px solid palette-color("rock-1");
+			border: 1px solid palette-color("theme-line");
 			background-color: #FFFFFF;
 			width: 104px;
 			height: 104px;
@@ -60,7 +59,7 @@
 				background-position: center center;
 				background-size: auto 100%;
 
-				$svg-color: palette-color("aluminium-2");
+				$svg-color: palette-color("theme-line");
 
 				$svg: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
 				"<svg viewBox=\"0 0 640 480\" xmlns=\"http://www.w3.org/2000/svg\">" +

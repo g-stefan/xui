@@ -8,17 +8,16 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 $panel-background-color: #FFFFFF;
-$panel-title-color: palette-darkest("default-2");
+$panel-title-color: palette-darkest("theme-line");
 $panel-title-background-color: #FFFFFF;
 $panel-content-color: #000000;
 $panel-content-background-color: #FFFFFF;
-$panel-footer-color: palette-darkest("default-2");
+$panel-footer-color: palette-darkest("theme-line");
 $panel-footer-background-color: #FFFFFF;
-$panel-line-color: palette-color("default-2");
+$panel-line-color: palette-color("theme-line");
 
 .xui.panel {
 	position: relative;
@@ -148,7 +147,7 @@ $panel-line-color: palette-color("default-2");
 			border-top-right-radius: 6px;
 			border-bottom-left-radius: 6px;
 			border-bottom-right-radius: 6px;
-			border: 1px solid palette-color("default-2");
+			border: 1px solid palette-color("theme-line");
 		}
 
 		&.-no-border {
@@ -156,7 +155,7 @@ $panel-line-color: palette-color("default-2");
 			border-top-right-radius: 0px;
 			border-bottom-left-radius: 0px;
 			border-bottom-right-radius: 0px;
-			border: 0px solid palette-color("default-2");
+			border: 0px solid palette-color("theme-line");
 		}
 
 		&.-nested {			

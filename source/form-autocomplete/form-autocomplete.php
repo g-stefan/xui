@@ -17,7 +17,8 @@
 		<link rel="stylesheet" href="vendor/normalize/normalize.min.css">
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
-		<link rel="stylesheet" href="vendor/jquery-autocompleter/jquery.autocompleter.css">
+		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
+		<link rel="stylesheet" href="vendor/jquery-autocompleter/jquery.autocompleter.css">		
 		<link rel="stylesheet" href="css/xui-core.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
@@ -49,11 +50,15 @@
 		
 		</style>
 	</head>
-	<body class="xui -bg-aluminium-1">
+	<body class="xui -bg-aluminium-1 -overlay-scrollbars">
 
 	<?php include("form-autocomplete-page-1.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.7.0.min.js" defer></script>
+	<div class="xui separator" />
+	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
+	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-overlayscrollbars.min.js" defer></script>
+	<script src="vendor/jquery/jquery.min.js" defer></script>
 	<script src="vendor/jquery-autocompleter/jquery.autocompleter.min.js" defer></script>
 	<script>
 		window.addEventListener("load", function(){

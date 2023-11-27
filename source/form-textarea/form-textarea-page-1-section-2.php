@@ -16,17 +16,23 @@
 
 $items=array(
 	"default",
-	"primary",
-	"secondary",
-	"success",
-	"danger",
+	"success",	
 	"warning",
-	"info",
+	"danger",	
 	"disabled",
 	""
 );
 
+$icon=array(
+	"person",	
+	"done",
+	"warning",
+	"error",	
+	"person"
+);
+
 $index=0;
+$itemIndex=0;
 foreach($items as $value){
 	$cssClass="";
 	if(strlen($value)){
@@ -48,9 +54,9 @@ foreach($items as $value){
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
 				echo "<form>";
-				echo "<div class=\"xui form-text -icon-left ".$cssClass."\">";
+				echo "<div class=\"xui form-textarea -icon-left ".$cssClass."\">";
 					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" ".$isDisabled.">".ucfirst($value)."</textarea>";
-					echo "<i class=\"material-icons\">person</i>";
+					echo "<i class=\"material-icons\">".$icon[$itemIndex]."</i>";
 				echo "</div>";
 				echo "</form>";
 			};
@@ -62,6 +68,7 @@ foreach($items as $value){
 		$index=0;
 	};
 
+	++$itemIndex;
 };
 
 ?>

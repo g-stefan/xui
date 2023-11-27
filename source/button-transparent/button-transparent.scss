@@ -8,33 +8,125 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
 @import "../button/button.source";
-@import "../button-outline/button-outline.source";
-
 @import "button-transparent.source";
 
 .xui.button.-transparent {
+	$border-size: 1px;
 
-	@each $type, $value in $context {
-		@include button-transparent($type);
-	}
+	@each $type, $value in $buttonType {
+		$class: if($type =="default", "", ".-#{$type}");
 
-	&.-toolbar {
-		& > span {
-			color: #000000;
-			display: inline-block;
-			white-space: nowrap;
+		&#{$class} {
+			border: $border-size solid map-get($button-transparent, "#{$type}-border-color");
+			background-color: map-get($button-transparent, "#{$type}-background-color");
+			color: map-get($button-transparent, "#{$type}-color");
+
+			&:hover,
+			&:focus {
+				border: $border-size solid map-get($button-transparent, "#{$type}-focus-border-color");
+				background-color: map-get($button-transparent, "#{$type}-focus-background-color");
+				color: map-get($button-transparent, "#{$type}-focus-color");
+
+				&>i {
+					color: map-get($button-transparent, "#{$type}-color");
+				}
+			}
+
+			&:active {
+				border: $border-size solid map-get($button-transparent, "#{$type}-focus-border-color");
+				background-color: map-get($button-transparent, "#{$type}-active-background-color");
+				color: map-get($button-transparent, "#{$type}-active-color");
+
+				&>i {
+					color: map-get($button-transparent, "#{$type}-color");
+				}
+			}
+
+			&:visited {
+				color: map-get($button-transparent, "#{$type}-color");
+
+				&>i {
+					color: map-get($button-transparent, "#{$type}-color");
+				}
+			}
+
+			&.-effect-ripple {
+
+				&:active {
+					background-color: map-get($button-transparent, "#{$type}-focus-background-color");
+				}
+
+				& .xui.-effect-ripple_element {
+					background-color: map-get($button-transparent, "#{$type}-active-background-color");
+				}
+
+			}
+
+			&.-toolbar {
+				@if($type =="default") {
+					&>i {
+
+						color: palette-color("aluminium-4");
+					}
+				} @else {
+					&>i {
+						color: map-get($button-transparent, "#{$type}-color");
+					}
+				}
+
+				&>span {
+					color: #000000;
+					display: inline-block;
+					white-space: nowrap;
+				}
+
+				&:hover,
+				&:focus {
+					&>span {
+						color: map-get($button-transparent, "#{$type}-focus-color");
+					}
+
+					&>i {
+						color: map-get($button-transparent, "#{$type}-color");
+					}
+				}
+
+				&:active {
+					&>span {
+						color: map-get($button-transparent, "#{$type}-active-color");
+					}
+
+					&>i {
+						color: map-get($button-transparent, "#{$type}-focus-border-color");
+					}
+				}
+
+			}
+
 		}
 	}
 
-	&.-only-icon {		
+	&.-toolbar:active>i {
+		color: #000000;
+	}
+
+	&.-disabled.-toolbar {
+		&>span {
+			color: map-get($button-transparent, "disabled-color");
+		}
+
+		&:active>i {
+			color: map-get($button-transparent, "disabled-color");
+		}
+	}
+
+	&.-only-icon {
 		display: inline-block;
 		padding-right: 0px;
 
-		& > span {
+		&>span {
 			display: none !important;
 		}
 
@@ -42,6 +134,5 @@
 			width: 32px;
 		}
 	}
-
+	
 }
-

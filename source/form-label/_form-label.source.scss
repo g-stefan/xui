@@ -4,37 +4,14 @@
 // SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-@mixin form-label-config($type) {
-        $settings: (
-		"text-color": red
-	);
-		
-	@if($type == "default"){
-		$settings: (
-			"text-color": #000000
-		);
-	}@else if($type == "disabled"){
-		$settings: (
-			"text-color": palette-dark($type)
-		);	
-	}@else{
-		$settings: (
-			"text-color": palette-color("#{$type}-2")
-		);
-	};
-		
-	$config: map-merge($config,("form-label-#{$type}": $settings)) !global;
-}
+$form-label: ();
 
-@mixin form-label ($type) {
-	@include form-label-config($type);
-	$value: map-get($config,"form-label-#{$type}");
+@each $type, $value in $formInputType {
+	$form-label: map-merge($form-label,(
+		"#{$type}-color": palette-color("#{$type}-2")
+	));
+};
 
-	$class: if($type == "default","",".-#{$type}");
-
-	$text-color: map-get($value,"text-color");
-
-	&#{$class} {
-		color: $text-color;
-	}
-}
+$form-label: map-merge($form-label,(
+	"default-color": #000000,	
+));

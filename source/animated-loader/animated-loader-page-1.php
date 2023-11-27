@@ -15,7 +15,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation center-xy">
+<div class="xui item-presentation center-xy -bd-theme-line">
 <!-- item -->
 
 <div class="xui animated -loader"></div>

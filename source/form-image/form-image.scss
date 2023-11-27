@@ -8,21 +8,20 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 .xui.form-image {
-	position:relative;
+	position: relative;
 	display: inline-block;
 
 	box-sizing: border-box;
-	
+
 	overflow: visible;
 	width: 100%;
 
 	border-radius: 3px;
 
-	& > ._delete {
+	&>._delete {
 		position: absolute;
 		display: inline-block;
 		top: 0px;
@@ -32,17 +31,17 @@
 		border-bottom-right-radius: 0px;
 	}
 
-	& > ._image {
+	&>._image {
 		position: relative;
 
 		min-width: 192px;
 		min-height: 96px;
 		text-align: center;
 
-		border-top: 1px solid palette-color("default-2");
-		border-right: 1px solid palette-color("default-2");
-		border-bottom: 0px solid palette-color("default-2");
-		border-left: 1px solid palette-color("default-2");
+		border-top: 1px solid palette-color("theme-line");
+		border-right: 1px solid palette-color("theme-line");
+		border-bottom: 0px solid palette-color("theme-line");
+		border-left: 1px solid palette-color("theme-line");
 
 		padding: 2px 2px 2px 2px;
 		margin: 0px 0px 0px 0px;
@@ -57,44 +56,47 @@
 		overflow: hidden;
 	}
 
-	& > ._image i{
+	&>._image i {
 		font-size: 96px;
 		line-height: 96px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	& > .form-file{
+	&>.form-file {
 		display: block;
 		width: 100%;
 		height: 40px;
 	}
 
-	& > .form-file {
+	&>.form-file {
 
-		& > label {
+		&>label {
 			position: absolute;
 			display: block;
-			overflow:hidden;
+			overflow: hidden;
 			top: 0px;
 			left: 0px;
 			right: 40px;
 
 			border-top-left-radius: 0px;
 			border-top-right-radius: 0px;
+
+			border-right: 0px solid #000000 !important;
 		}
 
-		& > button {
+		&>button {
 			position: absolute;
 			top: 0px;
 			right: 0px;
 
 			border-top-left-radius: 0px;
 			border-top-right-radius: 0px;
+
 		}
 	}
 
-	& > ._link{
+	&>._link {
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -102,28 +104,26 @@
 		text-decoration: none;
 	}
 
-	& > ._image{
+	&>._image {
 		width: 100%;
 		overflow: hidden;
 	}
 
 	// cropit
 
-	& .cropit-preview{
+	& .cropit-preview {
 		margin-left: auto;
 		margin-right: auto;
 		width: 320px;
-		height:  240px;
+		height: 240px;
 		border: 16px solid #EEEEEE;
-
-
 	}
 
 	& .cropit-preview-background {
 		opacity: .4;
 	}
 
-	& .cropit-image-zoom-input{
+	& .cropit-image-zoom-input {
 		-webkit-appearance: none;
 		appearance: none;
 		height: 8px;
@@ -138,15 +138,15 @@
 		vertical-align: middle;
 	}
 
-	& .cropit-image-zoom-input:focus{
+	& .cropit-image-zoom-input:focus {
 		outline: none;
 	}
 
 	& .cropit-image-zoom-input::-webkit-slider-thumb {
 		-webkit-appearance: none;
-		appearance:none;
+		appearance: none;
 		width: 16px;
-		height:16px;
+		height: 16px;
 		background-color: #888888;
 		border-radius: 50%;
 		outline: none;
@@ -154,7 +154,7 @@
 	}
 
 	& .cropit-image-zoom-input::-webkit-slider-thumb:hover {
-		background-color: #AC92EC;
+		background-color: palette-color("primary-2");
 	}
 
 	& .cropit-preview-image-container {
@@ -162,4 +162,3 @@
 	}
 
 }
-

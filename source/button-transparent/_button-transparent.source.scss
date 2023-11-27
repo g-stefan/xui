@@ -4,60 +4,34 @@
 // SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-@mixin button-transparent ($type) {
-	@include button-outline-config($type);
-	$value: map-get($config,"button-outline-#{$type}");
+$button-transparent: ();
 
-	$class: if($type == "default","",".-#{$type}");
+@each $type, $value in $buttonType {
+	$button-transparent: map-merge($button-transparent,(
+		"#{$type}-border-color": transparent,
+		"#{$type}-background-color": transparent,
+		"#{$type}-color": palette-color("#{$type}-3"),
+		//
+		"#{$type}-focus-border-color": palette-color("#{$type}-3"),
+		"#{$type}-focus-background-color": #FFFFFF,
+		"#{$type}-focus-color": #000000,
+		//		
+		"#{$type}-active-background-color": palette-lighter("#{$type}-1"),
+		"#{$type}-active-color": #000000,
+	));
+};
 
-	$background-color-hover: map-get($value,"background-color-hover");
-	$background-color-active: map-get($value,"background-color-active");
-	$text-color: map-get($value,"text-color");
-	$text-color-hover: map-get($value,"text-color-hover");
-	$text-color-active: map-get($value,"text-color-active");
-	$icon-color: map-get($value,"icon-color");
-
-	&#{$class} {
-		cursor: if($type == "disabled", auto, pointer);
-		border: none;
-		background-color: transparent;
-		color: $text-color;
-
-		&:hover,
-		&:focus {
-			background-color: $background-color-hover;
-			color: $text-color-hover;
-		}
-
-		&:active {
-			background-color: $background-color-active;
-			color: $text-color-active;
-		}
-
-		&.-effect-ripple {
-
-			&:active {
-				background-color: $background-color-hover;
-			}
-
-			& .xui.-effect-ripple_element {
-				background-color: $background-color-active;
-			}
-
-		}
-
-		& i {
-			color: $icon-color;
-		}
-
-		&:hover i,
-		&:focus i {
-			color: $text-color-hover;
-		}
-
-		&:active i {
-			color: $text-color-active;
-		}
-	}
-}
+$button-transparent: map-merge($button-transparent,(
+	"default-color": #000000,
+	"default-active-background-color": palette-color("default-1"),
+	//	
+	"disabled-border-color": transparent,
+	"disabled-background-color":transparent,	
+	"disabled-color": palette-color("disabled-3"),
+	"disabled-focus-border-color": transparent,
+	"disabled-focus-background-color": transparent,
+	"disabled-focus-color": palette-color("disabled-3"),
+	"disabled-active-background-color": transparent,
+	"disabled-active-color": palette-color("disabled-3")
+));
 

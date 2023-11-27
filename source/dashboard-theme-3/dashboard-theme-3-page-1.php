@@ -15,20 +15,20 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 
 <div class="xui dashboard -normal -open" id="dashboard-mode-normal" style="overflow:visible;">
 	<!-- app-header -->
 	<div class="xui app-header">
 		<div class="xui app-bar">
-			<div class="xui button -icon -left -transparent -effect-ripple" onclick="XUI.Dashboard.toggleNormal('dashboard-mode-normal');">
+			<div class="xui button -icon -left -transparent -effect-ripple  -toolbar" onclick="XUI.Dashboard.toggleNormal('dashboard-mode-normal');">
 				<i class="material-icons">menu</i>
 			</div>
 			<div class="xui text -size-h24x40 -left">
 				Application
 			</div>
-			<div class="xui button -icon -size-x32 -circle -right -transparent -effect-ripple">
+			<div class="xui button -icon -size-x32 -circle -right -transparent -effect-ripple  -toolbar">
 				<i class="material-icons">mail_outline</i>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 			<!-- app-user -->
 			<?php include("source/app-user/_app-user.content.source.php"); ?>
 			<!-- /app-user -->
-			<div class="xui button -icon -size-x32 -circle -transparent -effect-ripple" id="popup-menu-user-action-1">
+			<div class="xui button -icon -size-x32 -circle -transparent -effect-ripple  -toolbar" id="popup-menu-user-action-1">
 				<i class="material-icons">expand_more</i>
 			</div>
 			<ul class="xui menu -popup" id="popup-menu-user-1">

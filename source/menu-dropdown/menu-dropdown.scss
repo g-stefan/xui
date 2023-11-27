@@ -47,7 +47,7 @@ ul.xui.menu.-dropdown {
 				box-sizing: border-box;
 				border-top: 0px;
 				border-left: 0px;
-				border-right: 1px solid palette-color("default-2");
+				border-right: 1px solid palette-color("theme-line");
 				border-bottom: 0px;
 			}
 
@@ -100,7 +100,7 @@ ul.xui.menu.-dropdown {
 		background-color: #FFFFFF;
 		padding: 3px 3px 3px 3px;
 		@include elevation(4);
-		border: 1px solid palette-color("aluminium-3");
+		border: 1px solid palette-color("theme-line");
 	}
 
 	& > li:hover,

@@ -41,7 +41,7 @@
 		background-color: #FFFFFF;
 		padding: 3px 3px 3px 3px;
 		@include elevation(4);
-		border: 1px solid palette-color("aluminium-3");
+		border: 1px solid palette-color("theme-line");
 	}
 
 	& > ul > li {
@@ -54,13 +54,18 @@
 	}
 
 	// --- Overlay Scrollbars
+	
+	& > ul {
+		display: flex;
+		flex-direction: column;
+	}
 
-	& > ul > div > div > div > li {
+	& > ul > div > li {
 		@extend %menu-level-reset;
 	}
 
-	&:hover > ul > div > div > div > li,
-	&.-open > ul > div > div > div > li {
+	&:hover > ul > div > li,
+	&.-open > ul > div > li {
 		@extend %menu-level-important;
 	}
 

@@ -10,14 +10,9 @@
 
 @import "../ascii/ascii.source";
 @import "../base64/base64.source";
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
-@import "../form-text/form-text.source";
-@import "../form-radio/form-radio.source";
+@import "../form-input/form-input.source";
 @import "../form-checkbox/form-checkbox.source";
-
-@import "form-checkbox-box.source";
 
 .xui.form-checkbox.-box {
 	& > input[type="checkbox"] + label::after {
@@ -56,8 +51,32 @@
 		background-image: none;
 	}
 
-	@each $type, $value in $context {
-		@include form-checkbox-box($type);
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".-#{$type}");
+
+		&#{$class} {
+			@if $type == "disabled" {
+				& > label,
+				& > input[type="checkbox"] + label::before,
+				& > input[type="checkbox"] + label::after {
+					cursor: auto;
+				}
+			}
+	
+			& > input[type="checkbox"]:checked + label::after {
+				background-color: map-get($form-checkbox,"#{$type}-color");
+			}
+	
+			& > input[type="checkbox"]:focus:checked + label::after,
+			& > input[type="checkbox"]:active:checked + label::after {
+				@if $type != "disabled" {
+					background-color: map-get($form-checkbox,"focus-border-color");
+				} @else {
+					background-color: map-get($form-checkbox,"#{$type}-color");					
+				}
+			}
+	
+		}
 	}
 
 	&.-small {

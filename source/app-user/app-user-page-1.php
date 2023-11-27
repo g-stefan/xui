@@ -15,7 +15,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 <?php $appUserMod=""; ?>
 <?php include("_app-user.content.source.mod.php"); ?>
@@ -29,7 +29,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 <?php $appUserMod="-mini"; ?>
 <?php include("_app-user.content.source.mod.php"); ?>
@@ -43,7 +43,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 <?php $appUserMod="-mini-landscape"; ?>
 <?php include("_app-user.content.source.mod.php"); ?>
@@ -57,7 +57,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-default-2">
 <!-- item -->
 <?php $appUserMod="-mini-landscape -closed"; ?>
 <?php include("_app-user.content.source.mod.php"); ?>

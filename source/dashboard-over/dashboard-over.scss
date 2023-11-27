@@ -10,7 +10,6 @@
 
 @import "../ascii/ascii.source";
 @import "../base64/base64.source";
-@import "../config/config.source";
 @import "../palette/palette.source";
 @import "../elevation/elevation.source";
 @import "../app-header/app-header.source";
@@ -47,8 +46,8 @@
 		width: 288px + 6px;
 		overflow: hidden;
 		left: -288px - 6px - 1px;
-		border-top: 1px solid palette-color("default-2");
-		border-right: 1px solid palette-color("default-2");
+		border-top: 1px solid palette-color("theme-line");
+		border-right: 1px solid palette-color("theme-line");
 		transition: left 0.5s ease;
 	}
 

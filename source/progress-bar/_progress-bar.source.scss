@@ -4,66 +4,28 @@
 // SPDX-FileCopyrightText: 2017-2023 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-@mixin progress-bar-config($type) {
-        $settings: (
-		"border-color": red,
-		"background-color": red,
-		"text-color": red,
-		"border-color-full": red
-	);
-		
-	@if($type == "default"){
-		$settings: (
-			"border-color": palette-color("primary-2"),
-			"background-color": palette-lightest("primary-2"),
-			"text-color": palette-darkest("#{$type}-2"),
-			"border-color-full": palette-color("default-2")
-		);
-	}@else if($type == "disabled"){
-		$settings: (
-			"border-color": palette-color($type),
-			"background-color": #FFFFFF,
-			"text-color": palette-darker($type),
-			"border-color-full":palette-color($type)
-		);
-	}@else{
-		$settings: (
-			"border-color": palette-color("#{$type}-2"),
-			"background-color": palette-lightest("#{$type}-1"),
-			"text-color": palette-darker("#{$type}-2"),
-			"border-color-full": palette-color("default-2")
-		);	
-	};
-		
-	$config: map-merge($config,("progress-bar-#{$type}": $settings)) !global;
-}
+$progressBarType: (
+	"default",
+	"success",	
+	"warning",
+	"danger",	
+	"info"
+);
 
-@mixin progress-bar ($type) {
-	@include progress-bar-config($type);
-	$value: map-get($config,"progress-bar-#{$type}");
+$progress-bar: ();
 
-	$class: if($type == "default","",".-#{$type}");
+@each $type, $value in $progressBarType	{
+	$progress-bar: map-merge($progress-bar,(
+		"#{$type}-border-color": palette-color("#{$type}-2"),
+		"#{$type}-background-color": palette-lightest("#{$type}-1"),
+		"#{$type}-text-color": #000000,
+		"#{$type}-border-color-full": palette-color("theme-line")
+	));
+};
 
-	$border-color: map-get($value, "border-color");
-	$background-color: map-get($value, "background-color");
-	$text-color: map-get($value, "text-color");
-	$border-color-full: map-get($value, "border-color-full");
-
-	&#{$class} {
-
-		& > ._background {
-			border: 1px solid $border-color-full;
-		}
-
-		& > ._bar {
-			border: 1px solid $border-color;
-			background-color: $background-color;
-			color: $text-color;
-		}
-
-		& > ._label {
-			color: $text-color;
-		}
-		
-	}
-}
+$progress-bar: map-merge($progress-bar,(
+	"default-border-color": palette-color("primary-2"),
+	"default-background-color": palette-lightest("primary-2"),
+	"default-text-color": #000000,
+	"default-border-color-full": palette-color("theme-line")
+));

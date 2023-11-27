@@ -51,16 +51,18 @@
 		
 		</style>
 	</head>
-	<body class="xui -bg-aluminium-1">
+	<body class="xui -bg-aluminium-1 -overlay-scrollbars">
 
 	<?php include("form-select-multiple-page-1.php"); ?>
 	<?php include("form-select-multiple-page-2.php"); ?>
 
-	<script src="vendor/jquery/jquery-3.7.0.min.js" defer></script>
+	<div class="xui separator" />
+	<script src="vendor/jquery/jquery.min.js" defer></script>
 	<script src="vendor/select2/select2.full.min.js" defer></script>
 	<script src="vendor/maximize-select2-height/maximize-select2-height.min.js" defer></script>
-	<script src="vendor/overlayscrollbars/jquery.overlayscrollbars.min.js" defer></script>
+	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
 	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-overlayscrollbars.min.js" defer></script>
 	<script src="js/xui-form-select.min.js" defer></script>
 	</body>
 </html>

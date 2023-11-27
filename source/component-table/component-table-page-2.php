@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="xui grid -col -align-right">
-						<div class="xui button -small -transparent -effect-ripple -info -icon-left -toolbar">
+						<div class="xui button -small -transparent -effect-ripple -secondary -icon-left -toolbar">
 							<i class="material-icons">filter_list</i>
 							<span>Filter</span>
 						</div>
@@ -97,7 +97,7 @@
 						</div>
 					</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -119,7 +119,7 @@
 						</div>
 					</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -141,7 +141,7 @@
 							</div>
 					</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -163,7 +163,7 @@
 						</div>
 					</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>
@@ -185,7 +185,7 @@
 						</div>
 					</td>
 					<td class="xui _action">
-						<div class="xui button -transparent -info -effect-ripple -icon -small -size-xy24-22 -left">
+						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
 							<i class="material-icons">textsms</i>
 						</div>
 					</td>

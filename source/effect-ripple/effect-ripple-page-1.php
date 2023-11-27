@@ -14,7 +14,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation">
+<div class="xui item-presentation -bd-rock-3">
 <!-- item -->
 	
 <div class="xui -effect-ripple -bg-aluminium-1" style="width:320px;height:240px;border-radius:3px;overflow:hidden;"></div>

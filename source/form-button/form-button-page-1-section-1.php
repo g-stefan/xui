@@ -49,7 +49,7 @@ foreach($items as $value){
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
 				echo "<form>";
-					echo "<input type=\"button\" name=\"button\" value=\"".ucfirst($value)."\" class=\"xui button ".$cssClass."\" style=\"width:144px\" ".$isDisabled."></input>";
+					echo "<input type=\"button\" name=\"button\" value=\"".ucfirst($value)."\" class=\"xui button ".$cssClass."\" style=\"width:144px\" tabindex=\"0\" ".$isDisabled."></input>";
 				echo "</form>";
 			};
 		echo "</div>";

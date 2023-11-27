@@ -8,14 +8,11 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
-
+@import "../form-input/form-input.source";
 @import "form-text.source";
 
-input.xui.form-text,
-textarea.xui.form-text {
+input.xui.form-text {
 	box-sizing: border-box;
 	margin: 0px;
 
@@ -39,10 +36,20 @@ textarea.xui.form-text {
 
 	background-color: #FFFFFF;
 
-	@each $type, $value in $context {
-		@include form-text($type);
-	}
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".-#{$type}");
 
+		&#{$class} {
+			border: 1px solid map-get($form-text,"#{$type}-border-color");
+			color: map-get($form-text,"#{$type}-color");
+	
+			&:focus {
+				box-shadow: 0px 0px 0px 2px rgba(map-get($form-text,"focus-border-shadow-color"), 0.2);
+				border: 1px solid map-get($form-text,"focus-border-color");
+				color: map-get($form-text,"#{$type}-focus-color");
+			}
+		}
+	}
 
 	&.-medium {
 		padding-top: 5px;
@@ -63,13 +70,9 @@ textarea.xui.form-text {
 	}
 
 	&::placeholder {
-		color: palette-color("default-2");
+		color: map-get($form-text,"placeholder-color");
 		opacity: 1;
 	}
-}
-
-textarea.xui.form-text {
-	height: auto;
 }
 
 div.xui.form-text {
@@ -81,8 +84,7 @@ div.xui.form-text {
 		width: auto;
 	}
 
-	& > input,
-	& > textarea {
+	& > input {
 		box-sizing: border-box;
 		margin: 0px;
 
@@ -107,13 +109,9 @@ div.xui.form-text {
 		transition: border 0.3s ease, box-shadow 0.3s ease;
 
 		&::placeholder {
-			color: palette-color("default-2");
+			color: map-get($form-text,"placeholder-color");
 			opacity: 1;
 		}
-	}
-
-	& > textarea {
-		height: auto;
 	}
 
 	& > i {
@@ -127,28 +125,58 @@ div.xui.form-text {
 		transition: color 0.3s ease;
 	}
 
-	@each $type, $value in $context {
-		@include div-form-text($type);
-	}
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".-#{$type}");
 
+		&#{$class} > input {
+			border: 1px solid map-get($form-text,"#{$type}-border-color");
+			color: map-get($form-text,"#{$type}-color");
+
+			&:focus {
+				box-shadow: 0px 0px 0px 2px rgba(map-get($form-text,"focus-border-shadow-color"), 0.2);
+				border: 1px solid map-get($form-text,"focus-border-color");
+				color: map-get($form-text,"#{$type}-focus-color");
+			}
+		}
+
+		&#{$class} > i {
+			color: map-get($form-text,"#{$type}-icon-color");
+		}
+
+		&#{$class} > input:focus + i {
+			color: map-get($form-text,"#{$type}-focus-icon-color");
+		}
+	}
+	
 }
 
 // ---
 
 div.xui.form-text.-icon-left {
-	& > input,
-	& > textarea {
+	& > input {
 		padding-left: 32px;
 	}
 }
 
 div.xui.form-text.-icon-right {
-	& > input,
-	& > textarea {
+	& > input {
 		padding-right: 32px;
 	}
 
-	& > i{
+	& > i {
+		left: auto;
+		right: 4px;
+	}
+}
+
+div.xui.form-text.-icon-left.-icon-right {	
+
+	& > i:nth-child(2){
+		left: 4px;
+		right: auto;
+	}
+
+	& > i:nth-child(3) {
 		left: auto;
 		right: 4px;
 	}
@@ -169,12 +197,12 @@ div.xui.form-text.-required {
 		box-sizing: border-box;
 		border-radius: 3px;
 		overflow: hidden;
-		background-color: palette-color("danger-2");
+		background-color: map-get($form-text,"required-color");
 		z-index: 1;
 	}
 
 	&.-disabled {
-		background-color: palette-color("disabled");
+		background-color: map-get($form-text,"disabled-border-color");
 	}
 
 }

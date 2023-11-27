@@ -21,7 +21,7 @@ $items=array(
 	"secondary",
 	"success",
 	"danger",
-	"warning",
+	"warning",	
 	"info",
 	"disabled",
 	""
@@ -43,7 +43,7 @@ foreach($items as $value){
 	//
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
-				echo "<div class=\"xui button ".$cssClass."\" style=\"width:144px\" tabindex=\"0\">";				
+				echo "<div class=\"xui button ".$cssClass."\" style=\"width:144px\" tabindex=\"0\">";
 					echo ucfirst($value);				
 				echo "</div>";
 			};

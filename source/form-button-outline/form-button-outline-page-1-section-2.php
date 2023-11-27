@@ -47,7 +47,7 @@ foreach($items as $value){
 	//
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
-				echo "<button class=\"xui button -outline ".$cssClass." -icon-left\" style=\"width:144px\" ".$isDisabled.">";
+				echo "<button class=\"xui button -outline ".$cssClass." -icon-left\" style=\"width:144px\" tabindex=\"0\" ".$isDisabled.">";
 				echo "<i class=\"material-icons\">face</i>";
 				echo ucfirst($value);
 				echo "</button>";

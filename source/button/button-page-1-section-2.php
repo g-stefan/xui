@@ -20,7 +20,7 @@ $items=array(
 	"secondary",
 	"success",
 	"danger",
-	"warning",
+	"warning",	
 	"info",
 	"disabled",
 	""

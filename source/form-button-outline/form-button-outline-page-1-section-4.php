@@ -50,7 +50,7 @@ foreach($items as $value){
 	//
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
-				echo "<button class=\"xui button -outline ".$cssClass." -icon\" ".$isDisabled.">";
+				echo "<button class=\"xui button -outline ".$cssClass." -icon\" tabindex=\"0\" ".$isDisabled.">";
 				echo "<i class=\"material-icons\">face</i>";
 				echo "</button>";
 			};

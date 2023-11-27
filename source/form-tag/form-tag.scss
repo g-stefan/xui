@@ -8,21 +8,17 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
+@import "../form-input/form-input.source";
 @import "../form-text/form-text.source";
 
-@mixin form-tag ($type) {
-	@include form-text-config($type);
-	$value: map-get($config,"form-text-#{$type}");
-
+@each $type, $value in $formInputType {
 	$class: if($type == "default", "", ".-#{$type}");
 
-	$border-color: map-get($value,"border-color");
-	$text-color: map-get($value,"text-color");
-	$box-shadow-color-focus: map-get($value,"box-shadow-color-focus");
-	$border-color-focus: map-get($value,"border-color-focus");
+	$border-color: map-get($form-text,"#{$type}-border-color");
+	$text-color: map-get($form-text,"#{$type}-color");
+	$box-shadow-color-focus: map-get($form-text,"focus-border-shadow-color");
+	$border-color-focus: map-get($form-text,"focus-border-color");
 
 	$border-color: if($type == "disabled", $text-color, $border-color);
 	$border-color-focus: if($type == "disabled", $text-color, $border-color-focus); 
@@ -69,10 +65,6 @@
 	}
 }
 
-@each $type, $value in $context {
-	@include form-tag($type);
-}
-
 .xui.form-text.-tag {
 	height: auto;
 }
@@ -100,16 +92,16 @@
 		box-sizing: border-box;
 		margin: 0px;
 		background-color: #FFFFFF;
-		border-top: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
-		border-right: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
-		border-bottom: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
-		border-left: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-top: 1px solid map-get($form-text,"default-border-color");
+		border-right: 0px solid map-get($form-text,"default-border-color");
+		border-bottom: 1px solid map-get($form-text,"default-border-color");
+		border-left: 1px solid map-get($form-text,"default-border-color");
 		border-radius: 3px 0px 0px 3px;
     		padding: 0 6px;
 		color: #000000;
 
 		&.active {
-			border: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
+			border: 0px solid map-get($form-text,"default-border-color");
 			margin-top: 1px;
 			color: #000000;
 
@@ -128,10 +120,10 @@
 		box-sizing: border-box;
 		margin: 0px;
 		background-color: #FFFFFF;
-		border-top: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
-		border-right: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
-		border-bottom: 1px solid map-get(map-get($config,"form-text-default"),"border-color");
-		border-left: 0px solid map-get(map-get($config,"form-text-default"),"border-color");
+		border-top: 1px solid map-get($form-text,"default-border-color");
+		border-right: 1px solid map-get($form-text,"default-border-color");
+		border-bottom: 1px solid map-get($form-text,"default-border-color");
+		border-left: 0px solid map-get($form-text,"default-border-color");
 		border-radius: 0px 3px 3px 0px;
     		padding: 0px 6px 0px 0px;
 		color: #000000;

@@ -77,7 +77,7 @@
 			border-radius: 6px;
 			padding: 8px 8px 8px 8px;
         		@include elevation(4);
-			border: 1px solid palette-color("aluminium-3");
+			border: 1px solid palette-color("theme-line");
 			opacity: 1;
 			white-space: nowrap;
 				
@@ -93,10 +93,10 @@
 				overflow: hidden;
 				border-radius: 3px;
 				transform: rotate(45deg);
-				border-top: 0px solid palette-color("aluminium-3");
-				border-left: 1px solid palette-color("aluminium-3");
-				border-bottom: 1px solid palette-color("aluminium-3");
-				border-right: 0px solid palette-color("aluminium-3");
+				border-top: 0px solid palette-color("theme-line");
+				border-left: 1px solid palette-color("theme-line");
+				border-bottom: 1px solid palette-color("theme-line");
+				border-right: 0px solid palette-color("theme-line");
 				z-index: -1;
 			}		
 		}
@@ -138,11 +138,22 @@
 
 	// --- Overlay Scrollbars
 
+	& > ul {
+		display: flex;
+		flex-direction: column;
+	}
+
 	// Level 2
 
-	& > li:hover > ul > div > div > div
+	& > li:hover > ul,
+	& > li.-open > ul {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& > li:hover > ul > div
 	> li,
-	& > li.-open > ul > div > div > div
+	& > li.-open > ul > div
 	> li {
 		@extend %menu-level-important;
 		@extend %menu-dropdown-level;
@@ -151,11 +162,19 @@
 
 	// Level 3
 
-	& > li:hover > ul > div > div > div
-	> li:hover > ul > div > div > div
+	& > li:hover > ul > div
+	> li:hover > ul,
+	& > li.-open > ul > div
+	> li.-open > ul {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& > li:hover > ul > div
+	> li:hover > ul > div
 	> li,
-	& > li.-open > ul > div > div > div
-	> li.-open > ul > div > div > div
+	& > li.-open > ul > div
+	> li.-open > ul > div
 	> li {
 		@extend %menu-level-important;
 		@extend %menu-dropdown-level;

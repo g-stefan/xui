@@ -10,7 +10,6 @@
 
 @import "../ascii/ascii.source";
 @import "../base64/base64.source";
-@import "../config/config.source";
 @import "../palette/palette.source";
 @import "../elevation/elevation.source";
 @import "../app-user/app-user.source";
@@ -114,8 +113,8 @@
 		box-sizing: border-box;
 
 		border-radius: 6px 0px 0px 0px;
-		border-top: 1px solid palette-color("default-2");
-		border-left: 1px solid palette-color("default-2");
+		border-top: 1px solid palette-color("theme-line");
+		border-left: 1px solid palette-color("theme-line");
 	}
 
 	& .xui.content-cover {

@@ -17,12 +17,9 @@
 
 $items=array(
 	"default",
-	"primary",
-	"secondary",
-	"success",
-	"danger",
+	"success",	
 	"warning",
-	"info",
+	"danger",	
 	"disabled",
 	""
 );
@@ -48,8 +45,8 @@ foreach($items as $value){
 	//
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
-				echo "<form>";
-					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" class=\"xui form-text ".$cssClass."\" ".$isDisabled.">".ucfirst($value)."</textarea>";
+				echo "<form>";					
+					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" class=\"xui form-textarea ".$cssClass."\" ".$isDisabled.">".ucfirst($value)."</textarea>";
 				echo "</form>";
 			};
 		echo "</div>";

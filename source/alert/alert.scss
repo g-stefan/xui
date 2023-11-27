@@ -8,8 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
 
 @import "alert.source";
@@ -38,8 +36,14 @@
 
 	box-sizing: border-box;
 
-	@each $type, $value in $context {
-		@include alert($type);
+	@each $type, $value in $alertType {
+		$class: if($type == "default","",".-#{$type}");
+
+		&#{$class} {
+			border: 1px solid map-get($alert,"#{$type}-border-color");
+			background-color: map-get($alert,"#{$type}-background-color");
+			color: map-get($alert,"#{$type}-color");
+		}
 	}
 
 }

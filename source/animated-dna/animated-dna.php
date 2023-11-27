@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="vendor/normalize/normalize.min.css">
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
 		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
+		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="css/xui-core.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
@@ -50,7 +51,7 @@
 			overflow: hidden;
 			border-radius: 6px;
 			padding: 0px 0px 0px 0px;
-			border: 1px solid #D3D7CF;
+			border: 1px solid #000000;
 
 			position: relative;
 			width: 640px;
@@ -59,9 +60,13 @@
 		
 		</style>
 	</head>
-	<body class="xui -bg-aluminium-1">
+	<body class="xui -bg-aluminium-1 -overlay-scrollbars">
 
 	<?php include("animated-dna-page-1.php"); ?>
 
+	<div class="xui separator" />
+	<script src="vendor/overlayscrollbars/overlayscrollbars.browser.es6.min.js" defer></script>
+	<script src="js/xui-core.min.js" defer></script>
+	<script src="js/xui-overlayscrollbars.min.js" defer></script>
 	</body>
 </html>

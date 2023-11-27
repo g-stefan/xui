@@ -49,7 +49,7 @@
 			overflow: hidden;
 			border-radius: 6px;
 			padding: 3px 3px 3px 3px;
-			border: 1px solid #D3D7CF;
+			border: 1px solid #000000;
 
 			display: inline-block;
 		}

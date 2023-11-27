@@ -8,7 +8,6 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
 @import "../palette/palette.source";
 
 .xui.box.-row {
@@ -99,7 +98,7 @@
 }
 
 .xui.box.-x1x2.-border-left{
-	border-left: 0px solid palette-color("default-2");
+	border-left: 0px solid palette-color("theme-line");
 }
 
 @media only screen and (min-width: 600px) {
@@ -219,7 +218,7 @@
 	}
 
 	.xui.box.-x1x2.-border-left{
-		border-left: 1px solid palette-color("default-2");
+		border-left: 1px solid palette-color("theme-line");
 	}
 	
 }

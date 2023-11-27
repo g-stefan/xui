@@ -8,11 +8,8 @@
 
 @charset "UTF-8";
 
-@import "../config/config.source";
-@import "../context/context.source";
 @import "../palette/palette.source";
-@import "../form-text/form-text.source";
-
+@import "../form-input/form-input.source";
 @import "form-radio.source";
 
 .xui.form-radio {
@@ -109,8 +106,55 @@
 		
 	}
 
-	@each $type, $value in $context {
-		@include form-radio($type);
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".-#{$type}");
+		
+		&#{$class} {
+			@if $type == "disabled" {
+				& > label,
+				& > input[type="radio"] + label::before,
+				& > input[type="radio"] + label::after {
+					cursor: auto;
+				}
+			}
+	
+			& > label::before {
+				border: 1px solid map-get($form-radio,"#{$type}-border-color");
+			}
+			
+			& > input[type="radio"]:focus + label::before,
+			& > input[type="radio"]:active + label::before {
+				@if $type != "disabled" {
+					border: 1px solid map-get($form-radio,"focus-border-color");
+					box-shadow: 0px 0px 0px 2px rgba(map-get($form-radio,"focus-border-shadow-color"), 0.2);
+				} @else {
+					border: 1px solid map-get($form-radio,"#{$type}-color");
+					box-shadow: none;
+				}
+			}
+	
+			& > input[type="radio"]:focus + label::after,
+			& > input[type="radio"]:active + label::after {
+				@if $type != "disabled" {
+					background-color: map-get($form-radio,"focus-color");
+				} @else {
+					background-color: transparent;
+				}
+			}
+	
+			& > input[type="radio"]:checked + label::after {
+				background-color: map-get($form-radio,"#{$type}-color");
+			}
+	
+			& > input[type="radio"]:focus:checked + label::after,
+			& > input[type="radio"]:active:checked + label::after {
+				@if $type != "disabled" {
+					background-color: map-get($form-radio,"focus-border-color");
+				} @else {
+					background-color: map-get($form-radio,"disabled-border-color");
+				}
+			}
+		}
 	}
 }
 
