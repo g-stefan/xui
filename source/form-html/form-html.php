@@ -16,7 +16,7 @@
 		<title>XUI</title>
 		<link rel="stylesheet" href="vendor/normalize/normalize.min.css">
 		<link rel="stylesheet" href="vendor/roboto-regular/roboto-regular.css">
-		<link rel="stylesheet" href="vendor/material-icons/material-icons.css">
+			<link rel="stylesheet" href="vendor/lucide-icons-font/lucide-icons.min.css">
 		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="vendor/quill/quill.snow.css">
 		<link rel="stylesheet" href="css/xui-core.css">
@@ -25,6 +25,7 @@
 		<link rel="stylesheet" href="css/xui-elevation.css">
 		<link rel="stylesheet" href="css/xui-palette.css">
 		<link rel="stylesheet" href="css/xui-form-text.css">
+		<link rel="stylesheet" href="css/xui-form-html.css">
 		<style>
 
 		.page {

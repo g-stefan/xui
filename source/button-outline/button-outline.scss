@@ -78,7 +78,8 @@
 	&.-icon-left {
 		padding-left: 40px - $border-size;
 
-		& i {
+		& i,
+		& svg {
 			position: absolute;
 			top: 8px - $border-size;
 			left: 8px - $border-size;
@@ -88,7 +89,8 @@
 	&.-icon-right {
 		padding-right: 40px - $border-size;
 
-		& i {
+		& i,
+		&svg {
 			position: absolute;
 			top: 8px - $border-size;
 			right: 8px - $border-size;

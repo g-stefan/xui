@@ -113,7 +113,8 @@
 			color: #FFFFFF;
 		}
 
-		& > i {
+		& > i,
+		& > svg {
 			display: block;
 		}
 
@@ -203,7 +204,8 @@
 		height: 24px;
 		width: 24px;
 
-		& > i {
+		& > i,
+		& > svg {
 			display: block;
 			font-size: 22px;
 			line-height: 22px;

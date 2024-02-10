@@ -114,7 +114,8 @@ div.xui.form-text {
 		}
 	}
 
-	& > i {
+	& > i,
+	& > svg {
 		display: block;
 		position: absolute;
 		top: 4px;
@@ -139,11 +140,13 @@ div.xui.form-text {
 			}
 		}
 
-		&#{$class} > i {
+		&#{$class} > i,
+		&#{$class} > svg {
 			color: map-get($form-text,"#{$type}-icon-color");
 		}
 
-		&#{$class} > input:focus + i {
+		&#{$class} > input:focus + i,
+		&#{$class} > input:focus + svg {
 			color: map-get($form-text,"#{$type}-focus-icon-color");
 		}
 	}
@@ -163,7 +166,8 @@ div.xui.form-text.-icon-right {
 		padding-right: 32px;
 	}
 
-	& > i {
+	& > i,
+	& > svg {
 		left: auto;
 		right: 4px;
 	}
@@ -171,12 +175,14 @@ div.xui.form-text.-icon-right {
 
 div.xui.form-text.-icon-left.-icon-right {	
 
-	& > i:nth-child(2){
+	& > i:nth-child(2),
+	& > svg:nth-child(2) {
 		left: 4px;
 		right: auto;
 	}
 
-	& > i:nth-child(3) {
+	& > i:nth-child(3),
+	& > svg:nth-child(3) {
 		left: auto;
 		right: 4px;
 	}

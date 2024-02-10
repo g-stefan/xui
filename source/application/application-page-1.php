@@ -15,7 +15,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <div class="xui application -has-toolbar">
@@ -23,17 +23,17 @@
 		<div class="xui _content">
 
 			<div class="xui button -transparent -effect-ripple -primary -icon-left -important -toolbar">
-				<i class="material-icons">apps</i>
+				<i class="lucide-grip"></i>
 				<span>Applications</span>
 			</div>
 
 			<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-				<i class="material-icons">bubble_chart</i>
+				<i class="lucide-shapes"></i>
 				<span>Chart</span>
 			</div>
 			
 			<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-				<i class="material-icons">device_hub</i>
+				<i class="lucide-share"></i>
 				<span>Hub</span>
 			</div>
 
@@ -60,7 +60,7 @@
 <br />
 <br />
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <div class="xui application -has-toolbar -has-message">
@@ -68,17 +68,17 @@
 		<div class="xui _content">
 
 			<div class="xui button -transparent -effect-ripple -danger -icon-left -important -toolbar">
-				<i class="material-icons">close</i>
+				<i class="lucide-x"></i>
 				<span>Delete</span>
 			</div>
 				
 			<div class="xui button -transparent -effect-ripple -success -icon-left -toolbar">
-				<i class="material-icons">create</i>
+				<i class="lucide-pen-line"></i>
 				<span>Edit</span>
 			</div>
 
 			<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-				<i class="material-icons">add</i>
+				<i class="lucide-plus"></i>
 				<span>New</span>
 			</div>
 

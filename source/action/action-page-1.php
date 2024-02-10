@@ -15,13 +15,13 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <a class="xui action -effect-ripple" href="#" onclick="return false;">
-	<i class="material-icons">dashboard</i>
+	<i class="lucide-home"></i>
 	<span>Item</span>
-	<i class="material-icons">chevron_right</i>
+	<i class="lucide-chevron-right"></i>
 </a>
 
 <!-- /item -->
@@ -34,13 +34,13 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <a class="xui action -effect-ripple -selected" href="#" onclick="return false;">
-	<i class="material-icons">dashboard</i>
+	<i class="lucide-home"></i>
 	<span>Item</span>
-	<i class="material-icons">chevron_right</i>
+	<i class="lucide-chevron-right"></i>
 </a>
 
 <!-- /item -->

@@ -132,3 +132,7 @@ Files: vendor/quill/*
 Copyright: Copyright (c) 2014, Jason Chen
  Copyright (c) 2013, salesforce.com
 License: BSD-3-Clause
+
+Files: vendor/lucide-icons-font/*
+Copyright: Copyright (c) 2022 Lucide Contributors
+License: ISC

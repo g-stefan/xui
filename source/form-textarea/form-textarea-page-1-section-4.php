@@ -26,7 +26,7 @@
 		<form>
 			<div class="xui form-textarea -icon-left -required">
 				<textarea name="text" rows="4" cols="32">Required</textarea>
-				<i class="material-icons">person</i>
+				<i class="lucide-user"></i>
 			</div>
 		</form>
 	</div>
@@ -34,7 +34,7 @@
 		<form>
 			<div class="xui form-textarea -icon-right -required">
 				<textarea name="text" rows="4" cols="32">Required</textarea>
-				<i class="material-icons">person</i>
+				<i class="lucide-user"></i>
 			</div>
 		</form>
 	</div>

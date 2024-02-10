@@ -19,7 +19,7 @@
 
 <div class="xui modal" id="modal-dialog">
 	<div class="xui panel _modal-content">
-		<div class="xui _modal-close-button button -icon -size-x32 -circle -danger -transparent -effect-ripple"><i class="material-icons">close</i></div>
+		<div class="xui _modal-close-button button -icon -size-x32 -circle -danger -transparent -effect-ripple"><i class="lucide-x"></i></div>
 		<div class="xui _title">
 			Title
 		</div>

@@ -10,7 +10,7 @@
 <div class="xui page -elevation-4 -size-A4 -center-x">
 
 <div class="xui text -label-40">
-	Form select
+	Form select small
 </div>
 <div class="xui separator-15"></div>
 <div class="xui grid -gutter-30">

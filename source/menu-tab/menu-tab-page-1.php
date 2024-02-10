@@ -21,19 +21,19 @@
 	<li class="xui _separator"></li>
 	<li class="xui -active">
 		<a class="xui action -selected -effect-ripple" href="#" onclick="return false;">
-			<i class="material-icons">dashboard</i>
+			<i class="lucide-home"></i>
 			<span>Dashboard</span>
 		</a>
 	</li>
 	<li>
 		<a class="xui action -effect-ripple" href="#" onclick="return false;">
-				<i class="material-icons">chat</i>
+				<i class="lucide-message-square-more"></i>
 				<span>Collaboration</span>				
 		</a>
 	</li>
 	<li>
 		<a class="xui action -effect-ripple" href="#" onclick="return false;">
-			<i class="material-icons">live_help</i>
+			<i class="lucide-help-circle"></i>
 			<span>Help</span>
 		</a>
 	</li>

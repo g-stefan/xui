@@ -9,46 +9,46 @@
 ?>
 <li>
 	<a class="xui action -effect-ripple" href="#" onclick="return false;">
-		<i class="material-icons">dashboard</i>
+		<i class="lucide-home"></i>
 		<span>Dashboard</span>
 	</a>	
 </li>
 <li class="xui _submenu">
 	<a class="xui action -effect-ripple -selected -toggle" href="#" data-xui-toggle="parent" onclick="return false;">
-		<i class="material-icons">chat</i>
+		<i class="lucide-message-square-more"></i>
 		<span>Collaboration</span>
-		<i class="material-icons">chevron_right</i>
+		<i class="lucide-chevron-right"></i>
 	</a>
 	<ul>
 		<li>
 			<a class="xui action -effect-ripple" href="#" onclick="return false;">
-				<i class="material-icons">person</i>
+				<i class="lucide-user"></i>
 				<span>Administration</span>
 			</a>
 		</li>
 		<li class="xui _submenu">
 			<a class="xui action -effect-ripple -toggle" href="#" data-xui-toggle="parent" onclick="return false;">
-				<i class="material-icons">settings_applications</i>
+				<i class="lucide-settings-2"></i>
 				<span>Settings</span>
-				<i class="material-icons">chevron_right</i>
+				<i class="lucide-chevron-right"></i>
 			</a>
 			<ul>
 				<li>
 					<a class="xui action -effect-ripple" href="#" onclick="return false;">
-						<i class="material-icons">settings_bluetooth</i>
+						<i class="lucide-bluetooth"></i>
 						<span>Bluetooth</span>
 					</a>
 				</li>
 				<li class="xui _submenu">
 					<a class="xui action -effect-ripple -toggle" href="#" data-xui-toggle="parent" onclick="return false;">
-						<i class="material-icons">settings_cell</i>
+						<i class="lucide-smartphone"></i>
 						<span>Cell</span>
-						<i class="material-icons">chevron_right</i>
+						<i class="lucide-chevron-right"></i>
 					</a>
 					<ul>
 						<li>
 							<a class="xui action -effect-ripple" href="#" onclick="return false;">
-								<i class="material-icons">settings_remote</i>
+								<i class="lucide-wifi"></i>
 								<span>Remote</span>
 							</a>
 						</li>
@@ -61,7 +61,7 @@
 		<li class="xui _label">Library</li>
 		<li>
 			<a class="xui action -effect-ripple" href="#" onclick="return false;">
-				<i class="material-icons">list_alt</i>
+				<i class="lucide-list"></i>
 				<span>Content</span>
 			</a>
 		</li>
@@ -72,7 +72,7 @@
 <li class="xui _label">Contact</li>
 <li>
 	<a class="xui action -effect-ripple" href="#" onclick="return false;">
-		<i class="material-icons">live_help</i>
+		<i class="lucide-help-circle"></i>
 		<span>Help</span>
 	</a>
 </li>

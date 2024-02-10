@@ -20,7 +20,7 @@
 		<img id="captcha_image" src="img/captcha.jpg"></img>
 		<div class="xui form-input-group">
 			<input type="text" value=""></input>
-			<button type="button"><i class="material-icons">sync</i></button>
+			<button type="button"><i class="lucide-refresh-cw"></i></button>
 		</div>
 	</div>
 </form>

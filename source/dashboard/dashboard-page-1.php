@@ -15,7 +15,7 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <div class="xui dashboard">
@@ -27,7 +27,7 @@
 				Application
 			</div>
 			<div class="xui button -icon -size-x32 -circle -right -transparent -effect-ripple  -toolbar">
-				<i class="material-icons">mail_outline</i>
+				<i class="lucide-mail"></i>
 			</div>
 		</div>
 	</div>

@@ -9,20 +9,20 @@
 ?>
 <li>
 	<a class="xui action -effect-ripple" href="#" onclick="return false;">
-		<i class="material-icons">email</i>
+		<i class="lucide-mail"></i>
 		<span>E-Mail</span>
 	</a>	
 </li>
 <li>
 	<a class="xui action -effect-ripple" href="#" onclick="return false;">
-		<i class="material-icons">contacts</i>
+		<i class="lucide-list"></i>
 		<span>Contacts</span>
 	</a>	
 </li>
 <li class="xui _separator"></li>
 <li>
 	<a class="xui action -effect-ripple" href="#" onclick="return false;">
-		<i class="material-icons">lock</i>
+		<i class="lucide-log-out"></i>
 		<span>Logout</span>
 	</a>
 </li>

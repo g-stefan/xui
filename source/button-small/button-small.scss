@@ -108,7 +108,8 @@
 			padding-right: 2px - $border-size;
 			font-size: 20px;
 
-			& > i {
+			& > i,
+			& > svg {
 				font-size: 20px;
 			}			
 
@@ -131,7 +132,8 @@
 			padding-right: 1px - $border-size;
 			font-size: 22px;
 
-			& > i {
+			& > i,
+			& > svg {
 				font-size: 22px;
 			}			
 
@@ -150,7 +152,8 @@
 	&.-icon-left {
 		padding-left: 32px;
 
-		& i {
+		& i,
+		& svg {
 			position: absolute;
 			top: 4px - $border-size;
 			left: 4px - $border-size;
@@ -160,7 +163,8 @@
 	&.-icon-right {
 		padding-right: 32px;
 
-		&  i {
+		& i,
+		& svg {
 			position: absolute;
 			top: 4px - $border-size;
 			right: 4px - $border-size;

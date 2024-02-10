@@ -23,7 +23,7 @@ $button-transparent: ();
 
 $button-transparent: map-merge($button-transparent,(
 	"default-color": #000000,
-	"default-active-background-color": palette-color("default-1"),
+	"default-active-background-color": palette-color("default-1"),	
 	//	
 	"disabled-border-color": transparent,
 	"disabled-background-color":transparent,	

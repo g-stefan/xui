@@ -49,7 +49,7 @@ foreach($items as $value){
 			if(strlen($value)){
 				echo "<button class=\"xui button ".$cssClass." -icon-right\" style=\"width:144px\" tabindex=\"0\" ".$isDisabled.">";
 				echo ucfirst($value);
-				echo "<i class=\"material-icons\">face</i>";
+				echo "<i class=\"lucide-user\"></i>";
 				echo "</button>";
 			};
 		echo "</div>";

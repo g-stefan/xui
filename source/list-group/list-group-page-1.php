@@ -21,7 +21,7 @@
 	<li class="xui -active">
 		<div>1</div>
 		<span>Item</span>
-		<i class="material-icons">chevron_right</i>
+		<i class="lucide-chevron-right"></i>
 	</li>	
 	<li>
 		<div>2</div>
@@ -43,7 +43,7 @@
 	<li class="xui -active">
 		<div>2</div>
 		<span>Item</span>
-		<i class="material-icons">chevron_right</i>
+		<i class="lucide-chevron-right"></i>
 	</li>
 	<li>
 		<div>3</div>
@@ -65,7 +65,7 @@
 	<li class="xui -active">
 		<div>3</div>
 		<span>Item</span>
-		<i class="material-icons">chevron_right</i>
+		<i class="lucide-chevron-right"></i>
 	</li>
 </ul>
 

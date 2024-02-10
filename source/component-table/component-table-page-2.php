@@ -21,10 +21,10 @@
 	<div class="xui app-toolbar">
 		<div class="xui _content">
 			<div class="xui button -transparent -effect-ripple -primary -icon">
-				<i class="material-icons">apps</i>
+				<i class="lucide-grip"></i>
 			</div>
 			<div class="xui button -transparent -effect-ripple -primary -icon">
-				<i class="material-icons">bubble_chart</i>			
+				<i class="lucide-shapes"></i>			
 			</div>
 		</div>
 	</div>
@@ -35,13 +35,13 @@
 					<div class="xui grid -col -align-left">
 						<div class="xui form-input-group">
 							<input type="text" name="search" value=""></input>
-							<button type="button" name="search-button-search"><i class="material-icons">search</i></button>
-							<button type="button" name="search-button-reset"><i class="material-icons">close</i></button>
+							<button type="button" name="search-button-search"><i class="lucide-search"></i></button>
+							<button type="button" name="search-button-reset"><i class="lucide-x"></i></button>
 						</div>
 					</div>
 					<div class="xui grid -col -align-right">
 						<div class="xui button -small -transparent -effect-ripple -secondary -icon-left -toolbar">
-							<i class="material-icons">filter_list</i>
+							<i class="lucide-funnel"></i>
 							<span>Filter</span>
 						</div>
 					</div>
@@ -62,10 +62,10 @@
 					<th class="xui _sort -action">
 						Firstname
 						<div class="xui button -transparent -effect-ripple -primary -icon -small -size-xy28">
-							<i class="material-icons">save</i>
+							<i class="lucide-done-all"></i>
 						</div>
 						<div class="xui button -transparent -effect-ripple -secondary -icon -small -size-xy28 -circle">
-							<i class="material-icons">expand_more</i>
+							<i class="lucide-chevron-down"></i>
 						</div>
 					</th>
 					<th>
@@ -92,13 +92,13 @@
 					<td class="xui _input">
 						<div class="xui form-input-group -small -left">
 							<input type="text" name="seek" value="25"></input>
-							<button type="button" name="seek-button-first"><i class="material-icons">expand_less</i></button>
-							<button type="button" name="seek-button-last"><i class="material-icons">expand_more</i></button>
+							<button type="button" name="seek-button-first"><i class="lucide-chevron-up"></i></button>
+							<button type="button" name="seek-button-last"><i class="lucide-chevron-down"></i></button>
 						</div>
 					</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -114,13 +114,13 @@
 					<td class="xui _input">
 						<div class="xui form-input-group -small -left">
 							<input type="text" name="seek" value="22"></input>
-							<button type="button" name="seek-button-first"><i class="material-icons">expand_less</i></button>
-							<button type="button" name="seek-button-last"><i class="material-icons">expand_more</i></button>
+							<button type="button" name="seek-button-first"><i class="lucide-chevron-up"></i></button>
+							<button type="button" name="seek-button-last"><i class="lucide-chevron-down"></i></button>
 						</div>
 					</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -136,13 +136,13 @@
 					<td class="xui _input">
 						<div class="xui form-input-group -small -left">
 							<input type="text" name="seek" value="32"></input>
-							<button type="button" name="seek-button-first"><i class="material-icons">expand_less</i></button>
-							<button type="button" name="seek-button-last"><i class="material-icons">expand_more</i></button>
+							<button type="button" name="seek-button-first"><i class="lucide-chevron-up"></i></button>
+							<button type="button" name="seek-button-last"><i class="lucide-chevron-down"></i></button>
 							</div>
 					</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -158,13 +158,13 @@
 					<td class="xui _input">
 						<div class="xui form-input-group -small -left">
 							<input type="text" name="seek" value="34"></input>
-							<button type="button" name="seek-button-first"><i class="material-icons">expand_less</i></button>
-							<button type="button" name="seek-button-last"><i class="material-icons">expand_more</i></button>
+							<button type="button" name="seek-button-first"><i class="lucide-chevron-up"></i></button>
+							<button type="button" name="seek-button-last"><i class="lucide-chevron-down"></i></button>
 						</div>
 					</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -180,13 +180,13 @@
 					<td class="xui _input">
 						<div class="xui form-input-group -small -left">
 							<input type="text" name="seek" value="42"></input>
-							<button type="button" name="seek-button-first"><i class="material-icons">expand_less</i></button>
-							<button type="button" name="seek-button-last"><i class="material-icons">expand_more</i></button>
+							<button type="button" name="seek-button-first"><i class="lucide-chevron-up"></i></button>
+							<button type="button" name="seek-button-last"><i class="lucide-chevron-down"></i></button>
 						</div>
 					</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -196,14 +196,14 @@
 	<div class="xui app-toolbar -left -compact">
 		<div class="xui _content">
 			<div class="xui form-input-group">
-				<button type="button" name="seek-button-first"><i class="material-icons">first_page</i></button>
-				<button type="button" name="seek-button-previous"><i class="material-icons">chevron_left</i></button>
+				<button type="button" name="seek-button-first"><i class="lucide-chevron-first"></i></i></button>
+				<button type="button" name="seek-button-previous"><i class="lucide-chevron-left"></i></i></button>
 				<input type="text" name="seek" value=""></input>
-				<button type="button" name="seek-button-next"><i class="material-icons">chevron_right</i></button>
-				<button type="button" name="seek-button-last"><i class="material-icons">last_page</i></button>
+				<button type="button" name="seek-button-next"><i class="lucide-chevron-right"></i></button>
+				<button type="button" name="seek-button-last"><i class="lucide-chevron-last"></i></i></button>
 			</div>
 			<div class="xui button -transparent -effect-ripple -secondary -icon -size-xy30">
-				<i class="material-icons">settings_remote</i>
+				<i class="lucide-wifi"></i>
 			</div>
 		</div>
 	</div>

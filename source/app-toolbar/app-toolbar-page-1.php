@@ -15,34 +15,34 @@
 </div>
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <div class="xui app-toolbar" id="xui-app-toolbar-1">
 	<div class="xui _content" id="xui-app-toolbar_content-1">
 
 		<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-			<i class="material-icons">apps</i>
+			<i class="lucide-grip"></i>
 			<span>Applications</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-			<i class="material-icons">bubble_chart</i>
+			<i class="lucide-shapes"></i>
 			<span>Chart</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -secondary -icon-left -toolbar">
-			<i class="material-icons">device_hub</i>
+			<i class="lucide-share"></i>
 			<span>Hub</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -success -icon-left -toolbar">
-			<i class="material-icons">people</i>
+			<i class="lucide-users"></i>
 			<span>People</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -success -icon-left -important -toolbar">
-			<i class="material-icons">cloud_upload</i>
+			<i class="lucide-upload-cloud"></i>
 			<span>Upload</span>
 		</div>
 
@@ -50,12 +50,12 @@
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -warning -icon-left -toolbar">
-			<i class="material-icons">cloud_download</i>
+			<i class="lucide-download-cloud"></i>
 			<span>Download</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -danger -icon-left -toolbar">
-			<i class="material-icons">layers</i>
+			<i class="lucide-layers"></i>
 			<span>Layers</span>
 		</div>
 
@@ -67,29 +67,29 @@
 
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <div class="xui app-toolbar" id="xui-app-toolbar-2">
 	<div class="xui _content" id="xui-app-toolbar_content-2">
 
 		<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-			<i class="material-icons">local_grocery_store</i>
+			<i class="lucide-shopping-cart"></i>
 			<span>Store</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -secondary -icon-left -toolbar">
-			<i class="material-icons">people</i>
+			<i class="lucide-users"></i>
 			<span>People</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -success -icon-left -toolbar">
-			<i class="material-icons">local_offer</i>
+			<i class="lucide-tag"></i>
 			<span>Offer</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -danger -icon-left -toolbar">
-			<i class="material-icons">map</i>
+			<i class="lucide-map"></i>
 			<span>Map</span>
 		</div>
 
@@ -101,29 +101,29 @@
 
 <div class="xui separator-15"></div>
 
-<div class="xui item-presentation -bd-default-2">
+<div class="xui item-presentation -bd-theme-line">
 <!-- item -->
 
 <div class="xui app-toolbar" id="xui-app-toolbar-3">
 	<div class="xui _content_left" id="xui-app-toolbar_content-3-left">
 
 		<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-			<i class="material-icons">local_grocery_store</i>
+			<i class="lucide-shopping-cart"></i>
 			<span>Store</span>
 		</div>
 
 		<div class="xui button -transparent -secondary -icon-left -effect-ripple -toolbar">
-			<i class="material-icons">people</i>
+			<i class="lucide-users"></i>
 			<span>People</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -success -icon-left -toolbar">
-			<i class="material-icons">local_offer</i>
+			<i class="lucide-tag"></i>
 			<span>Offer</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -danger -icon-left -toolbar">
-			<i class="material-icons">map</i>
+			<i class="lucide-map"></i>
 			<span>Map</span>
 		</div>
 
@@ -131,22 +131,22 @@
 	<div class="xui _content_right" id="xui-app-toolbar_content-3-right">
 
 		<div class="xui button -transparent -effect-ripple -primary -icon-left -toolbar">
-			<i class="material-icons">local_grocery_store</i>
+			<i class="lucide-shopping-cart"></i>
 			<span>Store</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -secondary -icon-left -toolbar">
-			<i class="material-icons">people</i>
+			<i class="lucide-users"></i>
 			<span>People</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -success -icon-left -toolbar">
-			<i class="material-icons">local_offer</i>
+			<i class="lucide-tag"></i>
 			<span>Offer</span>
 		</div>
 
 		<div class="xui button -transparent -effect-ripple -danger -icon-left -toolbar">
-			<i class="material-icons">map</i>
+			<i class="lucide-map"></i>
 			<span>Map</span>
 		</div>
 

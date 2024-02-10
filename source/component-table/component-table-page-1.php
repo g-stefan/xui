@@ -21,10 +21,10 @@
 	<div class="xui app-toolbar">
 		<div class="xui _content">
 			<div class="xui button -transparent -effect-ripple -primary -icon">
-				<i class="material-icons">apps</i>
+				<i class="lucide-grip"></i>
 			</div>
 			<div class="xui button -transparent -effect-ripple -primary -icon">
-				<i class="material-icons">bubble_chart</i>			
+				<i class="lucide-shapes"></i>			
 			</div>
 		</div>
 	</div>
@@ -41,7 +41,7 @@
 					<th class="xui _sort">
 						Firstname
 						<div class="xui button -transparent -effect-ripple -secondary -icon -small -size-xy28 -circle">
-							<i class="material-icons">expand_more</i>
+							<i class="lucide-chevron-down"></i>
 						</div>
 					</th>
 					<th>
@@ -68,7 +68,7 @@
 					<td>25</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -84,7 +84,7 @@
 					<td>22</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -100,7 +100,7 @@
 					<td>32</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -116,7 +116,7 @@
 					<td>34</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -132,7 +132,7 @@
 					<td>42</td>
 					<td class="xui _action">
 						<div class="xui button -transparent -secondary -effect-ripple -icon -small -size-xy24-22 -left">
-							<i class="material-icons">textsms</i>
+							<i class="lucide-message-square-more"></i>
 						</div>
 					</td>
 				</tr>
@@ -142,14 +142,14 @@
 	<div class="xui app-toolbar -left -compact">
 		<div class="xui _content">
 			<div class="xui form-input-group">
-				<button type="button" name="seek-button-first"><i class="material-icons">first_page</i></button>
-				<button type="button" name="seek-button-previous"><i class="material-icons">chevron_left</i></button>
+				<button type="button" name="seek-button-first"><i class="lucide-chevron-first"></i></i></button>
+				<button type="button" name="seek-button-previous"><i class="lucide-chevron-left"></i></i></button>
 				<input type="text" name="seek" value=""></input>
-				<button type="button" name="seek-button-next"><i class="material-icons">chevron_right</i></button>
-				<button type="button" name="seek-button-last"><i class="material-icons">last_page</i></button>
+				<button type="button" name="seek-button-next"><i class="lucide-chevron-right"></i></button>
+				<button type="button" name="seek-button-last"><i class="lucide-chevron-last"></i></i></button>
 			</div>
 			<div class="xui button -transparent -effect-ripple -secondary -icon -size-xy30">
-				<i class="material-icons">settings_remote</i>
+				<i class="lucide-wifi"></i>
 			</div>
 		</div>
 	</div>

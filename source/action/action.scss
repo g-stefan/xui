@@ -43,7 +43,8 @@
 		z-index: 1;
 	}
 
-	& > i:first-of-type {
+	& > i:first-of-type,
+	& > svg:first-of-type {
 		position: relative;
 		float: left;
 		height: 24px;
@@ -68,7 +69,8 @@
 		line-height: 24px;
 		font-size: 16px;
 	
-		& + i:last-of-type {
+		& + i:last-of-type,
+		& + svg:last-of-type {
 			position: relative;
 			float: right;
 			height: 24px;
@@ -89,7 +91,8 @@
 			background-color: palette-color("aluminium-2");
 		}
 
-		& i:first-of-type {
+		& i:first-of-type,
+		& svg:first-of-type {
 			color: palette-color("aluminium-6");
 		}
 	}
@@ -101,14 +104,16 @@
 			background-color: palette-color("science-blue-1");
 		}
 
-		& i:first-of-type {
+		& i:first-of-type,
+		& svg:first-of-type {
 			color: palette-color("science-blue-2");
 		}
 
 		&:hover {
 			background-color: palette-color("aluminium-1");
 
-			& i:first-of-type {
+			& i:first-of-type,
+			& svg:first-of-type {
 				color: palette-color("science-blue-2");
 			}
 		
@@ -118,7 +123,8 @@
 		}
 	}
 
-	&.-active > span + i:last-of-type {
+	&.-active > span + i:last-of-type,
+	&.-active > span + svg:last-of-type {
 		transform: rotate(90deg);
 	}
 }

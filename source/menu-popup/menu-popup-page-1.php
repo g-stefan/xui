@@ -16,7 +16,7 @@
 <div class="xui separator-15"></div>
 
 <div class="xui button -icon -size-x32 -circle -transparent -effect-ripple" onclick="document.getElementById('popup-menu').classList.toggle('-open');XUI.Capture.set([document.getElementById('popup-menu'),this],function(e,elList){elList[0].classList.remove('-open');});">
-	<i class="material-icons">person</i>
+	<i class="lucide-user"></i>
 </div>
 
 <div class="xui overflow">

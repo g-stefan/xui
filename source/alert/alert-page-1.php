@@ -19,9 +19,11 @@
 
 $items=array(
 	"default",
+	"primary",
+	"secondary",
 	"success",	
 	"danger",
-	"warning",
+	"warning",	
 	"info"
 );
 

@@ -226,6 +226,7 @@ buildComponent("palette");
 buildComponent("toggle");
 buildComponent("capture");
 buildComponent("overlayscrollbars");
+buildComponent("icons");
 
 // ---
 

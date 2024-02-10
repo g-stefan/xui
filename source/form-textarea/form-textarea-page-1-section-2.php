@@ -24,11 +24,11 @@ $items=array(
 );
 
 $icon=array(
-	"person",	
-	"done",
-	"warning",
-	"error",	
-	"person"
+	"lucide-user",	
+	"lucide-check",
+	"lucide-alert-triangle",
+	"lucide-alert-circle",	
+	"lucide-user"
 );
 
 $index=0;
@@ -56,7 +56,7 @@ foreach($items as $value){
 				echo "<form>";
 				echo "<div class=\"xui form-textarea -icon-left ".$cssClass."\">";
 					echo "<textarea name=\"text\" rows=\"4\" cols=\"32\" ".$isDisabled.">".ucfirst($value)."</textarea>";
-					echo "<i class=\"material-icons\">".$icon[$itemIndex]."</i>";
+					echo "<i class=\"".$icon[$itemIndex]."\"></i>";
 				echo "</div>";
 				echo "</form>";
 			};

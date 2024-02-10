@@ -25,7 +25,8 @@ ul.xui.menu.-dropdown {
 		height: 40px;
 		overflow: hidden;
 
-		& > .xui.action > span + i:last-of-type {
+		& > .xui.action > span + i:last-of-type,
+		& > .xui.action > span + svg:last-of-type {
 			transition: none;
 			transform: rotate(90deg);
 		}

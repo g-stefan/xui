@@ -73,7 +73,8 @@
 
 @mixin menu-dropdown-level-action() {
 
-	& > .xui.action > span + i:last-of-type {
+	& > .xui.action > span + i:last-of-type,
+	& > .xui.action > span + svg:last-of-type {
 		transition: none;
 		transform: rotate(0deg);
 	}

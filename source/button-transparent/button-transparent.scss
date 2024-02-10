@@ -29,7 +29,8 @@
 				background-color: map-get($button-transparent, "#{$type}-focus-background-color");
 				color: map-get($button-transparent, "#{$type}-focus-color");
 
-				&>i {
+				& > i,
+				& > svg {
 					color: map-get($button-transparent, "#{$type}-color");
 				}
 			}
@@ -39,7 +40,8 @@
 				background-color: map-get($button-transparent, "#{$type}-active-background-color");
 				color: map-get($button-transparent, "#{$type}-active-color");
 
-				&>i {
+				& > i,
+				& > svg {
 					color: map-get($button-transparent, "#{$type}-color");
 				}
 			}
@@ -47,7 +49,8 @@
 			&:visited {
 				color: map-get($button-transparent, "#{$type}-color");
 
-				&>i {
+				& > i,
+				& > svg {
 					color: map-get($button-transparent, "#{$type}-color");
 				}
 			}
@@ -66,17 +69,18 @@
 
 			&.-toolbar {
 				@if($type =="default") {
-					&>i {
-
+					& > i,
+					& > svg {
 						color: palette-color("aluminium-4");
 					}
 				} @else {
-					&>i {
+					& > i,
+					& > svg {
 						color: map-get($button-transparent, "#{$type}-color");
 					}
 				}
 
-				&>span {
+				&> span {
 					color: #000000;
 					display: inline-block;
 					white-space: nowrap;
@@ -84,21 +88,23 @@
 
 				&:hover,
 				&:focus {
-					&>span {
+					& > span {
 						color: map-get($button-transparent, "#{$type}-focus-color");
 					}
 
-					&>i {
+					& > i,
+					& > svg {
 						color: map-get($button-transparent, "#{$type}-color");
 					}
 				}
 
 				&:active {
-					&>span {
+					& > span {
 						color: map-get($button-transparent, "#{$type}-active-color");
 					}
 
-					&>i {
+					& > i,
+					& > svg {
 						color: map-get($button-transparent, "#{$type}-focus-border-color");
 					}
 				}
@@ -108,8 +114,9 @@
 		}
 	}
 
-	&.-toolbar:active>i {
-		color: #000000;
+	&.-toolbar:active > i,
+	&.-toolbar:active > svg {
+		color: map-get($button-transparent, "default-focus-color");
 	}
 
 	&.-disabled.-toolbar {
@@ -117,7 +124,8 @@
 			color: map-get($button-transparent, "disabled-color");
 		}
 
-		&:active>i {
+		&:active > i,
+		&:active > svg {
 			color: map-get($button-transparent, "disabled-color");
 		}
 	}

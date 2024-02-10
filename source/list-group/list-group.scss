@@ -75,7 +75,8 @@ ul.xui.list-group {
 			padding-left: 4px;
 		}
 
-		& > i {
+		& > i,
+		& > svg {
 			position: relative;
 			float: right;			
 			height: 24px;

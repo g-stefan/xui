@@ -43,7 +43,7 @@ foreach($items as $value){
 		echo "<div class=\"xui grid -col -x4 -align-center\">";
 			if(strlen($value)){
 				echo "<div class=\"xui button -outline -icon-left -effect-ripple ".$cssClass."\" style=\"width:144px\" tabindex=\"0\">";
-				echo "<i class=\"material-icons\">face</i>";
+				echo "<i class=\"lucide-user\"></i>";
 				echo ucfirst($value);
 				echo "</div>";
 			};

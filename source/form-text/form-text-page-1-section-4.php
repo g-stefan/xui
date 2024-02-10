@@ -26,7 +26,7 @@
 		<form>
 			<div class="xui form-text -icon-left -required">
 				<input type="text" name="text" value="Required"></input>
-				<i class="material-icons">person</i>
+				<i class="lucide-user"></i>
 			</div>
 		</form>
 	</div>
@@ -34,7 +34,7 @@
 		<form>
 			<div class="xui form-text -icon-right -required">
 				<input type="text" name="text" value="Required"></input>
-				<i class="material-icons">person</i>
+				<i class="lucide-user"></i>
 			</div>
 		</form>
 	</div>
