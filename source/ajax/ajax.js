@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: MIT
 */
 
-XUI.Ajax = {};
+XUI.AJAX = {};
 
 /**
  * Get request
@@ -18,9 +18,9 @@ XUI.Ajax = {};
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.get = function(url, fn, fnError, fnRequest, fnUpload, fnDownload) {
+XUI.AJAX.get = function (url, fn, fnError, fnRequest, fnUpload, fnDownload) {
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function() {
+	request.onreadystatechange = function () {
 		if (this.readyState == 4) {
 			if (this.status == 200) {
 				try {
@@ -42,12 +42,12 @@ XUI.Ajax.get = function(url, fn, fnError, fnRequest, fnUpload, fnDownload) {
 		fnRequest(request);
 	};
 	if (fnUpload) {
-		request.upload.addEventListener('progress', function(event) {
+		request.upload.addEventListener('progress', function (event) {
 			fnUpload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
 	if (fnDownload) {
-		request.addEventListener("progress", function(event) {
+		request.addEventListener("progress", function (event) {
 			fnDownload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
@@ -66,9 +66,9 @@ XUI.Ajax.get = function(url, fn, fnError, fnRequest, fnUpload, fnDownload) {
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.post = function(url, payload, fn, fnError, fnRequest, fnUpload, fnDownload) {
+XUI.AJAX.post = function (url, payload, fn, fnError, fnRequest, fnUpload, fnDownload) {
 	var request = new XMLHttpRequest();
-	request.onreadystatechange = function() {
+	request.onreadystatechange = function () {
 		if (this.readyState == 4) {
 			if (this.status == 200) {
 				try {
@@ -92,12 +92,12 @@ XUI.Ajax.post = function(url, payload, fn, fnError, fnRequest, fnUpload, fnDownl
 		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 	};
 	if (fnUpload) {
-		request.upload.addEventListener('progress', function(event) {
+		request.upload.addEventListener('progress', function (event) {
 			fnUpload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
 	if (fnDownload) {
-		request.addEventListener("progress", function(event) {
+		request.addEventListener("progress", function (event) {
 			fnDownload(event.loaded, event.total, event.lengthComputable);
 		}, false);
 	};
@@ -114,8 +114,8 @@ XUI.Ajax.post = function(url, payload, fn, fnError, fnRequest, fnUpload, fnDownl
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.getJson = function(url, fn, fnError, fnUpload, fnDownload) {
-	return XUI.Ajax.get(url, function(result) {
+XUI.AJAX.getJSON = function (url, fn, fnError, fnUpload, fnDownload) {
+	return XUI.AJAX.get(url, function (result) {
 		fn(JSON.parse(result));
 	}, fnError, null, fnUpload, fnDownload);
 };
@@ -130,20 +130,20 @@ XUI.Ajax.getJson = function(url, fn, fnError, fnUpload, fnDownload) {
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.postJson = function(url, payload, fn, fnError, fnUpload, fnDownload) {
-	return XUI.Ajax.post(url, JSON.stringify(payload), function(result) { fn(JSON.parse(result)); }, fnError, function(request) { request.setRequestHeader("Content-Type", "application/json"); }, fnUpload, fnDownload);
+XUI.AJAX.postJSON = function (url, payload, fn, fnError, fnUpload, fnDownload) {
+	return XUI.AJAX.post(url, JSON.stringify(payload), function (result) { fn(JSON.parse(result)); }, fnError, function (request) { request.setRequestHeader("Content-Type", "application/json"); }, fnUpload, fnDownload);
 };
 
 /**
  * Post form request
  * @param {string} url
- * @param {string} payload - Object to send, will be converted to json
+ * @param {string} form - Form to send, will be converted to FormData
  * @param {string} fn - Call on success with parsed result
  * @param {function} [fnError] - Call on error - fnError()
  * @param {function} [fnUpload] - Upload progress - fnUpload(loaded,total,isComputable)
  * @param {function} [fnDownload] - Download progress - fnDownload(loaded,total,isComputable)
  * @returns {XMLHttpRequest} Request
  */
-XUI.Ajax.postForm = function(url, form, fn, fnError, fnUpload, fnDownload) {
-	return XUI.Ajax.post(url, new FormData(form), fn, fnError, function(request) {}, fnUpload, fnDownload);
+XUI.AJAX.postForm = function (url, form, fn, fnError, fnUpload, fnDownload) {
+	return XUI.AJAX.post(url, new FormData(form), fn, fnError, function (request) { }, fnUpload, fnDownload);
 };

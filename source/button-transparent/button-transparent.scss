@@ -22,12 +22,14 @@
 			border: $border-size solid map-get($button-transparent, "#{$type}-border-color");
 			background-color: map-get($button-transparent, "#{$type}-background-color");
 			color: map-get($button-transparent, "#{$type}-color");
+			text-shadow: none;
 
 			&:hover,
 			&:focus {
 				border: $border-size solid map-get($button-transparent, "#{$type}-focus-border-color");
 				background-color: map-get($button-transparent, "#{$type}-focus-background-color");
 				color: map-get($button-transparent, "#{$type}-focus-color");
+				text-shadow: none;
 
 				& > i,
 				& > svg {
@@ -39,6 +41,7 @@
 				border: $border-size solid map-get($button-transparent, "#{$type}-focus-border-color");
 				background-color: map-get($button-transparent, "#{$type}-active-background-color");
 				color: map-get($button-transparent, "#{$type}-active-color");
+				text-shadow: none;
 
 				& > i,
 				& > svg {

@@ -217,6 +217,9 @@ buildComponent("element");
 
 // ---
 
+buildComponent("position");
+buildComponent("page");
+buildComponent("separator");
 buildComponent("grid");
 buildComponent("elevation");
 buildComponent("responsive");
@@ -347,7 +350,7 @@ make.build("output/js/xui.complete.min.js");
 Shell.copy("authors.txt","output/authors.txt");
 Shell.copy("LICENSE","output/LICENSE");
 Shell.copy("README.md","output/README.md");
-Shell.copy("xui-version-lib.txt","output/xui-version-lib.txt");
+Shell.copy("version.vendor.txt","output/xui.version.vendor.txt");
 Shell.copy("source/form-captcha/img/captcha.jpg","output/img/captcha.jpg");
 
 // ---

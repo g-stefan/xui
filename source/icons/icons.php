@@ -21,7 +21,10 @@
 	<link rel="stylesheet" href="vendor/eva-icons-font/eva-icons.min.css">
 	<link rel="stylesheet" href="vendor/mingcute-icons-font/mingcute-icons.min.css">	
 	<link rel="stylesheet" href="vendor/lucide-icons-font/lucide-icons.min.css">
-	<link rel="stylesheet" href="css/xui-core.css">
+			<link rel="stylesheet" href="css/xui-core.css">
+		<link rel="stylesheet" href="css/xui-page.css">
+		<link rel="stylesheet" href="css/xui-position.css">
+		<link rel="stylesheet" href="css/xui-separator.css">
 	<link rel="stylesheet" href="css/xui-grid.css">
 	<link rel="stylesheet" href="css/xui-text.css">
 	<link rel="stylesheet" href="css/xui-elevation.css">

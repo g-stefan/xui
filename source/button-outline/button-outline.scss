@@ -18,45 +18,48 @@
 	padding-left: 24px - $border-size;
 
 	@each $type, $value in $buttonType {
-		$class: if($type == "default","",".-#{$type}");
+		$class: if($type =="default", "", ".-#{$type}");
 
-		&#{$class} {			
-			border: $border-size solid map-get($button-outline,"#{$type}-border-color");
-			background-color: map-get($button-outline,"#{$type}-background-color");
-			color: map-get($button-outline,"#{$type}-color");			
+		&#{$class} {
+			border: $border-size solid map-get($button-outline, "#{$type}-border-color");
+			background-color: map-get($button-outline, "#{$type}-background-color");
+			color: map-get($button-outline, "#{$type}-color");
+			text-shadow: none;
 
 			&:hover,
 			&:focus {
-				border: $border-size solid map-get($button-outline,"#{$type}-focus-border-color");
-				background-color: map-get($button-outline,"#{$type}-focus-background-color");
-				color: map-get($button-outline,"#{$type}-focus-color");
+				border: $border-size solid map-get($button-outline, "#{$type}-focus-border-color");
+				background-color: map-get($button-outline, "#{$type}-focus-background-color");
+				color: map-get($button-outline, "#{$type}-focus-color");
+				text-shadow: map-get($button-outline, "#{$type}-active-text-shadow");
 			}
-		
+
 			&:active {
-				border: $border-size solid map-get($button-outline,"#{$type}-focus-border-color");
-				background-color: map-get($button-outline,"#{$type}-active-background-color");
-				color:  map-get($button-outline,"#{$type}-focus-color");
+				border: $border-size solid map-get($button-outline, "#{$type}-focus-border-color");
+				background-color: map-get($button-outline, "#{$type}-active-background-color");
+				color: map-get($button-outline, "#{$type}-focus-color");
+				text-shadow: map-get($button-outline, "#{$type}-active-text-shadow");
 			}
 
 			&:visited {
-				color: map-get($button-outline,"#{$type}-color");
+				color: map-get($button-outline, "#{$type}-color");
 			}
 
 			&.-effect-ripple {
 
 				&:active {
-					background-color: map-get($button-outline,"#{$type}-focus-background-color");
+					background-color: map-get($button-outline, "#{$type}-focus-background-color");
 				}
 
 				& .xui.-effect-ripple_element {
-					background-color: map-get($button-outline,"#{$type}-active-background-color");
+					background-color: map-get($button-outline, "#{$type}-active-background-color");
 				}
 
 			}
 		}
 	}
 
-	&.-icon{
+	&.-icon {
 		padding-left: 8px - $border-size;
 		padding-top: 8px - $border-size;
 		padding-bottom: 8px - $border-size;
@@ -98,4 +101,3 @@
 	}
 
 }
-

@@ -20,6 +20,9 @@
 		<link rel="stylesheet" href="vendor/select2/select2.min.css">
 		<link rel="stylesheet" href="vendor/overlayscrollbars/overlayscrollbars.min.css">
 		<link rel="stylesheet" href="css/xui-core.css">
+		<link rel="stylesheet" href="css/xui-page.css">
+		<link rel="stylesheet" href="css/xui-position.css">
+		<link rel="stylesheet" href="css/xui-separator.css">
 		<link rel="stylesheet" href="css/xui-grid.css">
 		<link rel="stylesheet" href="css/xui-text.css">
 		<link rel="stylesheet" href="css/xui-elevation.css">

@@ -30,7 +30,7 @@
 	transition: background-color 0.3s ease, border-color 0.3s ease;
 	outline: none;
 	text-align: center;
-	
+
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -39,43 +39,44 @@
 	user-select: none;
 
 	@each $type, $value in $buttonType {
-		$class: if($type == "default","",".-#{$type}");
+		$class: if($type =="default", "", ".-#{$type}");
 
 		&#{$class} {
-			cursor: if($type == "disabled", auto, pointer);
-			border: $border-size solid map-get($button,"#{$type}-border-color");
-			background-color: map-get($button,"#{$type}-background-color");
-			color: map-get($button,"#{$type}-color");			
+			cursor: if($type =="disabled", auto, pointer);
+			border: $border-size solid map-get($button, "#{$type}-border-color");
+			background-color: map-get($button, "#{$type}-background-color");
+			color: map-get($button, "#{$type}-color");
+			text-shadow: map-get($button, "#{$type}-text-shadow");
 
 			&:hover,
-			&:focus {				
-				background-color: map-get($button,"#{$type}-focus-background-color");
-				color: map-get($button,"#{$type}-focus-color");
+			&:focus {
+				background-color: map-get($button, "#{$type}-focus-background-color");
+				color: map-get($button, "#{$type}-focus-color");
 			}
-		
-			&:active {				
-				background-color: map-get($button,"#{$type}-active-background-color");
-				color:  map-get($button,"#{$type}-focus-color");
+
+			&:active {
+				background-color: map-get($button, "#{$type}-active-background-color");
+				color: map-get($button, "#{$type}-focus-color");
 			}
 
 			&:visited {
-				color: map-get($button,"#{$type}-color");
+				color: map-get($button, "#{$type}-color");
 			}
 
 			&.-effect-ripple {
 
 				&:active {
-					background-color: map-get($button,"#{$type}-focus-background-color");
+					background-color: map-get($button, "#{$type}-focus-background-color");
 				}
 
 				& .xui.-effect-ripple_element {
-					background-color: map-get($button,"#{$type}-active-background-color");
+					background-color: map-get($button, "#{$type}-active-background-color");
 				}
 
 			}
 		}
 	}
-	
+
 	&.-icon {
 		width: 40px;
 		padding-left: 8px - $border-size;
@@ -149,7 +150,8 @@
 			padding-right: 0px;
 			font-size: 22px;
 
-			& > i, & > svg {
+			&>i,
+			&>svg {
 				font-size: 22px;
 			}
 
@@ -172,9 +174,10 @@
 			padding-right: 2px - $border-size;
 			font-size: 20px;
 
-			& > i, & > svg {
+			&>i,
+			&>svg {
 				font-size: 20px;
-			}			
+			}
 
 			&.-circle {
 				height: 24px;
@@ -195,10 +198,10 @@
 			padding-right: 1px - $border-size;
 			font-size: 22px;
 
-			& > i ,
-			& > svg {
+			&>i,
+			&>svg {
 				font-size: 22px;
-			}			
+			}
 
 			&.-circle {
 				height: 24px;
@@ -216,7 +219,7 @@
 		padding-left: 40px - $border-size;
 
 		& i,
-		& svg  {
+		& svg {
 			position: absolute;
 			top: 8px - $border-size;
 			left: 8px - $border-size;
@@ -230,17 +233,15 @@
 		& svg {
 			position: absolute;
 			top: 8px - $border-size;
-			right: 8px - $border-size;			
+			right: 8px - $border-size;
 		}
 	}
 }
 
 a.xui.button,
-a.xui.button:link
-a.xui.button:hover,
+a.xui.button:link a.xui.button:hover,
 a.xui.button:active,
 a.xui.button:visited {
 	text-align: center;
 	text-decoration: none;
 }
-

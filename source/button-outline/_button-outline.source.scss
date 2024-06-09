@@ -15,18 +15,21 @@ $button-outline: ();
 		"#{$type}-focus-border-color": palette-color("#{$type}-3"),
 		"#{$type}-focus-background-color": palette-color("#{$type}-1"),
 		"#{$type}-focus-color": #FFFFFF,
-		"#{$type}-active-background-color": palette-color("#{$type}-3")	
+		"#{$type}-active-background-color": palette-color("#{$type}-3"),	
+		"#{$type}-active-text-shadow": 0px 0px 3px palette-color("#{$type}-3")
 	));
 };
 
 $button-outline: map-merge($button-outline,(
 	"default-color": #000000,
 	"default-focus-color": #000000,
+	"default-active-text-shadow": none,
 	//	
 	"disabled-border-color": palette-color("disabled-3"),
 	"disabled-background-color": palette-color("disabled-1"),	
 	"disabled-color": palette-color("disabled-3"),
 	"disabled-focus-background-color": palette-color("disabled-1"),
 	"disabled-focus-color": palette-color("disabled-3"),
-	"disabled-active-background-color": palette-color("disabled-1")
+	"disabled-active-background-color": palette-color("disabled-1"),
+	"disabled-active-text-shadow": none,
 ));

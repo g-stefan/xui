@@ -12,13 +12,14 @@ XUI.Script = {};
  * Run script
  * @param {string} script - Script ot run
  * @param {string} nonce - nonce required to run script
+ * @param {string} el - attach script as child of el
  */
-XUI.Script.run = function(script, nonce) {
+XUI.Script.run = function (script, nonce, el) {
+	el = el ? el : document.body;
 	var elScript = document.createElement("script");
-	elScript.type = "text/javascript";
 	elScript.textContent = script;
 	if (nonce) {
 		elScript.setAttribute("nonce", nonce);
 	};
-	document.body.appendChild(elScript);
+	el.appendChild(elScript);
 };
