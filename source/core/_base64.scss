@@ -1,0 +1,65 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@forward "ascii";
+
+@use "sass:math";
+@use "sass:string";
+
+@use "ascii";
+
+$base64-code: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+@function encode($to-encode) {
+	$retV: "";
+	$c: 0;
+	$co: 0;
+	$n: 0;
+	$n0: 0;
+	$n1: 0;
+	$n2: 0;
+	$n3: 0;
+	$pad: "";
+	$co: string.length($to-encode);
+	$c: 0;
+
+	@while $c < $co {
+		$n: ascii.to-int(string.slice($to-encode, $c + 1, $c + 1)) * 65536;
+
+		@if ($c + 1) < $co {
+			$n: $n + ascii.to-int(string.slice($to-encode, $c + 2, $c + 2)) * 256;
+		}
+
+		@if ($c + 2) < $co {
+			$n: $n + ascii.to-int(string.slice($to-encode, $c + 3, $c + 3));
+		}
+
+		$n0: math.floor(math.div($n, 262144)) % 64;
+		$n1: math.floor(math.div($n, 4096)) % 64;
+		$n2: math.floor(math.div($n, 64)) % 64;
+		$n3: math.floor($n) % 64;
+
+		$retV: $retV + string.slice($base64-code, $n0 + 1, $n0 + 1);
+		$retV: $retV + string.slice($base64-code, $n1 + 1, $n1 + 1);
+
+		$pad: "==";
+
+		@if ($c + 1) < $co {
+			$retV: $retV + string.slice($base64-code, $n2 + 1, $n2 + 1);
+			$pad: "=";
+		}
+
+		@if ($c + 2) < $co {
+			$retV: $retV + string.slice($base64-code, $n3 + 1, $n3 + 1);
+			$pad: "";
+		}
+
+		$c: $c + 3;
+	}
+
+	$retV: $retV + $pad;
+	@return $retV;
+}

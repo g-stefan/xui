@@ -1,0 +1,26 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@use "sass:string";
+
+$ascii-table: " !\"#\$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+
+@function to-int($ascii) {
+	$ln: string.length($ascii-table);
+
+	@for $i from 1 to $ln {
+		@if $ascii ==string.slice($ascii-table, $i, $i) {
+			@return 32 + $i - 1;
+		}
+	}
+
+	@return 32;
+}
+
+@function from-int($code) {
+	$code: $code - 32 + 1;
+	@return string.slice($ascii-table, $code, $code);
+}

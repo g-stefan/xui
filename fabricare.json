@@ -1,0 +1,14 @@
+{
+	"solution": {
+		"name" : "xui",
+		"type" : "generic",
+		"projects": [
+			{
+				"name" : "xui",
+				"SPDX-License-Identifier": "MIT",
+				"previousVersion" : "4.0.1"
+			}
+		],
+		"releaseOutput" : true
+	}
+}

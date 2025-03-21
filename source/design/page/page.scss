@@ -1,0 +1,58 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+
+@use "sass:list";
+
+.xui-page {
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+
+	&.--presentation {
+		margin-top: 60px;
+		margin-bottom: 60px;
+		padding: 30px 30px 30px 30px;
+	}
+}
+
+@media print {
+	.xui-page {
+		page-break-after: always;
+	}
+}
+
+$page-list: (
+	4494,
+	3179,
+	2245,
+	1587,
+	1123,
+	794,
+	559,
+	397,
+	280,
+	197,
+	140,
+	98
+);
+
+@for $i from 0 through 10 {
+	.xui-page.--A#{$i} {
+		display: block;
+		position: relative;
+		width: #{list.nth($page-list, $i+2)}px;
+		height: #{list.nth($page-list, $i+1)}px;
+
+		&.--landscape {
+			width: #{list.nth($page-list, $i+1)}px;
+			height: #{list.nth($page-list, $i+2)}px;
+		}
+	}
+}

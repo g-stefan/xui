@@ -1,0 +1,34 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@charset "UTF-8";
+@use "sass:map";
+
+$progressBarType: (
+	"default",
+	"success",	
+	"warning",
+	"danger",	
+	"info"
+);
+
+$progress-bar: ();
+
+@each $type, $value in $progressBarType	{
+	$progress-bar: map.merge($progress-bar,(
+		"#{$type}-bd": var(--color-xui-#{$type}-500),
+		"#{$type}-bg": var(--color-xui-#{$type}-100),
+		"#{$type}-fg": #000000,
+		"#{$type}-bd-full": var(--color-xui-line)
+	));
+};
+
+$progress-bar: map.merge($progress-bar,(
+	"default-bd": var(--color-xui-primary-500),
+	"default-bg": var(--color-xui-primary-100),
+	"default-fg": #000000,
+	"default-bd-full": var(--color-xui-line)
+));

@@ -1,0 +1,110 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: XUI
+Upstream-Contact: Grigore Stefan <g_stefan@yahoo.com>
+Source: https://github.com/g-stefan/xui
+License: MIT
+
+Files: .github/*
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: .github/CODE_OF_CONDUCT.md
+Copyright: 2014 Coraline Ada Ehmke <https://where.coraline.codes/>
+License: CC-BY-4.0
+
+Files: .gitignore
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: .vscode/*
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: mkdocs.yml
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: README.md
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: version.vendor.txt
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: version.json
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: Unlicense
+
+Files: output/*
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: source/*
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: temp/*
+Copyright: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+License: MIT
+
+Files: vendor/air-datepicker*
+Copyright: Copyright (c) 2016 Timofey Marochkin
+License: MIT
+
+Files: vendor/cropit*
+Copyright: Copyright (c) 2014 Scott Cheng
+License: MIT
+
+Files: vendor/jquery*
+Copyright: (c) JS Foundation and other contributors
+License: MIT
+
+Files: vendor/jquery-autocompleter*
+Copyright: (c) 2020 Artem Fitiskin
+License: MIT
+
+Files: vendor/jquery-form*
+Copyright: Copyright 2017 Kevin Morris, Copyright 2006 M. Alsup
+License: MIT
+
+Files: vendor/js-cookie*
+Copyright: Copyright (c) 2018 Copyright 2018 Klaus Hartl, Fagner Brack, GitHub Contributors
+License: MIT
+
+Files: vendor/maximize-select2-height*
+Copyright: (c) Panorama Education 2020
+License: MIT
+
+Files: vendor/md5*
+Copyright: Copyright (C) Paul Johnston 1999 - 2009
+License: BSD-3-Clause
+
+Files: vendor/overlayscrollbars*
+Copyright: Copyright KingSora | Rene Haas.
+License: MIT
+
+Files: vendor/roboto-regular*
+Copyright: Copyright (c) Christian Robertson
+License: Apache-2.0
+
+Files: vendor/select2*
+Copyright: Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
+License: MIT
+
+Files: vendor/jquery.tag-editor.*
+Copyright: Copyright (c) 2014 Simon Steinberger / Pixabay
+License: MIT
+
+Files: vendor/jquery.caret.*
+Copyright: Copyright (c) 2009, Gideon Sireling
+License: BSD-3-Clause
+
+Files: vendor/quill*
+Copyright: Copyright (c) 2014, Jason Chen
+ Copyright (c) 2013, salesforce.com
+License: BSD-3-Clause
+
+Files: vendor/lucide-icons-font*
+Copyright: Copyright (c) 2022 Lucide Contributors
+License: ISC

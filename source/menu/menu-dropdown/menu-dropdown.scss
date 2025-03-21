@@ -1,0 +1,146 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+
+@use "../../core/util";
+@use "../menu/menu.source" as *;
+@use "menu-dropdown.source" as *;
+
+ul.xui-menu.--dropdown {
+	width: 100%;
+	overflow: visible;
+	display: flex;
+	padding: 3px 3px 3px 3px;
+
+	&>li {
+		display: inline-block;
+		flex: 1;
+		width: auto;
+		height: 40px;
+		overflow: hidden;
+
+		&>.xui-menu_item>span+i:last-of-type,
+		&>.xui-menu_item>span+svg:last-of-type {
+			transition: none;
+			transform: rotate(90deg);
+		}
+
+		&.xui-menu_separator {
+			height: 40px;
+			width: 7px;
+			transition: none;
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 4px;
+				height: 40px;
+				overflow: hidden;
+				box-sizing: border-box;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 1px solid var(--color-xui-line);
+				border-bottom: 0px;
+			}
+
+			flex: 0 0 7px;
+		}
+
+		&.xui-menu_space {
+			height: 40px;
+			width: 7px;
+			transition: none;
+			flex: 0 0 7px;
+		}
+
+		&.xui-menu_label {
+			height: 40px;
+			width: auto;
+			overflow: hidden;
+			transition: none;
+
+			font-size: 14px;
+			padding: 3px 3px 3px 3px;
+			flex: 1;
+		}
+
+		&.xui-menu_submenu::before {
+			content: "";
+			position: absolute;
+			top: 38px;
+			left: 0px;
+			height: 0px;
+			width: 100%;
+			background-color: transparent;
+			transition: height 1s ease;
+			z-index: 3;
+		}
+
+		&.xui-menu_submenu:hover::before {
+			height: 16px;
+		}
+	}
+
+	// Level 1
+
+	&>li>ul {
+		position: relative;
+		top: 6px;
+		left: 0px;
+		overflow: visible;
+		border-radius: 6px;
+		background-color: #FFFFFF;
+		padding: 3px 3px 3px 3px;
+		@include util.raw("@apply shadow-md;");
+		border: 1px solid var(--color-xui-line);
+	}
+
+	&>li:hover,
+	&>li.--open {
+		overflow: visible;
+	}
+
+	&>li>ul>li {
+		@extend %menu-level-reset;
+	}
+
+	&>li:hover>ul>li,
+	&>li.--open>ul>li {
+		@extend %menu-level;
+	}
+
+}
+
+ul.xui-menu.--dropdown {
+
+	// Level 2
+
+	&>li:hover>ul>li,
+	&>li.--open>ul>li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+
+		&>ul {
+			left: calc(100% + 6px);
+		}
+
+	}
+
+	// Level 3
+
+	&>li:hover>ul>li:hover>ul>li,
+	&>li.--open>ul>li.--open>ul>li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+}
