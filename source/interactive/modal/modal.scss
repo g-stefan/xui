@@ -1,0 +1,132 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "../../core/util";
+
+.xui-modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	z-index: 100;
+	background-color: rgba(0,0,0,0.2);
+	backdrop-filter: blur(3px);
+
+	&.--active {
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+
+		&.--scroll-x .xui-modal_content {
+			width: 100%;
+			overflow: auto;
+		}
+	}
+
+	& > .xui-modal_content {
+		display: flex;
+		flex-direction: column;		
+		min-height: 0;
+		overflow: auto;
+		width: 100%;
+		transition: transform 1s ease;
+		transform: perspective(600px) rotateX(6deg) translateY(-160px) scale(0.8);
+		transform-origin: bottom center 0px;
+		@include util.raw("@apply shadow-lg;");
+		border: 1px solid var(--color-xui-line);
+
+		& .xui-modal_close-button {
+			position: absolute;
+			top: 0px;
+			right: 4px;
+			z-index: 3;		
+		}
+
+		&:before {
+			content: " ";
+			z-index: 2;
+			display: block;
+			position: absolute;
+			height: 1px;
+			top: 0px;
+			left: 0px;
+			right: 0;
+			background: rgba(255,255,255,0.8) no-repeat;
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			box-sizing: border-box;
+		}
+
+		&:after {
+			content: " ";
+			z-index: 1;
+			display: block;
+			position: absolute;
+			height: 1px;
+			bottom: 0px;
+			left: 0px;
+			right: 0;
+			background: rgba(255,255,255,0.8) no-repeat;
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			box-sizing: border-box;
+		}
+
+	}
+
+	&.--active > .xui-modal_content {
+		transform: rotateX(0deg) translateY(0px) scale(1);
+	}
+
+	&.--animate-deactivate > .xui-modal_content {
+		animation: xui-modal_animate-deactivate 0.3s;
+		animation-fill-mode: forwards;
+	}
+
+}
+
+@media only screen and (min-width: 640px){
+	.xui-modal {
+		& > .xui-modal_content {
+			width: auto;
+			min-width: 640px;
+		}
+	}
+}
+
+body.--modal-open {
+	overflow: hidden;
+}
+
+@keyframes xui-modal_animate-deactivate {
+	from {
+		opacity: 1;
+		transform: rotateX(0deg) translateY(0px) scale(1);
+		transform-origin: center center 0px;
+	}
+	to {
+		opacity: 0;
+		transform: rotateX(0deg) translateY(0px) scale(0.8);
+		transform-origin: center center 0px;
+	}
+}
+

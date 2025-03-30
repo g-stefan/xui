@@ -1,0 +1,47 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+@use "../../application/application-user/application-user.source" as *;
+@use "../../application/application-header/application-header.source" as *;
+@use "../../menu/menu/menu.source" as *;
+@use "../../menu/menu-accordion/menu-accordion.source" as *;
+@use "../../menu/menu-dropdown/menu-dropdown.source" as *;
+@use "../../menu/menu-mini/menu-mini.source" as *;
+
+.xui-dashboard.--main {
+
+	&.--normal.--closed .xui-navigation-drawer, 
+	&.--mini.--closed .xui-navigation-drawer {
+
+		& .xui-content {
+			overflow: visible !important;
+
+			& > .os-host > .os-padding {
+				overflow: visible !important;
+
+				& > .os-viewport,
+				& > .os-content {
+					overflow: visible !important;
+				}
+
+				& > .os-scrollbar,
+				& > .os-scrollbar-corner {
+					display: none !important;
+				}
+			}
+		}
+		
+	}
+
+}
+
+.os-scrollbar, .os-scrollbar-corner {
+	z-index: 3;
+}

@@ -1,0 +1,119 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../../core/util";
+@use "../form-input" as *;
+@use "../form-text/form-text.source" as *;
+
+.xui-form-select.--small {
+	height: 24px;
+
+	font-size: 14px;
+	line-height: 18px;
+
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+}
+
+.select2.select2-container.--small .select2-selection__arrow {
+	height: 18px;
+	width: 16px;
+}
+
+.select2-container--default.--small .select2-selection--single .select2-selection__rendered {
+	line-height: 18px;
+}
+
+.select2-container.--small .select2-selection--single .select2-selection__rendered {
+	padding-right: 16px;
+}
+
+.select2-container.--small .select2-selection--single {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: normal;
+
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+
+	height: 24px;
+}
+
+.select2-container.--small .select2-results__option {
+	height: 22px;
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: normal;
+
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+}
+
+// ---
+
+.xui.form-select.--required.--small ~ span.select2.select2-container {
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		width: 6px;
+		height: 6px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		overflow: hidden;
+		background-color: var(--color-xui-danger-normal-bg);
+		z-index: 1;
+	}
+
+	&.--disabled {
+		background-color: var(--color-xui-disabled-3);
+	}
+
+}
+
+.select2-container--default.--small {
+	& .select2-results__option[aria-selected="true"] {
+		font-weight: bold;
+		background-color: #FFFFFF;
+	}
+
+	& .select2-results__option.select2-results__option--highlighted[aria-selected="true"] {
+		font-weight: bold;
+		color: #000000;
+		background-color: var(--color-xui-rock-1-500);
+	}
+}
+

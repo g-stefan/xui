@@ -1,0 +1,55 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../../core/util";
+
+.xui-form-text + .autocompleter.autocompleter-show {
+	overflow: hidden;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	color: #000000;
+	@include util.raw("@apply shadow-md;");
+	border: 1px solid var(--color-xui-line);
+	z-index: 3;
+	margin-top: 3px;
+	padding: 3px;
+	width: calc(100% - 8px);
+
+	& > ul {
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		height: auto;
+
+		& > li {
+
+			height: 30px;
+			text-decoration: none;
+			color: #000000;
+			background-color: #FFFFFF;
+			border-radius: 3px;
+			white-space: nowrap;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			padding-left: 6px;
+			padding-right: 6px;
+			line-height: 24px;
+			font-size: 16px;
+			font-family: "Roboto", sans-serif;
+			box-sizing: border-box;
+
+			&:hover {
+				background-color: var(--color-xui-gray-1-500);
+			}
+		}
+	}
+}
+

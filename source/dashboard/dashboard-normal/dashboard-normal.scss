@@ -1,0 +1,54 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+@use "../../application/application-user/application-user.source" as *;
+@use "../../application/application-header/application-header.source" as *;
+@use "../../menu/menu/menu.source" as *;
+@use "../../menu/menu-accordion/menu-accordion.source" as *;
+@use "../../menu/menu-dropdown/menu-dropdown.source" as *;
+@use "../../menu/menu-mini/menu-mini.source" as *;
+
+.xui-dashboard.--normal {
+
+	& .xui-navigation-drawer .xui-menu {
+		@extend	%menu-accordion;
+	}
+
+	&.--closed { 
+
+		& .xui-navigation-drawer {
+			width: 72px + 6px;
+			overflow: visible;
+		}
+
+		& .xui-navigation-drawer >  .xui-navigation-drawer_content {
+			overflow: visible;
+		}
+
+		& .xui-application-header {
+			@extend	%application-header-mini;
+		}
+
+		& .xui-navigation-drawer .xui-application-user {
+			@extend	%application-user-mini;
+		}
+
+		& .xui-navigation-drawer .xui-menu {
+			@extend	%menu-mini;
+		}
+
+		& .xui-navigation-drawer .xui-application-user {
+			width: 100%;
+		}
+
+	}
+
+}
+

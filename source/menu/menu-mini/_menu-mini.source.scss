@@ -1,0 +1,190 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@use "../../core/util";
+@use "../menu/menu.source" as *;
+@use "../menu-dropdown/menu-dropdown.source" as *;
+
+%menu-mini {
+	width: 78px;
+	overflow: visible;
+	padding: 3px 3px 3px 3px;
+
+	& ul {
+		&:before,
+		&:after {
+			display: block;
+		}
+	}
+
+	& > li {
+		height: 40px;
+		width: 72px;
+		overflow: hidden;
+	
+		& > .xui-menu_item {
+			overflow: hidden;
+
+			& > span {
+				overflow: visible;
+				opacity: 0;
+				transition: opacity 0.5s ease;
+				box-sizing: border-box;
+			}
+
+			& > span + i:last-of-type,
+			& > span + svg:last-of-type {
+				display: none !important;
+			}
+		}
+
+		&.xui-menu_submenu > .xui-menu_item > span {
+			display: none;			
+		}
+
+		&.xui-menu_separator {
+			height: 7px;
+		}
+
+		&.xui-menu_space {
+			height: 0px;
+		}
+
+		&.xui-menu_label {
+			height: 0px;
+		}
+	}
+
+	& > li:hover,
+	& > li.--open {
+		overflow: visible;
+
+		& > .xui-menu_item {
+			overflow: visible;
+		}
+	}
+
+	& > li:hover > .xui-menu_item,
+	& > li.--open > .xui-menu_item {
+		& > span {
+			position: absolute;
+			top: 0px;
+			left: 72px + 6px + 6px;
+			height: 40px;
+			background-color: #FFFFFF;
+			z-index: 100;
+			width: auto;
+			margin: 0px 0px 0px 0px;
+			pointer-events: none;
+			border-radius: 6px;
+			padding: 8px 8px 8px 8px;
+        		@include util.raw("@apply shadow-md;");
+			border: 1px solid var(--color-xui-line);
+			opacity: 1;
+			white-space: nowrap;
+				
+                        &::before {
+				content: "";
+				display: block;
+				position: absolute;
+				left: -5px;
+				top: 15px;
+				width: 8px;
+				height: 8px;
+				background-color: #FFFFFF;
+				overflow: hidden;
+				border-radius: 3px;
+				transform: rotate(45deg);
+				border-top: 0px solid var(--color-xui-line);
+				border-left: 1px solid var(--color-xui-line);
+				border-bottom: 1px solid var(--color-xui-line);
+				border-right: 0px solid var(--color-xui-line);
+				z-index: -1;
+			}		
+		}
+	}
+
+	// Level 1
+
+	& > li,
+	& > li.--open {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+
+		& > ul {
+			left: 80px;
+		}		
+	}
+
+	// Level 2
+
+	& > li:hover > ul
+	> li,
+	& > li.--open > ul
+	> li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+	// Level 3
+
+	& > li:hover > ul
+	> li:hover > ul 
+	> li,
+	& > li.--open > ul
+	> li.--open > ul 
+	> li {
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+	// --- Overlay Scrollbars
+
+	& > ul {
+		display: flex;
+		flex-direction: column;
+	}
+
+	// Level 2
+
+	& > li:hover > ul,
+	& > li.--open > ul {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& > li:hover > ul > div
+	> li,
+	& > li.--open > ul > div
+	> li {
+		@extend %menu-level-important;
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+
+	// Level 3
+
+	& > li:hover > ul > div
+	> li:hover > ul,
+	& > li.--open > ul > div
+	> li.--open > ul {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& > li:hover > ul > div
+	> li:hover > ul > div
+	> li,
+	& > li.--open > ul > div
+	> li.--open > ul > div
+	> li {
+		@extend %menu-level-important;
+		@extend %menu-dropdown-level;
+		@include menu-dropdown-level-action();
+	}
+		
+}
+

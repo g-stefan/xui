@@ -1,0 +1,44 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+
+.xui-link {
+	position: relative;
+	color: var(--color-xui-primary-700);
+
+	&:hover, &:active {
+		color: #000000;
+	}
+
+	&:visited {
+		color: var(--color-xui-primary-700);
+
+		&:hover {
+			color: #000000;
+		}
+	}	
+
+	&::before {
+		content: "";
+		transition: 0.3s all ease;
+		left: 50%;
+		transform: translateX(-50%);
+		position: absolute;
+		bottom: -1px;
+		height: 1px;
+		width: 0px;
+		background: var(--color-xui-primary-500);
+		backface-visibility: hidden;
+	}
+
+	&:hover::before {
+		width: 100%;
+	}
+
+}

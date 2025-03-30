@@ -1,0 +1,270 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+
+.xui-component-table {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+
+	& > .xui-application-toolbar:first-child {
+		border-left: 1px solid var(--color-xui-line);
+		border-top: 1px solid var(--color-xui-line);
+		border-right: 1px solid var(--color-xui-line);
+		border-bottom: 0px solid var(--color-xui-line);
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;					
+	}
+
+	& > .xui-application-toolbar:nth-child(2) {
+		border-left: 1px solid var(--color-xui-line);
+		border-top: 1px solid var(--color-xui-line);
+		border-right: 1px solid var(--color-xui-line);
+		border-bottom: 0px solid var(--color-xui-line);
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;					
+	}
+
+	& > .xui-application-toolbar:last-child {
+		border-left: 1px solid var(--color-xui-line);
+		border-top: 0px solid var(--color-xui-line);
+		border-right: 1px solid var(--color-xui-line);
+		border-bottom: 1px solid var(--color-xui-line);
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;					
+	}
+
+	& .xui-component-table_table .xui-table {
+		position: relative;
+		width: 100%;
+
+		& > thead {
+
+			& > tr:first-child > th:first-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& > tr:first-child > th:last-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& > tr > th.xui-component-table_select {
+				width: 32px;
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				text-align: left;
+			}
+
+			& > tr > th.xui-component-table_sort,
+			& > tr > th.xui-component-table_action {
+				position: relative;
+				padding-right: 32px;
+
+				& > .xui-button:last-child {
+					position: absolute;
+					top: 2px;
+					right: 2px;
+				}
+
+				&.--action {
+					padding-right: 64px - 2px;
+
+					& > .xui-button:nth-last-child(2) {
+						position: absolute;
+						top: 2px;
+						right: 2px + 32px - 2px;
+					}
+				}
+			}
+
+		}
+
+		& > tbody {
+
+			& > tr:last-child > td:first-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& > tr:last-child > td:last-child {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			& > tr > td.xui-component-table_select {
+				position: relative;
+				padding-left: 6px;
+				padding-right: 6px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+			}
+
+			& > tr > td.xui-component-table_action {
+				position: relative;
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+
+			& > tr > td.xui-component-table_input {
+				position: relative;
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+
+		}
+	}
+
+}
+
+// ---
+
+.xui-component-table.--application {
+	position: relative;
+	height: 100%;
+
+
+	& > .xui-application-toolbar:first-child {
+		display: none;
+	}
+
+	& > .xui-application-toolbar:nth-child(2) {
+		border-top: 0px;
+		border-left: 0px;
+		border-right: 0px;
+	}
+
+	& > .xui-application-toolbar:last-child {
+		border-top: 1px solid var(--color-xui-line);
+		border-bottom: 0px;
+		border-left: 0px;
+		border-right: 0px;
+	}
+
+	& > .xui-component-table_table .xui-table > thead > tr > th:first-child,
+	& > .xui-component-table_table .xui-table > thead > tr > th:first-child:hover,
+	& > .xui-component-table_table .xui-table > tbody > tr > td:first-child,
+	& > .xui-component-table_table .xui-table > tbody > tr > td:first-child:hover {
+		border-left: 0px;	
+	}
+
+	& > .xui-component-table_table .xui-table > thead > tr > th:last-child,
+	& > .xui-component-table_table .xui-table > thead > tr > th:last-child:hover,
+	& > .xui-component-table_table .xui-table > tbody > tr > td:last-child,
+	& > .xui-component-table_table .xui-table > tbody > tr > td:last-child:hover {
+		border-right: 0px;	
+	}
+
+	& > .xui-component-table_table .xui-table > thead > tr > th {
+		border-bottom: 1px solid var(--color-xui-line);
+	}
+
+	& > .xui-component-table_table .xui-table > tbody > tr:first-child > td {
+		border-top: 0px solid #000000;
+	}
+
+	& > .xui-component-table_table {
+		position: relative;
+		display:block;
+		box-sizing: border-box;
+		width: 100%;
+		height: calc(100% - 80px);
+		overflow: auto;
+	}
+
+	& > .xui-component-table_table .xui-table > thead > tr > th,
+	& > .xui-component-table_table .xui-table > tbody > tr > td {
+		display: none;
+	}
+
+	& > .xui-component-table_table .xui-table > thead > tr > th.--important,
+	& > .xui-component-table_table .xui-table > tbody > tr > td.--important {
+		display: table-cell;
+	}
+
+	@media only screen and (min-width: 600px) {
+
+		& > .xui-component-table_table .xui-table > thead > tr > th,
+		& > .xui-component-table_table .xui-table > tbody > tr > td {
+			display: table-cell;
+		}
+
+	}
+
+}
+
+// ---
+
+.xui-component-table.--no-top-toolbar {
+
+	& > .xui-application-toolbar:first-child {
+		display: none;
+	}
+
+	& > .xui-application-toolbar:nth-child(2) {
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+	}
+		
+}
+
+// ---
+
+.xui-component-table.--no-border-bottom-toolbar {
+
+	& > .xui-component-table_table .xui-table > tbody > tr:last-child > td:first-child {
+		border-bottom-left-radius: 6px;
+	}
+
+	& > .xui-component-table_table .xui-table > tbody > tr:last-child > td:last-child {
+		border-bottom-right-radius: 6px;
+	}
+
+	& > .xui-application-toolbar:last-child {
+		border-left: 0px solid var(--color-xui-line);
+		border-top: 0px solid var(--color-xui-line);
+		border-right: 0px solid var(--color-xui-line);
+		border-bottom: 0px solid var(--color-xui-line);
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;					
+	}
+		
+}
+
+// ---
+
+.xui-component-table.--table-border > .xui-component-table_table {
+	border: 1px solid var(--color-xui-line);
+	border-radius: 3px;
+	overflow: hidden;
+}

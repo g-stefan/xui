@@ -1,0 +1,37 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+.xui-form-html {
+	box-sizing: border-box;
+	margin: 0px;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	width: 100%;
+		
+	background-color: #FFFFFF;
+}
+
+.xui-form-html > .ql-toolbar.ql-snow {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-color: var(--color-xui-line);
+}
+
+.xui-form-html > .xui-form-html_content.ql-container.ql-snow {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-color: var(--color-xui-line);
+}
+

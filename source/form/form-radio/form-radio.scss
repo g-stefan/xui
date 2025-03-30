@@ -1,0 +1,160 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../form-input" as *;
+@use "form-radio.source" as *;
+
+.xui-form-radio {
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	position: relative;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: normal;
+
+	& > input[type="radio"]{
+		display: none;
+
+		&:focus + label::before,
+		&:active + label::before {
+			outline: none;
+		}
+
+		& + label::after {
+			display: block;
+			cursor: pointer;
+			position: absolute;
+			top: 10px;
+			left: 5px;
+			content: " ";
+
+			border-radius: 6px;
+
+			width: 12px;
+			height: 12px;
+
+			background: transparent;
+
+			transition: background-color 0.3s ease;
+		}
+
+	}
+
+	& > label {
+		display: inline-block;
+        	vertical-align: middle;
+
+		font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: normal;
+
+		padding-top: 4px;
+		padding-right: 8px;
+		padding-bottom: 4px;
+		padding-left: 30px;
+
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+
+		cursor: pointer;
+		box-sizing: border-box;
+
+		color: #000000;
+
+
+		&::before {
+			display: block;	
+			cursor: pointer;
+			position: absolute;
+			left: 0px;
+			top: 5px;
+			content: " ";
+
+			width: 22px;
+			height: 22px;
+			border-radius: 11px;
+			background-color: transparent;
+
+			padding-top: 0px;
+			padding-left: 0px;
+			padding-bottom: 0px;
+			padding-right: 0px;
+
+			margin-top: 0px;
+			margin-left: 0px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+
+			box-sizing: border-box;
+
+			transition: border 0.3s ease, box-shadow 0.3s ease;
+		}
+		
+	}
+
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".--#{$type}");
+		
+		&#{$class} {
+			@if $type == "disabled" {
+				& > label,
+				& > input[type="radio"] + label::before,
+				& > input[type="radio"] + label::after {
+					cursor: auto;
+				}
+			}
+	
+			& > label::before {
+				border: 1px solid map.get($form-radio,"#{$type}-normal-bd");
+			}
+			
+			& > input[type="radio"]:focus + label::before,
+			& > input[type="radio"]:active + label::before {
+				@if $type != "disabled" {
+					border: 1px solid map.get($form-radio,"focus-bd");
+					box-shadow: 0px 0px 0px 2px color-mix(in srgb, map.get($form-radio,"focus-bd-shadow") 20%, transparent);
+				} @else {
+					border: 1px solid map.get($form-radio,"#{$type}-normal-fg");
+					box-shadow: none;
+				}
+			}
+	
+			& > input[type="radio"]:focus + label::after,
+			& > input[type="radio"]:active + label::after {
+				@if $type != "disabled" {
+					background-color: map.get($form-radio,"focus-fg");
+				} @else {
+					background-color: transparent;
+				}
+			}
+	
+			& > input[type="radio"]:checked + label::after {
+				background-color: map.get($form-radio,"#{$type}-normal-fg");
+			}
+	
+			& > input[type="radio"]:focus:checked + label::after,
+			& > input[type="radio"]:active:checked + label::after {
+				@if $type != "disabled" {
+					background-color: map.get($form-radio,"focus-fg");
+				} @else {
+					background-color: map.get($form-radio,"disabled-normal-fg");
+				}
+			}
+		}
+	}
+}
+

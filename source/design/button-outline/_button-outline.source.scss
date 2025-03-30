@@ -1,0 +1,40 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@charset "UTF-8";
+
+@use "sass:map";
+@use "../button/button.source" as *;
+
+$button-outline: ();
+
+@each $type, $value in $buttonType {
+	$button-outline: map.merge($button-outline,(
+		"#{$type}-normal-bd": var(--color-xui-#{$type}-normal-bd),
+		"#{$type}-normal-bg": transparent,
+		"#{$type}-normal-fg": var(--color-xui-#{$type}-normal-bd),
+		//
+		"#{$type}-focus-bd":var(--color-xui-#{$type}-focus-bd),
+		"#{$type}-focus-bg": var(--color-xui-#{$type}-focus-bg),
+		"#{$type}-focus-fg": var(--color-xui-#{$type}-focus-fg),
+		"#{$type}-active-bg": var(--color-xui-#{$type}-active-bd),
+		"#{$type}-active-text-shadow": 0px 0px 3px var(--color-xui-#{$type}-normal-bd)
+	));
+};
+
+$button-outline: map.merge($button-outline,(
+	"default-normal-fg": #000000,
+	"default-active-text-shadow": none,	
+	//
+	"disabled-normal-bd": var(--color-xui-disabled-normal-bd),
+	"disabled-normal-bg": var(--color-xui-disabled-normal-bg),
+	"disabled-normal-fg": var(--color-xui-disabled-normal-fg),
+	"disabled-focus-bd":var(--color-xui-disabled-focus-bd),
+	"disabled-focus-bg": var(--color-xui-disabled-focus-bg),
+	"disabled-focus-fg": var(--color-xui-disabled-focus-fg),
+	"disabled-active-bg": var(--color-xui-disabled-active-bg),
+	"disabled-active-text-shadow": none
+));

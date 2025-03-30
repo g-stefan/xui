@@ -1,0 +1,21 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+%application-header-mini {
+	& > .xui-application-brand {
+		width: 72px + 6px;
+	
+		& > .xui-application-brand_content {
+			& > .xui-application-brand_name {
+				opacity: 0;
+			}
+
+			& > .xui-application-brand_mark{
+				opacity: 0;	
+			}
+		}
+	}
+}

@@ -1,0 +1,183 @@
+/*
+// XUI
+// Copyright (c) 2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@theme {
+	--color-xui-line: var(--color-xui-rock-2-500);
+	
+	/* --- Context --- */
+
+	/* --- default ---*/
+	--color-xui-default-100: var(--color-xui-rock-1-100);
+	--color-xui-default-200: var(--color-xui-rock-1-200);
+	--color-xui-default-300: var(--color-xui-rock-1-300);	
+	--color-xui-default-400: var(--color-xui-rock-1-400);
+	--color-xui-default-500: var(--color-xui-rock-1-500);
+	--color-xui-default-600: var(--color-xui-rock-1-600);
+	--color-xui-default-700: var(--color-xui-rock-1-700);
+	--color-xui-default-800: var(--color-xui-rock-1-800);
+	--color-xui-default-900: var(--color-xui-rock-1-900);
+	/* --- */
+	--color-xui-default-normal-bd: var(--color-xui-default-600);	
+	--color-xui-default-normal-bg: #FFFFFF;
+	--color-xui-default-normal-fg: #000000;
+	--color-xui-default-focus-bd: var(--color-xui-default-600);
+	--color-xui-default-focus-bg: var(--color-xui-default-500);
+	--color-xui-default-focus-fg: #000000;
+	--color-xui-default-active-bd: var(--color-xui-default-600);
+	--color-xui-default-active-bg: var(--color-xui-default-600);
+	--color-xui-default-active-fg: #000000;
+	
+	/* --- primary ---*/
+	--color-xui-primary-100: var(--color-xui-science-blue-1-100);
+	--color-xui-primary-200: var(--color-xui-science-blue-1-200);
+	--color-xui-primary-300: var(--color-xui-science-blue-1-500);
+	--color-xui-primary-400: var(--color-xui-science-blue-2-500);
+	--color-xui-primary-500: var(--color-xui-science-blue-3-500);
+	--color-xui-primary-600: var(--color-xui-science-blue-3-600);
+	--color-xui-primary-700: var(--color-xui-science-blue-3-700);
+	--color-xui-primary-800: var(--color-xui-science-blue-3-800);
+	--color-xui-primary-900: var(--color-xui-science-blue-3-900);
+	/* --- */
+	--color-xui-primary-normal-bd: var(--color-xui-primary-600);
+	--color-xui-primary-normal-bg: var(--color-xui-primary-500);
+	--color-xui-primary-normal-fg: #FFFFFF;	
+	--color-xui-primary-focus-bd: var(--color-xui-primary-600);
+	--color-xui-primary-focus-bg: var(--color-xui-primary-400);
+	--color-xui-primary-focus-fg: #FFFFFF;
+	--color-xui-primary-active-bd: var(--color-xui-primary-600);	
+	--color-xui-primary-active-bg: var(--color-xui-primary-600);
+	--color-xui-primary-active-fg: #FFFFFF;
+	
+	/* --- secondary ---*/
+	--color-xui-secondary-100: var(--color-xui-rock-5-100);
+	--color-xui-secondary-200: var(--color-xui-rock-5-200);
+	--color-xui-secondary-300: var(--color-xui-rock-5-300);
+	--color-xui-secondary-400: var(--color-xui-rock-5-400);
+	--color-xui-secondary-500: var(--color-xui-rock-5-500);
+	--color-xui-secondary-600: var(--color-xui-rock-5-600);
+	--color-xui-secondary-700: var(--color-xui-rock-5-700);
+	--color-xui-secondary-800: var(--color-xui-rock-5-800);
+	--color-xui-secondary-900: var(--color-xui-rock-5-900);
+	/* --- */
+	--color-xui-secondary-normal-bd: var(--color-xui-secondary-600);
+	--color-xui-secondary-normal-bg: var(--color-xui-secondary-500);
+	--color-xui-secondary-normal-fg: #FFFFFF;	
+	--color-xui-secondary-focus-bd: var(--color-xui-secondary-600);
+	--color-xui-secondary-focus-bg: var(--color-xui-secondary-400);
+	--color-xui-secondary-focus-fg: #FFFFFF;
+	--color-xui-secondary-active-bd: var(--color-xui-secondary-600);	
+	--color-xui-secondary-active-bg: var(--color-xui-secondary-600);
+	--color-xui-secondary-active-fg: #FFFFFF;
+
+	/* --- success ---*/
+	--color-xui-success-100: var(--color-xui-green-1-100);
+	--color-xui-success-200: var(--color-xui-green-1-200);
+	--color-xui-success-300: var(--color-xui-green-1-500);
+	--color-xui-success-400: var(--color-xui-green-2-500);
+	--color-xui-success-500: var(--color-xui-green-3-500);
+	--color-xui-success-600: var(--color-xui-green-3-600);
+	--color-xui-success-700: var(--color-xui-green-3-700);
+	--color-xui-success-800: var(--color-xui-green-3-800);
+	--color-xui-success-900: var(--color-xui-green-3-900);
+	/* --- */
+	--color-xui-success-normal-bd: var(--color-xui-success-600);
+	--color-xui-success-normal-bg: var(--color-xui-success-500);
+	--color-xui-success-normal-fg: #FFFFFF;	
+	--color-xui-success-focus-bd: var(--color-xui-success-600);
+	--color-xui-success-focus-bg: var(--color-xui-success-400);
+	--color-xui-success-focus-fg: #FFFFFF;
+	--color-xui-success-active-bd: var(--color-xui-success-600);	
+	--color-xui-success-active-bg: var(--color-xui-success-600);
+	--color-xui-success-active-fg: #FFFFFF;	
+
+	/* --- danger ---*/
+	--color-xui-danger-100: var(--color-xui-persian-red-1-100);
+	--color-xui-danger-200: var(--color-xui-persian-red-1-200);
+	--color-xui-danger-300: var(--color-xui-persian-red-1-500);
+	--color-xui-danger-400: var(--color-xui-persian-red-2-500);
+	--color-xui-danger-500: var(--color-xui-persian-red-3-500);
+	--color-xui-danger-600: var(--color-xui-persian-red-3-600);
+	--color-xui-danger-700: var(--color-xui-persian-red-3-700);
+	--color-xui-danger-800: var(--color-xui-persian-red-3-800);
+	--color-xui-danger-900: var(--color-xui-persian-red-3-900);
+	/* --- */
+	--color-xui-danger-normal-bd: var(--color-xui-danger-600);
+	--color-xui-danger-normal-bg: var(--color-xui-danger-500);
+	--color-xui-danger-normal-fg: #FFFFFF;	
+	--color-xui-danger-focus-bd: var(--color-xui-danger-600);
+	--color-xui-danger-focus-bg: var(--color-xui-danger-400);
+	--color-xui-danger-focus-fg: #FFFFFF;
+	--color-xui-danger-active-bd: var(--color-xui-danger-600);	
+	--color-xui-danger-active-bg: var(--color-xui-danger-600);
+	--color-xui-danger-active-fg: #FFFFFF;	
+
+	/* --- warning ---*/
+	--color-xui-warning-100: var(--color-xui-sunflower-1-100);
+	--color-xui-warning-200: var(--color-xui-sunflower-1-200);
+	--color-xui-warning-300: var(--color-xui-sunflower-1-400);
+	--color-xui-warning-400: var(--color-xui-sunflower-1-500);
+	--color-xui-warning-500: var(--color-xui-sunflower-2-500);
+	--color-xui-warning-600: var(--color-xui-sunflower-3-500);
+	--color-xui-warning-700: var(--color-xui-sunflower-3-600);
+	--color-xui-warning-800: var(--color-xui-sunflower-3-800);
+	--color-xui-warning-900: var(--color-xui-sunflower-3-900);
+	/* --- */
+	--color-xui-warning-normal-bd: var(--color-xui-warning-600);
+	--color-xui-warning-normal-bg: var(--color-xui-warning-500);
+	--color-xui-warning-normal-fg: #FFFFFF;	
+	--color-xui-warning-focus-bd: var(--color-xui-warning-600);
+	--color-xui-warning-focus-bg: var(--color-xui-warning-400);
+	--color-xui-warning-focus-fg: #FFFFFF;
+	--color-xui-warning-active-bd: var(--color-xui-warning-600);	
+	--color-xui-warning-active-bg: var(--color-xui-warning-600);
+	--color-xui-warning-active-fg: #FFFFFF;	
+
+	/* --- info ---*/
+	--color-xui-info-100: var(--color-xui-aqua-1-100);
+	--color-xui-info-200: var(--color-xui-aqua-1-200);
+	--color-xui-info-300: var(--color-xui-aqua-1-400);
+	--color-xui-info-400: var(--color-xui-aqua-1-500);
+	--color-xui-info-500: var(--color-xui-aqua-2-500);
+	--color-xui-info-600: var(--color-xui-aqua-3-500);
+	--color-xui-info-700: var(--color-xui-aqua-3-600);
+	--color-xui-info-800: var(--color-xui-aqua-3-800);
+	--color-xui-info-900: var(--color-xui-aqua-3-900);
+	/* --- */
+	--color-xui-info-normal-bd: var(--color-xui-info-600);
+	--color-xui-info-normal-bg: var(--color-xui-info-500);
+	--color-xui-info-normal-fg: #FFFFFF;	
+	--color-xui-info-focus-bd: var(--color-xui-info-600);
+	--color-xui-info-focus-bg: var(--color-xui-info-400);
+	--color-xui-info-focus-fg: #FFFFFF;
+	--color-xui-info-active-bd: var(--color-xui-info-600);	
+	--color-xui-info-active-bg: var(--color-xui-info-600);
+	--color-xui-info-active-fg: #FFFFFF;	
+	
+	/* --- disabled ---*/
+	--color-xui-disabled-100: var(--color-xui-rock-1-100);
+	--color-xui-disabled-200: var(--color-xui-rock-1-200);
+	--color-xui-disabled-300: var(--color-xui-rock-1-300);
+	--color-xui-disabled-400: var(--color-xui-rock-1-400);
+	--color-xui-disabled-500: var(--color-xui-rock-1-500);
+	--color-xui-disabled-600: var(--color-xui-rock-1-600);
+	--color-xui-disabled-700: var(--color-xui-rock-1-700);
+	--color-xui-disabled-800: var(--color-xui-rock-1-800);
+	--color-xui-disabled-900: var(--color-xui-rock-1-900);
+	/* --- */
+	--color-xui-disabled-normal-bd: var(--color-xui-disabled-600);
+	--color-xui-disabled-normal-bg: var(--color-xui-disabled-500);
+	--color-xui-disabled-normal-fg: var(--color-xui-disabled-700);
+	--color-xui-disabled-focus-bd: var(--color-xui-disabled-600);
+	--color-xui-disabled-focus-bg: var(--color-xui-disabled-500);
+	--color-xui-disabled-focus-fg: var(--color-xui-disabled-700);
+	--color-xui-disabled-active-bd: var(--color-xui-disabled-600);	
+	--color-xui-disabled-active-bg: var(--color-xui-disabled-500);
+	--color-xui-disabled-active-fg: var(--color-xui-disabled-700);	
+		
+}
+

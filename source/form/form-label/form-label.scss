@@ -1,0 +1,36 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../form-input" as *;
+@use "form-label.source" as *;
+
+.xui-form-label {
+	display: inline-block;
+        vertical-align: middle;
+
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 6px;
+	padding-bottom: 6px;
+
+	@each $type, $value in $formInputType {
+		$class: if($type == "default","",".--#{$type}");		
+
+		&#{$class} {
+			color: map.get($form-label,"#{$type}-normal-fg");
+		}
+	}
+	
+}
+

@@ -1,0 +1,45 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@use "../menu/menu.source" as *;
+
+%menu-accordion {
+
+	padding: 3px 3px 3px 3px;
+
+	& li {
+		@extend %menu-level-reset;
+	}
+
+	& > li {
+		@extend %menu-level;
+	}
+		
+	// Level 1
+
+	& > li.--on > ul
+	> li {
+		@extend %menu-level;
+	}
+
+	// Level 2
+
+	& > li.--on > ul
+	> li.--on > ul
+	> li {
+		@extend %menu-level;
+	}
+
+	// Level 3
+
+	& > li.--on > ul
+	> li.--on > ul
+	> li.--on > ul
+	> li {
+		@extend %menu-level;
+	}
+
+}

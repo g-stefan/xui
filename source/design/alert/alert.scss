@@ -1,0 +1,50 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+
+@use "sass:map";
+
+@use "alert.source" as *;
+
+.xui-alert {
+	display: block;
+	position: relative;
+	width: auto;
+
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+	font-family: "Roboto", sans-serif;
+
+	border-radius: 3px;
+
+	padding-top: 13px;
+	padding-left: 16px;
+	padding-bottom: 13px;
+	padding-right: 16px;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+	box-sizing: border-box;
+
+	@each $type, $value in $alertType {
+		$class: if($type == "default","",".--#{$type}");
+
+		&#{$class} {
+			border: 1px solid map.get($alert,"#{$type}-bd");
+			background-color: map.get($alert,"#{$type}-bg");
+			color: map.get($alert,"#{$type}-fg");
+		}
+	}
+
+}
+

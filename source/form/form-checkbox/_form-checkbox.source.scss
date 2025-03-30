@@ -1,0 +1,28 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../form-input" as *;
+
+$form-checkbox: ();
+
+@each $type, $value in $formInputType {
+	$form-checkbox: map.merge($form-checkbox,(
+		"#{$type}-normal-bd": var(--color-xui-#{$type}-normal-bd),
+		"#{$type}-normal-fg": var(--color-xui-#{$type}-normal-bg)
+	));
+};
+
+$form-checkbox: map.merge($form-checkbox,(
+	"focus-fg": var(--color-xui-primary-focus-bg),
+	"focus-bd": var(--color-xui-primary-400),
+	"focus-bd-shadow": var(--color-xui-primary-300),
+	
+	"default-normal-fg": var(--color-xui-primary-normal-bg),
+	"disabled-normal-fg": var(--color-xui-disabled-normal-bd)
+));

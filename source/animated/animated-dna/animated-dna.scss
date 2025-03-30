@@ -1,0 +1,160 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:list";
+
+.xui-animated-dna {
+	position: relative;	
+	width: 128px;
+	height: 64px;
+	background-color: transparent;
+
+	& > .xui-animated-dna_strand {
+		position: relative;
+		width: 16px;
+		height: 64px;
+		float: left;
+	
+		& > .xui-animated-dna_atom-1 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border-radius: 50%;
+			background-color: #0194FE;
+			width: 16px;
+			height: 16px;
+			animation: xui-animated-dna_spin-1 2s linear infinite;
+			transform-origin: center center;
+			transform: scale(0.5);
+		}
+
+		& > .xui-animated-dna_link {
+			position: absolute;
+			top: 16px;
+			left: 7px;
+			width: 2px;
+			height: 32px;
+			background-color: rgba(144, 208, 252, 0.5);
+			animation: xui-animated-dna_link 1s linear infinite;
+			transform-origin: center center;
+			border-radius: 50%;
+		}
+
+		& > .xui-animated-dna_atom-2 {
+			position: absolute;
+			top: 48px;
+			left: 0px;
+			border-radius: 50%;
+			background-color: #0194FE;
+			width: 16px;
+			height: 16px;
+			animation: xui-animated-dna_spin-2 2s linear infinite;
+			transform-origin: center center;
+			transform: scale(0.5);
+		}
+
+		$animation-delay: (-0.875s, -0.75s, -0.625s, -0.5s, -0.375s, -0.25s, -0.125s, -0s);
+
+		@for $index from 1 through 8 {
+			&:nth-child(#{$index}) *{
+				animation-delay: list.nth($animation-delay,$index);
+			}
+		}
+	}
+}
+
+@keyframes xui-animated-dna_spin-1 {
+	0%{
+		transform: translateY(0px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: translateY(16px) scale(1);
+		z-index: 1;
+		background-color: #90D0FC;
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: translateY(48px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	75% {
+		transform: translateY(16px) scale(0.25);
+		z-index: 0;
+		background-color: rgba(0, 20, 125, 0);
+		animation-timing-function: ease-out;
+	}
+	100% {
+		transform: translateY(0px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+}
+
+@keyframes xui-animated-dna_spin-2 {
+	0%{
+		transform: translateY(0px) scale(0.5);	
+		z-index: 0;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: translateY(-16px) scale(0.25);
+		z-index: 0;
+		background-color: rgba(0, 20, 125, 0);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: translateY(-48px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	75% {
+		transform: translateY(-16px) scale(1);
+		z-index: 1;
+		background-color: #90D0FC;
+		animation-timing-function: ease-out;
+	}
+	100% {
+		transform: translateY(0px) scale(0.5);
+		z-index: 0;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+}
+
+@keyframes xui-animated-dna_link {
+	0%{
+		transform: scaleY(1);
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: scaleY(0.2);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: scaleY(0);
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: scaleY(0.2);
+		animation-timing-function: ease-out;
+	}
+	100% {
+		transform: scaleY(1);
+		animation-timing-function: ease-in;
+	}
+}
+

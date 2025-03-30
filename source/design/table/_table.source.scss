@@ -1,0 +1,16 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+$table: (
+	"head-text-color": #000000,
+	"text-color": #000000,
+	"background-color": #FFFFFF,
+	"border-color": var(--color-xui-line),
+	"hover-background-color": var(--color-xui-primary-100),
+	"hover-border-color": var(--color-xui-primary-400),
+	"hover-inner-border-color": var(--color-xui-primary-400),
+	"even-background-color": var(--color-xui-secondary-100)
+);

@@ -1,0 +1,127 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../../core/util";
+@use "../form-input" as *;
+@use "../form-text/form-text.source" as *;
+
+// Select2
+
+.select2-container .select2-selection--multiple {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: normal;
+
+	padding-top: 0px;
+	padding-right: 3px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+
+	box-sizing: border-box;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	line-height: 20px;
+	padding-left: 0px;
+}
+
+@each $type, $value in $formInputType {
+	$class: if($type == "default", "", ".--#{$type}");
+
+	$border-color: map.get($form-text, "#{$type}-normal-bd");
+	$text-color: map.get($form-text, "#{$type}-normal-fg");
+	$box-shadow-color-focus: if($type == "disabled", transparent, map.get($form-text, "focus-bd-shadow"));
+	$border-color-focus: map.get($form-text, "focus-bd");
+
+	$border-color: if($type == "disabled", $text-color, $border-color);
+	$border-color-focus: if($type == "disabled", $text-color, $border-color-focus);
+
+	$option-text-color: $text-color;
+	$option-text-color-focus: #ffffff;
+	$option-background-color-focus: $border-color-focus;
+
+	.select2-container--default#{$class} {
+		& .select2-selection--multiple .select2-selection__rendered {
+			color: $text-color;
+		}
+
+		& .select2-selection--multiple {
+			border: 1px solid $border-color;
+		}
+
+		&.select2-container--focus .select2-selection.select2-selection--multiple {
+			border: 1px solid $border-color-focus;
+			outline: none;
+			box-shadow: 0px 0px 0px 2px color-mix(in srgb, $box-shadow-color-focus 20%, transparent);
+		}
+
+		&.select2-container--open .select2-selection.select2-selection--multiple {
+			border: 1px solid $border-color-focus;
+			outline: none;
+			box-shadow: 0px 0px 0px 2px color-mix(in srgb, $box-shadow-color-focus 20%, transparent);
+		}
+
+		&.select2-container--focus .select2-selection--multiple {
+			border: 1px solid $border-color-focus;
+		}
+
+		& .select2-selection--multiple li.select2-selection__choice {
+			background-color: #ffffff;
+			border: 1px solid map.get($form-text, "default-normal-bd");
+			border-radius: 3px;
+			margin-right: 3px;
+			margin-top: 3px;
+			padding: 0 6px;
+			color: #000000;
+			box-sizing: border-box;
+		}
+
+		& .select2-selection--multiple span.select2-selection__choice__remove {
+			color: var(--color-xui-rock-4-500);
+		}
+
+		& .select2-selection--multiple span.select2-selection__choice__remove:hover {
+			color: var(--color-xui-danger-normal-bg);
+		}
+	}
+}
+
+.select2-container--default .select2-selection--multiple {
+	border-radius: 3px;
+}
+
+.select2-container--default.-disabled.select2-container--focus .select2-selection.select2-selection--multiple {
+	box-shadow: none;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.select2-container .select2-selection.select2-selection--multiple .select2-search--inline .select2-search__field {
+	margin-top: 4px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+	margin-right: 4px;
+}

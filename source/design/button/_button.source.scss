@@ -1,0 +1,43 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@charset "UTF-8";
+@use "sass:map";
+
+$buttonType: (
+	"default",
+	"primary",	
+	"secondary",
+	"success",
+	"danger",
+	"warning",
+	"info",
+	"disabled"
+);
+
+$button: ();
+
+@each $type, $value in $buttonType {
+	$button: map.merge($button,(		
+		"#{$type}-normal-bd": var(--color-xui-#{$type}-normal-bd),
+		"#{$type}-normal-bg": var(--color-xui-#{$type}-normal-bg),
+		"#{$type}-normal-fg": var(--color-xui-#{$type}-normal-fg),
+		//		
+		"#{$type}-focus-bg": var(--color-xui-#{$type}-focus-bg),
+		"#{$type}-focus-fg": var(--color-xui-#{$type}-focus-fg),
+		//
+		"#{$type}-active-bg": var(--color-xui-#{$type}-active-bg),
+		//
+		"#{$type}-text-shadow": 0px 0px 3px var(--color-xui-#{$type}-normal-bd)
+	));
+};
+
+$button: map.merge($button,(
+	"default-text-shadow": none,
+	//	
+	"disabled-text-shadow": none
+));
+

@@ -1,0 +1,137 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+
+.xui-menu_item {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	overflow: hidden;
+
+	display: block;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FFFFFF;
+
+	border-radius: 3px;
+
+	white-space: nowrap;
+
+	&::before {
+		position: relative;
+		content: "";
+		float: left;
+		height: 28px - 20px;
+		width: 4px;
+		margin-left: 12px;
+		margin-top: 6px + 10px;
+		margin-bottom: 6px;
+		margin-right: 0px;
+		border-radius: 2px;
+		z-index: 1;
+	}
+
+	&>i:first-of-type,
+	&>svg:first-of-type {
+		position: relative;
+		float: left;
+		height: 24px;
+		width: 24px;
+		margin-left: 8px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		margin-right: 8px;
+		transition: color 0.3s ease;
+		color: var(--color-xui-rock-4-500);
+	}
+
+	&>span:first-of-type {
+		position: relative;
+		float: left;
+
+		margin-left: 24px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		margin-right: 8px;
+
+		line-height: 24px;
+		font-size: 16px;
+
+		&+i:last-of-type,
+		&+svg:last-of-type {
+			position: relative;
+			float: right;
+			height: 24px;
+			width: 24px;
+			margin-left: 8px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+			margin-right: 8px;
+			transition: transform 0.5s ease;
+			color: var(--color-xui-rock-5-500);
+		}
+	}
+
+	&:hover {
+		background-color: var(--color-xui-rock-1-500);
+
+		& .xui-effect-ripple_element {
+			background-color: var(--color-xui-rock-2-500);
+		}
+
+		& i:first-of-type,
+		& svg:first-of-type {
+			color: var(--color-xui-rock-6-500);
+		}
+	}
+
+	&.--selected {
+		background-color: #FFFFFF;
+
+		&::before {
+			background-color: var(--color-xui-info-500);
+		}
+
+		& i:first-of-type,
+		& svg:first-of-type {
+			color: var(--color-xui-primary-400);
+		}
+
+		&:hover {
+			background-color: var(--color-xui-rock-1-500);
+
+			& i:first-of-type,
+			& svg:first-of-type {
+				color: var(--color-xui-primary-400);
+			}
+
+			& .xui-effect-ripple_element {
+				background-color: var(--color-xui-rock-2-500);
+			}
+		}
+	}
+
+	&.--active>span+i:last-of-type,
+	&.--active>span+svg:last-of-type {
+		transform: rotate(90deg);
+	}
+}
+
+a.xui-menu_item {
+
+	&:visited,
+	&:hover,
+	&:active {
+		color: #000000;
+	}
+}

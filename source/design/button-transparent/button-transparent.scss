@@ -1,0 +1,149 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../button/button.source" as *;
+@use "button-transparent.source" as *;
+
+.xui-button.--transparent {
+	$border-size: 1px;
+
+	@each $type, $value in $buttonType {
+		$class: if($type =="default", "", ".--#{$type}");
+
+		&#{$class} {
+			border: $border-size solid map.get($button-transparent, "#{$type}-normal-bd");
+			background-color: map.get($button-transparent, "#{$type}-normal-bg");
+			color: map.get($button-transparent, "#{$type}-normal-fg");
+			text-shadow: none;
+
+			&:hover,
+			&:focus {
+				border: $border-size solid map.get($button-transparent, "#{$type}-focus-bd");
+				background-color: map.get($button-transparent, "#{$type}-focus-bg");
+				color: map.get($button-transparent, "#{$type}-focus-fg");
+				text-shadow: none;
+
+				& > i,
+				& > svg {
+					color: map.get($button-transparent, "#{$type}-normal-fg");
+				}
+			}
+
+			&:active {
+				border: $border-size solid map.get($button-transparent, "#{$type}-focus-bd");
+				background-color: map.get($button-transparent, "#{$type}-active-bg");
+				color: map.get($button-transparent, "#{$type}-active-fg");
+				text-shadow: none;
+
+				& > i,
+				& > svg {
+					color: map.get($button-transparent, "#{$type}-normal-fg");
+				}
+			}
+
+			&:visited {
+				color: map.get($button-transparent, "#{$type}-normal-fg");
+
+				& > i,
+				& > svg {
+					color: map.get($button-transparent, "#{$type}-normal-fg");
+				}
+			}
+
+			&.xui-effect-ripple {
+
+				&:active {
+					background-color: map.get($button-transparent, "#{$type}-focus-bg");
+				}
+
+				& .xui-effect-ripple_element {
+					background-color: map.get($button-transparent, "#{$type}-active-bg");
+				}
+
+			}
+
+			&.--toolbar {
+				@if($type =="default") {
+					& > i,
+					& > svg {
+						color: var(--color-xui-rock-4-500);
+					}
+				} @else {
+					& > i,
+					& > svg {
+						color: map.get($button-transparent, "#{$type}-normal-fg");
+					}
+				}
+
+				&> span {
+					color: #000000;
+					display: inline-block;
+					white-space: nowrap;
+				}
+
+				&:hover,
+				&:focus {
+					& > span {
+						color: map.get($button-transparent, "#{$type}-focus-fg");
+					}
+
+					& > i,
+					& > svg {
+						color: map.get($button-transparent, "#{$type}-normal-fg");
+					}
+				}
+
+				&:active {
+					& > span {
+						color: map.get($button-transparent, "#{$type}-active-fg");
+					}
+
+					& > i,
+					& > svg {
+						color: map.get($button-transparent, "#{$type}-focus-bd");
+					}
+				}
+
+			}
+
+		}
+	}
+
+	&.--toolbar:active > i,
+	&.--toolbar:active > svg {
+		color: map.get($button-transparent, "default-focus-fg");
+	}
+
+	&.--disabled.--toolbar {
+		&>span {
+			color: map.get($button-transparent, "disabled-normal-fg");
+		}
+
+		&:active > i,
+		&:active > svg {
+			color: map.get($button-transparent, "disabled-normal-fg");
+		}
+	}
+
+	&.--only-icon {
+		display: inline-block;
+		padding-right: 0px;
+
+		&>span {
+			display: none !important;
+		}
+
+		&.--small {
+			width: 32px;
+		}
+	}
+	
+}

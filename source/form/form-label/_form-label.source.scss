@@ -1,0 +1,23 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../form-input" as *;
+
+$form-label: ();
+
+@each $type, $value in $formInputType {
+	$form-label: map.merge($form-label,(
+		"#{$type}-normal-fg": var(--color-xui-#{$type}-normal-bg)
+	));
+};
+
+$form-label: map.merge($form-label,(
+	"default-normal-fg": #000000,
+	"disabled-normal-fg": var(--color-xui-disabled-normal-fg)
+));

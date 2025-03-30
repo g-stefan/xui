@@ -1,0 +1,54 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../../core/util";
+
+.air-datepicker {
+	border-radius: 3px;
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	z-index: 1000;
+
+	--adp-border-color: var(--color-xui-line);
+    	--adp-border-color-inner: var(--color-xui-line);
+    	--adp-border-radius: 3px;
+    	--adp-border-color-inline: var(--color-xui-line);
+	--adp-time-track-color: var(--color-xui-line);
+	--adp-cell-background-color-selected : var(--color-xui-primary-normal-bg);
+        --adp-cell-background-color-selected-hover: var(--color-xui-primary-normal-bg);
+	
+	@include util.raw("@apply shadow-md;");
+}
+
+.air-datepicker-body--day-name{
+	color: var(--color-xui-primary-normal-bg);
+}
+
+.air-datepicker-cell.-current-{
+	color: var(--color-xui-primary-normal-bd);	
+}
+
+.air-datepicker-cell.-selected-{
+	background-color: var(--color-xui-primary-normal-bg);
+}
+
+.air-datepicker-cell.-selected-.-focus-{
+	background-color: var(--color-xui-primary-normal-bg);
+	color: var(--color-xui-primary-normal-fg);
+}
+
+.air-datepicker-cell.-selected-.-current-{	
+	color: var(--color-xui-primary-normal-fg);
+}
+
+.air-datepicker.-only-timepicker- > .air-datepicker--time {
+	border-top: 0px solid #000000;
+}

@@ -1,0 +1,38 @@
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+@charset "UTF-8";
+@use "sass:map";
+
+@use "../form-input" as *;
+
+$form-textarea: ();
+
+@each $type, $value in $formInputType {
+	$form-textarea: map.merge($form-textarea,(
+		"#{$type}-normal-bd": var(--color-xui-#{$type}-normal-bd),
+		"#{$type}-normal-fg": #000000,
+		"#{$type}-focus-fg": #000000,
+		"#{$type}-normal-icon": var(--color-xui-#{$type}-normal-bg),
+		"#{$type}-focus-icon": var(--color-xui-primary-focus-bd),
+	));
+};
+
+$form-textarea: map.merge($form-textarea,(
+	"placeholder": var(--color-xui-line),
+	"required": var(--color-xui-danger-normal-bg),
+
+	"default-normal-icon": var(--color-xui-secondary-400),
+	
+	"focus-bd": var(--color-xui-primary-400),
+	"focus-bd-shadow": var(--color-xui-primary-300),
+
+	"disabled-normal-bd": var(--color-xui-disabled-normal-bd),
+	"disabled-normal-fg": var(--color-xui-disabled-normal-bd),
+	"disabled-focus-fg": var(--color-xui-disabled-normal-bd),
+	"disabled-normal-icon": var(--color-xui-disabled-normal-bd),
+	"disabled-focus-icon": var(--color-xui-disabled-normal-bd)
+));

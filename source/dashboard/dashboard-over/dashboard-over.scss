@@ -1,0 +1,64 @@
+/*!
+// XUI
+// Copyright (c) 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+@charset "UTF-8";
+@use "sass:map";
+@use "../../application/application-user/application-user.source" as *;
+@use "../../application/application-header/application-header.source" as *;
+@use "../../menu/menu/menu.source" as *;
+@use "../../menu/menu-accordion/menu-accordion.source" as *;
+@use "../../menu/menu-dropdown/menu-dropdown.source" as *;
+@use "../../menu/menu-mini/menu-mini.source" as *;
+
+.xui-dashboard.--over {
+
+	& .xui-application-header {
+		@extend %application-header-mini;
+	}
+
+	& .xui-application-header > .xui-application-brand {
+		width: 0px;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	& .xui-content {
+		width: 100%;
+		border-radius: 0px;
+		border-left: 0px solid transparent;
+	}
+
+	& .xui-navigation-drawer .xui-menu {
+		@extend	%menu-accordion;
+	}
+
+	& .xui-navigation-drawer {
+		position: absolute;
+		width: 288px + 6px;
+		overflow: hidden;
+		left: -288px - 6px - 1px;
+		border-top: 1px solid var(--color-xui-line);
+		border-right: 1px solid var(--color-xui-line);
+		transition: left 0.5s ease;
+	}
+
+	&.--open  {
+
+		& .xui-navigation-drawer {
+			left: 0px;
+		}
+
+		& .xui-content_cover {
+			height: calc(100% - 64px);
+			opacity: 0.4;
+		}
+
+	}
+
+}
+
