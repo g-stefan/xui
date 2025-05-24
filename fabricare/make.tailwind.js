@@ -18,7 +18,17 @@ runInPath("temp", function() {
 Shell.copy("source/app.css", "temp/app.css");
 runInPath("temp", function() {
 	Shell.system("npx @tailwindcss/cli -i ./app.css -o ../output/app.min.css --minify");
-	//Shell.system("npx @tailwindcss/cli -i ./app.css -o ../output/app.min.css");
 });
 
 // ---
+Shell.copy("source/dashboard/dashboard-theme-2/xui.dashboard.theme-2.css", "temp/xui.dashboard.theme-2.css");
+runInPath("temp", function() {
+	Shell.system("npx @tailwindcss/cli -i ./xui.dashboard.theme-2.css -o ../output/release/xui.dashboard.theme-2.min.css --minify");
+});
+
+// ---
+Shell.copy("source/dashboard/dashboard-theme-3/xui.dashboard.theme-3.css", "temp/xui.dashboard.theme-3.css");
+runInPath("temp", function() {
+	Shell.system("npx @tailwindcss/cli -i ./xui.dashboard.theme-3.css -o ../output/release/xui.dashboard.theme-3.min.css --minify");
+});
+

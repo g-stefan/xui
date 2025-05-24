@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="../vendor/lucide-icons.min.css">
 	<link rel="stylesheet" href="../vendor/overlayscrollbars.min.css">	
 	<link rel="stylesheet" href="../app.min.css">
+	<link rel="stylesheet" href="../release/xui.dashboard.theme-3.min.css">
 </head>
 
 <body class="xui-overlay-scrollbars bg-xui-rock-1-500" data-overlayscrollbars-initialize>

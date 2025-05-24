@@ -9,6 +9,7 @@ Script.requireExtension("Make");
 
 function BuildProcessor() {
 
+	this.path = "process";
 	this.name = "process";
 	this.completeCSS = [];
 	this.completeJS = [];
@@ -24,12 +25,12 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var scssIn = "source/" + this.name + "/" + name + "/" + name + mod + ".scss";
+		var scssIn = "source/" + this.path + "/" + name + "/" + name + mod + ".scss";
 		var cssIn = "temp/" + name + mod + ".css";
 		var cssOut = "temp/xui-" + name + mod + ".css";
 		var cssMinOut = "temp/xui-" + name + mod + ".min.css";
 
-		var scssInSub = Shell.getFileList("source/" + this.name + "/" + name + "/_" + name + mod + ".*.scss");
+		var scssInSub = Shell.getFileList("source/" + this.path + "/" + name + "/_" + name + mod + ".*.scss");
 
 		this.make.target(cssMinOut, [].concat(scssIn).concat(scssInSub), function (cssMinOut, source) {
 			Script.requireExtension("Console");
@@ -68,7 +69,7 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var scssIn = "source/" + this.name + "/" + name + "/" + name + mod + ".scss";
+		var scssIn = "source/" + this.path + "/" + name + "/" + name + mod + ".scss";
 		if (Shell.fileExists(scssIn)) {
 			this.completeCSS.push(this.makeCSS(name, mod));
 		};
@@ -80,7 +81,7 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var jsIn = "source/" + this.name + "/" + name + "/" + name + mod + ".js";
+		var jsIn = "source/" + this.path + "/" + name + "/" + name + mod + ".js";
 		var jsOut = "temp/xui-" + name + mod + ".js";
 		var jsMinOut = "temp/xui-" + name + mod + ".min.js";
 
@@ -102,7 +103,7 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var jsIn = "source/" + this.name + "/" + name + "/" + name + mod + ".js";
+		var jsIn = "source/" + this.path + "/" + name + "/" + name + mod + ".js";
 		if (Shell.fileExists(jsIn)) {
 			this.completeJS.push(this.makeJS(name, mod));
 		};
@@ -114,10 +115,10 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var htmlIn = "source/" + this.name + "/" + name + "/" + name + mod + ".php";
-		var htmlOut = "output/" + this.name + "/xui-" + name + mod + ".html";
+		var htmlIn = "source/" + this.path + "/" + name + "/" + name + mod + ".php";
+		var htmlOut = "output/" + this.path + "/xui-" + name + mod + ".html";
 
-		var htmlInSub = Shell.getFileList("source/" + this.name + "/" + name + "/" + name + mod + "-*.php");
+		var htmlInSub = Shell.getFileList("source/" + this.path + "/" + name + "/" + name + mod + "-*.php");
 
 		this.make.target(htmlOut, [].concat(htmlIn).concat(htmlInSub), function (htmlOut, source) {
 			Script.requireExtension("Console");
@@ -136,7 +137,7 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var htmlIn = "source/" + this.name + "/" + name + "/" + name + mod + ".php";
+		var htmlIn = "source/" + this.path + "/" + name + "/" + name + mod + ".php";
 		if (Shell.fileExists(htmlIn)) {
 			this.completeHTML.push(this.makeHTML(name, mod));
 		};
@@ -159,21 +160,21 @@ function BuildProcessor() {
 			mod = "";
 		};
 
-		var scssIn = "source/" + this.name + "/" + name + "/" + name + mod + ".scss";
+		var scssIn = "source/" + this.path + "/" + name + "/" + name + mod + ".scss";
 		if (Shell.fileExists(scssIn)) {
 			var _css = this.makeCSS(name, mod);
 			this.completeComponents.push(_css);
 			this.completeComponentsCSS.push(_css);
 		};
 
-		var jsIn = "source/" + this.name + "/" + name + "/" + name + mod + ".js";
+		var jsIn = "source/" + this.path + "/" + name + "/" + name + mod + ".js";
 		if (Shell.fileExists(jsIn)) {
 			var _js = this.makeJS(name, mod);
 			this.completeComponents.push(_js);
 			this.completeComponentsJS.push(_js);
 		};
 
-		var htmlIn = "source/" + this.name + "/" + name + "/" + name + mod + ".php";
+		var htmlIn = "source/" + this.path + "/" + name + "/" + name + mod + ".php";
 		if (Shell.fileExists(htmlIn)) {
 			this.completeComponents.push(this.makeHTML(name, mod));
 		};
@@ -223,9 +224,8 @@ function BuildProcessor() {
 		}, { completeJS: this.completeJS, name: this.name });
 	};
 
-	this.process = function (name, info) {
-		this.name = name;
-		Shell.mkdirRecursivelyIfNotExists("output/" + this.name);
+	this.processExecute = function (info) {
+		Shell.mkdirRecursivelyIfNotExists("output/" + this.path);
 		Shell.mkdirRecursivelyIfNotExists("output/release");
 		if (Script.isArray(info.build)) {
 			for (var component of info.build) {
@@ -299,59 +299,83 @@ function BuildProcessor() {
 			var _file = _js.replace("output/" + this.name + "/css", "output/release");
 			Shell.copyFile(_js, _file);
 		};
-
 	};
 
-};
-
-completeList = [];
-
-function process(name, info) {
-	processor = new BuildProcessor();
-	processor.process(name, info);
-	completeList[completeList.length] = name;
-};
-
-function processCompleteCSS() {
-	Console.writeLn("-> complete css");
-
-	var cssContent = Shell.fileGetContents("temp/xui.core.header.css");
-	for (var index in completeList) {
-		var cssFile = "temp/xui." + completeList[index] + ".css";
-		if (Shell.fileExists(cssFile)) {
-			content = Shell.fileGetContents(cssFile);
-			content = content.replace("/*!\r\n", "/*\r\n");
-			content = content.replace("/*!\n", "/*\n");
-			cssContent += content;
-		};
+	this.process = function (name, info) {
+		this.path = name;
+		this.name = name;
+		this.processExecute(info);
 	};
 
-	Shell.filePutContents("temp/xui.complete.css", cssContent);
-	Shell.system("sass --style=compressed --no-source-map temp/xui.complete.css > temp/xui.complete.min.css");
+	this.processX = function (path, name, info) {
+		this.path = path;
+		this.name = name;
+		this.processExecute(info);
+	};
+	
 };
 
-function processCompleteJS() {
-	Console.writeLn("-> complete js");
+function CompleteProcessor() {
 
-	var jsContent = Shell.fileGetContents("temp/xui.core.header.js");
-	for (var index in completeList) {		
-		var jsFile = "output/release/xui." + completeList[index] + ".min.js";		
-		if (Shell.fileExists(jsFile)) {			
-			content = Shell.fileGetContents(jsFile);
-			content = content.replace("/*!\r\n", "/*\r\n");
-			content = content.replace("/*!\n", "/*\n");
-			jsContent += content;
+	this.name = "complete";
+	this.nameCSS = this.name;
+	this.nameJS = this.name;
+	this.completeList = [];	
+
+	this.process = function (name, info) {
+		var processor = new BuildProcessor();
+		processor.process(name, info);
+		this.completeList[this.completeList.length] = name;
+	};
+
+	this.processX = function (path, name, info) {
+		var processor = new BuildProcessor();
+		processor.processX(path, name, info);
+		this.completeList[this.completeList.length] = name;
+	};
+
+	this.processCompleteCSS = function () {
+		Console.writeLn("-> complete css");
+
+		var cssContent = Shell.fileGetContents("temp/xui.core.header.css");
+		for (var index in this.completeList) {
+			var cssFile = "temp/xui." + this.completeList[index] + ".css";
+			if (Shell.fileExists(cssFile)) {
+				content = Shell.fileGetContents(cssFile);
+				content = content.replace("/*!\r\n", "/*\r\n");
+				content = content.replace("/*!\n", "/*\n");
+				cssContent += content;
+			};
 		};
-	}
 
-	Shell.filePutContents("temp/xui.complete.js", jsContent);
-	Shell.system("uglifyjs -c -m -o output/release/xui.bundle.min.js --comments \"/^!/\" temp/xui.complete.js");
-};
+		Shell.filePutContents("temp/xui." + this.name + ".css", cssContent);
+		Shell.system("sass --style=compressed --no-source-map temp/xui." + this.name + ".css > temp/xui." + this.nameCSS + ".min.css");
+	};
 
-function processComplete() {
-	Console.writeLn("complete [css,js]");
-	processCompleteCSS();
-	processCompleteJS();
+	this.processCompleteJS = function () {
+		Console.writeLn("-> complete js");
+
+		var jsContent = Shell.fileGetContents("temp/xui.core.header.js");
+		for (var index in this.completeList) {
+			var jsFile = "output/release/xui." + this.completeList[index] + ".min.js";			
+			if (Shell.fileExists(jsFile)) {
+				content = Shell.fileGetContents(jsFile);
+				content = content.replace("/*!\r\n", "/*\r\n");
+				content = content.replace("/*!\n", "/*\n");
+				jsContent += content;
+			};
+		};
+
+		Shell.filePutContents("temp/xui." + this.name + ".js", jsContent);
+		Shell.system("uglifyjs -c -m -o output/release/xui." + this.nameJS + ".min.js --comments \"/^!/\" temp/xui." + this.name + ".js");
+	};
+
+	this.processComplete = function () {
+		Console.writeLn("complete [css,js] " + this.name);
+		this.processCompleteCSS();
+		this.processCompleteJS();
+	};	
+
 };
 
 function vendorCSSLayer(name, layer) {
@@ -375,7 +399,12 @@ Shell.system("xyo-version --no-bump --version-file=version.json --file-in=temp/x
 
 // --- 
 
-process("core", {
+processor = new CompleteProcessor();
+processor.name = "complete";
+processor.nameCSS = processor.name;
+processor.nameJS = "bundle";
+
+processor.process("core", {
 	build: [
 		"core",
 		"script",
@@ -393,7 +422,7 @@ process("core", {
 
 // ---
 
-process("design", {	
+processor.process("design", {
 	build: [
 		"overlayscrollbars",
 		"page",
@@ -419,8 +448,8 @@ process("design", {
 
 // ---
 
-process("form", {	
-	build: [		
+processor.process("form", {
+	build: [
 		"form-button",
 		"form-button-outline",
 		"form-button-transparent",
@@ -448,7 +477,7 @@ process("form", {
 
 // ---
 
-process("menu", {
+processor.process("menu", {
 	build: [
 		"menu-item",
 		"menu",
@@ -462,35 +491,33 @@ process("menu", {
 
 // ---
 
-process("application", {
+processor.process("application", {
 	build: [
 		"application-user",
 		"application-brand",
 		"application-bar",
 		"application-header",
-		"application-toolbar",		
-		"application-main",		
+		"application-toolbar",
+		"application-main",
 		"component-table"
 	]
 });
 
 // ---
 
-process("dashboard", {
+processor.process("dashboard", {
 	build: [
 		"dashboard",
 		"dashboard-mini",
 		"dashboard-normal",
-		"dashboard-over",		
-		"dashboard-main",
-		"dashboard-theme-2",
-		"dashboard-theme-3"
+		"dashboard-over",
+		"dashboard-main"		
 	]
 });
 
 // ---
 
-process("animated", {
+processor.process("animated", {
 	build: [
 		"animated-loader",
 		"animated-dna"
@@ -499,8 +526,8 @@ process("animated", {
 
 // ---
 
-process("interactive", {
-	build: [		
+processor.process("interactive", {
+	build: [
 		"notify",
 		"modal"
 	]
@@ -508,7 +535,39 @@ process("interactive", {
 
 // ---
 
-processComplete();
+processor.processComplete();
+
+// ---
+
+processor = new CompleteProcessor();
+processor.name = "dashboard-theme-2";
+processor.nameCSS = processor.name;
+processor.nameJS = processor.name;
+
+processor.processX("dashboard", "dashboard-theme-2.input", {
+	build: [
+		"dashboard-theme-2"		
+	]
+});
+
+processor.processComplete();
+
+// ---
+
+// ---
+
+processor = new CompleteProcessor();
+processor.name = "dashboard-theme-3";
+processor.nameCSS = processor.name;
+processor.nameJS = processor.name;
+
+processor.processX("dashboard", "dashboard-theme-3.input", {
+	build: [
+		"dashboard-theme-3"
+	]
+});
+
+processor.processComplete();
 
 // ---
 
@@ -529,3 +588,4 @@ Shell.copyFile("source/form/form-captcha/img/captcha.jpg", "output/form/img/capt
 Shell.copy("LICENSE", "output/LICENSE");
 Shell.copy("README.md", "output/README.md");
 Shell.copy("version.vendor.txt", "output/version.vendor.txt");
+
