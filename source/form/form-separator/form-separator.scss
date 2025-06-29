@@ -8,11 +8,13 @@
 
 @charset "UTF-8";
 
-.xui-form-separator {
-	margin-top: 8px;
-	margin-bottom: 8px;
-	overflow: hidden;
-	height: 1px;
-	background-color: var(--color-xui-line);
-	clear: both;
+@layer components {
+	.xui-form-separator {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		overflow: hidden;
+		height: 1px;
+		background-color: var(--color-xui-line);
+		clear: both;
+	}
 }

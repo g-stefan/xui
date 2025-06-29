@@ -9,25 +9,23 @@
 @use "../../application/application-user/application-user.source" as *;
 @use "../../application/application-header/application-header.source" as *;
 
-.xui-dashboard.--theme-2.--over {
+@layer components {
+	.xui-dashboard.--theme-2.--over {
+		& .xui-application-header {
+			overflow: visible;
 
-	& .xui-application-header {
-		overflow: visible;
+			& > .xui-application-user-info {
+				width: 64px + 6px + 24px + 8px;
 
-		& > .xui-application-user-info {
-			width: 64px + 6px + 24px + 8px;
+				& > .xui-application-user {
+					@extend %application-user-mini-landscape-closed;
+					transition: none;
+				}
 
-			& > .xui-application-user {
-				@extend %application-user-mini-landscape-closed;
-				transition: none;
+				& > #popup-menu-user {
+					left: -128px;
+				}
 			}
-
-			& > #popup-menu-user {
-				left: -128px;
-			}
-
 		}
 	}
-
 }
-

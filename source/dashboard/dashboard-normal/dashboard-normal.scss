@@ -15,40 +15,81 @@
 @use "../../menu/menu-dropdown/menu-dropdown.source" as *;
 @use "../../menu/menu-mini/menu-mini.source" as *;
 
-.xui-dashboard.--normal {
+@layer base {
+	@keyframes xui-dashboard_normal_overlayscrollbars_appear {
+		from {
+			opacity: 0;
+		}
 
-	& .xui-navigation-drawer .xui-menu {
-		@extend	%menu-accordion;
+		to {
+			opacity: 1;
+		}
 	}
 
-	&.--closed { 
+	.xui-dashboard.--normal {
+		&.--closed {
+			// OverlayScrollbars
+			& .xui-navigation-drawer {
+				overflow: visible !important;
 
-		& .xui-navigation-drawer {
-			width: 72px + 6px;
-			overflow: visible;
+				& .xui-navigation-drawer_content {
+					overflow: visible !important;
+
+					> .os-size-observer {
+						display: none;
+					}
+
+					> .os-scrollbar {
+						display: none;
+					}
+
+					> .os-size-observer + div {
+						overflow: visible !important;
+					}
+				}
+			}
 		}
 
-		& .xui-navigation-drawer >  .xui-navigation-drawer_content {
-			overflow: visible;
+		&.--open {
+			& .xui-navigation-drawer {
+				& .xui-navigation-drawer_content {
+					> .os-scrollbar {
+						animation: xui-dashboard_normal_overlayscrollbars_appear 0.5s;
+					}
+				}
+			}
 		}
-
-		& .xui-application-header {
-			@extend	%application-header-mini;
-		}
-
-		& .xui-navigation-drawer .xui-application-user {
-			@extend	%application-user-mini;
-		}
-
-		& .xui-navigation-drawer .xui-menu {
-			@extend	%menu-mini;
-		}
-
-		& .xui-navigation-drawer .xui-application-user {
-			width: 100%;
-		}
-
 	}
-
 }
 
+
+@layer components {
+	.xui-dashboard.--normal {
+		& .xui-navigation-drawer .xui-menu {
+			@extend %menu-accordion;
+		}
+
+		&.--closed {
+			& .xui-navigation-drawer {
+				width: 72px + 6px;
+				overflow: visible;
+			}
+
+			& .xui-application-header {
+				@extend %application-header-mini;
+			}
+
+			& .xui-navigation-drawer .xui-application-user {
+				@extend %application-user-mini;
+			}
+
+			& .xui-navigation-drawer .xui-menu {
+				@extend %menu-mini;
+			}
+
+			& .xui-navigation-drawer .xui-application-user {
+				width: 100%;
+			}
+		}
+	}
+}

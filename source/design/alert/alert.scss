@@ -12,39 +12,39 @@
 
 @use "alert.source" as *;
 
-.xui-alert {
-	display: block;
-	position: relative;
-	width: auto;
+@layer components {
+	.xui-alert {
+		display: block;
+		position: relative;
+		width: auto;
 
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: normal;
-	font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: normal;
+		font-family: "Roboto", sans-serif;
 
-	border-radius: 3px;
+		border-radius: 3px;
 
-	padding-top: 13px;
-	padding-left: 16px;
-	padding-bottom: 13px;
-	padding-right: 16px;
+		padding-top: 13px;
+		padding-left: 16px;
+		padding-bottom: 13px;
+		padding-right: 16px;
 
-	margin-top: 0px;
-	margin-left: 0px;
-	margin-bottom: 0px;
-	margin-right: 0px;
+		margin-top: 0px;
+		margin-left: 0px;
+		margin-bottom: 0px;
+		margin-right: 0px;
 
-	box-sizing: border-box;
+		box-sizing: border-box;
 
-	@each $type, $value in $alertType {
-		$class: if($type == "default","",".--#{$type}");
+		@each $type, $value in $alertType {
+			$class: if($type == "default", "", ".--#{$type}");
 
-		&#{$class} {
-			border: 1px solid map.get($alert,"#{$type}-bd");
-			background-color: map.get($alert,"#{$type}-bg");
-			color: map.get($alert,"#{$type}-fg");
+			&#{$class} {
+				border: 1px solid map.get($alert, "#{$type}-bd");
+				background-color: map.get($alert, "#{$type}-bg");
+				color: map.get($alert, "#{$type}-fg");
+			}
 		}
 	}
-
 }
-

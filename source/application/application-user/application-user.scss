@@ -13,130 +13,130 @@
 
 @use "application-user.source" as *;
 
-.xui-application-user {
-	position: relative;
-	width: 288px + 6px;
-	height: 144px;
-	padding-left: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-right: 0px;
-	overflow: hidden;
-
-	font-family: "Roboto", sans-serif;
-	box-sizing: border-box;
-	display: block;
-
-	transition: height 0.5s ease, width 0.5s ease;
-
-	& > .xui-application-user_content {
-		position: absolute;
-		top: 0px;
-		left: 0px;
+@layer components {
+	.xui-application-user {
+		position: relative;
 		width: 288px + 6px;
 		height: 144px;
+		padding-left: 0px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		padding-right: 0px;
 		overflow: hidden;
 
-		& > .xui-application-user_image {
+		font-family: "Roboto", sans-serif;
+		box-sizing: border-box;
+		display: block;
+
+		transition:
+			height 0.5s ease,
+			width 0.5s ease;
+
+		& > .xui-application-user_content {
 			position: absolute;
-			top: 4px;
-			left: 92px; 
-			border-radius: 50%;
-			border: 1px solid var(--color-xui-line);
-			background-color: #FFFFFF;
-			width: 104px;
-			height: 104px;
-			transition: left 0.5s ease, top 0.5s ease, width 0.5s ease, height 0.5s ease;
-			box-sizing: border-box;
-			overflow: hidden;			
-
-			& > .xui-application-user_image_img {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				box-sizing: border-box;				
-				background-position: center center;
-				background-size: auto 100%;
-				background-repeat: no-repeat;
-				background-color: var(--color-xui-line);
-
-				$svg: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-				"<svg viewBox=\"0 0 640 480\" xmlns=\"http://www.w3.org/2000/svg\">" +
-				"<g transform=\"translate(0,-570)\">" +
-				" <g transform=\"matrix(1.049209,0,0,1.049209,-5.0753295,-45.75514)\">" +
-				"  <circle" +
-				"    r=\"73.214279\"" +
-				"    cy=\"712.7193\"" +
-				"    cx=\"312.50003\"" +
-				"    id=\"path4147\"" +
-				"    style=\"fill:#000000;fill-opacity:1\" />" +
-				"      <path" +
-				"         transform=\"translate(0,572.36216)\"" +
-				"         d=\"m 313.92773,231.42773 a 138.21428,180.35713 0 0 0 -138.21289,180.35743 138.21428,180.35713 0 0 0 8.48438,61.78711 l 259.39648,0 a 138.21428,180.35713 0 0 0 8.54688,-61.78711 138.21428,180.35713 0 0 0 -138.21485,-180.35743 z\"" +
-				"         style=\"fill:#000000;fill-opacity:1\"" +
-				"         />" +
-				"   </g>" +
-				"  </g>" +
-				"</svg>";
-
-				$url: "data:image/svg+xml;base64," + base64.encode($svg);		
-				
-				mask-position: center center;
-				mask-size: auto 100%;
-				mask-repeat: no-repeat;
-				mask-image: url($url);
-			}
-		}
-                 
-		& > .xui-application-user_info {
-			position: absolute;
+			top: 0px;
 			left: 0px;
-			top: 112px;
-			width: 100%;
-			height: 64px;
+			width: 288px + 6px;
+			height: 144px;
 			overflow: hidden;
-			background-color: transparent;
-			font-size: 20px;
-			line-height: 20px;
-			text-align: center;
-			font-weight: normal;
 
-			opacity: 1;
-			transition: opacity 1s ease;
-	
-			& > .xui-application-user_name {
-				position: relative;
-				display: block;
-				font-weight: bold;
-				color: #000000;
-				font-size: 16px;
-				line-height: 16px;
-				padding-top: 0px;
-				padding-left: 0px;
-				height: 16px;
-				text-overflow: ellipsis;
+			& > .xui-application-user_image {
+				position: absolute;
+				top: 4px;
+				left: 92px;
+				border-radius: 50%;
+				border: 1px solid var(--color-xui-line);
+				background-color: #ffffff;
+				width: 104px;
+				height: 104px;
+				transition:
+					left 0.5s ease,
+					top 0.5s ease,
+					width 0.5s ease,
+					height 0.5s ease;
+				box-sizing: border-box;
+				overflow: hidden;
+
+				& > .xui-application-user_image_img {
+					position: relative;
+					width: 100%;
+					height: 100%;
+					box-sizing: border-box;
+					background-position: center center;
+					background-size: auto 100%;
+					background-repeat: no-repeat;
+					background-color: var(--color-xui-line);
+
+					$svg: '<?xml version="1.0" encoding="UTF-8"?>' +
+						'<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">' +
+						'<g transform="translate(0,-570)">' +
+						' <g transform="matrix(1.049209,0,0,1.049209,-5.0753295,-45.75514)">' +
+						"  <circle" + '    r="73.214279"' + '    cy="712.7193"' +
+						'    cx="312.50003"' + '    id="path4147"' +
+						'    style="fill:#000000;fill-opacity:1" />' + "      <path" +
+						'         transform="translate(0,572.36216)"' +
+						'         d="m 313.92773,231.42773 a 138.21428,180.35713 0 0 0 -138.21289,180.35743 138.21428,180.35713 0 0 0 8.48438,61.78711 l 259.39648,0 a 138.21428,180.35713 0 0 0 8.54688,-61.78711 138.21428,180.35713 0 0 0 -138.21485,-180.35743 z"' +
+						'         style="fill:#000000;fill-opacity:1"' + "         />" +
+						"   </g>" + "  </g>" + "</svg>";
+
+					$url: "data:image/svg+xml;base64," + base64.encode($svg);
+
+					mask-position: center center;
+					mask-size: auto 100%;
+					mask-repeat: no-repeat;
+					mask-image: url($url);
+				}
 			}
 
-			& > .xui-application-user_position {
-				position: relative;
-				display: block;
-				color: var(--color-xui-rock-4-500);
-				font-size: 12px;
-				line-height: 12px;
-				padding-top: 0px;
-				padding-left: 0px;
-				height: 12px;
-				text-overflow: ellipsis;
+			& > .xui-application-user_info {
+				position: absolute;
+				left: 0px;
+				top: 112px;
+				width: 100%;
+				height: 64px;
+				overflow: hidden;
+				background-color: transparent;
+				font-size: 20px;
+				line-height: 20px;
+				text-align: center;
+				font-weight: normal;
+
+				opacity: 1;
+				transition: opacity 1s ease;
+
+				& > .xui-application-user_name {
+					position: relative;
+					display: block;
+					font-weight: bold;
+					color: #000000;
+					font-size: 16px;
+					line-height: 16px;
+					padding-top: 0px;
+					padding-left: 0px;
+					height: 16px;
+					text-overflow: ellipsis;
+				}
+
+				& > .xui-application-user_position {
+					position: relative;
+					display: block;
+					color: var(--color-xui-rock-4-500);
+					font-size: 12px;
+					line-height: 12px;
+					padding-top: 0px;
+					padding-left: 0px;
+					height: 12px;
+					text-overflow: ellipsis;
+				}
 			}
 		}
 	}
-}
 
-.xui-application-user.--mini {
-	@extend %application-user-mini;
-}
+	.xui-application-user.--mini {
+		@extend %application-user-mini;
+	}
 
-.xui-application-user.--mini-landscape {
-	@extend %application-user-mini-landscape;
+	.xui-application-user.--mini-landscape {
+		@extend %application-user-mini-landscape;
+	}
 }
-

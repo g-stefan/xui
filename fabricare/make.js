@@ -14,6 +14,5 @@ exitIf(!Shell.copyDirRecursively("vendor", "output/vendor"));
 
 Shell.system("quantum-script .\\fabricare\\build.js");
 
-Fabricare.include("make.prepare");
 Fabricare.include("make.bundle");
 Fabricare.include("make.tailwind");

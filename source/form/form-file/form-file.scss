@@ -9,42 +9,44 @@
 @charset "UTF-8";
 @use "sass:map";
 
-.xui-form-file {
-	position: relative;
-	display: inline-block;
-	word-spacing: 0px;
+@layer components {
+	.xui-form-file {
+		position: relative;
+		display: inline-block;
+		word-spacing: 0px;
 
-	&>.xui-form-file_input {
-		position: absolute;
-		overflow: hidden;
+		& > .xui-form-file_input {
+			position: absolute;
+			overflow: hidden;
 
-		width: 0.1px;
-		height: 0.1px;
-		opacity: 0;
-		z-index: -1;
-	}
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			z-index: -1;
+		}
 
-	&>label,
-	&>button {
-		float: left;
-	}
+		& > label,
+		& > button {
+			float: left;
+		}
 
-	&>label {
-		float: left;
-		border-radius: 3px 0px 0px 3px;
-		border-right: 0px solid #000000 !important;
-	}
+		& > label {
+			float: left;
+			border-radius: 3px 0px 0px 3px;
+			border-right: 0px solid #000000 !important;
+		}
 
-	&>button {
-		float: left;
-		border-radius: 0px 3px 3px 0px;
-	}
+		& > button {
+			float: left;
+			border-radius: 0px 3px 3px 0px;
+		}
 
-	&>label * {
-		pointer-events: none;
-	}
+		& > label * {
+			pointer-events: none;
+		}
 
-	>label.--icon-left.--outline > i {
-		color: var(--color-xui-primary-normal-bg);
+		> label.--icon-left.--outline > i {
+			color: var(--color-xui-primary-normal-bg);
+		}
 	}
 }

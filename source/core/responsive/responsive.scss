@@ -10,36 +10,23 @@
 
 @use "sass:list";
 
-.xui-responsive {
-	display: none;
-}
-
-.xui-responsive::after {
-	content: "360";
-	display: none;
-}
-
-$responsive: (
-	360,
-	400,
-	480,
-	600,
-	720,
-	840,
-	960,
-	1024,
-	1280,
-	1440,
-	1600,
-	1920
-);
-
-@for $i from 2 through list.length($responsive) {
-
-	@media only screen and (min-width: #{list.nth($responsive, $i)}px) {
-		.xui-responsive::after {
-			content: "#{list.nth($responsive, $i)}";
-		}
+@layer components {
+	.xui-responsive {
+		display: none;
 	}
 
+	.xui-responsive::after {
+		content: "360";
+		display: none;
+	}
+
+	$responsive: (360, 400, 480, 600, 720, 840, 960, 1024, 1280, 1440, 1600, 1920);
+
+	@for $i from 2 through list.length($responsive) {
+		@media only screen and (min-width: #{list.nth($responsive, $i)}px) {
+			.xui-responsive::after {
+				content: "#{list.nth($responsive, $i)}";
+			}
+		}
+	}
 }

@@ -10,49 +10,38 @@
 
 @use "sass:list";
 
-.xui-page {
-	border-radius: 3px;
-	background-color: #FFFFFF;
-	overflow: hidden;
-
-	&.--presentation {
-		margin-top: 60px;
-		margin-bottom: 60px;
-		padding: 30px 30px 30px 30px;
-	}
-}
-
-@media print {
+@layer components {
 	.xui-page {
-		page-break-after: always;
+		border-radius: 3px;
+		background-color: #ffffff;
+		overflow: hidden;
+
+		&.--presentation {
+			margin-top: 60px;
+			margin-bottom: 60px;
+			padding: 30px 30px 30px 30px;
+		}
 	}
-}
 
-$page-list: (
-	4494,
-	3179,
-	2245,
-	1587,
-	1123,
-	794,
-	559,
-	397,
-	280,
-	197,
-	140,
-	98
-);
+	@media print {
+		.xui-page {
+			page-break-after: always;
+		}
+	}
 
-@for $i from 0 through 10 {
-	.xui-page.--A#{$i} {
-		display: block;
-		position: relative;
-		width: #{list.nth($page-list, $i+2)}px;
-		height: #{list.nth($page-list, $i+1)}px;
+	$page-list: (4494, 3179, 2245, 1587, 1123, 794, 559, 397, 280, 197, 140, 98);
 
-		&.--landscape {
-			width: #{list.nth($page-list, $i+1)}px;
-			height: #{list.nth($page-list, $i+2)}px;
+	@for $i from 0 through 10 {
+		.xui-page.--A#{$i} {
+			display: block;
+			position: relative;
+			width: #{list.nth($page-list, $i + 2)}px;
+			height: #{list.nth($page-list, $i + 1)}px;
+
+			&.--landscape {
+				width: #{list.nth($page-list, $i + 1)}px;
+				height: #{list.nth($page-list, $i + 2)}px;
+			}
 		}
 	}
 }

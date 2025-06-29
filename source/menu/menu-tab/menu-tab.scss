@@ -11,67 +11,67 @@
 @use "../../core/util";
 @use "../menu/menu.source" as *;
 
-ul.xui-menu.--tab {
-	width: 100%;
-	overflow: hidden;
-	display: flex;
-	padding: 3px 3px 3px 3px;
-	position: relative;
-	
-	& > li {
-		display: inline-block;
-		flex: 1;
-		width: auto;
-		height: 42px;
+@layer components {
+	ul.xui-menu.--tab {
+		width: 100%;
 		overflow: hidden;
-		box-sizing: border-box;		
-		padding-top: 1px;
-		padding-left: 1px;
-		padding-right: 1px;
-		padding-bottom: 0px;		
-		border-top: 0px solid var(--color-xui-line);
-		border-left: 0px solid var(--color-xui-line);
-		border-right: 0px solid var(--color-xui-line);
-		border-bottom: 1px solid var(--color-xui-line);
+		display: flex;
+		padding: 3px 3px 3px 3px;
+		position: relative;
 
-		& > .xui-menu_item {
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			border-bottom-left-radius: 0px;
-			border-bottom-right-radius: 0px;			
-		}
-		
-		&.--active {
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			border-bottom-left-radius: 0px;
-			border-bottom-right-radius: 0px;
-			padding-top: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			padding-bottom: 1px;
-			border-top: 1px solid var(--color-xui-line);
-			border-left: 1px solid var(--color-xui-line);
-			border-right: 1px solid var(--color-xui-line);
-			border-bottom: 0px solid var(--color-xui-line);
+		& > li {
+			display: inline-block;
+			flex: 1;
+			width: auto;
+			height: 42px;
+			overflow: hidden;
+			box-sizing: border-box;
+			padding-top: 1px;
+			padding-left: 1px;
+			padding-right: 1px;
+			padding-bottom: 0px;
+			border-top: 0px solid var(--color-xui-line);
+			border-left: 0px solid var(--color-xui-line);
+			border-right: 0px solid var(--color-xui-line);
+			border-bottom: 1px solid var(--color-xui-line);
 
 			& > .xui-menu_item {
-				border-radius: 0px;
-				
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+
+			&.--active {
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+				padding-top: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				padding-bottom: 1px;
+				border-top: 1px solid var(--color-xui-line);
+				border-left: 1px solid var(--color-xui-line);
+				border-right: 1px solid var(--color-xui-line);
+				border-bottom: 0px solid var(--color-xui-line);
+
+				& > .xui-menu_item {
+					border-radius: 0px;
+
+					&::before {
+						background-color: transparent;
+					}
+				}
+			}
+
+			&.xui-menu_separator {
+				flex: 0 0 24px;
+
 				&::before {
-					background-color: transparent;
+					display: none;
 				}
 			}
 		}
-
-		&.xui-menu_separator {
-			flex: 0 0 24px;
-
-			&::before {
-				display: none;
-			}
-		}
 	}
-
 }
-

@@ -10,88 +10,90 @@
 
 @use "sass:map";
 
-.xui-application-main {
-	display: block;
-	position: relative;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	overflow: visible;
-
-	& > .xui-application-main_content {
-		display: block;		
+@layer components {
+	.xui-application-main {
+		display: block;
 		position: relative;
 		width: 100%;
 		height: 100%;
-		margin: 0px 0px 0px 0px;
-		padding: 0px 0px 0px 0px;
-		overflow: auto;
-		background-color: #ffffff;
 		box-sizing: border-box;
-		border-top: 1px solid var(--color-xui-line);
+		overflow: visible;
 
-		&:before {
-			content: " ";
-			z-index: 2;
+		& > .xui-application-main_content {
 			display: block;
-			position: absolute;
-			height: 1px;
-			top: 0px;
-			left: 0px;
-			right: 0;
-			background: rgba(255, 255, 255, 0.8) no-repeat;
+			position: relative;
 			width: 100%;
-			margin: 0px;
-			padding: 0px;
-			border: 0px;
+			height: 100%;
+			margin: 0px 0px 0px 0px;
+			padding: 0px 0px 0px 0px;
+			overflow: auto;
+			background-color: #ffffff;
 			box-sizing: border-box;
+			border-top: 1px solid var(--color-xui-line);
+
+			&:before {
+				content: " ";
+				z-index: 2;
+				display: block;
+				position: absolute;
+				height: 1px;
+				top: 0px;
+				left: 0px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.8) no-repeat;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				box-sizing: border-box;
+			}
+
+			&:after {
+				content: " ";
+				z-index: 1;
+				display: block;
+				position: absolute;
+				height: 1px;
+				bottom: 0px;
+				left: 0px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.8) no-repeat;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				box-sizing: border-box;
+			}
 		}
 
-		&:after {
-			content: " ";
-			z-index: 1;
-			display: block;
-			position: absolute;
-			height: 1px;
-			bottom: 0px;
-			left: 0px;
-			right: 0;
-			background: rgba(255, 255, 255, 0.8) no-repeat;
-			width: 100%;
-			margin: 0px;
-			padding: 0px;
-			border: 0px;
-			box-sizing: border-box;
-		}
-	}
+		&.--embedded > .xui-application-main_content {
+			&:before {
+				display: none;
+			}
 
-	&.--embedded > .xui-application-main_content {
-		&:before {
-			display: none;
+			&:after {
+				display: none;
+			}
 		}
 
-		&:after {
-			display: none;
+		& > .xui-alert {
+			border-radius: 0px;
+			border-left-width: 0px;
+			border-right-width: 0px;
 		}
-	}
 
-	& > .xui-alert {
-		border-radius: 0px;
-		border-left-width: 0px;
-		border-right-width: 0px;
-	}
+		&.--has-toolbar > .xui-application-main_content {
+			height: calc(100% - 48px - 1px);
+		}
 
-	&.--has-toolbar > .xui-application-main_content {
-		height: calc(100% - 48px - 1px);
-	}
-
-	&.--has-toolbar.--has-message > .xui-application-main_content {
+		&.--has-toolbar.--has-message > .xui-application-main_content {
 			border-top: 0px solid var(--color-xui-line);
-			height: calc(100% - 96px - 3px - 1px);		
-	}
+			height: calc(100% - 96px - 3px - 1px);
+		}
 
-	& > .xui-application-main_content.xui-overlay-scrollbars {
-		display: flex;
-		flex-direction: column;
+		& > .xui-application-main_content.xui-overlay-scrollbars {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 }

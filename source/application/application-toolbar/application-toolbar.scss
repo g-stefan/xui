@@ -12,277 +12,273 @@
 
 $application-toolbar-height: 48px;
 $application-toolbar-padding: 4px;
-$application-toolbar-background-color: #FFFFFF;
+$application-toolbar-background-color: #ffffff;
 $application-toolbar-text-color: #000000;
 
-.xui-application-toolbar {
-	position: relative;
-	box-sizing: border-box;
-	width: 100%;
-	height: $application-toolbar-height;	
-	padding: $application-toolbar-padding $application-toolbar-padding $application-toolbar-padding $application-toolbar-padding;
-	overflow: hidden;
-	
-	background-color: $application-toolbar-background-color;
-	color: $application-toolbar-text-color;
-
-	& > .xui-application-toolbar_content {
-		display: flex;
-		flex-direction: row;
-		float: right;
+@layer components {
+	.xui-application-toolbar {
+		position: relative;
 		box-sizing: border-box;
-	
-		& .xui-button {
-			margin-left: 3px;
+		width: 100%;
+		height: $application-toolbar-height;
+		padding: $application-toolbar-padding $application-toolbar-padding $application-toolbar-padding
+			$application-toolbar-padding;
+		overflow: hidden;
 
-			&:first-child {
-				margin-left: 0px;
+		background-color: $application-toolbar-background-color;
+		color: $application-toolbar-text-color;
+
+		& > .xui-application-toolbar_content {
+			display: flex;
+			flex-direction: row;
+			float: right;
+			box-sizing: border-box;
+
+			& .xui-button {
+				margin-left: 3px;
+
+				&:first-child {
+					margin-left: 0px;
+				}
+
+				& > span {
+					display: inline-block;
+					white-space: nowrap;
+				}
 			}
 
-			& > span {				
-				display: inline-block;
-				white-space: nowrap;
-			}
-
-		}
-
-		& .xui-application-toolbar_separator {
-			position: relative;
-			display: inline-block;
-			margin-left: 3px;
-			margin-right: 0px;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			padding-top: 4px;
-			padding-bottom: 4px;
-			width: 1px;
-			overflow: hidden;			
-
-			&::before {
+			& .xui-application-toolbar_separator {
 				position: relative;
-				display: block;
-				content: "";
-				width: 1px;
-				overflow: hidden;
-				background-color: var(--color-xui-line);
-				height: 100%;
-			}
-		}
-	}
-
-	&.--small > .xui-application-toolbar_content {
-		& .xui-button {
-			width: 40px;
-			padding-right: 0px;
-
-			& > span {
-				display: none;
-			}
-
-			&.--small.--only-icon {
-				width: 32px;
-			}
-		}
-	}
-
-	&.--important > .xui-application-toolbar_content {
-		& .xui-button {
-			display: none;
-		}
-
-		& .xui-button.--important {
-			width: 40px;
-			display: inline-block;
-			padding-right: 0px;
-
-			& > span {
-				display: none;
-			}
-
-			&.--small.--only-icon {
-				width: 32px;
-			}
-		}
-	}
-
-	&.--left {
-		& > .xui-application-toolbar_content {
-			float: left;
-		}
-	}
-
-	&.--compact {
-		height: 40px;
-	}
-
-	&.--wide {
-		& > .xui-application-toolbar_content {
-			display: block;
-			width: 100%;
-			float: none;
-		}
-	}
-
-}
-
-// ---
-
-.xui-application-toolbar {
-
-	& > .xui-application-toolbar_content-left {
-		display: flex;
-		flex-direction: row;
-		float: left;
-		box-sizing: border-box;
-	
-		& .xui-button {
-			margin-right: 3px;
-
-			&:last-child {
+				display: inline-block;
+				margin-left: 3px;
 				margin-right: 0px;
-			}
-
-			& > span {				
-				display: inline-block;
-				white-space: nowrap;
-			}
-
-		}
-
-		& .xui-application-toolbar_separator {
-			position: relative;
-			display: inline-block;
-			margin-left: 3px;
-			margin-right: 0px;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			padding-top: 4px;
-			padding-bottom: 4px;
-			width: 1px;
-			overflow: hidden;			
-
-			&::before {
-				position: relative;
-				display: block;
-				content: "";
+				margin-top: 0px;
+				margin-bottom: 0px;
+				padding-top: 4px;
+				padding-bottom: 4px;
 				width: 1px;
 				overflow: hidden;
-				background-color: var(--color-xui-line);
-				height: 100%;
+
+				&::before {
+					position: relative;
+					display: block;
+					content: "";
+					width: 1px;
+					overflow: hidden;
+					background-color: var(--color-xui-line);
+					height: 100%;
+				}
+			}
+		}
+
+		&.--small > .xui-application-toolbar_content {
+			& .xui-button {
+				width: 40px;
+				padding-right: 0px;
+
+				& > span {
+					display: none;
+				}
+
+				&.--small.--only-icon {
+					width: 32px;
+				}
+			}
+		}
+
+		&.--important > .xui-application-toolbar_content {
+			& .xui-button {
+				display: none;
+			}
+
+			& .xui-button.--important {
+				width: 40px;
+				display: inline-block;
+				padding-right: 0px;
+
+				& > span {
+					display: none;
+				}
+
+				&.--small.--only-icon {
+					width: 32px;
+				}
+			}
+		}
+
+		&.--left {
+			& > .xui-application-toolbar_content {
+				float: left;
+			}
+		}
+
+		&.--compact {
+			height: 40px;
+		}
+
+		&.--wide {
+			& > .xui-application-toolbar_content {
+				display: block;
+				width: 100%;
+				float: none;
 			}
 		}
 	}
 
-	& > .xui-application-toolbar_content-right {
-		display: flex;
-		flex-direction: row;
-		float: right;
-		box-sizing: border-box;
-	
-		& .xui-button {
-			margin-left: 3px;
+	// ---
 
-			&:first-child {
-				margin-left: 0px;
+	.xui-application-toolbar {
+		& > .xui-application-toolbar_content-left {
+			display: flex;
+			flex-direction: row;
+			float: left;
+			box-sizing: border-box;
+
+			& .xui-button {
+				margin-right: 3px;
+
+				&:last-child {
+					margin-right: 0px;
+				}
+
+				& > span {
+					display: inline-block;
+					white-space: nowrap;
+				}
 			}
 
-			& > span {				
-				display: inline-block;
-				white-space: nowrap;
-			}
-
-		}
-
-		& .xui-application-toolbar_separator {
-			position: relative;
-			display: inline-block;
-			margin-left: 3px;
-			margin-right: 0px;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			padding-top: 4px;
-			padding-bottom: 4px;
-			width: 1px;
-			overflow: hidden;			
-
-			&::before {
+			& .xui-application-toolbar_separator {
 				position: relative;
-				display: block;
-				content: "";
+				display: inline-block;
+				margin-left: 3px;
+				margin-right: 0px;
+				margin-top: 0px;
+				margin-bottom: 0px;
+				padding-top: 4px;
+				padding-bottom: 4px;
 				width: 1px;
 				overflow: hidden;
-				background-color: var(--color-xui-line);
-				height: 100%;
+
+				&::before {
+					position: relative;
+					display: block;
+					content: "";
+					width: 1px;
+					overflow: hidden;
+					background-color: var(--color-xui-line);
+					height: 100%;
+				}
 			}
 		}
-	}
 
-	&.--small > .xui-application-toolbar_content-left,
-	&.--small > .xui-application-toolbar_content-right {
-		& .xui-button {
-			width: 40px;
-			padding-right: 0px;
+		& > .xui-application-toolbar_content-right {
+			display: flex;
+			flex-direction: row;
+			float: right;
+			box-sizing: border-box;
 
-			& > span {
+			& .xui-button {
+				margin-left: 3px;
+
+				&:first-child {
+					margin-left: 0px;
+				}
+
+				& > span {
+					display: inline-block;
+					white-space: nowrap;
+				}
+			}
+
+			& .xui-application-toolbar_separator {
+				position: relative;
+				display: inline-block;
+				margin-left: 3px;
+				margin-right: 0px;
+				margin-top: 0px;
+				margin-bottom: 0px;
+				padding-top: 4px;
+				padding-bottom: 4px;
+				width: 1px;
+				overflow: hidden;
+
+				&::before {
+					position: relative;
+					display: block;
+					content: "";
+					width: 1px;
+					overflow: hidden;
+					background-color: var(--color-xui-line);
+					height: 100%;
+				}
+			}
+		}
+
+		&.--small > .xui-application-toolbar_content-left,
+		&.--small > .xui-application-toolbar_content-right {
+			& .xui-button {
+				width: 40px;
+				padding-right: 0px;
+
+				& > span {
+					display: none;
+				}
+
+				&.--small.--only-icon {
+					width: 32px;
+				}
+			}
+		}
+
+		&.--small-left > .xui-application-toolbar_content-left {
+			& .xui-button {
+				width: 40px;
+				padding-right: 0px;
+
+				& > span {
+					display: none;
+				}
+
+				&.--small.--only-icon {
+					width: 32px;
+				}
+			}
+		}
+
+		&.--small-right > .xui-application-toolbar_content-right {
+			& .xui-button {
+				width: 40px;
+				padding-right: 0px;
+
+				& > span {
+					display: none;
+				}
+
+				&.--small.--only-icon {
+					width: 32px;
+				}
+			}
+		}
+
+		&.--important > .xui-application-toolbar_content-left,
+		&.--important > .xui-application-toolbar_content-right {
+			& .xui-button {
 				display: none;
 			}
 
-			&.--small.--only-icon {
-				width: 32px;
+			& .xui-button.--important {
+				width: 40px;
+				display: inline-block;
+				padding-right: 0px;
+
+				& > span {
+					display: none;
+				}
+
+				&.--small.--only-icon {
+					width: 32px;
+				}
 			}
 		}
 	}
-
-	&.--small-left > .xui-application-toolbar_content-left {
-		& .xui-button {
-			width: 40px;
-			padding-right: 0px;
-
-			& > span {
-				display: none;
-			}
-
-			&.--small.--only-icon {
-				width: 32px;
-			}
-		}
-	}
-
-	&.--small-right > .xui-application-toolbar_content-right {
-		& .xui-button {
-			width: 40px;
-			padding-right: 0px;
-
-			& > span {
-				display: none;
-			}
-
-			&.--small.--only-icon {
-				width: 32px;
-			}
-		}
-	}
-
-	&.--important > .xui-application-toolbar_content-left,
-	&.--important > .xui-application-toolbar_content-right {
-		& .xui-button {
-			display: none;
-		}
-
-		& .xui-button.--important {
-			width: 40px;
-			display: inline-block;
-			padding-right: 0px;
-
-			& > span {
-				display: none;
-			}
-
-			&.--small.--only-icon {
-				width: 32px;
-			}
-		}
-	}
-
 }
-

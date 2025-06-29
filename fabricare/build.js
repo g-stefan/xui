@@ -544,7 +544,7 @@ processor.name = "dashboard-theme-2";
 processor.nameCSS = processor.name;
 processor.nameJS = processor.name;
 
-processor.processX("dashboard", "dashboard-theme-2.input", {
+processor.processX("dashboard", "dashboard-theme-2.process", {
 	build: [
 		"dashboard-theme-2"		
 	]
@@ -561,7 +561,7 @@ processor.name = "dashboard-theme-3";
 processor.nameCSS = processor.name;
 processor.nameJS = processor.name;
 
-processor.processX("dashboard", "dashboard-theme-3.input", {
+processor.processX("dashboard", "dashboard-theme-3.process", {
 	build: [
 		"dashboard-theme-3"
 	]

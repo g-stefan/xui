@@ -12,93 +12,91 @@
 @use "../button/button.source" as *;
 @use "button-outline.source" as *;
 
+@layer components {
+	.xui-button.--outline {
+		$border-size: 1px;
+		padding-top: 10px - $border-size;
+		padding-left: 24px - $border-size;
 
-.xui-button.--outline {
-	$border-size: 1px;
-	padding-top: 10px - $border-size;
-	padding-left: 24px - $border-size;
+		@each $type, $value in $buttonType {
+			$class: if($type == "default", "", ".--#{$type}");
 
-	@each $type, $value in $buttonType {
-		$class: if($type =="default", "", ".--#{$type}");
-
-		&#{$class} {
-			border: $border-size solid map.get($button-outline, "#{$type}-normal-bd");
-			background-color: map.get($button-outline, "#{$type}-normal-bg");
-			color: map.get($button-outline, "#{$type}-normal-fg");
-			text-shadow: none;
-
-			&:hover,
-			&:focus {
-				border: $border-size solid map.get($button-outline, "#{$type}-focus-bd");
-				background-color: map.get($button-outline, "#{$type}-focus-bg");
-				color: map.get($button-outline, "#{$type}-focus-fg");
-				text-shadow: map.get($button-outline, "#{$type}-active-text-shadow");
-			}
-
-			&:active {
-				border: $border-size solid map.get($button-outline, "#{$type}-focus-bd");
-				background-color: map.get($button-outline, "#{$type}-active-bg");
-				color: map.get($button-outline, "#{$type}-focus-fg");
-				text-shadow: map.get($button-outline, "#{$type}-active-text-shadow");
-			}
-
-			&:visited {
+			&#{$class} {
+				border: $border-size solid map.get($button-outline, "#{$type}-normal-bd");
+				background-color: map.get($button-outline, "#{$type}-normal-bg");
 				color: map.get($button-outline, "#{$type}-normal-fg");
-			}
+				text-shadow: none;
 
-			&.xui-effect-ripple {
+				&:hover,
+				&:focus {
+					border: $border-size solid map.get($button-outline, "#{$type}-focus-bd");
+					background-color: map.get($button-outline, "#{$type}-focus-bg");
+					color: map.get($button-outline, "#{$type}-focus-fg");
+					text-shadow: map.get($button-outline, "#{$type}-active-text-shadow");
+				}
 
 				&:active {
-					background-color: map.get($button-outline, "#{$type}-focus-bg");
-				}
-
-				& .xui-effect-ripple_element {
+					border: $border-size solid map.get($button-outline, "#{$type}-focus-bd");
 					background-color: map.get($button-outline, "#{$type}-active-bg");
+					color: map.get($button-outline, "#{$type}-focus-fg");
+					text-shadow: map.get($button-outline, "#{$type}-active-text-shadow");
 				}
 
+				&:visited {
+					color: map.get($button-outline, "#{$type}-normal-fg");
+				}
+
+				&.xui-effect-ripple {
+					&:active {
+						background-color: map.get($button-outline, "#{$type}-focus-bg");
+					}
+
+					& .xui-effect-ripple_element {
+						background-color: map.get($button-outline, "#{$type}-active-bg");
+					}
+				}
+			}
+		}
+
+		&.--icon {
+			padding-left: 8px - $border-size;
+			padding-top: 8px - $border-size;
+			padding-bottom: 8px - $border-size;
+			padding-right: 8px - $border-size;
+
+			&.--size-x32 {
+				padding-left: 4px - $border-size;
+				padding-right: 4px - $border-size;
+
+				&.--circle {
+					padding-top: 4px - $border-size;
+					padding-bottom: 4px - $border-size;
+					margin-top: 4px - $border-size;
+					margin-bottom: 4px - $border-size;
+				}
+			}
+		}
+
+		&.--icon-left {
+			padding-left: 40px - $border-size;
+
+			& i,
+			& svg {
+				position: absolute;
+				top: 8px - $border-size;
+				left: 8px - $border-size;
+			}
+		}
+
+		&.--icon-right {
+			padding-right: 40px - $border-size;
+
+			& i,
+			&svg {
+				position: absolute;
+				top: 8px - $border-size;
+				right: 8px - $border-size;
 			}
 		}
 	}
-
-	&.--icon {
-		padding-left: 8px - $border-size;
-		padding-top: 8px - $border-size;
-		padding-bottom: 8px - $border-size;
-		padding-right: 8px - $border-size;
-
-		&.--size-x32 {
-			padding-left: 4px - $border-size;
-			padding-right: 4px - $border-size;
-
-			&.--circle {
-				padding-top: 4px - $border-size;
-				padding-bottom: 4px - $border-size;
-				margin-top: 4px - $border-size;
-				margin-bottom: 4px - $border-size;
-			}
-		}
-	}
-
-	&.--icon-left {
-		padding-left: 40px - $border-size;
-
-		& i,
-		& svg {
-			position: absolute;
-			top: 8px - $border-size;
-			left: 8px - $border-size;
-		}
-	}
-
-	&.--icon-right {
-		padding-right: 40px - $border-size;
-
-		& i,
-		&svg {
-			position: absolute;
-			top: 8px - $border-size;
-			right: 8px - $border-size;
-		}
-	}
-
 }

@@ -15,33 +15,32 @@
 @use "../../menu/menu-dropdown/menu-dropdown.source" as *;
 @use "../../menu/menu-mini/menu-mini.source" as *;
 
-.xui-dashboard.--main {
-
-	&.--normal.--closed .xui-navigation-drawer, 
-	&.--mini.--closed .xui-navigation-drawer {
-
-		& .xui-content {
-			overflow: visible !important;
-
-			& > .os-host > .os-padding {
+@layer components {
+	.xui-dashboard.--main {
+		&.--normal.--closed .xui-navigation-drawer,
+		&.--mini.--closed .xui-navigation-drawer {
+			& .xui-content {
 				overflow: visible !important;
 
-				& > .os-viewport,
-				& > .os-content {
+				& > .os-host > .os-padding {
 					overflow: visible !important;
-				}
 
-				& > .os-scrollbar,
-				& > .os-scrollbar-corner {
-					display: none !important;
+					& > .os-viewport,
+					& > .os-content {
+						overflow: visible !important;
+					}
+
+					& > .os-scrollbar,
+					& > .os-scrollbar-corner {
+						display: none !important;
+					}
 				}
 			}
 		}
-		
 	}
 
-}
-
-.os-scrollbar, .os-scrollbar-corner {
-	z-index: 3;
+	.os-scrollbar,
+	.os-scrollbar-corner {
+		z-index: 3;
+	}
 }

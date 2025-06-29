@@ -17,87 +17,132 @@
 @use "../../menu/menu-dropdown/menu-dropdown.source" as *;
 @use "../../menu/menu-mini/menu-mini.source" as *;
 
-.xui-dashboard.--mini {
 
-	& .xui-navigation-drawer {
-
-		& >  .xui-navigation-drawer_content {
-			overflow: visible;
+@layer base {
+	@keyframes xui-dashboard_mini_overlayscrollbars_appear {
+		from {
+			opacity: 0;
 		}
 
-		& .xui-menu {
-			@extend	%menu-accordion;
+		to {
+			opacity: 1;
+		}
+	}
+
+	.xui-dashboard.--mini {
+		&.--closed {
+			// OverlayScrollbars
+			& .xui-navigation-drawer {
+				overflow: visible !important;
+
+				& .xui-navigation-drawer_content {
+					overflow: visible !important;
+
+					> .os-size-observer {
+						display: none;
+					}
+
+					> .os-scrollbar {
+						display: none;
+					}
+
+					> .os-size-observer + div {
+						overflow: visible !important;
+					}
+				}
+			}
 		}
 
-		& .xui-application-user {
-			width: 100%;
+		&.--open {
+			& .xui-navigation-drawer {
+				& .xui-navigation-drawer_content {
+					> .os-scrollbar {
+						animation: xui-dashboard_mini_overlayscrollbars_appear 0.5s;
+					}
+				}
+			}
 		}
-
 	}
+}
 
-	& .xui-content {
-		transition: none;
-		left: 72px + 6px;
-		width: calc(100% - 72px - 6px);
-	}
-
-	& .xui-application-header {
-		@extend %application-header-mini;
-	}
-
-	&.--open {
-
+@layer components {
+	.xui-dashboard.--mini {
 		& .xui-navigation-drawer {
-			position: absolute;
-			width: 288px + 6px;
-			overflow: hidden;
-			border-right: 1px solid var(--color-xui-line);
-			transition: width 0.5s ease, border-right 0.3s ease;
-		}
-	
-		& .xui-navigation-drawer > .xui-navigation-drawer_content {
-			overflow-x: hidden;
-			overflow-y: auto;
+			& > .xui-navigation-drawer_content {
+				overflow: visible;
+			}
+
+			& .xui-menu {
+				@extend %menu-accordion;
+			}
+
+			& .xui-application-user {
+				width: 100%;
+			}
 		}
 
-		& .xui-content_cover {
-			height: calc(100% - 64px);
-			opacity: 0.4;
+		& .xui-content {
+			transition: none;
+			left: 72px + 6px;
+			width: calc(100% - 72px - 6px);
 		}
 
-		& .xui-navigation-drawer .xui-application-user {
-			width: 100%;
+		& .xui-application-header {
+			@extend %application-header-mini;
 		}
 
+		&.--open {
+			& .xui-navigation-drawer {
+				position: absolute;
+				width: 288px + 6px;
+				overflow: hidden;
+				border-right: 1px solid var(--color-xui-line);
+				transition:
+					width 0.5s ease,
+					border-right 0.3s ease;
+			}
+
+			& .xui-navigation-drawer > .xui-navigation-drawer_content {
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+
+			& .xui-content_cover {
+				height: calc(100% - 64px);
+				opacity: 0.4;
+			}
+
+			& .xui-navigation-drawer .xui-application-user {
+				width: 100%;
+			}
+		}
+
+		&.--closed {
+			& .xui-navigation-drawer {
+				position: absolute;
+				width: 72px + 6px;
+				overflow: visible;
+				border-right: 1px solid transparent;
+				transition:
+					width 0.5s ease,
+					border-right 1s ease;
+			}
+
+			& .xui-navigation-drawer > .xui-navigation-drawer_content {
+				overflow: visible;
+			}
+
+			& .xui-navigation-drawer .xui-application-user {
+				@extend %application-user-mini;
+			}
+
+			& .xui-navigation-drawer .xui-menu {
+				@extend %menu-mini;
+			}
+
+			& .xui-navigation-drawer .xui-application-user {
+				width: 100%;
+			}
+		}
 	}
-
-	&.--closed {
-
-		& .xui-navigation-drawer {
-			position: absolute;
-			width: 72px + 6px;
-			overflow: visible;
-			border-right: 1px solid transparent;
-			transition: width 0.5s ease, border-right 1s ease;
-		}
-
-		& .xui-navigation-drawer > .xui-navigation-drawer_content {
-			overflow: visible;
-		}
-
-		& .xui-navigation-drawer .xui-application-user {
-			@extend %application-user-mini;
-		}
-
-		& .xui-navigation-drawer .xui-menu {
-			@extend %menu-mini;
-		}
-
-		& .xui-navigation-drawer .xui-application-user {
-			width: 100%;
-		}
-
-	}
-
-
 }

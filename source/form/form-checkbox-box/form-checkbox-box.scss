@@ -14,91 +14,96 @@
 @use "../form-input" as *;
 @use "../form-checkbox/form-checkbox.source" as *;
 
-.xui-form-checkbox.--box {
-	& > input[type="checkbox"] + label::after {
-		display: block;	
-		cursor: pointer;
-		position: absolute;
-		top: 15px;
-		left: 10px;
-		content: " ";
-        
-		border-radius: 3px;
+@layer components {
+	.xui-form-checkbox.--box {
+		& > input[type="checkbox"] + label::after {
+			display: block;
+			cursor: pointer;
+			position: absolute;
+			top: 15px;
+			left: 10px;
+			content: " ";
 
-       		width: 2px;
-		height: 2px;
+			border-radius: 3px;
 
-		transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+			width: 2px;
+			height: 2px;
 
-		background-color: transparent;
-		mask-image: none;
-	}
+			transition:
+				top 0.3s ease,
+				left 0.3s ease,
+				width 0.3s ease,
+				height 0.3s ease,
+				background-color 0.3s ease;
 
-	& > input[type="checkbox"]:checked + label::after,
-	& > input[type="checkbox"]:focus:checked + label::after,
-	& > input[type="checkbox"]:active:checked + label::after {
-		top: 10px;
-		left: 5px;
-		width: 12px;
-		height: 12px;		
-		mask-image: none;
-	}
-	
-	@each $type, $value in $formInputType {
-		$class: if($type == "default","",".--#{$type}");
+			background-color: transparent;
+			mask-image: none;
+		}
 
-		&#{$class} {
-			@if $type == "disabled" {
-				& > label,
-				& > input[type="checkbox"] + label::before,
-				& > input[type="checkbox"] + label::after {
-					cursor: auto;
+		& > input[type="checkbox"]:checked + label::after,
+		& > input[type="checkbox"]:focus:checked + label::after,
+		& > input[type="checkbox"]:active:checked + label::after {
+			top: 10px;
+			left: 5px;
+			width: 12px;
+			height: 12px;
+			mask-image: none;
+		}
+
+		@each $type, $value in $formInputType {
+			$class: if($type == "default", "", ".--#{$type}");
+
+			&#{$class} {
+				@if $type == "disabled" {
+					& > label,
+					& > input[type="checkbox"] + label::before,
+					& > input[type="checkbox"] + label::after {
+						cursor: auto;
+					}
+				}
+
+				& > input[type="checkbox"]:checked + label::after {
+					background-color: map.get($form-checkbox, "#{$type}-normal-fg");
+				}
+
+				& > input[type="checkbox"]:focus:checked + label::after,
+				& > input[type="checkbox"]:active:checked + label::after {
+					@if $type != "disabled" {
+						background-color: map.get($form-checkbox, "focus-fg");
+					} @else {
+						background-color: map.get($form-checkbox, "#{$type}-normal-fg");
+					}
 				}
 			}
-	
+		}
+
+		&.--small {
+			min-width: 20px;
+			min-height: 28px;
+
+			& > label:empty {
+				padding-top: 0px;
+				padding-right: 0px;
+				padding-bottom: 0px;
+				padding-left: 0px;
+			}
+
+			& > label::before {
+				width: 18px;
+				height: 18px;
+			}
+
+			& > input[type="checkbox"] + label::after {
+				top: 13px;
+				left: 8px;
+			}
+
 			& > input[type="checkbox"]:checked + label::after {
-				background-color: map.get($form-checkbox,"#{$type}-normal-fg");
+				top: 9px;
+				left: 4px;
+				width: 10px;
+				height: 10px;
 			}
-	
-			& > input[type="checkbox"]:focus:checked + label::after,
-			& > input[type="checkbox"]:active:checked + label::after {
-				@if $type != "disabled" {
-					background-color: map.get($form-checkbox,"focus-fg");
-				} @else {
-					background-color: map.get($form-checkbox,"#{$type}-normal-fg");					
-				}
-			}
-	
-		}
-	}
-
-	&.--small {
-		min-width: 20px;
-		min-height: 28px;
-                
-		& > label:empty {
-			padding-top: 0px;
-			padding-right: 0px;
-			padding-bottom: 0px;
-			padding-left: 0px;
-		}
-
-		& > label::before {
-			width: 18px;
-			height: 18px;
-		}
-
-		& > input[type=checkbox] + label::after {
-			top: 13px;
-			left: 8px;						
-		}
-
-		& > input[type=checkbox]:checked + label::after {
-			top: 9px;
-			left: 4px;
-			width: 10px;
-			height: 10px;						
 		}
 	}
 }
-

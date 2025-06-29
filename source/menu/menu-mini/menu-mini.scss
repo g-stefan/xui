@@ -14,7 +14,8 @@
 
 @use "menu-mini.source" as *;
 
-ul.xui-menu.--mini {
-	@extend %menu-mini;
+@layer components {
+	ul.xui-menu.--mini {
+		@extend %menu-mini;
+	}
 }
-

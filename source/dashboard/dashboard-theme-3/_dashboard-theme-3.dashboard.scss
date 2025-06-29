@@ -4,11 +4,10 @@
 // SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-.xui-dashboard.--theme-3 {
-
-	& .xui-navigation-drawer {
-		height: 100%;
+@layer components {
+	.xui-dashboard.--theme-3 {
+		& .xui-navigation-drawer {
+			height: 100%;
+		}
 	}
-
 }
-

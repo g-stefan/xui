@@ -11,88 +11,89 @@
 
 @use "progress-bar.source" as *;
 
-.xui-progress-bar {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 24px;
-
-	font-family: "Roboto", sans-serif;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: normal;
-
-	border-radius: 3px;
-	overflow: hidden;
-
-	& > .xui-progress-bar_background {
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		height: 24px;
-		margin: 0px;
-		padding: 0px;
-		width: 100%;
-		box-sizing: border-box;
-		border-radius: 3px;
-	}
-
-	& > .xui-progress-bar_bar{
-		display: block;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 50%;
-		height: 24px;
-		margin: 0px;
-		padding: 0px;
-		box-sizing: border-box;
-		border-radius: 3px;
-	}
-
-	& > .xui-progress-bar_label{
-		display: inline-block;
+@layer components {
+	.xui-progress-bar {
 		position: relative;
+		display: block;
 		width: 100%;
-		text-align: center;
-
-		box-sizing: border-box;
+		height: 24px;
 
 		font-family: "Roboto", sans-serif;
 		font-size: 16px;
 		line-height: 20px;
 		font-weight: normal;
 
-		padding-top: 2px;
-		padding-right: 0px;
-		padding-bottom: 2px;
-		padding-left: 0px;	
-	}
+		border-radius: 3px;
+		overflow: hidden;
 
+		& > .xui-progress-bar_background {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			height: 24px;
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			box-sizing: border-box;
+			border-radius: 3px;
+		}
 
-	@each $type, $value in $progressBarType	{
-		$class: if($type == "default","",".--#{$type}");
+		& > .xui-progress-bar_bar {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 50%;
+			height: 24px;
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+			border-radius: 3px;
+		}
 
-		&#{$class} {
+		& > .xui-progress-bar_label {
+			display: inline-block;
+			position: relative;
+			width: 100%;
+			text-align: center;
 
-			& > .xui-progress-bar_background {
-				border: 1px solid map.get($progress-bar,"#{$type}-bd-full");
+			box-sizing: border-box;
+
+			font-family: "Roboto", sans-serif;
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: normal;
+
+			padding-top: 2px;
+			padding-right: 0px;
+			padding-bottom: 2px;
+			padding-left: 0px;
+		}
+
+		@each $type, $value in $progressBarType {
+			$class: if($type == "default", "", ".--#{$type}");
+
+			&#{$class} {
+				& > .xui-progress-bar_background {
+					border: 1px solid map.get($progress-bar, "#{$type}-bd-full");
+				}
+
+				& > .xui-progress-bar_bar {
+					border: 1px solid map.get($progress-bar, "#{$type}-bd");
+					background-color: map.get($progress-bar, "#{$type}-bg");
+					color: map.get($progress-bar, "#{$type}-fg");
+				}
+
+				& > .xui-progress-bar_label {
+					color: map.get($progress-bar, "#{$type}-fg");
+					text-shadow:
+						-1px -1px 2px #ffffff,
+						-1px 1px 2px #ffffff,
+						1px -1px 2px #ffffff,
+						1px 1px 2px #ffffff;
+				}
 			}
-	
-			& > .xui-progress-bar_bar {
-				border: 1px solid map.get($progress-bar,"#{$type}-bd");
-				background-color: map.get($progress-bar,"#{$type}-bg");
-				color: map.get($progress-bar,"#{$type}-fg");
-			}
-	
-			& > .xui-progress-bar_label {
-				color: map.get($progress-bar,"#{$type}-fg");
-				text-shadow: -1px -1px 2px #FFFFFF, -1px 1px 2px #FFFFFF, 1px -1px 2px #FFFFFF, 1px 1px 2px #FFFFFF;
-			}
-			
 		}
 	}
-
 }
-

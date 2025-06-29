@@ -11,7 +11,8 @@
 @use "../menu/menu.source" as *;
 @use "menu-accordion.source" as *;
 
-ul.xui-menu.--accordion  {
-	@extend %menu-accordion;
+@layer components {
+	ul.xui-menu.--accordion {
+		@extend %menu-accordion;
+	}
 }
-

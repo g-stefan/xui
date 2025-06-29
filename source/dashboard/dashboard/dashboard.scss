@@ -10,143 +10,143 @@
 
 @use "sass:map";
 
-.xui-dashboard {	
-	position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-
-	font-family: "Roboto", sans-serif;
-	box-sizing: border-box;
-
-	& .xui-application-header {
-		overflow: visible;
-	
-		& .xui-application-bar {
-			overflow: visible;
-		}
-
-	}	
-
-	& .xui-navigation-drawer {
+@layer components {
+	.xui-dashboard {
 		position: relative;
-		height: calc(100% - 64px);
-		width: 288px + 6px;
+		width: 100%;
+		height: 100%;
 		overflow: hidden;
-		float:left;
-		left: 0;
-		right: auto;
-		transition: width 0.5s ease;
-		z-index: 5;
 
 		font-family: "Roboto", sans-serif;
 		box-sizing: border-box;
 
-		background-color: #FFFFFF;
-	
-		& > .xui-navigation-drawer_content{
-			position: relative;
-			width: 100%;
-			height: 100%;
-			overflow-x: hidden;
-			overflow-y: auto;
+		& .xui-application-header {
+			overflow: visible;
 
+			& .xui-application-bar {
+				overflow: visible;
+			}
+		}
+
+		& .xui-navigation-drawer {
+			position: relative;
+			height: calc(100% - 64px);
+			width: 288px + 6px;
+			overflow: hidden;
+			float: left;
+			left: 0;
+			right: auto;
+			transition: width 0.5s ease;
+			z-index: 5;
+
+			font-family: "Roboto", sans-serif;
+			box-sizing: border-box;
+
+			background-color: #ffffff;
+
+			& > .xui-navigation-drawer_content {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow-x: hidden;
+				overflow-y: auto;
+
+				font-family: "Roboto", sans-serif;
+				box-sizing: border-box;
+			}
+
+			& .xui-application-user {
+				width: 100%;
+			}
+
+			&:before {
+				content: " ";
+				z-index: 2;
+				display: block;
+				position: absolute;
+				height: 1px;
+				top: 0px;
+				left: 0px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.8) no-repeat;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				box-sizing: border-box;
+			}
+
+			&:after {
+				content: " ";
+				z-index: 1;
+				display: block;
+				position: absolute;
+				height: 1px;
+				bottom: 0px;
+				left: 0px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.8) no-repeat;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				box-sizing: border-box;
+			}
+		}
+
+		& .xui-content {
+			position: relative;
+			display: block;
+			height: calc(100% - 64px);
+			width: auto;
+			overflow: auto;
+
+			transition:
+				width 0.5s ease,
+				margin 0.5s ease;
+
+			font-family: "Roboto", sans-serif;
+			box-sizing: border-box;
+
+			border-radius: 6px 0px 0px 0px;
+			border-top: 1px solid var(--color-xui-line);
+			border-left: 1px solid var(--color-xui-line);
+		}
+
+		& .xui-content_cover {
+			position: absolute;
+			top: 64px;
+			left: 0px;
+			width: 100%;
+			height: 0px;
+			overflow: hidden;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			background-color: #000000;
+			z-index: 3;
 			font-family: "Roboto", sans-serif;
 			box-sizing: border-box;
 		}
 
-		& .xui-application-user {
-			width: 100%;
-		}
-		
-		&:before {
-			content: " ";
-			z-index: 2;
-			display: block;
+		// ---
+
+		& #xui-popup-menu-application {
 			position: absolute;
-			height: 1px;
 			top: 0px;
 			left: 0px;
-			right: 0;
-			background: rgba(255,255,255,0.8) no-repeat;
-			width: 100%;
-			margin: 0px;
-			padding: 0px;
-			border: 0px;
-			box-sizing: border-box;
+			z-index: 4;
 		}
 
-		&:after {
-			content: " ";
-			z-index: 1;
-			display: block;
+		& #xui-popup-menu-user {
 			position: absolute;
-			height: 1px;
-			bottom: 0px;
-			left: 0px;
-			right: 0;
-			background: rgba(255,255,255,0.8) no-repeat;
-			width: 100%;
-			margin: 0px;
-			padding: 0px;
-			border: 0px;
-			box-sizing: border-box;
+			top: 0px;
+			left: -216px + 24px;
+			width: 216px + 6px;
+
+			&::before {
+				left: 204px;
+				left: 216px - 12px;
+			}
 		}
-
 	}
-
-	& .xui-content {
-		position: relative;
-		display: block;
-		height: calc(100% - 64px);
-		width: auto;
-		overflow: auto;
-
-		transition: width 0.5s ease, margin 0.5s ease;
-
-		font-family: "Roboto", sans-serif;
-		box-sizing: border-box;
-
-		border-radius: 6px 0px 0px 0px;
-		border-top: 1px solid var(--color-xui-line);
-		border-left: 1px solid var(--color-xui-line);
-	}
-
-	& .xui-content_cover {
-		position: absolute;
-		top: 64px;
-		left: 0px;
-		width: 100%;
-		height: 0px;
-		overflow: hidden;
-		opacity: 0;
-		transition: opacity 0.5s ease;
-		background-color: #000000;
-		z-index: 3;
-		font-family: "Roboto", sans-serif;
-		box-sizing: border-box;
-	}
-
-	// ---
-	
-	& #xui-popup-menu-application {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		z-index: 4;	
-	}
-
-	& #xui-popup-menu-user {
-		position: absolute;
-		top: 0px;		
-		left: -216px + 24px;
-		width: 216px + 6px;
-	
-		&::before {
-			left: 204px;
-			left: 216px - 12px;
-		}
-	}	
-		
 }
-

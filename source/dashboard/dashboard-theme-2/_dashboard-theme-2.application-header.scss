@@ -9,42 +9,44 @@
 @use "../../application/application-user/application-user.source" as *;
 @use "../../application/application-header/application-header.source" as *;
 
-.xui-dashboard.--theme-2 {
-	& .xui-application-header {
-		overflow: visible;
-
-		& > .xui-application-bar {
-			overflow: hidden !important;
-		}
-
-		& > .xui-application-user-info {
-			position: relative;
-			display: block;
-			width: 288px + 6px - 24px;
-			height: 64px;
+@layer components {
+	.xui-dashboard.--theme-2 {
+		& .xui-application-header {
 			overflow: visible;
-			flex: 0 0 auto;
-			white-space: nowrap;
 
-			& > .xui-application-user {
-				@extend %application-user-mini-landscape;
-
-				float: left;
+			& > .xui-application-bar {
+				overflow: hidden !important;
 			}
 
-			& > .xui-button {
-				margin-top: 16px;
-				float: left;
-			}
+			& > .xui-application-user-info {
+				position: relative;
+				display: block;
+				width: 288px + 6px - 24px;
+				height: 64px;
+				overflow: visible;
+				flex: 0 0 auto;
+				white-space: nowrap;
 
-			& > #xui-popup-menu-user {
-				position: absolute;
-				top: 64px - 8px;
-				left: 32px;
-				width: 216px + 6px;
+				& > .xui-application-user {
+					@extend %application-user-mini-landscape;
 
-				&::before {
-					left: 216px - 12px;
+					float: left;
+				}
+
+				& > .xui-button {
+					margin-top: 16px;
+					float: left;
+				}
+
+				& > #xui-popup-menu-user {
+					position: absolute;
+					top: 64px - 8px;
+					left: 32px;
+					width: 216px + 6px;
+
+					&::before {
+						left: 216px - 12px;
+					}
 				}
 			}
 		}

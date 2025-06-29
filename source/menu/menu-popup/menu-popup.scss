@@ -12,172 +12,162 @@
 @use "../menu/menu.source" as *;
 @use "../menu-dropdown/menu-dropdown.source" as *;
 
-ul.xui-menu.--popup {
-	display: block;
-	position: relative;
-        overflow: hidden;
-	border-radius: 6px;
-	background-color: #FFFFFF;
-	padding: 0px 3px 0px 3px;
-	@include util.raw("@apply shadow-none;");
-	z-index: 1;
-	height: 0px;
-	width: 288px + 6px;
-
-	&::before {
-		content: "";
+@layer components {
+	ul.xui-menu.--popup {
 		display: block;
-		position: absolute;
-		left: 10px;
-		top: -5px;
-		width: 8px;
-		height: 0px;
-		background-color: #FFFFFF;
-		overflow: hidden;
-		border-radius: 3px;
-		transform: rotate(45deg);
-		border-top: 1px solid var(--color-xui-line);
-		border-left: 1px solid var(--color-xui-line);
-		border-bottom: 0px solid var(--color-xui-line);
-		border-right: 0px solid var(--color-xui-line);
-		z-index: -1;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
-
-	& ul {
-		&:before,
-		&:after {
-			display: block;
-		}
-	}
-
-	& > li {
-		@extend %menu-level-reset;
-
 		position: relative;
 		overflow: hidden;
-		width: 100%;
+		border-radius: 6px;
+		background-color: #ffffff;
+		padding: 0px 3px 0px 3px;
+		@include util.raw("@apply shadow-none;");
+		z-index: 1;
+		height: 0px;
+		width: 288px + 6px;
 
-		&.xui-menu_submenu::before {
+		&::before {
 			content: "";
+			display: block;
 			position: absolute;
-			top: 0px;
-			left: 100%;
-			height: 40px;
-			width: 0px;
-			background-color: transparent;
-			transition: width 1s ease;
+			left: 10px;
+			top: -5px;
+			width: 8px;
+			height: 0px;
+			background-color: #ffffff;
+			overflow: hidden;
+			border-radius: 3px;
+			transform: rotate(45deg);
+			border-top: 1px solid var(--color-xui-line);
+			border-left: 1px solid var(--color-xui-line);
+			border-bottom: 0px solid var(--color-xui-line);
+			border-right: 0px solid var(--color-xui-line);
+			z-index: -1;
+			opacity: 0;
+			transition: opacity 0.3s ease;
 		}
 
-		& > ul {
-			position: absolute;
-			left: 288px + 6px;
-			top: -3px;
-			overflow: visible;
+		& ul {
+			&:before,
+			&:after {
+				display: block;
+			}
+		}
+
+		& > li {
+			@extend %menu-level-reset;
+
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+
+			&.xui-menu_submenu::before {
+				content: "";
+				position: absolute;
+				top: 0px;
+				left: 100%;
+				height: 40px;
+				width: 0px;
+				background-color: transparent;
+				transition: width 1s ease;
+			}
+
+			& > ul {
+				position: absolute;
+				left: 288px + 6px;
+				top: -3px;
+				overflow: visible;
+				width: 288px + 6px;
+				border-radius: 6px;
+				background-color: #ffffff;
+				padding: 3px 3px 3px 3px;
+				@include util.raw("@apply shadow-md;");
+				border: 1px solid var(--color-xui-line);
+			}
+
+			& > ul > li {
+				@extend %menu-level-reset;
+			}
+
+			@include menu-dropdown-level-action();
+		}
+
+		&.--open {
 			width: 288px + 6px;
-			border-radius: 6px;
-			background-color: #FFFFFF;
+			overflow: visible;
+			height: auto;
 			padding: 3px 3px 3px 3px;
 			@include util.raw("@apply shadow-md;");
 			border: 1px solid var(--color-xui-line);
-		}
 
-		& > ul > li {
-			@extend %menu-level-reset;
-		}
-
-		@include menu-dropdown-level-action();
-
-	}
-
-	&.--open {
-		width: 288px + 6px;
-		overflow: visible;
-		height: auto;
-		padding: 3px 3px 3px 3px;
-		@include util.raw("@apply shadow-md;");
-		border: 1px solid var(--color-xui-line);
-
-		&::before {
-			height: 8px;
-			opacity: 1;
-		}
-
-		// Level 1
-		
-		& > li {
-
-			@extend %menu-level;
-
-			&.xui-menu_submenu:hover::before {
-				width: 16px;
+			&::before {
+				height: 8px;
+				opacity: 1;
 			}
 
-			&:hover {
-				overflow: visible;
-			}
+			// Level 1
 
-			&:hover > ul > li {
+			& > li {
 				@extend %menu-level;
+
+				&.xui-menu_submenu:hover::before {
+					width: 16px;
+				}
+
+				&:hover {
+					overflow: visible;
+				}
+
+				&:hover > ul > li {
+					@extend %menu-level;
+				}
 			}
-			
-		}
 
-		// Level 2
-	
-		& > li:hover > ul
-		> li {
-			@extend %menu-dropdown-level;
-			@include menu-dropdown-level-action();		
-		}
+			// Level 2
 
-		// Level 3
+			& > li:hover > ul > li {
+				@extend %menu-dropdown-level;
+				@include menu-dropdown-level-action();
+			}
 
-		& > li:hover > ul
-		> li:hover > ul 
-		> li {
-			@extend %menu-dropdown-level;
-			@include menu-dropdown-level-action();
+			// Level 3
+
+			& > li:hover > ul > li:hover > ul > li {
+				@extend %menu-dropdown-level;
+				@include menu-dropdown-level-action();
+			}
+
+			// --- Overlay Scrollbars
+
+			// Level 2
+
+			& > li:hover > ul {
+				display: flex;
+				flex-direction: column;
+			}
+
+			& > li:hover > ul > div > li {
+				@extend %menu-dropdown-level;
+				@include menu-dropdown-level-action();
+			}
+
+			// Level 3
+
+			& > li:hover > ul > div > li:hover > ul {
+				display: flex;
+				flex-direction: column;
+			}
+
+			& > li:hover > ul > div > li:hover > ul > div > li {
+				@extend %menu-dropdown-level;
+				@include menu-dropdown-level-action();
+			}
 		}
 
 		// --- Overlay Scrollbars
 
-		// Level 2
-
-		& > li:hover > ul {
+		& ul {
 			display: flex;
 			flex-direction: column;
 		}
-	
-		& > li:hover > ul > div
-		> li {
-			@extend %menu-dropdown-level;
-			@include menu-dropdown-level-action();		
-		}
-
-		// Level 3
-
-		& > li:hover > ul > div
-		> li:hover > ul {
-			display: flex;
-			flex-direction: column;
-		}		
-
-		& > li:hover > ul > div
-		> li:hover > ul > div
-		> li {
-			@extend %menu-dropdown-level;
-			@include menu-dropdown-level-action();
-		}
-
-	}
-
-	// --- Overlay Scrollbars
-	
-	& ul {
-		display: flex;
-		flex-direction: column;
 	}
 }
-

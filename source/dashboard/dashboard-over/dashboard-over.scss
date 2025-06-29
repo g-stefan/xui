@@ -15,50 +15,47 @@
 @use "../../menu/menu-dropdown/menu-dropdown.source" as *;
 @use "../../menu/menu-mini/menu-mini.source" as *;
 
-.xui-dashboard.--over {
+@layer components {
+	.xui-dashboard.--over {
+		& .xui-application-header {
+			@extend %application-header-mini;
+		}
 
-	& .xui-application-header {
-		@extend %application-header-mini;
-	}
+		& .xui-application-header > .xui-application-brand {
+			width: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+		}
 
-	& .xui-application-header > .xui-application-brand {
-		width: 0px;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
+		& .xui-content {
+			width: 100%;
+			border-radius: 0px;
+			border-left: 0px solid transparent;
+		}
 
-	& .xui-content {
-		width: 100%;
-		border-radius: 0px;
-		border-left: 0px solid transparent;
-	}
-
-	& .xui-navigation-drawer .xui-menu {
-		@extend	%menu-accordion;
-	}
-
-	& .xui-navigation-drawer {
-		position: absolute;
-		width: 288px + 6px;
-		overflow: hidden;
-		left: -288px - 6px - 1px;
-		border-top: 1px solid var(--color-xui-line);
-		border-right: 1px solid var(--color-xui-line);
-		transition: left 0.5s ease;
-	}
-
-	&.--open  {
+		& .xui-navigation-drawer .xui-menu {
+			@extend %menu-accordion;
+		}
 
 		& .xui-navigation-drawer {
-			left: 0px;
+			position: absolute;
+			width: 288px + 6px;
+			overflow: hidden;
+			left: -288px - 6px - 1px;
+			border-top: 1px solid var(--color-xui-line);
+			border-right: 1px solid var(--color-xui-line);
+			transition: left 0.5s ease;
 		}
 
-		& .xui-content_cover {
-			height: calc(100% - 64px);
-			opacity: 0.4;
-		}
+		&.--open {
+			& .xui-navigation-drawer {
+				left: 0px;
+			}
 
+			& .xui-content_cover {
+				height: calc(100% - 64px);
+				opacity: 0.4;
+			}
+		}
 	}
-
 }
-

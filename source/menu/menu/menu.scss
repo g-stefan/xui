@@ -8,127 +8,126 @@
 
 @charset "UTF-8";
 
-ul.xui-menu {
-	position: relative;
-	width: 100%;
-	height: auto;
-	overflow: hidden;
-	list-style-type: none;
-
-	font-family: "Roboto", sans-serif;
-	box-sizing: border-box;
-	display: block;
-
-	transition: width 0.5s ease;
-
-	& li {
-		position: relative;
-		width: 100%;
-		height: auto;
-		overflow: hidden;
-		padding: 0px;
-		margin: 0px;
-
-		font-family: "Roboto", sans-serif;
-		box-sizing: border-box;
-		display: block;
-
-		& > .xui-menu_item {
-			height: auto;
-			transition: height 0.3s ease;
-		}
-
-		&.xui-menu_separator {
-			overflow: hidden;
-			height: 7px;
-			background-color: #FFFFFF;
-			transition: height 0.3s ease;
-
-			&::before {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0px;
-				left: 0px;
-				width: 100%;
-				height: 4px;
-				overflow: hidden;
-				box-sizing: border-box;
-				border-top: 0px;
-				border-left: 0px;
-				border-right: 0px;
-				border-bottom: 1px solid var(--color-xui-line);
-			}
-		}
-
-		&.xui-menu_space {
-			overflow: hidden;
-			height: 7px;
-			background-color: #FFFFFF;
-			transition: height 0.3s ease;
-		}
-
-		&.xui-menu_label {
-			overflow: hidden;
-			height: 24px;
-			overflow: hidden;
-			transition: height 0.3s ease;
-
-			color: var(--color-xui-rock-6-500);
-			line-height: 24px;
-			font-size: 14px;
-			padding-left: 24px;
-		}
-	}
-
-	& ul {
+@layer components {
+	ul.xui-menu {
 		position: relative;
 		width: 100%;
 		height: auto;
 		overflow: hidden;
 		list-style-type: none;
-		padding: 0px;
-		margin: 0px;
 
 		font-family: "Roboto", sans-serif;
 		box-sizing: border-box;
 		display: block;
 
+		transition: width 0.5s ease;
 
-		&:before {
-			content: " ";
-			z-index: 2;
-			display: none;
-			position: absolute;
-			height: 1px;
-			top: 0px;
-			left: 3px;
-			right: 0;
-			background: rgba(255,255,255,0.8) no-repeat;
-			width: calc(100% - 6px);
-			margin: 0px;
+		& li {
+			position: relative;
+			width: 100%;
+			height: auto;
+			overflow: hidden;
 			padding: 0px;
-			border: 0px;
+			margin: 0px;
+
+			font-family: "Roboto", sans-serif;
 			box-sizing: border-box;
+			display: block;
+
+			& > .xui-menu_item {
+				height: auto;
+				transition: height 0.3s ease;
+			}
+
+			&.xui-menu_separator {
+				overflow: hidden;
+				height: 7px;
+				background-color: #ffffff;
+				transition: height 0.3s ease;
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width: 100%;
+					height: 4px;
+					overflow: hidden;
+					box-sizing: border-box;
+					border-top: 0px;
+					border-left: 0px;
+					border-right: 0px;
+					border-bottom: 1px solid var(--color-xui-line);
+				}
+			}
+
+			&.xui-menu_space {
+				overflow: hidden;
+				height: 7px;
+				background-color: #ffffff;
+				transition: height 0.3s ease;
+			}
+
+			&.xui-menu_label {
+				overflow: hidden;
+				height: 24px;
+				overflow: hidden;
+				transition: height 0.3s ease;
+
+				color: var(--color-xui-rock-6-500);
+				line-height: 24px;
+				font-size: 14px;
+				padding-left: 24px;
+			}
 		}
 
-		&:after {
-			content: " ";
-			z-index: 1;
-			display: none;
-			position: absolute;
-			height: 1px;
-			bottom: 0px;
-			left: 3px;
-			right: 0;
-			background: rgba(255,255,255,0.8) no-repeat;
-			width: calc(100% - 6px);
-			margin: 0px;
+		& ul {
+			position: relative;
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			list-style-type: none;
 			padding: 0px;
-			border: 0px;
-			box-sizing: border-box;
-		}
+			margin: 0px;
 
+			font-family: "Roboto", sans-serif;
+			box-sizing: border-box;
+			display: block;
+
+			&:before {
+				content: " ";
+				z-index: 2;
+				display: none;
+				position: absolute;
+				height: 1px;
+				top: 0px;
+				left: 3px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.8) no-repeat;
+				width: calc(100% - 6px);
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				box-sizing: border-box;
+			}
+
+			&:after {
+				content: " ";
+				z-index: 1;
+				display: none;
+				position: absolute;
+				height: 1px;
+				bottom: 0px;
+				left: 3px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.8) no-repeat;
+				width: calc(100% - 6px);
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				box-sizing: border-box;
+			}
+		}
 	}
 }
-

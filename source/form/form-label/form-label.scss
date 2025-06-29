@@ -12,25 +12,25 @@
 @use "../form-input" as *;
 @use "form-label.source" as *;
 
-.xui-form-label {
-	display: inline-block;
-        vertical-align: middle;
+@layer components {
+	.xui-form-label {
+		display: inline-block;
+		vertical-align: middle;
 
-	font-family: "Roboto", sans-serif;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: normal;
+		font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: normal;
 
-	padding-top: 6px;
-	padding-bottom: 6px;
+		padding-top: 6px;
+		padding-bottom: 6px;
 
-	@each $type, $value in $formInputType {
-		$class: if($type == "default","",".--#{$type}");		
+		@each $type, $value in $formInputType {
+			$class: if($type == "default", "", ".--#{$type}");
 
-		&#{$class} {
-			color: map.get($form-label,"#{$type}-normal-fg");
+			&#{$class} {
+				color: map.get($form-label, "#{$type}-normal-fg");
+			}
 		}
 	}
-	
 }
-

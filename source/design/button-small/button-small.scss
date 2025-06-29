@@ -8,167 +8,167 @@
 
 @charset "UTF-8";
 
-.xui-button.--small {
-	$border-size: 1px;
-	height: 32px;
-	padding-top: 6px - $border-size;
-	padding-bottom: 6px - $border-size;
-	padding-right: 20px - $border-size;
-	padding-left: 20px - $border-size;
+@layer components {
+	.xui-button.--small {
+		$border-size: 1px;
+		height: 32px;
+		padding-top: 6px - $border-size;
+		padding-bottom: 6px - $border-size;
+		padding-right: 20px - $border-size;
+		padding-left: 20px - $border-size;
 
-	&.--icon {
-		width: 32px;
-		padding-left: 4px - $border-size;
-		padding-top: 4px - $border-size;
-		padding-bottom: 4px - $border-size;
-		padding-right: 4px - $border-size;
-		font-size: 24px;
-		line-height: 24px;
-
-		&.--circle {
-			border-radius: 16px;
-		}
-
-		&.--size-x32 {
+		&.--icon {
 			width: 32px;
 			padding-left: 4px - $border-size;
+			padding-top: 4px - $border-size;
+			padding-bottom: 4px - $border-size;
 			padding-right: 4px - $border-size;
+			font-size: 24px;
+			line-height: 24px;
 
 			&.--circle {
-				height: 32px;
-				padding-top: 2px - $border-size;
-				padding-bottom: 2px - $border-size;
-				margin-top: 2px - $border-size;
-				margin-bottom: 2px - $border-size;
 				border-radius: 16px;
 			}
-		}
 
-		&.--size-xy30 {
-			height: 30px;
-			width: 30px;
-			padding-top: 3px - $border-size;
-			padding-bottom: 3px - $border-size;
-			padding-left: 3px - $border-size;
-			padding-right: 3px - $border-size;
+			&.--size-x32 {
+				width: 32px;
+				padding-left: 4px - $border-size;
+				padding-right: 4px - $border-size;
 
-			&.--circle {
-				height: 30px;
-				padding-top:3px - $border-size;
-				padding-bottom: 3px - $border-size;
-				margin-top: 0px;
-				margin-bottom: 0px;
-				border-radius: 15px;
+				&.--circle {
+					height: 32px;
+					padding-top: 2px - $border-size;
+					padding-bottom: 2px - $border-size;
+					margin-top: 2px - $border-size;
+					margin-bottom: 2px - $border-size;
+					border-radius: 16px;
+				}
 			}
-		}
 
-		&.--size-xy28 {
-			height: 28px;
-			width: 28px;
-			padding-top: 2px - $border-size;
-			padding-bottom: 2px - $border-size;
-			padding-left: 2px - $border-size;
-			padding-right: 2px - $border-size;
+			&.--size-xy30 {
+				height: 30px;
+				width: 30px;
+				padding-top: 3px - $border-size;
+				padding-bottom: 3px - $border-size;
+				padding-left: 3px - $border-size;
+				padding-right: 3px - $border-size;
 
-			&.--circle {
+				&.--circle {
+					height: 30px;
+					padding-top: 3px - $border-size;
+					padding-bottom: 3px - $border-size;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					border-radius: 15px;
+				}
+			}
+
+			&.--size-xy28 {
 				height: 28px;
+				width: 28px;
 				padding-top: 2px - $border-size;
 				padding-bottom: 2px - $border-size;
-				margin-top: 0px;
-				margin-bottom: 0px;
-				border-radius: 14px;
+				padding-left: 2px - $border-size;
+				padding-right: 2px - $border-size;
+
+				&.--circle {
+					height: 28px;
+					padding-top: 2px - $border-size;
+					padding-bottom: 2px - $border-size;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					border-radius: 14px;
+				}
 			}
-		}
 
-		&.--size-xy24 {
-			height: 24px;
-			width: 24px;
-			padding-top: 0px;
-			padding-bottom: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			font-size: 22px;
-
-			&.--circle {
+			&.--size-xy24 {
 				height: 24px;
+				width: 24px;
 				padding-top: 0px;
 				padding-bottom: 0px;
-				margin-top: 0px;
-				margin-bottom: 0px;
-				border-radius: 12px;
+				padding-left: 0px;
+				padding-right: 0px;
+				font-size: 22px;
+
+				&.--circle {
+					height: 24px;
+					padding-top: 0px;
+					padding-bottom: 0px;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					border-radius: 12px;
+				}
 			}
-		}
 
-		&.--size-xy24-20 {
-			height: 24px;
-			width: 24px;
-			padding-top: 2px - $border-size;
-			padding-bottom: 2px - $border-size;
-			padding-left: 2px - $border-size;
-			padding-right: 2px - $border-size;
-			font-size: 20px;
-
-			& > i,
-			& > svg {
-				font-size: 20px;
-			}			
-
-			&.--circle {
+			&.--size-xy24-20 {
 				height: 24px;
+				width: 24px;
 				padding-top: 2px - $border-size;
 				padding-bottom: 2px - $border-size;
-				margin-top: 0px;
-				margin-bottom: 0px;
-				border-radius: 12px;
+				padding-left: 2px - $border-size;
+				padding-right: 2px - $border-size;
+				font-size: 20px;
+
+				& > i,
+				& > svg {
+					font-size: 20px;
+				}
+
+				&.--circle {
+					height: 24px;
+					padding-top: 2px - $border-size;
+					padding-bottom: 2px - $border-size;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					border-radius: 12px;
+				}
 			}
-		}
 
-		&.--size-xy24-22 {
-			height: 24px;
-			width: 24px;
-			padding-top: 1px - $border-size;
-			padding-bottom: 1px - $border-size;
-			padding-left: 1px - $border-size;
-			padding-right: 1px - $border-size;
-			font-size: 22px;
-
-			& > i,
-			& > svg {
-				font-size: 22px;
-			}			
-
-			&.--circle {
+			&.--size-xy24-22 {
 				height: 24px;
+				width: 24px;
 				padding-top: 1px - $border-size;
 				padding-bottom: 1px - $border-size;
-				margin-top: 0px;
-				margin-bottom: 0px;
-				border-radius: 14px;
+				padding-left: 1px - $border-size;
+				padding-right: 1px - $border-size;
+				font-size: 22px;
+
+				& > i,
+				& > svg {
+					font-size: 22px;
+				}
+
+				&.--circle {
+					height: 24px;
+					padding-top: 1px - $border-size;
+					padding-bottom: 1px - $border-size;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					border-radius: 14px;
+				}
 			}
 		}
 
-	}
+		&.--icon-left {
+			padding-left: 32px;
 
-	&.--icon-left {
-		padding-left: 32px;
+			& i,
+			& svg {
+				position: absolute;
+				top: 4px - $border-size;
+				left: 4px - $border-size;
+			}
+		}
 
-		& i,
-		& svg {
-			position: absolute;
-			top: 4px - $border-size;
-			left: 4px - $border-size;
+		&.--icon-right {
+			padding-right: 32px;
+
+			& i,
+			& svg {
+				position: absolute;
+				top: 4px - $border-size;
+				right: 4px - $border-size;
+			}
 		}
 	}
-
-	&.--icon-right {
-		padding-right: 32px;
-
-		& i,
-		& svg {
-			position: absolute;
-			top: 4px - $border-size;
-			right: 4px - $border-size;
-		}
-	}
-
 }

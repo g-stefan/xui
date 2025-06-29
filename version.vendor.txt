@@ -1,7 +1,7 @@
-30.03.2025
+15.06.2025
 ----------
 roboto-regular,2017,https://fonts.google.com/specimen/Roboto
-lucide-icons,0.485.0,https://github.com/lucide-icons/lucide
+lucide-icons,0.515.0,https://github.com/lucide-icons/lucide
 overlayscrollbars,2.10.1,https://github.com/KingSora/OverlayScrollbars
 ---
 air-datepicker,3.5.3,https://github.com/t1m0n/air-datepicker

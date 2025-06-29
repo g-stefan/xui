@@ -9,56 +9,57 @@
 @charset "UTF-8";
 @use "sass:map";
 
-.xui-form-captcha {
-	position: relative;
-	display: inline-block;
-
-	font-family: "Roboto", sans-serif;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: normal;
-
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-
-	box-sizing: border-box;
-
-	border: 0px solid #000000;
-
-	& img {
+@layer components {
+	.xui-form-captcha {
 		position: relative;
-		display: block;
+		display: inline-block;
 
-		border-top: 1px solid var(--color-xui-line);
-		border-right: 1px solid var(--color-xui-line);
-		border-bottom: 0px solid var(--color-xui-line);
-		border-left: 1px solid var(--color-xui-line);
+		font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: normal;
 
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;
+		padding-top: 0px;
+		padding-right: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
 
-		overflow: hidden;
-
-		width: 200px;
-		height: 48px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
 
 		box-sizing: border-box;
-	}
 
-	& > .xui-form-input-group > input[type="text"] {
-		border-top-left-radius: 0px;	
-		width: 200px - (33px - 4px);
-	}
+		border: 0px solid #000000;
 
-	& > .xui-form-input-group > button[type="button"] {
-		border-top-right-radius: 0px;	
+		& img {
+			position: relative;
+			display: block;
+
+			border-top: 1px solid var(--color-xui-line);
+			border-right: 1px solid var(--color-xui-line);
+			border-bottom: 0px solid var(--color-xui-line);
+			border-left: 1px solid var(--color-xui-line);
+
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+
+			overflow: hidden;
+
+			width: 200px;
+			height: 48px;
+
+			box-sizing: border-box;
+		}
+
+		& > .xui-form-input-group > input[type="text"] {
+			border-top-left-radius: 0px;
+			width: 200px - (33px - 4px);
+		}
+
+		& > .xui-form-input-group > button[type="button"] {
+			border-top-right-radius: 0px;
+		}
 	}
 }
-

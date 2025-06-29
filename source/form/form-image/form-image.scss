@@ -9,176 +9,174 @@
 @charset "UTF-8";
 @use "sass:map";
 
-.xui-form-image {
-	position: relative;
-	display: inline-block;
-
-	box-sizing: border-box;
-
-	overflow: visible;
-	width: 100%;
-
-	border-radius: 3px;
-
-	&>.xui-form-image_delete {
-		position: absolute;
-		display: inline-block;
-		top: 0px;
-		right: 0px;
-
-		border-top-left-radius: 0px;
-		border-bottom-right-radius: 0px;
-	}
-
-	&>.xui-form-image_image {
-		display: block;
+@layer components {
+	.xui-form-image {
 		position: relative;
-
-		min-width: 192px;
-		min-height: 96px;
-		text-align: center;
-
-		border-top: 1px solid var(--color-xui-line);
-		border-right: 1px solid var(--color-xui-line);
-		border-bottom: 0px solid var(--color-xui-line);
-		border-left: 1px solid var(--color-xui-line);
-
-		padding: 2px 2px 2px 2px;
-		margin: 0px 0px 0px 0px;
-
-		color: #C0C0C0;
+		display: inline-block;
 
 		box-sizing: border-box;
 
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;
-
-		width: 100%;		
-		overflow: hidden;
-	}
-
-	&>.xui-form-image_image i:nth-child(1) {
-		font-size: 24px;
-		line-height: 48px;
-		margin-left: auto;
-		margin-right: auto;
-		vertical-align: middle;
-	}
-
-	&>.xui-form-image_image i:nth-child(3) {
-		font-size: 48px;
-		line-height: 48px;
-		margin-left: auto;
-		margin-right: auto;
-		vertical-align: middle;
-	}
-
-	&>.xui-form-file {
-		display: block;
+		overflow: visible;
 		width: 100%;
-		height: 40px;
-	}
 
-	&>.xui-form-file {
+		border-radius: 3px;
 
-		&>label {
+		& > .xui-form-image_delete {
 			position: absolute;
-			display: block;
-			overflow: hidden;
-			top: 0px;
-			left: 0px;
-			right: 40px;
-
-			border-top-left-radius: 0px;
-			border-top-right-radius: 0px;
-
-			border-right: 0px solid #000000 !important;
-		}
-
-		&>button {
-			position: absolute;
+			display: inline-block;
 			top: 0px;
 			right: 0px;
 
 			border-top-left-radius: 0px;
-			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
 
+		& > .xui-form-image_image {
+			display: block;
+			position: relative;
+
+			min-width: 192px;
+			min-height: 96px;
+			text-align: center;
+
+			border-top: 1px solid var(--color-xui-line);
+			border-right: 1px solid var(--color-xui-line);
+			border-bottom: 0px solid var(--color-xui-line);
+			border-left: 1px solid var(--color-xui-line);
+
+			padding: 2px 2px 2px 2px;
+			margin: 0px 0px 0px 0px;
+
+			color: #c0c0c0;
+
+			box-sizing: border-box;
+
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+
+			width: 100%;
+			overflow: hidden;
+		}
+
+		& > .xui-form-image_image i:nth-child(1) {
+			font-size: 24px;
+			line-height: 48px;
+			margin-left: auto;
+			margin-right: auto;
+			vertical-align: middle;
+		}
+
+		& > .xui-form-image_image i:nth-child(3) {
+			font-size: 48px;
+			line-height: 48px;
+			margin-left: auto;
+			margin-right: auto;
+			vertical-align: middle;
+		}
+
+		& > .xui-form-file {
+			display: block;
+			width: 100%;
+			height: 40px;
+		}
+
+		& > .xui-form-file {
+			& > label {
+				position: absolute;
+				display: block;
+				overflow: hidden;
+				top: 0px;
+				left: 0px;
+				right: 40px;
+
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+
+				border-right: 0px solid #000000 !important;
+			}
+
+			& > button {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+			}
+		}
+
+		& > .xui-form-image_link {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border-top-right-radius: 0px;
+			text-decoration: none;
+		}
+
+		/* cropit */
+
+		& .cropit-preview {
+			display: block;
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			width: 400px;
+			height: 300px;
+			border: 16px solid #eeeeee;
+
+			/* *** required to have container of correct size *** */
+			box-sizing: content-box;
+		}
+
+		& .cropit-preview-background {
+			max-width: none;
+			opacity: 0.4;
+		}
+
+		& .cropit-image-zoom-input {
+			-webkit-appearance: none;
+			appearance: none;
+			height: 8px;
+			background-color: #eeeeee;
+			border-radius: 8px;
+			outline: none;
+			width: 160px;
+			margin-top: 20px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			margin-left: 20px;
+			vertical-align: middle;
+		}
+
+		& .cropit-image-zoom-input:focus {
+			outline: none;
+		}
+
+		& .cropit-image-zoom-input::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 16px;
+			height: 16px;
+			background-color: #888888;
+			border-radius: 50%;
+			outline: none;
+			transition: background 0.3s ease;
+		}
+
+		& .cropit-image-zoom-input::-webkit-slider-thumb:hover {
+			background-color: var(--color-xui-primary-focus-bg);
+		}
+
+		& .cropit-preview-image-container {
+			cursor: move;
+		}
+
+		& .cropit-preview-background {
+			max-width: none;
+		}
+
+		& .cropit-preview-image {
+			max-width: none;
 		}
 	}
-
-	&>.xui-form-image_link {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		border-top-right-radius: 0px;
-		text-decoration: none;
-	}
-	
-	/* cropit */
-
-	& .cropit-preview {
-		display: block;
-		position: relative;
-		margin-left: auto;
-		margin-right: auto;
-		width: 400px;
-		height: 300px;
-		border: 16px solid #EEEEEE;
-
-		/* *** required to have container of correct size *** */
-		box-sizing: content-box;
-	}
-
-
-	& .cropit-preview-background {
-		max-width: none;
-		opacity: .4;		
-	}
-
-	& .cropit-image-zoom-input {
-		-webkit-appearance: none;
-		appearance: none;
-		height: 8px;
-		background-color: #EEEEEE;
-		border-radius: 8px;
-		outline: none;
-		width: 160px;
-		margin-top: 20px;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		margin-left: 20px;
-		vertical-align: middle;
-	}
-
-	& .cropit-image-zoom-input:focus {
-		outline: none;
-	}
-
-	& .cropit-image-zoom-input::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		appearance: none;
-		width: 16px;
-		height: 16px;
-		background-color: #888888;
-		border-radius: 50%;
-		outline: none;
-		transition: background 0.3s ease;
-	}
-
-	& .cropit-image-zoom-input::-webkit-slider-thumb:hover {
-		background-color: var(--color-xui-primary-focus-bg);
-	}
-
-	& .cropit-preview-image-container {
-		cursor: move;
-	}
-
-	& .cropit-preview-background {
-		max-width: none;
-	}
-
-	& .cropit-preview-image {
-		max-width: none;
-	} 
-
 }

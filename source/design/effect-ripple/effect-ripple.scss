@@ -8,30 +8,32 @@
 
 @charset "UTF-8";
 
-.xui-effect-ripple {
-	display: block;
-	position: relative;
-}
+@layer components {
+	.xui-effect-ripple {
+		display: block;
+		position: relative;
+	}
 
-.xui-effect-ripple_layer {
-	display: block;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-	border-radius: inherit;
-	background-color: transparent;
-	pointer-events: none;
-	z-index: -1;
-}
+	.xui-effect-ripple_layer {
+		display: block;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		border-radius: inherit;
+		background-color: transparent;
+		pointer-events: none;
+		z-index: -1;
+	}
 
-.xui-effect-ripple_element {
-	display: block;
-	position: absolute;
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
-	opacity: 0.1;
-	pointer-events: none;
+	.xui-effect-ripple_element {
+		display: block;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.1);
+		border-radius: 50%;
+		opacity: 0.1;
+		pointer-events: none;
+	}
 }

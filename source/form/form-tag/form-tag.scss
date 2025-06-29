@@ -13,130 +13,136 @@
 @use "../form-input" as *;
 @use "../form-text/form-text.source" as *;
 
-@each $type, $value in $formInputType {
-	$class: if($type == "default", "", ".--#{$type}");
+@layer components {
+	@each $type, $value in $formInputType {
+		$class: if($type == "default", "", ".--#{$type}");
 
-	$border-color: map.get($form-text,"#{$type}-normal-bd");
-	$text-color: map.get($form-text,"#{$type}-normal-fg");
-	$box-shadow-color-focus: map.get($form-text,"focus-bd-shadow");
-	$border-color-focus: map.get($form-text,"focus-bd");
+		$border-color: map.get($form-text, "#{$type}-normal-bd");
+		$text-color: map.get($form-text, "#{$type}-normal-fg");
+		$box-shadow-color-focus: map.get($form-text, "focus-bd-shadow");
+		$border-color-focus: map.get($form-text, "focus-bd");
 
-	$border-color: if($type == "disabled", $text-color, $border-color);
-	$border-color-focus: if($type == "disabled", $text-color, $border-color-focus); 
+		$border-color: if($type == "disabled", $text-color, $border-color);
+		$border-color-focus: if($type == "disabled", $text-color, $border-color-focus);
 
-	$option-text-color: $text-color;
-	$option-text-color-focus: #FFFFFF;
-	$option-background-color-focus: $border-color-focus;
+		$option-text-color: $text-color;
+		$option-text-color-focus: #ffffff;
+		$option-background-color-focus: $border-color-focus;
 
-	.xui-form-text.--tag#{$class} + ul.tag-editor {
+		.xui-form-text.--tag#{$class} + ul.tag-editor {
+			box-sizing: border-box;
+			margin: 0px;
 
-		box-sizing: border-box;
-		margin: 0px;
+			font-family: "Roboto", sans-serif;
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: normal;
 
-		font-family: "Roboto", sans-serif;
-		font-size: 16px;
-		line-height: 20px;
-		font-weight: normal;
+			width: 100%;
 
-		width: 100%;
+			padding-top: 2px;
+			padding-right: 2px;
+			padding-bottom: 2px;
+			padding-left: 0px;
 
-		padding-top: 2px;
-		padding-right: 2px;
-		padding-bottom: 2px;
-		padding-left: 0px;
-	
-		border-radius: 3px;
-		outline: none;
+			border-radius: 3px;
+			outline: none;
 
-		transition: border 0.3s ease, box-shadow 0.3s ease;
+			transition:
+				border 0.3s ease,
+				box-shadow 0.3s ease;
 
-		background-color: #FFFFFF;
-		
-		// ---
+			background-color: #ffffff;
 
-		border: 1px solid $border-color;
-		color: #000000;
+			// ---
 
-		&:focus {
-			box-shadow: 0px 0px 0px 2px color-mix(in srgb, $box-shadow-color-focus 20%, transparent);
-			border: 1px solid $border-color-focus;
-			color: #000000;
-		}
-				
-	}
-}
-
-.xui-form-text.--tag {
-	height: auto;
-}
-
-.xui-form-text.--tag + ul.tag-editor {
-	font-family: "Roboto", sans-serif;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: normal;
-}
-
-.xui-form-text.--tag + ul.tag-editor > li {
-	box-sizing: border-box;
-	margin: 2px 0px 2px 0px;
-
-	&:first-child {
-		min-height: 22px;
-	}
-
-	& > div.tag-editor-spacer {
-		width: 3px;
-	}
-
-	& > div.tag-editor-tag {
-		box-sizing: border-box;
-		margin: 0px;
-		background-color: #FFFFFF;
-		border-top: 1px solid map.get($form-text,"default-normal-bd");
-		border-right: 0px solid map.get($form-text,"default-normal-bd");
-		border-bottom: 1px solid map.get($form-text,"default-normal-bd");
-		border-left: 1px solid map.get($form-text,"default-normal-bd");
-		border-radius: 3px 0px 0px 3px;
-    		padding: 0 6px;
-		color: #000000;
-
-		&.active {
-			border: 0px solid map.get($form-text,"default-normal-bd");
-			margin-top: 1px;
+			border: 1px solid $border-color;
 			color: #000000;
 
-			& input {
+			&:focus {
+				box-shadow: 0px
+					0px
+					0px
+					2px
+					color-mix(in srgb, $box-shadow-color-focus 20%, transparent);
+				border: 1px solid $border-color-focus;
 				color: #000000;
-				font-size: 16px;
-				line-height: 20px;
-				margin: 0px;
-				padding: 0px;
-				box-sizing: border-box;
 			}
 		}
 	}
 
-	& > div.tag-editor-delete {
-		box-sizing: border-box;
-		margin: 0px;
-		background-color: #FFFFFF;
-		border-top: 1px solid map.get($form-text,"default-normal-bd");
-		border-right: 1px solid map.get($form-text,"default-normal-bd");
-		border-bottom: 1px solid map.get($form-text,"default-normal-bd");
-		border-left: 0px solid map.get($form-text,"default-normal-bd");
-		border-radius: 0px 3px 3px 0px;
-    		padding: 0px 6px 0px 0px;
-		color: #000000;
+	.xui-form-text.--tag {
+		height: auto;
+	}
 
-		& > i::before {
-			color: var(--color-xui-rock-4-500);;
-			font-weight: bold;
+	.xui-form-text.--tag + ul.tag-editor {
+		font-family: "Roboto", sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: normal;
+	}
+
+	.xui-form-text.--tag + ul.tag-editor > li {
+		box-sizing: border-box;
+		margin: 2px 0px 2px 0px;
+
+		&:first-child {
+			min-height: 22px;
 		}
 
-		& > i:hover::before {
-			color: var(--color-xui-danger-normal-bg);
-			font-weight: bold;
+		& > div.tag-editor-spacer {
+			width: 3px;
+		}
+
+		& > div.tag-editor-tag {
+			box-sizing: border-box;
+			margin: 0px;
+			background-color: #ffffff;
+			border-top: 1px solid map.get($form-text, "default-normal-bd");
+			border-right: 0px solid map.get($form-text, "default-normal-bd");
+			border-bottom: 1px solid map.get($form-text, "default-normal-bd");
+			border-left: 1px solid map.get($form-text, "default-normal-bd");
+			border-radius: 3px 0px 0px 3px;
+			padding: 0 6px;
+			color: #000000;
+
+			&.active {
+				border: 0px solid map.get($form-text, "default-normal-bd");
+				margin-top: 1px;
+				color: #000000;
+
+				& input {
+					color: #000000;
+					font-size: 16px;
+					line-height: 20px;
+					margin: 0px;
+					padding: 0px;
+					box-sizing: border-box;
+				}
+			}
+		}
+
+		& > div.tag-editor-delete {
+			box-sizing: border-box;
+			margin: 0px;
+			background-color: #ffffff;
+			border-top: 1px solid map.get($form-text, "default-normal-bd");
+			border-right: 1px solid map.get($form-text, "default-normal-bd");
+			border-bottom: 1px solid map.get($form-text, "default-normal-bd");
+			border-left: 0px solid map.get($form-text, "default-normal-bd");
+			border-radius: 0px 3px 3px 0px;
+			padding: 0px 6px 0px 0px;
+			color: #000000;
+
+			& > i::before {
+				color: var(--color-xui-rock-4-500);
+				font-weight: bold;
+			}
+
+			& > i:hover::before {
+				color: var(--color-xui-danger-normal-bg);
+				font-weight: bold;
+			}
 		}
 	}
 }

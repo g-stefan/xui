@@ -12,49 +12,53 @@
 
 @use "application-header.source" as *;
 
-.xui-application-header {
-	position: relative;
-	width: 100%;
-	height: 64px;	
-	overflow: hidden;
-	white-space: nowrap;
-	display: flex;	
-	flex-direction: row;
+@layer components {
+	.xui-application-header {
+		position: relative;
+		width: 100%;
+		height: 64px;
+		overflow: hidden;
+		white-space: nowrap;
+		display: flex;
+		flex-direction: row;
 
-	font-family: "Roboto", sans-serif;
-	box-sizing: border-box;
-	
-	z-index: 4;
+		font-family: "Roboto", sans-serif;
+		box-sizing: border-box;
 
-	& > .xui-application-brand {
-		width: 288px + 6px;
-		transition: width 0.5s ease, padding 0.5s ease;	
-		flex: 0 0 auto;
+		z-index: 4;
 
-		& > .xui-application-brand_content {
+		& > .xui-application-brand {
 			width: 288px + 6px;
+			transition:
+				width 0.5s ease,
+				padding 0.5s ease;
+			flex: 0 0 auto;
+
+			& > .xui-application-brand_content {
+				width: 288px + 6px;
+			}
+		}
+
+		& > .xui-application-bar {
+			flex: 1 1 auto;
+			transition: width 0.5s ease;
 		}
 	}
-	
-	& > .xui-application-bar {
-		flex: 1 1 auto;
-		transition: width 0.5s ease;
+
+	.xui-application-header.--mini {
+		@extend %application-header-mini;
 	}
-}
 
-.xui-application-header.--mini {
-	@extend %application-header-mini;
-}
+	// ---
 
-// ---
+	.xui-application-header_popup-menu-user {
+		position: absolute;
+		top: 0px;
+		left: -192px;
+		width: 216px + 6px;
 
-.xui-application-header_popup-menu-user {
-	position: absolute;
-	top: 0px;
-	left: -192px;
-	width: 216px + 6px;
-
-	&::before {
-		left: 216px - 12px;
+		&::before {
+			left: 216px - 12px;
+		}
 	}
 }

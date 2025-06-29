@@ -8,26 +8,24 @@
 
 @use "sass:map";
 
-$alertType: (
-	"default",
-	"primary",
-	"secondary",
-	"success",	
-	"warning",
-	"danger",		
-	"info"
-);
+$alertType: ("default", "primary", "secondary", "success", "warning", "danger", "info");
 
 $alert: ();
 
 @each $type, $value in $alertType {
-	$alert: map.merge($alert,(
-		"#{$type}-bd": var(--color-xui-#{$type}-500),
-		"#{$type}-bg": var(--color-xui-#{$type}-100),
-		"#{$type}-fg": var(--color-xui-#{$type}-800)
-	));
-};
+	$alert: map.merge(
+		$alert,
+		(
+			"#{$type}-bd": var(--color-xui-#{$type}-500),
+			"#{$type}-bg": var(--color-xui-#{$type}-100),
+			"#{$type}-fg": var(--color-xui-#{$type}-800)
+		)
+	);
+}
 
-$alert: map.merge($alert,(	
-	"default-fg": #000000
-));
+$alert: map.merge(
+	$alert,
+	(
+		"default-fg": #000000
+	)
+);

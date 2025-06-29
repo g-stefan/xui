@@ -9,174 +9,166 @@
 @charset "UTF-8";
 @use "../../core/util";
 
-$panel-background-color: #FFFFFF;
-$panel-title-color: var(--color-xui-rock-5-600);
-$panel-title-background-color: #FFFFFF;
-$panel-content-color: #000000;
-$panel-content-background-color: #FFFFFF;
-$panel-footer-color: var(--color-xui-rock-5-600);
-$panel-footer-background-color: #FFFFFF;
-$panel-line-color: var(--color-xui-line);
+@layer components {
+	$panel-background-color: #ffffff;
+	$panel-title-color: var(--color-xui-rock-5-600);
+	$panel-title-background-color: #ffffff;
+	$panel-content-color: #000000;
+	$panel-content-background-color: #ffffff;
+	$panel-footer-color: var(--color-xui-rock-5-600);
+	$panel-footer-background-color: #ffffff;
+	$panel-line-color: var(--color-xui-line);
 
-.xui-panel {
-	position: relative;
-	display: block;
-	width: 100%;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	box-sizing: border-box;	
-	background-color: $panel-background-color;
-	border-radius: 0px;
-	overflow: hidden;
-	
-	& .xui-panel_title {
+	.xui-panel {
 		position: relative;
 		display: block;
 		width: 100%;
-		box-sizing: border-box;
-
-		border: 0px solid #000000;
-		color: $panel-title-color;
-		background-color: $panel-title-background-color;
-	
-		min-height: 40px;
-		padding-left: 10px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-right: 10px;
-		overflow: hidden;
-		font-size: 16px;
-		line-height: 20px;
-	}
-	
-	& .xui-panel_content {
-		position: relative;
-		display: block;
-		width: 100%;
-		padding-top: 10px;
-		padding-right: 10px;
-		padding-bottom: 10px;
-		padding-left: 10px;
+		padding-top: 0px;
+		padding-right: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
 		margin-top: 0px;
 		margin-right: 0px;
 		margin-bottom: 0px;
 		margin-left: 0px;
 		box-sizing: border-box;
-		border: 0px solid #000000;
-		color: $panel-content-color;
-		background-color: $panel-content-background-color;
-	}
-	
-	& .xui-panel_footer {
-		position: relative;
-		display: block;
-		width: 100%;
-		box-sizing: border-box;
-
-		border: 0px solid #000000;
-		color: $panel-footer-color;
-		background-color: $panel-footer-background-color;
-	
-		min-height: 40px;
-		padding-left: 10px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-right: 10px;
+		background-color: $panel-background-color;
+		border-radius: 0px;
 		overflow: hidden;
-		font-size: 16px;
-		line-height: 20px;
-	}
-	
-	& .xui-panel_line {
-		margin-left: 10px;
-		margin-right: 10px;
-		overflow:hidden;
-		height:1px;
-		background-color: $panel-line-color;
-		clear: both;
-	}
 
-	&.--nested {		
 		& .xui-panel_title {
-			padding-left: 0px;
-			padding-right: 0px;
+			position: relative;
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+
+			border: 0px solid #000000;
+			color: $panel-title-color;
+			background-color: $panel-title-background-color;
+
+			min-height: 40px;
+			padding-left: 10px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-right: 10px;
+			overflow: hidden;
+			font-size: 16px;
+			line-height: 20px;
 		}
-		
+
 		& .xui-panel_content {
-			padding-right: 0px;
-			padding-left: 0px;
-		}
-		
-		& .xui-panel_footer {
-			padding-left: 0px;
-			padding-right: 0px;
-		}
-		
-		& .xui-panel_line {
+			position: relative;
+			display: block;
+			width: 100%;
+			padding-top: 10px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+			padding-left: 10px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
 			margin-left: 0px;
-			margin-right: 0px;			
-		}
-	}
-	
-	@media only screen and (max-width: 599px) {
-		& {
-			@include util.raw("@apply shadow-md;");
-		}
-	}
-
-	@media only screen and (min-width: 600px) {
-
-		& {
-			border-top-left-radius: 6px;
-			border-top-right-radius: 6px;
-			border-bottom-left-radius: 6px;
-			border-bottom-right-radius: 6px;
-			border: 1px solid $panel-line-color;
+			box-sizing: border-box;
+			border: 0px solid #000000;
+			color: $panel-content-color;
+			background-color: $panel-content-background-color;
 		}
 
-		&.--no-border {
-			border-top-left-radius: 0px;
-			border-top-right-radius: 0px;
-			border-bottom-left-radius: 0px;
-			border-bottom-right-radius: 0px;
-			border: 0px solid $panel-line-color;
+		& .xui-panel_footer {
+			position: relative;
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+
+			border: 0px solid #000000;
+			color: $panel-footer-color;
+			background-color: $panel-footer-background-color;
+
+			min-height: 40px;
+			padding-left: 10px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-right: 10px;
+			overflow: hidden;
+			font-size: 16px;
+			line-height: 20px;
 		}
 
-		&.--nested {			
+		& .xui-panel_line {
+			margin-left: 10px;
+			margin-right: 10px;
+			overflow: hidden;
+			height: 1px;
+			background-color: $panel-line-color;
+			clear: both;
+		}
 
-			&.--form {
-				padding-top: 23px;
-				
-				& .xui-panel_content {
-					padding-top: 0px
+		&.--nested {
+			& .xui-panel_title {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+
+			& .xui-panel_content {
+				padding-right: 0px;
+				padding-left: 0px;
+			}
+
+			& .xui-panel_footer {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+
+			& .xui-panel_line {
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+		}
+
+		@media only screen and (max-width: 599px) {
+			& {
+				@include util.raw("@apply shadow-md;");
+			}
+		}
+
+		@media only screen and (min-width: 600px) {
+			& {
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				border-bottom-left-radius: 6px;
+				border-bottom-right-radius: 6px;
+				border: 1px solid $panel-line-color;
+			}
+
+			&.--no-border {
+				border-top-left-radius: 0px;
+				border-top-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+				border-bottom-right-radius: 0px;
+				border: 0px solid $panel-line-color;
+			}
+
+			&.--nested {
+				&.--form {
+					padding-top: 23px;
+
+					& .xui-panel_content {
+						padding-top: 0px;
+					}
 				}
 			}
-			
 		}
-		
 	}
 
-}
-
-.xui-panel {
-
-	@media only screen and (min-width: 600px) {
-
-		& {
-			border-top-left-radius: 6px;
-			border-top-right-radius: 6px;
-			border-bottom-left-radius: 6px;
-			border-bottom-right-radius: 6px;
-			border: 1px solid var(--color-xui-line);
+	.xui-panel {
+		@media only screen and (min-width: 600px) {
+			& {
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				border-bottom-left-radius: 6px;
+				border-bottom-right-radius: 6px;
+				border: 1px solid var(--color-xui-line);
+			}
 		}
-
 	}
-
 }
-

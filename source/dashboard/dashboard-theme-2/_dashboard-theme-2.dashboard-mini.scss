@@ -4,10 +4,10 @@
 // SPDX-FileCopyrightText: 2017-2025 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
-.xui-dashboard.--theme-2.--mini {
-
-	& .xui-application-header {
-		overflow: visible;
+@layer components {
+	.xui-dashboard.--theme-2.--mini {
+		& .xui-application-header {
+			overflow: visible;
+		}
 	}
-
 }
