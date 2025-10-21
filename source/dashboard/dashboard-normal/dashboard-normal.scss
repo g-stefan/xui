@@ -28,6 +28,7 @@
 
 	.xui-dashboard.--normal {
 		&.--closed {
+
 			// OverlayScrollbars
 			& .xui-navigation-drawer {
 				overflow: visible !important;
@@ -35,25 +36,30 @@
 				& .xui-navigation-drawer_content {
 					overflow: visible !important;
 
-					> .os-size-observer {
+					>[data-overlayscrollbars-viewport] {
+						overflow: visible !important;
+					}
+
+					>.os-size-observer {
 						display: none;
 					}
 
-					> .os-scrollbar {
+					>.os-scrollbar {
 						display: none;
 					}
 
-					> .os-size-observer + div {
+					>.os-size-observer+div {
 						overflow: visible !important;
 					}
 				}
 			}
+
 		}
 
 		&.--open {
 			& .xui-navigation-drawer {
 				& .xui-navigation-drawer_content {
-					> .os-scrollbar {
+					>.os-scrollbar {
 						animation: xui-dashboard_normal_overlayscrollbars_appear 0.5s;
 					}
 				}
@@ -71,7 +77,14 @@
 
 		&.--closed {
 			& .xui-navigation-drawer {
+				position: absolute;
 				width: 72px + 6px;
+				overflow: visible;
+				border-right: 1px solid transparent;
+				transition: width 0.5s ease, border-right 1s ease;
+			}
+
+			& .xui-navigation-drawer>.xui-navigation-drawer_content {
 				overflow: visible;
 			}
 
@@ -89,6 +102,12 @@
 
 			& .xui-navigation-drawer .xui-application-user {
 				width: 100%;
+			}
+
+			& .xui-content {
+				transition: none;
+				left: 72px + 6px;
+				width: calc(100% - 72px - 6px);
 			}
 		}
 	}

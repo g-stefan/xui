@@ -17,23 +17,29 @@
 
 @layer components {
 	.xui-dashboard.--main {
+
 		&.--normal.--closed .xui-navigation-drawer,
 		&.--mini.--closed .xui-navigation-drawer {
-			& .xui-content {
+			// OverlayScrollbars			
+			overflow: visible !important;
+
+			& .xui-navigation-drawer_content {
 				overflow: visible !important;
 
-				& > .os-host > .os-padding {
+				>[data-overlayscrollbars-viewport] {
 					overflow: visible !important;
+				}
 
-					& > .os-viewport,
-					& > .os-content {
-						overflow: visible !important;
-					}
+				>.os-size-observer {
+					display: none;
+				}
 
-					& > .os-scrollbar,
-					& > .os-scrollbar-corner {
-						display: none !important;
-					}
+				>.os-scrollbar {
+					display: none;
+				}
+
+				>.os-size-observer+div {
+					overflow: visible !important;
 				}
 			}
 		}
@@ -41,6 +47,6 @@
 
 	.os-scrollbar,
 	.os-scrollbar-corner {
-		z-index: 3;
+		z-index: 8;
 	}
 }

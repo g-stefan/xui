@@ -31,6 +31,7 @@
 
 	.xui-dashboard.--mini {
 		&.--closed {
+
 			// OverlayScrollbars
 			& .xui-navigation-drawer {
 				overflow: visible !important;
@@ -38,25 +39,30 @@
 				& .xui-navigation-drawer_content {
 					overflow: visible !important;
 
-					> .os-size-observer {
+					>[data-overlayscrollbars-viewport] {
+						overflow: visible !important;
+					}
+
+					>.os-size-observer {
 						display: none;
 					}
 
-					> .os-scrollbar {
+					>.os-scrollbar {
 						display: none;
 					}
 
-					> .os-size-observer + div {
+					>.os-size-observer+div {
 						overflow: visible !important;
 					}
 				}
 			}
+
 		}
 
 		&.--open {
 			& .xui-navigation-drawer {
 				& .xui-navigation-drawer_content {
-					> .os-scrollbar {
+					>.os-scrollbar {
 						animation: xui-dashboard_mini_overlayscrollbars_appear 0.5s;
 					}
 				}
@@ -68,7 +74,7 @@
 @layer components {
 	.xui-dashboard.--mini {
 		& .xui-navigation-drawer {
-			& > .xui-navigation-drawer_content {
+			&>.xui-navigation-drawer_content {
 				overflow: visible;
 			}
 
@@ -102,7 +108,7 @@
 					border-right 0.3s ease;
 			}
 
-			& .xui-navigation-drawer > .xui-navigation-drawer_content {
+			& .xui-navigation-drawer>.xui-navigation-drawer_content {
 				overflow-x: hidden;
 				overflow-y: auto;
 			}
@@ -123,12 +129,10 @@
 				width: 72px + 6px;
 				overflow: visible;
 				border-right: 1px solid transparent;
-				transition:
-					width 0.5s ease,
-					border-right 1s ease;
+				transition: width 0.5s ease, border-right 1s ease;
 			}
 
-			& .xui-navigation-drawer > .xui-navigation-drawer_content {
+			& .xui-navigation-drawer>.xui-navigation-drawer_content {
 				overflow: visible;
 			}
 

@@ -34,8 +34,8 @@
 		</div>
 	</div>
 	<!-- /application-header -->
-	<div class="xui-navigation-drawer xui-overlay-scrollbars">
-		<div class="xui-navigation-drawer_content">
+	<div class="xui-navigation-drawer">
+		<div class="xui-navigation-drawer_content xui-overlay-scrollbars">
 			<!-- application-user -->
 			<?php include("source/application/application-user/_application-user.content.source.php"); ?>
 			<!-- /application-user -->

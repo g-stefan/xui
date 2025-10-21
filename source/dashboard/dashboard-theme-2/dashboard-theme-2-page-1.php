@@ -47,7 +47,7 @@
 	</div>
 	<!-- /application-header -->
 	<div class="xui-navigation-drawer">
-		<div class="xui-navigation-drawer_content">
+		<div class="xui-navigation-drawer_content xui-overlay-scrollbars">
 			<!-- menu -->
 			<ul class="xui-menu">
 				<?php include("source/menu/menu/_menu.content.source.php"); ?>
